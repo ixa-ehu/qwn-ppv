@@ -6,7 +6,7 @@
   <name>qwn-ppv</name>
   <version>1.0</version>
   <description>qwn-ppv, polarity lexicon creation library by means of graph propagation. IXA NLP Group of the University of the Basque Country (ixa.si.ehu.es).</description>
-  <url>http://maven.apache.org</url>
+  <url>http://github.com/ixa-ehu/qwn-ppv</url>
   <prerequisites>
     <maven>3.0</maven>
   </prerequisites>
