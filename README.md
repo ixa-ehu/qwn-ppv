@@ -130,5 +130,5 @@ Iñaki San Vicente and Rodrigo Agerri
 IXA NLP Group
 University of the Basque Country (UPV/EHU)
 E-20018 Donostia-San Sebastián
-\{inaki.sanvicente,rodrigo.agerri\}@ehu.es
+inaki.sanvicente,rodrigo.agerri@ehu.es
 ````
