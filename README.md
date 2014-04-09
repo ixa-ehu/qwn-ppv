@@ -59,7 +59,7 @@ wget http://apache.rediris.es/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bi
 Now you need to configure the PATH. For Bash Shell:
 
 ````shell
-export MAVEN_HOME=/home/ragerri/local/apache-maven-3.0.5
+export MAVEN_HOME=/home/myuser/local/apache-maven-3.0.5
 export PATH=${MAVEN_HOME}/bin:${PATH}
 ````
 
