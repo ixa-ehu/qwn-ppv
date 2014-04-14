@@ -54,7 +54,7 @@ public class CLI {
 	/**
 	* BufferedReader (from standard input) and BufferedWriter are opened. The
 	* module takes a plain text containing positive and negative words from standard input, and produces polarity lexicon in tabulated format
-	* text by sentences. Resulting lexicons is returned trough standard output.
+	* text by sentences. Resulting lexicons is returned through standard output.
 	*
 	* @param args
 	* @throws IOException
@@ -62,35 +62,21 @@ public class CLI {
 	
 	public static void main(String[] args) throws IOException {
 
-	    Namespace parsedArguments = null;
-
 	    // create Argument Parser
-	    ArgumentParser parser = ArgumentParsers
-	        .newArgumentParser("qwn-ppv.jar")
-	        .description(
-	            "qwn-ppv is a propagation algorithm for creating polarity lexicons developed by IXA NLP Group.\n");
+	    ArgumentParser parser = ArgumentParsers.newArgumentParser("qwn-ppv-1.0.jar").description("qwn-ppv is a propagation algorithm for creating polarity lexicons developed by IXA NLP Group.\n");
 
-	    // specify language for the lexicons (for language dependent treatment of apostrophes)
-	    parser
-	        .addArgument("-l", "--lang")
-	        .choices("en", "es", "eu", "cat", "gl")
-	        .required(true)
-	        .help(
-	            "It is REQUIRED to choose a language to generate lexicons in a specific language with qwn-ppv.\n");
-	    // specify language for the lexicons (for language dependent treatment of apostrophes)
-	    parser
-        .addArgument("-g", "--graph")
-        .choices("synAnt", "mcr", "mcr-ant", "mcr-antGloss")
-        .required(true)
-        .setDefault("synAnt")
-        .help(
-            "A graph is REQUIRED to propagate polarity information over it, if no graph is specified it defaults to MCR synonymy and antonymy graphs (synAnt).\n");
+	    // specify language for the lexicons
+	    parser.addArgument("-l", "--lang").choices("en", "es", "eu", "cat", "gl").required(true).help("It is REQUIRED to choose a language to generate lexicons in a specific language with qwn-ppv.\n");
+	    
+	    // specify the graph which shall be used for propagation
+	    parser.addArgument("-g","--graph").choices("synAnt", "mcr", "mcr-ant", "mcr-antGloss").required(false).setDefault("synAnt").help("A graph is REQUIRED to propagate polarity information over it, if no graph is specified the system defaults to MCR synonymy and antonymy graphs (synAnt).\n");
 	    
 	      
 	    
 	    /*
 	     * Parse the command line arguments
 	     */
+	    Namespace parsedArguments = null;
 
 	    // catch errors and print help
 	    try {
@@ -99,13 +85,24 @@ public class CLI {
 	    } catch (ArgumentParserException e) {
 	      parser.handleError(e);
 	      System.out
-	          .println("Run java -jar qwn-ppv-$version.jar -help for details.\n");
+	          .println("Run java -jar qwn-ppv-1.0.jar -help for details.\n");
 	      System.exit(1);
 	    }
 	    
+	    // read arguments
+	    String lang = parsedArguments.getString("lang");   
+	    String graph = parsedArguments.getString("graph"); 
 	    
-	    
+	    BufferedReader breader = null;
+	    BufferedWriter bwriter = null;
+
+
 	    try{
+	    	breader = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
+	    	bwriter = new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8"));
+
+
+	    	System.out.println("qwn-ppv: received arguments are: \n Lang: "+lang+"\n Graph: "+graph+"\n");
 	    	System.out.println("qwn-ppv execution finished. Lexicons are ready.\n");
 	    } catch (IOException e) {
 	      e.printStackTrace();
