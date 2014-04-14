@@ -63,13 +63,19 @@ public class CLI {
 	public static void main(String[] args) throws IOException {
 
 	    // create Argument Parser
-	    ArgumentParser parser = ArgumentParsers.newArgumentParser("qwn-ppv-1.0.jar").description("qwn-ppv is a propagation algorithm for creating polarity lexicons developed by IXA NLP Group.\n");
+	    ArgumentParser parser = ArgumentParsers.newArgumentParser("qwn-ppv-1.0.jar")
+	    		.description("qwn-ppv is a propagation algorithm for creating polarity lexicons developed by IXA NLP Group.\n");
 
 	    // specify language for the lexicons
-	    parser.addArgument("-l", "--lang").choices("en", "es", "eu", "cat", "gl").required(true).help("It is REQUIRED to choose a language to generate lexicons in a specific language with qwn-ppv.\n");
+	    parser.addArgument("-l", "--lang")
+	    	.choices("en", "es", "eu", "cat", "gl")
+	    	.required(true).help("It is REQUIRED to choose a language to generate lexicons in a specific language with qwn-ppv.\n");
 	    
 	    // specify the graph which shall be used for propagation
-	    parser.addArgument("-g","--graph").choices("synAnt", "mcr", "mcr-ant", "mcr-antGloss").required(false).setDefault("synAnt").help("A graph is REQUIRED to propagate polarity information over it, if no graph is specified the system defaults to MCR synonymy and antonymy graphs (synAnt).\n");
+	    parser.addArgument("-g","--graph")
+	    	.choices("synAnt", "mcr", "mcr-ant", "mcr-antGloss")
+	    	.required(false).setDefault("synAnt")
+	    	.help("A graph is REQUIRED to propagate polarity information over it, if no graph is specified the system defaults to MCR synonymy and antonymy graphs (synAnt).\n");
 	    
 	      
 	    
@@ -85,7 +91,7 @@ public class CLI {
 	    } catch (ArgumentParserException e) {
 	      parser.handleError(e);
 	      System.out
-	          .println("Run java -jar qwn-ppv-1.0.jar -help for details.\n");
+	          .println("Run java -jar ixa-qwn-ppv-1.0.jar -help for details.\n");
 	      System.exit(1);
 	    }
 	    

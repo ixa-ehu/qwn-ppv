@@ -3,10 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>es.ehu.si</groupId>
   <artifactId>ixa-qwn-ppv</artifactId>
-  <name>ixa-qwn-ppv</name>
+  <name>qwn-ppv</name>
   <version>1.0</version>
-  <description>qwn-ppv, polarity lexicon creation library by means of graph propagation. IXA NLP Group of the University of the Basque Country (ixa.si.ehu.es).</description>
-  <url>http://github.com/ixa-ehu/qwn-ppv</url>
+  <description>qwn-ppv, polarity lexicon creation library by means of graph propagation. 
+Developed by IXA NLP Group of the University of the Basque Country (ixa.si.ehu.es).</description>
+  <url>https://github.com/ixa-ehu/qwn-ppv</url>
   <prerequisites>
     <maven>3.0</maven>
   </prerequisites>
@@ -15,6 +16,11 @@
       <id>ragerri</id>
       <name>Rodrigo Agerri</name>
       <email>rodrigo.agerri@ehu.es</email>
+    </developer>
+    <developer>
+      <id>isanvi</id>
+      <name>Iñaki San Vicente</name>
+      <email>inaki.sanvicente@ehu.es</email>
     </developer>
   </developers>
   <build>
@@ -32,7 +38,7 @@
               <transformers>
                 <transformer>
                   <manifestEntries>
-                    <Main-Class>es.ehu.si.ixa.pipe.nerc.CLI</Main-Class>
+                    <Main-Class>es.ehu.si.ixa.qwn.ppv.CLI</Main-Class>
                   </manifestEntries>
                 </transformer>
               </transformers>
@@ -48,7 +54,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.2.1</version>
         <configuration>
-          <mainClass>es.ehu.si.ixa.pipe.nerc.CLI</mainClass>
+          <mainClass>es.ehu.si.ixa.qwn.ppv.CLI</mainClass>
         </configuration>
       </plugin>
       <plugin>
@@ -57,15 +63,6 @@
       </plugin>
     </plugins>
   </build>
-  <repositories>
-    <repository>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-      <id>ixa-ehu.github</id>
-      <url>https://raw.github.com/ixa-ehu/kaflib-mvn-repo/master</url>
-    </repository>
-  </repositories>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
