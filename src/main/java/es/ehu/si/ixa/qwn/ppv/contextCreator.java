@@ -54,8 +54,8 @@ public class contextCreator {
 	* @throws IOException
 	**/
 	
-	public static void main() throws IOException {
-
+	public contextCreator(BufferedReader breader, String weights) {
+		System.out.println("qwn-ppv: average ratio polarity estimator created\n");
 	}
 
 	
