@@ -27,6 +27,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.OutputStream;
 import java.io.StringReader;
+import java.util.HashMap;
+import java.util.List;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.impl.Arguments;
@@ -38,6 +40,17 @@ import net.sourceforge.argparse4j.inf.Subparsers;
 
 import org.apache.commons.io.FileUtils;
 
+
+
+/*
+ * lexicon creation classes
+ */
+import es.ehu.si.ixa.qwn.ppv.ContextCreator;
+import es.ehu.si.ixa.qwn.ppv.PropagationUKB;
+
+/*
+ * lexicon evaluation classes
+ */
 import es.ehu.si.ixa.qwn.ppv.eval.AvgRatioEstimator;
 import es.ehu.si.ixa.qwn.ppv.eval.MohammadEstimator;
 
@@ -139,7 +152,8 @@ public class CLI {
 	      final OutputStream outputStream) throws IOException {
 		  
 	    String lang = parsedArguments.getString("lang");
-	    String graph = parsedArguments.getString("grahp");
+	    String graph = parsedArguments.getString("graph");
+	    boolean w = parsedArguments.getBoolean("weights");	    
 	    
 	    BufferedReader breader = null;
 	    BufferedWriter bwriter = null;
@@ -148,7 +162,10 @@ public class CLI {
 	    	breader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
 	    	bwriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
 
-
+	    	//create context to initialize UKB propagation algorithm. Depending on the graph 2 or for context files will be returned
+	    	ContextCreator ctxt = new ContextCreator(w);
+	    	HashMap<String, File> ctxtList = ctxt.createContext(breader);
+	    	
 	    	System.out.println("qwn-ppv: received arguments are: \n Lang: "+lang+"\n Graph: "+graph+"\n");
 	    	System.out.println("qwn-ppv execution finished. Lexicons are ready.\n");
 	    } catch (IOException e) {
@@ -160,17 +177,40 @@ public class CLI {
 	  }
 
 	  private void loadCreationParameters() {
+		/*
+		 *  Parameters:
+         *     - Input File (standard input): File containing the seed words used for lexicon creations and propagation. Format is tabulated, one word/synset per line: word/synset<tab>[pos|neg]<tab>weight.      
+         *     - Synset polarities (-s | --synset=): default propagation of seed polarities are done with lemmas. With this option polarity of synsets are used instead of lemmas.
+         *     - Graph (-g | --graph=): graph to use in for propagation of seed polarities. possible values are: [synAnt|mcr|mcr-ant|mcr-antGloss]. If the parameter doesn't much one of these values, it is assumed that the value provided contains the path to a precompiled ukb compatible graph, which will be used for propagation. This way custom graph may be used. 
+         *     - Dictionary weights (-w | --weights): if the seeds have polarity strength info use it when initializing the pageRank propagation. Default behavior is to not use weights  
+         *     - Language (-l | --lang): language of the seed words and the resulting polarity lexicon.       
+		 * 
+		 */
+		  
 		// specify language for the lexicons
 		creationParser.addArgument("-l", "--lang")
 		    	.choices("en", "es", "eu", "cat", "gl")
 		    	.required(true).help("It is REQUIRED to choose a language to generate lexicons in a specific language with qwn-ppv.\n");
 		    
 		// specify the graph which shall be used for propagation
-		creationParser.addArgument("-g","--graph")
-		    	.choices("synAnt", "mcr", "mcr-ant", "mcr-antGloss")
+		creationParser.addArgument("-g","--graph")		    	
 		    	.required(false).setDefault("synAnt")
-		    	.help("A graph is REQUIRED to propagate polarity information over it, if no graph is specified the system defaults to MCR synonymy and antonymy graphs (synAnt).\n");
-		    
+		    	.help("A graph is REQUIRED to propagate polarity information over it, if no graph is specified the system defaults to MCR synonymy and antonymy graphs (synAnt).\n"
+		    			+ "possible values are\n"
+		    			+ "\t - synAnt: synonymy and antonymy graphs are used for propagation\n"
+		    			+ "\t - mcr: graph built using all relations in MCR3.0\n"
+		    			+ "\t - mcr-ant: graph built using all relations in MCR3.0, except for the antonymy relations\n"
+		    			+ "\t - mcr-antGloss: graph built using all relations in MCR3.0, except antonymy and Gloss information"
+		    			+ "\t - /path/to/custom/graph.bin : path to the custom graph you want to use for propagation. The graph must be in UKB compatible binary format");
+
+		creationParser.addArgument("-w", "--weights")
+        .action(Arguments.storeTrue())
+        .help(
+            "Use weights when initializing the propagation algorithm.\n"
+            + "If the seed list does not provide polarity weights the program assigns the default value 1 to all the seeds.\n"
+            + "If weights are used all seeds must contain a weight value <= 0 (do not leave lines without weights)");
+    
+		
 	  }
 
 	  public final void eval() throws IOException {
