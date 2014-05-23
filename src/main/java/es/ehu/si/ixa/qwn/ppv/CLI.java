@@ -164,7 +164,27 @@ public class CLI {
 
 	    	//create context to initialize UKB propagation algorithm. Depending on the graph 2 or for context files will be returned
 	    	ContextCreator ctxt = new ContextCreator(w);
-	    	HashMap<String, File> ctxtList = ctxt.createContext(breader);
+	    	HashMap<String, String> ctxtList = ctxt.createContext(breader);
+	    	
+	    	//PROPAGATIONS: 
+    		PropagationUKB Propagation = new PropagationUKB(lang, graph);
+	    	//"synAnt" graph requires 4 propagations (posSyn, negSyn, posAnt, negAnt)
+	    	if (graph.equals("synAnt"))
+	    	{
+	    		Propagation.setGraph("mcr_syn");
+	    		Propagation.propagate(ctxtList.get("pos"));
+	    		Propagation.propagate(ctxtList.get("neg"));
+	    		Propagation.setGraph("mcr_ant");	    	
+	    		Propagation.propagate(ctxtList.get("pos"));
+	    		Propagation.propagate(ctxtList.get("neg"));
+	    	}
+	    	//The rest of the graphs require only 2 propagations (positive seeds & negative seeds)
+	    	else
+	    	{
+	    		Propagation.setGraph(graph);	    	
+	    		Propagation.propagate(ctxtList.get("pos"));
+	    		Propagation.propagate(ctxtList.get("neg"));
+	    	}
 	    	
 	    	System.out.println("qwn-ppv: received arguments are: \n Lang: "+lang+"\n Graph: "+graph+"\n");
 	    	System.out.println("qwn-ppv execution finished. Lexicons are ready.\n");
@@ -189,7 +209,7 @@ public class CLI {
 		  
 		// specify language for the lexicons
 		creationParser.addArgument("-l", "--lang")
-		    	.choices("en", "es", "eu", "cat", "gl")
+		    	.choices("en", "es", "eu", "cat", "gl","custom")
 		    	.required(true).help("It is REQUIRED to choose a language to generate lexicons in a specific language with qwn-ppv.\n");
 		    
 		// specify the graph which shall be used for propagation

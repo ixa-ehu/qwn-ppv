@@ -72,14 +72,17 @@ public class ContextCreator {
 	}
 	
 	
-	public HashMap<String, File> createContext(BufferedReader breader){
-		HashMap<String, File> result = new HashMap<String,File>();
+	public HashMap<String, String> createContext(BufferedReader breader){
+		HashMap<String, String> result = new HashMap<String, String>();
 				
 		try {
 			//create temporal files to store contexts
 			File posFiletemp = File.createTempFile("pos_ctx", ".qwnppv");			
+			posFiletemp.deleteOnExit();
+			
 			File negFiletemp = File.createTempFile("neg_ctx", ".qwnppv");
-
+			negFiletemp.deleteOnExit();
+			
 			BufferedWriter bw_pos = new BufferedWriter(new FileWriter(posFiletemp));
 			BufferedWriter bw_neg = new BufferedWriter(new FileWriter(negFiletemp));		
 		
@@ -152,8 +155,8 @@ public class ContextCreator {
 						
 			breader.close();
 			
-			result.put("pos", posFiletemp);
-			result.put("neg", negFiletemp);
+			result.put("pos", posFiletemp.getName());
+			result.put("neg", negFiletemp.getName());
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
