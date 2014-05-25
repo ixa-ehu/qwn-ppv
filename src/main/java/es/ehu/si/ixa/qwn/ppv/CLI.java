@@ -21,6 +21,7 @@ package es.ehu.si.ixa.qwn.ppv;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -39,6 +40,7 @@ import net.sourceforge.argparse4j.inf.Subparser;
 import net.sourceforge.argparse4j.inf.Subparsers;
 
 import org.apache.commons.io.FileUtils;
+
 
 
 
@@ -142,8 +144,9 @@ public class CLI {
 
 	  /**
 		* BufferedReader (from standard input) and BufferedWriter are opened. The
-		* module takes a plain text containing positive and negative words from standard input, and produces polarity lexicon in tabulated format
-		* text by sentences. Resulting lexicons is returned through standard output.
+		* module takes a plain text containing positive and negative words from standard input, and 
+		* produces a polarity lexicon in tabulated format. 
+		* Resulting lexicon is returned through standard output.
 		*
 		* @param args
 		* @throws IOException
@@ -155,38 +158,66 @@ public class CLI {
 	    String graph = parsedArguments.getString("graph");
 	    boolean w = parsedArguments.getBoolean("weights");	    
 	    
+    	System.out.println("qwn-ppv: received arguments are: \n Lang: "+lang+"\n Graph: "+graph+"\n");
+
 	    BufferedReader breader = null;
 	    BufferedWriter bwriter = null;
 
 	    try{
+	    	//input seed list from standard input
 	    	breader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+	    	//resulting lexicon to standard output 
 	    	bwriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
 
+			//temporal directory used for UKB related files.
+			File UKBTempDir = createTempDirectory();
+			UKBTempDir.deleteOnExit();
+	    	//create temporal files to store contexts
+			String ctxtPosPath = UKBTempDir.getAbsolutePath()+File.separator+"pos_ctx.qwnppv";
+			File ctxtPos = new File(ctxtPosPath);
+			ctxtPos.createNewFile();
+			String ctxtNegPath = UKBTempDir.getAbsolutePath()+File.separator+"neg_ctx.qwnppv";
+			File ctxtNeg = new File(ctxtNegPath);
+			ctxtNeg.createNewFile();
+			
+			BufferedWriter bw_pos = new BufferedWriter(new FileWriter(ctxtPos));
+			BufferedWriter bw_neg = new BufferedWriter(new FileWriter(ctxtNeg));		
+			
+			//1. STEP: CONTEXT CREATION USING SEEDS 
 	    	//create context to initialize UKB propagation algorithm. Depending on the graph 2 or for context files will be returned
-	    	ContextCreator ctxt = new ContextCreator(w);
-	    	HashMap<String, String> ctxtList = ctxt.createContext(breader);
+	    	ContextCreator ctxt = new ContextCreator(w);		
+	    	ctxt.createContexts(breader, bw_pos, bw_neg);
 	    	
-	    	//PROPAGATIONS: 
-    		PropagationUKB Propagation = new PropagationUKB(lang, graph);
+	    	//2. STEP: PROPAGATIONS 
+    		PropagationUKB Propagation = new PropagationUKB(lang, UKBTempDir.getAbsolutePath(), graph);
 	    	//"synAnt" graph requires 4 propagations (posSyn, negSyn, posAnt, negAnt)
 	    	if (graph.equals("synAnt"))
 	    	{
 	    		Propagation.setGraph("mcr_syn");
-	    		Propagation.propagate(ctxtList.get("pos"));
-	    		Propagation.propagate(ctxtList.get("neg"));
+	    		Propagation.propagate(ctxtPos.getAbsolutePath());
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
+	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
 	    		Propagation.setGraph("mcr_ant");	    	
-	    		Propagation.propagate(ctxtList.get("pos"));
-	    		Propagation.propagate(ctxtList.get("neg"));
+	    		Propagation.propagate(ctxtPos.getAbsolutePath());
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_pos.ppv");
+	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_neg.ppv");
 	    	}
 	    	//The rest of the graphs require only 2 propagations (positive seeds & negative seeds)
 	    	else
 	    	{
 	    		Propagation.setGraph(graph);	    	
-	    		Propagation.propagate(ctxtList.get("pos"));
-	    		Propagation.propagate(ctxtList.get("neg"));
+	    		Propagation.propagate(ctxtPos.getAbsolutePath());
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_pos.ppv");
+	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
 	    	}
 	    	
-	    	System.out.println("qwn-ppv: received arguments are: \n Lang: "+lang+"\n Graph: "+graph+"\n");
+	    	//3. STEP: MERGE UKB PROPAGATIONS 
+
+	    	
+	    	
 	    	System.out.println("qwn-ppv execution finished. Lexicons are ready.\n");
 	    } catch (IOException e) {
 	      e.printStackTrace();
@@ -305,6 +336,41 @@ public class CLI {
         		+ "    - avg: average ratio of the polarity words in the text"
         		+ "    - moh: polarity classifier proposed in (Mohammad et al.,2009 - EMNLP). Originally used on the MPQA corpus\n");
 	    
+	  }
+	  
+	  /*
+	   * Function creates a temporal directory with a random name.
+	   */
+	  public static File createTempDirectory()
+			    throws IOException
+			{
+			    final File temp;
+
+			    temp = File.createTempFile("temp", Long.toString(System.nanoTime()));
+
+			    if(!(temp.delete()))
+			    {
+			        throw new IOException("Could not delete temp file: " + temp.getAbsolutePath());
+			    }
+
+			    if(!(temp.mkdir()))
+			    {
+			        throw new IOException("Could not create temp directory: " + temp.getAbsolutePath());
+			    }
+
+			    return (temp);
+			}
+	  /*
+	   * Function renames a file to a new name. if the new name already exists throws an exception. 
+	   */
+	  public void renameFile (String oldFile, String newName) throws IOException 
+	  {
+		  File file1 = new File(oldFile);
+		  File file2 = new File(newName);
+		  if(file2.exists()) throw new java.io.IOException("file exists");
+		  
+		  // Rename file (or directory)
+		  file1.renameTo(file2);
 	  }
 		
 }

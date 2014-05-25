@@ -54,13 +54,14 @@ public class PropagationUKB {
 			put ("gl","mcr30-gl.txt");
 		}};*/
 	
-	public PropagationUKB ()
+	public PropagationUKB (String outFolder)
 	{		
 		//if no language is passed the system defaults to english.
-		this("en");
+		this("en", outFolder);
+		
 	}
 	
-	public PropagationUKB (String langordict)
+	public PropagationUKB (String langordict, String outFolder)
 	{		
 		
 		try {
@@ -85,17 +86,19 @@ public class PropagationUKB {
 					+ "qwn-ppv assumes that the argument provide is the path to a custom language dictionary.\n");
 			this.langDict = langordict;
 		}
+		
+		this.outDir = outFolder;
 	}
 	
-	public PropagationUKB (String langordict, String graph1)
+	public PropagationUKB (String langordict, String outFolder, String graph1)
 	{		
-		this (langordict);
+		this (langordict, outFolder);
 		this.setGraph(graph1);		
 	}
 	
-	public PropagationUKB (String langordict, String graph1, String ukbPath1)
+	public PropagationUKB (String langordict, String outFolder, String graph1, String ukbPath1)
 	{		
-		this (langordict, graph1);
+		this (langordict, outFolder, graph1);
 		this.ukbPath = ukbPath1;		
 	}
 	
@@ -121,7 +124,7 @@ public class PropagationUKB {
 	{
 		try {
 			String[] command = {ukbPath+"/ukb_ppv","-K",this.graph+".bin","-D",this.langDict, "--variants", "-O", this.outDir , ctxtFile};    	
-			ProcessBuilder ukbBuilder = new ProcessBuilder( command ); //my $grep=`$grepCommand -m1 -c "$seed" $KBfile`;
+			ProcessBuilder ukbBuilder = new ProcessBuilder( command );
 			Process ukb_ppv = ukbBuilder.start();
 			int success = ukb_ppv.waitFor();
 		}
