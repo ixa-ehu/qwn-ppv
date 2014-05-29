@@ -198,26 +198,26 @@ public class CLI {
 	    	ctxt.createContexts(breader, bw_pos, bw_neg);
 	    	
 	    	//2. STEP: PROPAGATIONS 
-    		PropagationUKB Propagation = new PropagationUKB(lang, UKBTempDir.getAbsolutePath(), graph);
+    		PropagationUKB Propagation = new PropagationUKB(lang, UKBTempDir.getAbsolutePath());
 	    	//"synAnt" graph requires 4 propagations (posSyn, negSyn, posAnt, negAnt)
 	    	if (graph.equals("synAnt"))
 	    	{
 	    		Propagation.setGraph("mcr_syn");
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());
-	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
 	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
 	    		
 	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
-	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
 	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
 	    		
 	    		Propagation.setGraph("mcr_ant");	    	
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());
-	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_pos.ppv");
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_pos.ppv");
 	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"ant_pos.ppv");
 	    		
 	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
-	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_neg.ppv");
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_neg.ppv");
 	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"ant_neg.ppv");
 	    		
 	    	}
@@ -227,11 +227,11 @@ public class CLI {
 	    		Propagation.setGraph(graph);	    	
 	    		
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());
-	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_pos.ppv");
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_pos.ppv");
 	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"prop_pos.ppv");
 	    		
 	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
-	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
+	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
 	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
 	    		
 	    	}

@@ -78,7 +78,11 @@ public class ContextCreator {
 			int syn = 0;
 			int wrd = 0;
 			String w = "";
-	    
+
+			// context initialization
+			bw_pos.write("ctx_01\n");
+			bw_neg.write("ctx_01\n");
+			
 			String line;
 			while ((line = breader.readLine()) != null) {
 			    //format of the seed file is: "[word|synset]<tab>[pos|neg]<tab>weight (optional)"

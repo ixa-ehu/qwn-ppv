@@ -1,5 +1,5 @@
-mcr_ant	graphs/mcr30_Ant.bin
-mcr	graphs/mcr30.bin
-mcr-ant	graphs/mcr30_noAnt.bin
-mcr-antGloss	graphs/mcr30_noAntGloss.bin
-mcr_syn graphs/mcr30_Syn.bin
+mcr_ant	graphs/mcr30_Ant
+mcr	graphs/mcr30
+mcr-ant	graphs/mcr30_noAnt
+mcr-antGloss	graphs/mcr30_noAntGloss
+mcr_syn graphs/mcr30_Syn

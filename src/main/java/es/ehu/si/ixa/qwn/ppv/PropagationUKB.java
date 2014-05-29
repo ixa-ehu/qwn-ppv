@@ -18,6 +18,7 @@ limitations under the License.
 package es.ehu.si.ixa.qwn.ppv;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.Set;
@@ -31,7 +32,7 @@ import java.util.Set;
 public class PropagationUKB {
 		
 	private String ukbPath = "/usr/local/bin"; 
-	private String graph = "synAnt";
+	private String graph = "mcr";
 	private String langDict = "";
 	private String outDir = "tmp-qwn/";
 	//Initializations
@@ -45,15 +46,7 @@ public class PropagationUKB {
 		put ("cat","mcr30-cat.txt");
 		put ("gl","mcr30-gl.txt");
 	}};
-	
-	//Initializations
-	private static final HashMap <String, String> AvailableGraphs = new HashMap<String, String>() {{ 
-			put ("syn","wn30-en.txt");
-			put ("es","mcr30-es.txt");
-			put ("eu","mcr30-eu.txt");
-			put ("cat","mcr30-cat.txt");
-			put ("gl","mcr30-gl.txt");
-		}};*/
+	*/
 	
 	public PropagationUKB (String outFolder)
 	{		
@@ -66,11 +59,11 @@ public class PropagationUKB {
 	{		
 		
 		try {
-			AvailableDicts.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("/dicts.txt"));
-			AvailableGraphs.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("/graphs.txt"));
+			AvailableDicts.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("dicts.txt"));
+			AvailableGraphs.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("graphs.txt"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.err.println("PropagationUKB classs initialization: error when loading lkb_resources properties (dicts/graphs).\n");
+			System.err.println("PropagationUKB class initialization: error when loading lkb_resources properties (dicts/graphs).\n");
 			e.printStackTrace();
 			
 		}
@@ -78,12 +71,12 @@ public class PropagationUKB {
 		
 		if (AvailableDicts.containsKey(langordict))
 		{
-			this.langDict = this.getClass().getClassLoader().getResource("/dicts/"+AvailableDicts.get(langordict)).toString();
+			this.langDict = this.getClass().getClassLoader().getResource((String) AvailableDicts.get(langordict)).toString();
 		}
 		//if language is not available assume that the argument corresponds to a custom dictionary path.
 		else
 		{
-			System.err.println("PropagationUKB class: provided language is not available, "
+			System.err.println("PropagationUKB class: provided language is not available ("+langordict+"), "
 					+ "qwn-ppv assumes that the argument provide is the path to a custom language dictionary.\n");
 			this.langDict = langordict;
 		}
@@ -107,14 +100,16 @@ public class PropagationUKB {
 	public void setGraph (String graph1)
 	{
 
+		//AvailableGraphs.list(System.err);
+		//System.err.println("set graph to: "+graph1);
 		if (AvailableGraphs.containsKey(graph1))
 		{
-			this.graph = this.getClass().getClassLoader().getResource("/dicts/"+AvailableGraphs.get(graph1)).toString();
+			this.graph = this.getClass().getClassLoader().getResource(AvailableGraphs.get(graph1).toString()+".bin").toString();
 		}
 		//if language is not available assume that the argument corresponds to a custom dictionary path.
 		else
 		{
-			System.err.println("PropagationUKB class: provided graph is not available, "
+			System.err.println("PropagationUKB class: provided graph is not available ("+graph1+"), "
 					+ "qwn-ppv assumes that the argument provided is the path to a custom graph.\n");
 			this.graph=graph1;
 		}
@@ -124,7 +119,9 @@ public class PropagationUKB {
 	public void propagate(String ctxtFile) throws IOException
 	{
 		try {
-			String[] command = {ukbPath+"/ukb_ppv","-K",this.graph+".bin","-D",this.langDict, "--variants", "-O", this.outDir , ctxtFile};    	
+			String[] command = {ukbPath+"/ukb_ppv","-K",this.graph,"-D",this.langDict, "--variants", "-O", this.outDir , ctxtFile};
+			System.err.println("UKB komandoa: "+Arrays.toString(command));
+			
 			ProcessBuilder ukbBuilder = new ProcessBuilder( command );
 			Process ukb_ppv = ukbBuilder.start();
 			int success = ukb_ppv.waitFor();
