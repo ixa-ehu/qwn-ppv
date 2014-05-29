@@ -29,7 +29,9 @@ import java.io.OutputStreamWriter;
 import java.io.OutputStream;
 import java.io.StringReader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.impl.Arguments;
@@ -40,6 +42,8 @@ import net.sourceforge.argparse4j.inf.Subparser;
 import net.sourceforge.argparse4j.inf.Subparsers;
 
 import org.apache.commons.io.FileUtils;
+
+
 
 
 
@@ -172,14 +176,19 @@ public class CLI {
 			//temporal directory used for UKB related files.
 			File UKBTempDir = createTempDirectory();
 			UKBTempDir.deleteOnExit();
-	    	//create temporal files to store contexts
+			
+	    	// arrays to store propagation filenames needed for merging positive and negative propagations in order to obtain the lexicon.
+			Set<String> posPropagPaths = new HashSet<String>();
+			Set<String> negPropagPaths = new HashSet<String>();
+			
+			//create temporal files to store contexts
 			String ctxtPosPath = UKBTempDir.getAbsolutePath()+File.separator+"pos_ctx.qwnppv";
 			File ctxtPos = new File(ctxtPosPath);
 			ctxtPos.createNewFile();
 			String ctxtNegPath = UKBTempDir.getAbsolutePath()+File.separator+"neg_ctx.qwnppv";
 			File ctxtNeg = new File(ctxtNegPath);
 			ctxtNeg.createNewFile();
-			
+						
 			BufferedWriter bw_pos = new BufferedWriter(new FileWriter(ctxtPos));
 			BufferedWriter bw_neg = new BufferedWriter(new FileWriter(ctxtNeg));		
 			
@@ -196,27 +205,46 @@ public class CLI {
 	    		Propagation.setGraph("mcr_syn");
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
+	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
+	    		
 	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
+	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
+	    		
 	    		Propagation.setGraph("mcr_ant");	    	
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_pos.ppv");
+	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"ant_pos.ppv");
+	    		
 	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_neg.ppv");
+	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"ant_neg.ppv");
+	    		
 	    	}
-	    	//The rest of the graphs require only 2 propagations (positive seeds & negative seeds)
+	    	//The rest of the graphs require only 2 propagations (positive seeds & negative seeds)	    	
 	    	else
 	    	{
 	    		Propagation.setGraph(graph);	    	
+	    		
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_pos.ppv");
+	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"prop_pos.ppv");
+	    		
 	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctxt01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
+	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
+	    		
 	    	}
 	    	
 	    	//3. STEP: MERGE UKB PROPAGATIONS 
-
+	    	PropagationCombinator combinator = new PropagationCombinator();
+	    	Set<String> Lexicon = combinator.sinpleCombinator(posPropagPaths, negPropagPaths);
 	    	
+	    	//print lexicon to bwriter
+	    	for (String s : Lexicon)
+	    	{
+	    		bwriter.write(s+"\n");
+	    	}
 	    	
 	    	System.out.println("qwn-ppv execution finished. Lexicons are ready.\n");
 	    } catch (IOException e) {

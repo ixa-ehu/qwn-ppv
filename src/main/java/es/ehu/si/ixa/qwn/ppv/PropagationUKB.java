@@ -20,6 +20,7 @@ package es.ehu.si.ixa.qwn.ppv;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.Set;
 
 /* Main class for handling UKB propagation. For the moment it assumes ukb_ppv binary executable to be in the path, and executes it.
  * 
@@ -136,8 +137,6 @@ public class PropagationUKB {
 		//mv "$PPV_OUT_DIR"/ctx_01.ppv "$PPV_OUT_DIR"/pos_syn.ppv
 
 	}
-
-	
 	
 	
 }
