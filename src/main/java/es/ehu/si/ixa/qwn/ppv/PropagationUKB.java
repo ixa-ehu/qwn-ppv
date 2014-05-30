@@ -17,11 +17,20 @@ limitations under the License.
 
 package es.ehu.si.ixa.qwn.ppv;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.Set;
+
+import org.apache.commons.io.IOUtils;
 
 /* Main class for handling UKB propagation. For the moment it assumes ukb_ppv binary executable to be in the path, and executes it.
  * 
@@ -56,7 +65,9 @@ public class PropagationUKB {
 	}
 	
 	public PropagationUKB (String langordict, String outFolder)
-	{		
+	{	
+		// temporal files directory
+		this.outDir = outFolder;
 		
 		try {
 			AvailableDicts.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("dicts.txt"));
@@ -71,7 +82,23 @@ public class PropagationUKB {
 		
 		if (AvailableDicts.containsKey(langordict))
 		{
-			this.langDict = this.getClass().getClassLoader().getResource((String) AvailableDicts.get(langordict)).toString();
+			String destPath = this.outDir+File.separator+(String) AvailableDicts.get(langordict);
+
+			try {						
+				InputStream dictToExtract =  this.getClass().getClassLoader().getResourceAsStream("dicts/"+(String) AvailableDicts.get(langordict));			
+				OutputStream dictDestination = new FileOutputStream(destPath);
+				IOUtils.copy(dictToExtract, dictDestination);
+				dictToExtract.close();
+			    dictDestination.close();
+			} catch (FileNotFoundException e) {
+				System.err.println("PropagationUKB class initialization: could not extract (create) needed dictionary file\n");
+				e.printStackTrace();
+			} catch (IOException ioe){
+				System.err.println("PropagationUKB class initialization: could not extract needed dictionary file\n");
+				ioe.printStackTrace();
+			} 
+			
+			this.langDict = destPath;			
 		}
 		//if language is not available assume that the argument corresponds to a custom dictionary path.
 		else
@@ -80,8 +107,7 @@ public class PropagationUKB {
 					+ "qwn-ppv assumes that the argument provide is the path to a custom language dictionary.\n");
 			this.langDict = langordict;
 		}
-		
-		this.outDir = outFolder;
+				
 	}
 	
 	public PropagationUKB (String langordict, String outFolder, String graph1)
@@ -104,7 +130,23 @@ public class PropagationUKB {
 		//System.err.println("set graph to: "+graph1);
 		if (AvailableGraphs.containsKey(graph1))
 		{
-			this.graph = this.getClass().getClassLoader().getResource(AvailableGraphs.get(graph1).toString()+".bin").toString();
+			String destPath = this.outDir+File.separator+(String) AvailableGraphs.get(graph1)+".bin";
+
+			try {						
+				InputStream dictToExtract =  this.getClass().getClassLoader().getResourceAsStream("graphs/"+(String) AvailableGraphs.get(graph1)+".bin");			
+				OutputStream dictDestination = new FileOutputStream(destPath);
+				IOUtils.copy(dictToExtract, dictDestination);
+				dictToExtract.close();
+			    dictDestination.close();
+			} catch (FileNotFoundException e) {
+				System.err.println("PropagationUKB class initialization: could not extract (create) needed graph file\n");
+				e.printStackTrace();
+			} catch (IOException ioe){
+				System.err.println("PropagationUKB class initialization: could not extract needed graph file\n");
+				ioe.printStackTrace();
+			} 
+
+			this.graph = destPath;
 		}
 		//if language is not available assume that the argument corresponds to a custom dictionary path.
 		else
@@ -120,11 +162,22 @@ public class PropagationUKB {
 	{
 		try {
 			String[] command = {ukbPath+"/ukb_ppv","-K",this.graph,"-D",this.langDict, "--variants", "-O", this.outDir , ctxtFile};
-			System.err.println("UKB komandoa: "+Arrays.toString(command));
+			//System.err.println("UKB komandoa: "+Arrays.toString(command));
 			
-			ProcessBuilder ukbBuilder = new ProcessBuilder( command );
+			ProcessBuilder ukbBuilder = new ProcessBuilder()
+				.command(command);
+				//.redirectErrorStream(true);
 			Process ukb_ppv = ukbBuilder.start();
 			int success = ukb_ppv.waitFor();
+			System.err.println("ukb_ppv succesful? "+success);
+			if (success != 0)
+			{
+					BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(ukb_ppv.getErrorStream()), 1);
+					String line;
+					while ((line = bufferedReader.readLine()) != null) {
+		                 System.err.println(line);
+		             }
+			}
 		}
 		catch (Exception e){
 			System.err.println("PropagationUKB class: error when calling ukb_ppv\n.");

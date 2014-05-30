@@ -140,7 +140,7 @@ public class CLI {
 	      }
 	    } catch (ArgumentParserException e) {
 	      argParser.handleError(e);
-	      System.out.println("Run java -jar target/qwn-ppv-" + version
+	      System.err.println("Run java -jar target/qwn-ppv-" + version
 	          + ".jar (create|eval) -help for details");
 	      System.exit(1);
 	    }
@@ -162,7 +162,7 @@ public class CLI {
 	    String graph = parsedArguments.getString("graph");
 	    boolean w = parsedArguments.getBoolean("weights");	    
 	    
-    	System.out.println("qwn-ppv: received arguments are: \n Lang: "+lang+"\n Graph: "+graph+"\n");
+    	System.err.println("qwn-ppv: received arguments are: \n Lang: "+lang+"\n Graph: "+graph+"\n");
 
 	    BufferedReader breader = null;
 	    BufferedWriter bwriter = null;
@@ -175,7 +175,7 @@ public class CLI {
 
 			//temporal directory used for UKB related files.
 			File UKBTempDir = createTempDirectory();
-			UKBTempDir.deleteOnExit();
+			
 			
 	    	// arrays to store propagation filenames needed for merging positive and negative propagations in order to obtain the lexicon.
 			Set<String> posPropagPaths = new HashSet<String>();
@@ -246,6 +246,9 @@ public class CLI {
 	    		bwriter.write(s+"\n");
 	    	}
 	    	
+	    	// delete all temporal files used in the process.
+		    FileUtils.deleteDirectory(UKBTempDir);
+		    
 	    	System.out.println("qwn-ppv execution finished. Lexicons are ready.\n");
 	    } catch (IOException e) {
 	      e.printStackTrace();
@@ -253,6 +256,7 @@ public class CLI {
 	    
 	    bwriter.close();
 	    breader.close();
+	    
 	  }
 
 	  private void loadCreationParameters() {

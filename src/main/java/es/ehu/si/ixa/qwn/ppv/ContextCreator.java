@@ -68,7 +68,7 @@ public class ContextCreator {
 	public ContextCreator(boolean w) {
 		weights = w;
 		
-		System.out.println("qwn-ppv: context creator initialized\n\tweights= "+weights+"\n");
+		System.err.println("qwn-ppv: context creator initialized\n\tweights= "+weights+"\n");
 	}
 	
 	

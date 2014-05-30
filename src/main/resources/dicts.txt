@@ -1,3 +1,3 @@
-es	dicts/mcr30-es.txt
-eu	dicts/mcr30-eu.txt
-en	dicts/wn30-en.txt
+es	mcr30-es.txt
+eu	mcr30-eu.txt
+en	wn30-en.txt

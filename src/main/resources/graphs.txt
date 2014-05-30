@@ -1,5 +1,5 @@
-mcr_ant	graphs/mcr30_Ant
-mcr	graphs/mcr30
-mcr-ant	graphs/mcr30_noAnt
-mcr-antGloss	graphs/mcr30_noAntGloss
-mcr_syn graphs/mcr30_Syn
+mcr_ant	mcr30_Ant
+mcr	mcr30
+mcr-ant	mcr30_noAnt
+mcr-antGloss	mcr30_noAntGloss
+mcr_syn mcr30_Syn
