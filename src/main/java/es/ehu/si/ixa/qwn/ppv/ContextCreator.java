@@ -20,22 +20,9 @@ package es.ehu.si.ixa.qwn.ppv;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.io.FileUtils;
 
 /**
 * contextCreator class: this class creates a context file in order to launch the UKB propagations. 
