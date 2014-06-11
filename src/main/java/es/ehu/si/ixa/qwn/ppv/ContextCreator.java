@@ -23,6 +23,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.channels.FileChannel;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -63,9 +64,9 @@ public class ContextCreator {
 	}
 	
 	public void setKBFile (String p) {
-		KBFile = this.getClass().getClassLoader().getResourceAsStream("graphs")+File.separator+p+".txt.gz";
+		this.KBFile = p;
 		
-		System.err.println("qwn-ppv: context creator initialized\n\tweights= "+weights+"\n");
+		System.err.println("qwn-ppv: context creator initialized\n\tKBFile= "+this.KBFile+"\n");
 	}
 	
 	public void createContexts(BufferedReader breader, BufferedWriter bw_pos, BufferedWriter bw_neg){
@@ -107,24 +108,25 @@ public class ContextCreator {
 			    	int print=0;
 			    	try{  
 			    		//read large text file  
-			    		FileInputStream KBstream = new FileInputStream(new File(this.KBFile));  
-			    		FileChannel fc = KBstream.getChannel();  
+			    		InputStream KBstream = this.getClass().getClassLoader().getResourceAsStream("graphs"+File.separator+this.KBFile+".txt");  			    		
 		    		  
-			    		Scanner scan = new Scanner(fc);  
-			    		while(scan.hasNext()){  
-			    			scan.next();    	    			
-			    			if(scan.findWithinHorizon(fields[0],0) != null) {
-			    				print++; 
-			    				break;
-			    			}
-			    		}  
+			    		Scanner scan = new Scanner(KBstream);  
+			    		if(scan.findWithinHorizon(fields[0],0) != null) {
+		    				print++; 
+		    				System.err.print("\r"+syn);
+		    				//while(scan.hasNext()){  
+			    			//scan.next();    	    			
+			    			//
+			    			//	break;
+			    			//}
+			    		}	  
 			    		scan.close();  
-			    		fc.close();  
 			    		KBstream.close();
 			    	}catch (IOException ioe)
 			    	{
 			    		System.err.println("ERROR when openning KB file for context creation; "+KBFile);
 			    		ioe.printStackTrace();
+			    		System.exit(2);
 			    	}
 			    		/*String[] command = {"zgrep","-m1","-c",fields[1], KBFile};
 			    	ProcessBuilder grepProc = new ProcessBuilder( command );//my $grep=`$grepCommand -m1 -c "$seed" $KBfile`;

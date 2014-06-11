@@ -192,14 +192,14 @@ public class CLI {
 			//1. STEP: CONTEXT CREATION USING SEEDS 
 	    	//create context to initialize UKB propagation algorithm. Depending on the graph 2 or for context files will be returned
 	    	ContextCreator ctxt = new ContextCreator(w);		
-	    	ctxt.createContexts(breader, bw_pos, bw_neg);
+	    	//ctxt.createContexts(breader, bw_pos, bw_neg);
 	    	
 	    	//2. STEP: PROPAGATIONS 
     		PropagationUKB Propagation = new PropagationUKB(lang, UKBTempDir.getAbsolutePath());
 	    	//"synAnt" graph requires 4 propagations (posSyn, negSyn, posAnt, negAnt)
 	    	if (graph.equals("synAnt"))
 	    	{
-	    		ctxt.setKBFile("mcr_syn");
+	    		ctxt.setKBFile("mcr30_Syn");
 	    		ctxt.createContexts(breader, bw_pos, bw_neg);
 	    		
 	    		Propagation.setGraph("mcr_syn");
@@ -211,7 +211,7 @@ public class CLI {
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
 	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
 	    		
-	    		ctxt.setKBFile("mcr_ant");
+	    		ctxt.setKBFile("mcr30_Ant");
 	    		ctxt.createContexts(breader, bw_pos, bw_neg);
 	    		
 	    		Propagation.setGraph("mcr_ant");	    	
