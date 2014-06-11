@@ -54,6 +54,7 @@ public class PropagationCombinator {
 			BufferedReader breader;
 			try {
 				breader = new BufferedReader(new FileReader(new File(path)));
+				System.err.println("PropagationCombinator: "+path+" UKB propagation ranking open");				
 				this.sumScores(breader);
 				breader.close();
 				posFiles++;
@@ -69,6 +70,7 @@ public class PropagationCombinator {
 			BufferedReader breader;
 			try {
 				breader = new BufferedReader(new FileReader(new File(path)));
+				System.err.println("PropagationCombinator: "+path+" UKB propagation ranking open");
 				this.substractScores(breader);
 				breader.close();
 				negFiles++;
@@ -109,12 +111,17 @@ public class PropagationCombinator {
 		String line;
 		while ((line = breader.readLine()) != null) 
 		{
-		    //format of the seed file is: "[word|synset]<tab>[polarityScore]<tab>variants"
+		    //format of the ranking file is: "[word|synset]<tab>[polarityScore]<tab>variants"
 			String[] fields = line.split("\t");
+			
 			//if no weight is provided the program reverses to no weighted seed behavior
 			if (fields.length < 3)
 		    {
 				System.err.println("propagationCombinator : error: this line in propagation rank file does not contain all the field required.");			
+			}
+			else
+			{
+				System.err.println(fields[0]+" <--> "+fields[1]+" <--> "+fields[2]);			
 			}
 			String offset = fields[0];
 			float score = Float.parseFloat(fields[1]);

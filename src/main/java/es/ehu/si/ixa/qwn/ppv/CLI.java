@@ -199,6 +199,9 @@ public class CLI {
 	    	//"synAnt" graph requires 4 propagations (posSyn, negSyn, posAnt, negAnt)
 	    	if (graph.equals("synAnt"))
 	    	{
+	    		ctxt.setKBFile("mcr_syn");
+	    		ctxt.createContexts(breader, bw_pos, bw_neg);
+	    		
 	    		Propagation.setGraph("mcr_syn");
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
@@ -207,6 +210,9 @@ public class CLI {
 	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
 	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
+	    		
+	    		ctxt.setKBFile("mcr_ant");
+	    		ctxt.createContexts(breader, bw_pos, bw_neg);
 	    		
 	    		Propagation.setGraph("mcr_ant");	    	
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());
@@ -221,6 +227,9 @@ public class CLI {
 	    	//The rest of the graphs require only 2 propagations (positive seeds & negative seeds)	    	
 	    	else
 	    	{
+	    		ctxt.setKBFile(graph);
+	    		ctxt.createContexts(breader, bw_pos, bw_neg);
+	    		
 	    		Propagation.setGraph(graph);	    	
 	    		
 	    		Propagation.propagate(ctxtPos.getAbsolutePath());

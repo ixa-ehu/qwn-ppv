@@ -20,7 +20,11 @@ package es.ehu.si.ixa.qwn.ppv;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.channels.FileChannel;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,7 +46,7 @@ import java.util.regex.Pattern;
 public class ContextCreator {
 
 	private boolean weights = false;
-	private String KBFile = "resources/dicts";
+	private String KBFile = "";
 	/**
 	* BufferedReader (from standard input) and BufferedWriter are opened. The
 	* module takes a plain text containing positive and negative words from standard input, and produces polarity lexicon in tabulated format
@@ -58,6 +62,11 @@ public class ContextCreator {
 		System.err.println("qwn-ppv: context creator initialized\n\tweights= "+weights+"\n");
 	}
 	
+	public void setKBFile (String p) {
+		KBFile = this.getClass().getClassLoader().getResourceAsStream("graphs")+File.separator+p+".txt.gz";
+		
+		System.err.println("qwn-ppv: context creator initialized\n\tweights= "+weights+"\n");
+	}
 	
 	public void createContexts(BufferedReader breader, BufferedWriter bw_pos, BufferedWriter bw_neg){
 		
@@ -84,17 +93,43 @@ public class ContextCreator {
 			    
 				// control number, by default we'll use '0' value (no disambiguation but use it for computing pagerank), 
 			    // if the seed is a synset then the value '2' will be used.
-			    // seed is a wordnet synset
+			    // seed is a wordnet synset 
+				//IMPORTANT if seeds are synset but no KBFile is provided context creation will fail.
 			    if (fields[0].matches("[0-9]{5,}(-[a-z])?")) 
 			    {
+			    	if (this.KBFile.equals(""))
+			    	{
+			    		System.err.print("ERROR: Synset seed can not be propagated without a KBfile.\n");
+			    		System.exit(1);
+			    	}
 			    	syn++;	
 			    	// if seed concept is not in the KB graph do not include it in the context, else UKB will complain and crash.
-			    	/*String[] command = {"zgrep","-m1","-c",fields[1], KBFile};
+			    	int print=0;
+			    	try{  
+			    		//read large text file  
+			    		FileInputStream KBstream = new FileInputStream(new File(this.KBFile));  
+			    		FileChannel fc = KBstream.getChannel();  
+		    		  
+			    		Scanner scan = new Scanner(fc);  
+			    		while(scan.hasNext()){  
+			    			scan.next();    	    			
+			    			if(scan.findWithinHorizon(fields[0],0) != null) {
+			    				print++; 
+			    				break;
+			    			}
+			    		}  
+			    		scan.close();  
+			    		fc.close();  
+			    		KBstream.close();
+			    	}catch (IOException ioe)
+			    	{
+			    		System.err.println("ERROR when openning KB file for context creation; "+KBFile);
+			    		ioe.printStackTrace();
+			    	}
+			    		/*String[] command = {"zgrep","-m1","-c",fields[1], KBFile};
 			    	ProcessBuilder grepProc = new ProcessBuilder( command );//my $grep=`$grepCommand -m1 -c "$seed" $KBfile`;
 			    	Process grep = grepProc.start();*/
-			    	Pattern regexp = Pattern.compile(fields[0]);
-			        Matcher matcher = regexp.matcher(KBFile);
-			        if (matcher.find())
+			        if (print > 0)
 			        {
 			        	toprint = fields[0]+"##s"+syn+"#2#"+w;
 			        }
