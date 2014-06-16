@@ -22,6 +22,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.FileChannel;
@@ -69,13 +70,22 @@ public class ContextCreator {
 		System.err.println("qwn-ppv: context creator initialized\n\tKBFile= "+this.KBFile+"\n");
 	}
 	
-	public void createContexts(BufferedReader breader, BufferedWriter bw_pos, BufferedWriter bw_neg){
+	public void createContexts(BufferedReader breader, String ctxtNegPath, String ctxtPosPath){
 		
 		try {		
 			int syn = 0;
 			int wrd = 0;
 			String w = "";
 
+			File ctxtPos = new File(ctxtPosPath);
+			ctxtPos.createNewFile();
+			BufferedWriter bw_pos = new BufferedWriter(new FileWriter(ctxtPos));
+			File ctxtNeg = new File(ctxtNegPath);
+			ctxtNeg.createNewFile();
+			BufferedWriter bw_neg = new BufferedWriter(new FileWriter(ctxtNeg));		
+			
+			
+			
 			// context initialization
 			bw_pos.write("ctx_01\n");
 			bw_neg.write("ctx_01\n");
@@ -169,9 +179,7 @@ public class ContextCreator {
 			}
 			bw_pos.close();
 			bw_neg.close();
-						
-			breader.close();
-			
+									
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -180,14 +180,8 @@ public class CLI {
 			
 			//create temporal files to store contexts
 			String ctxtPosPath = UKBTempDir.getAbsolutePath()+File.separator+"pos_ctx.qwnppv";
-			File ctxtPos = new File(ctxtPosPath);
-			ctxtPos.createNewFile();
 			String ctxtNegPath = UKBTempDir.getAbsolutePath()+File.separator+"neg_ctx.qwnppv";
-			File ctxtNeg = new File(ctxtNegPath);
-			ctxtNeg.createNewFile();
 						
-			BufferedWriter bw_pos = new BufferedWriter(new FileWriter(ctxtPos));
-			BufferedWriter bw_neg = new BufferedWriter(new FileWriter(ctxtNeg));		
 			
 			//1. STEP: CONTEXT CREATION USING SEEDS 
 	    	//create context to initialize UKB propagation algorithm. Depending on the graph 2 or for context files will be returned
@@ -200,26 +194,26 @@ public class CLI {
 	    	if (graph.equals("synAnt"))
 	    	{
 	    		ctxt.setKBFile("mcr30_Syn");
-	    		ctxt.createContexts(breader, bw_pos, bw_neg);
+	    		ctxt.createContexts(breader, ctxtPosPath, ctxtNegPath);
 	    		
 	    		Propagation.setGraph("mcr_syn");
-	    		Propagation.propagate(ctxtPos.getAbsolutePath());
+	    		Propagation.propagate(ctxtPosPath);
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
 	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
 	    		
-	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
+	    		Propagation.propagate(ctxtNegPath);
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
 	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"syn_neg.ppv");
 	    		
 	    		ctxt.setKBFile("mcr30_Ant");
-	    		ctxt.createContexts(breader, bw_pos, bw_neg);
+	    		ctxt.createContexts(breader, ctxtPosPath, ctxtNegPath);
 	    		
 	    		Propagation.setGraph("mcr_ant");	    	
-	    		Propagation.propagate(ctxtPos.getAbsolutePath());
+	    		Propagation.propagate(ctxtPosPath);
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_pos.ppv");
 	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"ant_pos.ppv");
 	    		
-	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
+	    		Propagation.propagate(ctxtNegPath);
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"ant_neg.ppv");
 	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"ant_neg.ppv");
 	    		
@@ -228,15 +222,15 @@ public class CLI {
 	    	else
 	    	{
 	    		ctxt.setKBFile(graph);
-	    		ctxt.createContexts(breader, bw_pos, bw_neg);
+	    		ctxt.createContexts(breader, ctxtPosPath, ctxtNegPath);
 	    		
 	    		Propagation.setGraph(graph);	    	
 	    		
-	    		Propagation.propagate(ctxtPos.getAbsolutePath());
+	    		Propagation.propagate(ctxtPosPath);
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_pos.ppv");
 	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"prop_pos.ppv");
 	    		
-	    		Propagation.propagate(ctxtNeg.getAbsolutePath());
+	    		Propagation.propagate(ctxtNegPath);
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
 	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
 	    		
