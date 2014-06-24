@@ -21,13 +21,17 @@ package es.ehu.si.ixa.qwn.ppv;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.OutputStream;
+import java.util.Enumeration;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
@@ -43,6 +47,15 @@ import org.apache.commons.io.FileUtils;
 
 
 
+
+
+
+
+import org.apache.commons.io.FilenameUtils;
+
+
+
+import org.apache.commons.io.IOUtils;
 
 
 /*
@@ -97,19 +110,25 @@ public class CLI {
 	      "sub-command help");
 	  
 	  /**
-	* The parser that manages the create sub-command.
-	*/
+	   * The parser that manages the create sub-command.
+	   */
+	  private Subparser compileParser;
+	  /**
+	   * The parser that manages the create sub-command.
+	   */
 	  private Subparser creationParser;
 	  /**
-	* The parser that manages the evaluation sub-command.
-	*/
+	   * The parser that manages the evaluation sub-command.
+	   */
 	  private Subparser evalParser;
 
 	  public CLI() {
-	    creationParser = subParsers.addParser("create").help("Lexicon creation CLI");
+		compileParser = subParsers.addParser("compile").help("Graph compilation CLI");
+		loadCompilationParameters();
+		creationParser = subParsers.addParser("create").help("Lexicon creation CLI");
 	    loadCreationParameters();
 	    evalParser = subParsers.addParser("eval").help("Lexicon evaluation CLI");
-	    loadEvalParameters();
+	    loadEvalParameters();	    
 	  }
 
 	  public static void main(String[] args) throws IOException {
@@ -130,19 +149,84 @@ public class CLI {
 	    try {
 	      parsedArguments = argParser.parseArgs(args);
 	      System.err.println("CLI options: " + parsedArguments);
-	      if (args[0].equals("create")) {
-	        create(System.in, System.out);
-	      } else if (args[0].equals("eval")) {
-	        eval();
+	      
+	      switch (args[0]){
+	      case	"create":
+	    	  create(System.in, System.out);
+	      case	"eval":
+	    	  eval();
+	      case	"compile":
+	    	  compileGraph();
 	      }
+	      	    
 	    } catch (ArgumentParserException e) {
 	      argParser.handleError(e);
 	      System.err.println("Run java -jar target/qwn-ppv-" + version
-	          + ".jar (create|eval) -help for details");
+	          + ".jar (compile|create|eval) -help for details");
 	      System.exit(1);
 	    }
 	  }
 
+	  
+	  public final void compileGraph() throws IOException {
+		  String kb = parsedArguments.getString("kb");
+		  String ukb = parsedArguments.getString("execPath");
+		  
+		 
+		  // normal case: single graph is created
+		  if (!kb.equals("all")) 
+		  {
+			  ukb_compile(ukb,kb);			  
+		  }
+		  // compile all graphs in the distribution
+		  else
+		  {
+			  Properties AvailableGraphs = new Properties();
+			  try {
+				  AvailableGraphs.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("graphs.txt"));
+			  }catch (IOException ioe){
+				  ioe.printStackTrace(); 
+			  }
+			  			  
+			  for(String key : AvailableGraphs.stringPropertyNames()) 
+			  {
+				  String value = AvailableGraphs.getProperty(key);
+				  String location = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+				  String destKBPath = location+File.separator+"graphs"+File.separator+(String) AvailableGraphs.get(key);
+						  
+				  try {						
+					  InputStream kbExtract =  this.getClass().getClassLoader().getResourceAsStream("graphs/"+(String) AvailableGraphs.get(key)+".txt");
+					  OutputStream kbDestination = new FileOutputStream(destKBPath+".txt");
+					  IOUtils.copy(kbExtract, kbDestination);
+					  kbExtract.close();
+					  kbDestination.close();
+				  }catch (IOException ioe){
+					  ioe.printStackTrace();
+				  }
+				  ukb_compile(ukb,destKBPath+".txt");
+			  }	
+		  }
+	  }// end compileGraph
+
+	  
+	  
+	  private void loadCompilationParameters() {
+			/*
+			 *  Parameters:
+	         *     - Knowledge base (-k | --kb=): path to the file containing the knowledge base information to construct the graph, UKB format. If no kb info is provided
+	         *     - Graph (-g | --graph=): path to the file were the output path will be stored. 
+			 */
+			  
+			// specify the graph which shall be used for propagation
+			compileParser.addArgument("-k","--kb")		    	
+			    	.required(false).setDefault("all")
+			    	.help("a KB information file in UKB format is needed to create a graph. If no KB file is given, the system will compile the default graphs provided by QWN-PPV.\n"
+			    			+ "This should be done the first time you run qwn-ppv, as the graphs shall be compiled for your platform. \n"
+			    			+ "QWN-PPV assumes UKB software has been previously installed, and it is in the paths. If not it will rise an error.\n");
+			    	
+	  }
+	  
+	  
 	  /**
 		* BufferedReader (from standard input) and BufferedWriter are opened. The
 		* module takes a plain text containing positive and negative words from standard input, and 
@@ -195,7 +279,7 @@ public class CLI {
 	    	{
 	    		ctxt.setKBFile("mcr30_Syn");
 	    		ctxt.createContexts(breader, ctxtPosPath, ctxtNegPath);
-	    		
+
 	    		Propagation.setGraph("mcr_syn");
 	    		Propagation.propagate(ctxtPosPath);
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"syn_pos.ppv");
@@ -395,14 +479,47 @@ public class CLI {
 	  /*
 	   * Function renames a file to a new name. if the new name already exists throws an exception. 
 	   */
-	  public void renameFile (String oldFile, String newName) throws IOException 
+	  private void renameFile (String oldFile, String newName) throws IOException 
 	  {
 		  File file1 = new File(oldFile);
 		  File file2 = new File(newName);
 		  if(file2.exists()) throw new java.io.IOException("file exists");
 		  
 		  // Rename file (or directory)
-		  file1.renameTo(file2);
+		  file1.renameTo(file2);		 
+	  }
+	  
+	  /*
+	   * Function calls compile_kb from ukb and compiles a graph. 
+	   */
+	  private void ukb_compile (String execpath, String kbfile)
+	  {
+		  String graph = FilenameUtils.removeExtension(kbfile);
+		  graph = graph+".bin";
+		  
+		  try {
+				String[] command = {execpath+"/compile_kb","-o",graph,kbfile};
+				//System.err.println("UKB komandoa: "+Arrays.toString(command));
+				
+				ProcessBuilder ukbBuilder = new ProcessBuilder()
+					.command(command);
+					//.redirectErrorStream(true);
+				Process compile_kb = ukbBuilder.start();
+				int success = compile_kb.waitFor();
+				System.err.println("compile_kb succesful? "+success);
+				if (success != 0)
+				{
+						BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(compile_kb.getErrorStream()), 1);
+						String line;
+						while ((line = bufferedReader.readLine()) != null) {
+			                 System.err.println(line);
+			             }
+				}
+			}
+			catch (Exception e){
+				System.err.println("Graph compilation: error when calling compile_kb\n.");
+				e.printStackTrace();
+			}
 	  }
 		
 }
