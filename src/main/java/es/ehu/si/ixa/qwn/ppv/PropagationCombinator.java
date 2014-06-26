@@ -22,9 +22,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /* Main class for handling UKB propagation. For the moment it assumes ukb_ppv binary executable to be in the path, and executes it.
  * 
@@ -37,13 +38,12 @@ public class PropagationCombinator {
 	private Map<String, String> variants = new HashMap<String, String>();
 	
 	public PropagationCombinator()
-	{
-		
+	{		
 	}
 	
-	public Set<String> sinpleCombinator(Set<String> posPaths, Set<String> negPaths)
+	public SortedSet<String> sinpleCombinator(Set<String> posPaths, Set<String> negPaths)
 	{
-		Set<String> Lexicon = new HashSet<String>();
+		SortedSet<String> Lexicon = new TreeSet<String>();
 
 		int posFiles = 0;
 		int negFiles = 0;
@@ -51,31 +51,29 @@ public class PropagationCombinator {
 		//iterate through positive score files and sum scores 
 		for (String path : posPaths)
     	{
-			BufferedReader breader;
 			try {
-				breader = new BufferedReader(new FileReader(new File(path)));
-				System.err.println("PropagationCombinator: "+path+" UKB propagation ranking open");				
+				BufferedReader breader = new BufferedReader(new FileReader(new File(path)));
+				System.err.println("PropagationCombinator: "+path+" UKB propagation positive ranking open");				
 				this.sumScores(breader);
 				breader.close();
 				posFiles++;
 			} catch (Exception e) {
-				System.err.println("PropagationCombinator: "+path+" UKB propagation ranking file could not be opened, combination continues without the file");
+				System.err.println("PropagationCombinator: "+path+" UKB propagation positive ranking file could not be opened, combination continues without the file");
 				e.printStackTrace();
 			}			
     	}
 		
-		//iterate through negative score files and substract scores 
+		//iterate through negative score files and subtract scores 
 		for (String path : negPaths)
     	{
-			BufferedReader breader;
 			try {
-				breader = new BufferedReader(new FileReader(new File(path)));
-				System.err.println("PropagationCombinator: "+path+" UKB propagation ranking open");
-				this.substractScores(breader);
+				BufferedReader breader = new BufferedReader(new FileReader(new File(path)));
+				System.err.println("PropagationCombinator: "+path+" UKB propagation negative ranking open");
+				this.subtractScores(breader);
 				breader.close();
 				negFiles++;
 			} catch (Exception e) {
-				System.err.println("PropagationCombinator: "+path+" UKB propagation ranking file could not be opened, combination continues without the file");
+				System.err.println("PropagationCombinator: "+path+" UKB propagation negative ranking file could not be opened, combination continues without the file");
 				e.printStackTrace();
 			}		
     	}
@@ -102,7 +100,7 @@ public class PropagationCombinator {
 			}
 
 		}	
-		System.err.println("PropagationCombinator: "+(posFiles+negFiles)+" rankings merged.\n");		
+		System.err.println("PropagationCombinator: "+(posFiles+negFiles)+" rankings merged ("+posFiles+"/"+negFiles+").\n");		
 		return Lexicon;
 	}	
 	
@@ -121,14 +119,16 @@ public class PropagationCombinator {
 			}
 			else
 			{
-				System.err.println(fields[0]+" <--> "+fields[1]+" <--> "+fields[2]);			
+				//System.err.println(fields[0]+" <--> "+fields[1]+" <--> "+fields[2]);			
 			}
 			String offset = fields[0];
+			//scores come in scientific notation. They must be parsed to java 
 			float score = Float.parseFloat(fields[1]);
-			
+						
 			if(this.scores.containsKey(offset))
 			{
-				this.scores.put(offset, this.scores.get(offset)+score);
+				float updatedScore = this.scores.get(offset)+score;
+				this.scores.put(offset, updatedScore);
 			}
 			else
 			{
@@ -138,7 +138,7 @@ public class PropagationCombinator {
 		}
 	}
 	
-	private void substractScores(BufferedReader breader)throws IOException
+	private void subtractScores(BufferedReader breader)throws IOException
 	{
 		String line;
 		while ((line = breader.readLine()) != null) 
@@ -155,12 +155,13 @@ public class PropagationCombinator {
 			
 			if(this.scores.containsKey(offset))
 			{
-				this.scores.put(offset, this.scores.get(offset)-score);
+				float updatedScore = this.scores.get(offset)-score;
+				this.scores.put(offset, updatedScore);
 			}
 			else
 			{
 				this.variants.put(offset, fields[2]);
-				this.scores.put(offset, 0-score);				
+				this.scores.put(offset, -score);				
 			}
 		}
 	}

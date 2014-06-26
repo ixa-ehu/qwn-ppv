@@ -49,6 +49,7 @@ public class ContextCreator {
 
 	private boolean weights = false;
 	private String KBFile = "";
+	private String location = "";
 	/**
 	* BufferedReader (from standard input) and BufferedWriter are opened. The
 	* module takes a plain text containing positive and negative words from standard input, and produces polarity lexicon in tabulated format
@@ -59,7 +60,10 @@ public class ContextCreator {
 	**/
 	
 	public ContextCreator(boolean w) {
-		weights = w;
+		this.weights = w;
+		
+		String jarLocation = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+		this.location = jarLocation.substring(0, jarLocation.lastIndexOf(File.separatorChar));
 		
 		System.err.println("qwn-ppv: context creator initialized\n\tweights= "+weights+"\n");
 	}
@@ -67,10 +71,10 @@ public class ContextCreator {
 	public void setKBFile (String p) {
 		this.KBFile = p;
 		
-		System.err.println("qwn-ppv: context creator initialized\n\tKBFile= "+this.KBFile+"\n");
+		System.err.println("qwn-ppv: context creator graph set\n\tKBFile= "+this.KBFile+"\n");
 	}
 	
-	public void createContexts(BufferedReader breader, String ctxtNegPath, String ctxtPosPath){
+	public void createContexts(BufferedReader breader, String ctxtPosPath, String ctxtNegPath){
 		
 		try {		
 			int syn = 0;
@@ -118,7 +122,7 @@ public class ContextCreator {
 			    	int print=0;
 			    	try{  
 			    		//read large text file  
-			    		InputStream KBstream = this.getClass().getClassLoader().getResourceAsStream("graphs"+File.separator+this.KBFile+".txt");  			    		
+			    		InputStream KBstream = new FileInputStream(this.location+File.separator+"graphs"+File.separator+this.KBFile+".txt");  			    		
 		    		  
 			    		Scanner scan = new Scanner(KBstream);  
 			    		if(scan.findWithinHorizon(fields[0],0) != null) {

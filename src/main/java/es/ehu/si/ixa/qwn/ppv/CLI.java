@@ -21,18 +21,17 @@ package es.ehu.si.ixa.qwn.ppv;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.OutputStream;
-import java.util.Enumeration;
+import java.io.OutputStreamWriter;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.zip.GZIPInputStream;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.impl.Arguments;
@@ -43,30 +42,9 @@ import net.sourceforge.argparse4j.inf.Subparser;
 import net.sourceforge.argparse4j.inf.Subparsers;
 
 import org.apache.commons.io.FileUtils;
-
-
-
-
-
-
-
-
 import org.apache.commons.io.FilenameUtils;
-
-
-
 import org.apache.commons.io.IOUtils;
 
-
-/*
- * lexicon creation classes
- */
-import es.ehu.si.ixa.qwn.ppv.ContextCreator;
-import es.ehu.si.ixa.qwn.ppv.PropagationUKB;
-
-/*
- * lexicon evaluation classes
- */
 import es.ehu.si.ixa.qwn.ppv.eval.AvgRatioEstimator;
 import es.ehu.si.ixa.qwn.ppv.eval.MohammadEstimator;
 
@@ -163,6 +141,7 @@ public class CLI {
 	      argParser.handleError(e);
 	      System.err.println("Run java -jar target/qwn-ppv-" + version
 	          + ".jar (compile|create|eval) -help for details");
+	      e.printStackTrace();
 	      System.exit(1);
 	    }
 	  }
@@ -176,11 +155,13 @@ public class CLI {
 		  // normal case: single graph is created
 		  if (!kb.equals("all")) 
 		  {
-			  ukb_compile(ukb,kb);			  
+			  ukb_compile(ukb,kb);
+			  System.out.println("new graph generated: "+kb+".bin");
 		  }
 		  // compile all graphs in the distribution
 		  else
 		  {
+			  System.out.println("Default behavior: all the graphs in the qwn-ppv distribution will be compiled");
 			  Properties AvailableGraphs = new Properties();
 			  try {
 				  AvailableGraphs.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("graphs.txt"));
@@ -189,18 +170,20 @@ public class CLI {
 			  }
 			  			  
 			  for(String key : AvailableGraphs.stringPropertyNames()) 
-			  {
-				  String value = AvailableGraphs.getProperty(key);
-				  String location = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+			  {			  
+				  String jarlocation = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+				  String location = jarlocation.substring(0, jarlocation.lastIndexOf("/"));
 				  String destKBPath = location+File.separator+"graphs"+File.separator+(String) AvailableGraphs.get(key);
 						  
 				  try {						
-					  InputStream kbExtract =  this.getClass().getClassLoader().getResourceAsStream("graphs/"+(String) AvailableGraphs.get(key)+".txt");
-					  OutputStream kbDestination = new FileOutputStream(destKBPath+".txt");
+					  GZIPInputStream kbExtract =  new GZIPInputStream(this.getClass().getClassLoader().getResourceAsStream("graphs/"+(String) AvailableGraphs.get(key)+".txt.gz"));
+					  File KBPath = new File(location+File.separator+"graphs");
+					  KBPath.mkdirs();
+					  OutputStream kbDestination = new FileOutputStream(destKBPath+".txt");				  
 					  IOUtils.copy(kbExtract, kbDestination);
 					  kbExtract.close();
 					  kbDestination.close();
-				  }catch (IOException ioe){
+				  }catch (IOException ioe){					  
 					  ioe.printStackTrace();
 				  }
 				  ukb_compile(ukb,destKBPath+".txt");
@@ -223,7 +206,14 @@ public class CLI {
 			    	.help("a KB information file in UKB format is needed to create a graph. If no KB file is given, the system will compile the default graphs provided by QWN-PPV.\n"
 			    			+ "This should be done the first time you run qwn-ppv, as the graphs shall be compiled for your platform. \n"
 			    			+ "QWN-PPV assumes UKB software has been previously installed, and it is in the paths. If not it will rise an error.\n");
-			    	
+			
+			// specify the graph which shall be used for propagation
+			compileParser.addArgument("-p","--execPath")		    	
+					.required(false).setDefault("/usr/local/bin")
+					.help("a KB information file in UKB format is needed to create a graph. If no KB file is given, the system will compile the default graphs provided by QWN-PPV.\n"
+							+ "This should be done the first time you run qwn-ppv, as the graphs shall be compiled for your platform. \n"
+							+ "QWN-PPV assumes UKB software has been previously installed, and it is in the paths. If not it will rise an error.\n");
+						        	
 	  }
 	  
 	  
@@ -273,7 +263,7 @@ public class CLI {
 	    	//ctxt.createContexts(breader, bw_pos, bw_neg);
 	    	
 	    	//2. STEP: PROPAGATIONS 
-    		PropagationUKB Propagation = new PropagationUKB(lang, UKBTempDir.getAbsolutePath());
+    		UKBwrapper Propagation = new UKBwrapper(lang, UKBTempDir.getAbsolutePath());
 	    	//"synAnt" graph requires 4 propagations (posSyn, negSyn, posAnt, negAnt)
 	    	if (graph.equals("synAnt"))
 	    	{
@@ -316,13 +306,13 @@ public class CLI {
 	    		
 	    		Propagation.propagate(ctxtNegPath);
 	    		renameFile(UKBTempDir.getAbsolutePath()+File.separator+"ctx_01.ppv", UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
-	    		posPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
+	    		negPropagPaths.add(UKBTempDir.getAbsolutePath()+File.separator+"prop_neg.ppv");
 	    		
 	    	}
 	    	
 	    	//3. STEP: MERGE UKB PROPAGATIONS 
 	    	PropagationCombinator combinator = new PropagationCombinator();
-	    	Set<String> Lexicon = combinator.sinpleCombinator(posPropagPaths, negPropagPaths);
+	    	SortedSet<String> Lexicon = combinator.sinpleCombinator(posPropagPaths, negPropagPaths);
 	    	
 	    	//print lexicon to bwriter
 	    	for (String s : Lexicon)
@@ -331,16 +321,15 @@ public class CLI {
 	    	}
 	    	
 	    	// delete all temporal files used in the process.
-		    FileUtils.deleteDirectory(UKBTempDir);
-		    
-	    	System.out.println("qwn-ppv execution finished. Lexicons are ready.\n");
+	    	FileUtils.deleteDirectory(UKBTempDir);   	
+		    	    	
 	    } catch (IOException e) {
 	      e.printStackTrace();
-	    }
+	    } 
 	    
 	    bwriter.close();
 	    breader.close();
-	    
+	    System.out.println("qwn-ppv execution finished. Lexicons are ready.\n");
 	  }
 
 	  private void loadCreationParameters() {
@@ -476,6 +465,7 @@ public class CLI {
 
 			    return (temp);
 			}
+
 	  /*
 	   * Function renames a file to a new name. if the new name already exists throws an exception. 
 	   */
@@ -498,7 +488,7 @@ public class CLI {
 		  graph = graph+".bin";
 		  
 		  try {
-				String[] command = {execpath+"/compile_kb","-o",graph,kbfile};
+				String[] command = {execpath+File.separator+"compile_kb","-o",graph,kbfile};
 				//System.err.println("UKB komandoa: "+Arrays.toString(command));
 				
 				ProcessBuilder ukbBuilder = new ProcessBuilder()
@@ -506,7 +496,7 @@ public class CLI {
 					//.redirectErrorStream(true);
 				Process compile_kb = ukbBuilder.start();
 				int success = compile_kb.waitFor();
-				System.err.println("compile_kb succesful? "+success);
+				//System.err.println("compile_kb succesful? "+success);
 				if (success != 0)
 				{
 						BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(compile_kb.getErrorStream()), 1);
@@ -517,8 +507,9 @@ public class CLI {
 				}
 			}
 			catch (Exception e){
-				System.err.println("Graph compilation: error when calling compile_kb\n.");
+				System.err.println("Graph compilation: error when calling compile_kb.\n");
 				e.printStackTrace();
+				System.exit(1);
 			}
 	  }
 		

@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.Properties;
 
 import org.apache.commons.io.IOUtils;
@@ -41,6 +42,7 @@ public class UKBwrapper {
 	private String graph = "mcr";
 	private String langDict = "";
 	private String outDir = "tmp-qwn/";
+	private String location = "";
 	//Initializations
 	private static final Properties AvailableDicts = new Properties(); 
 	private static final Properties AvailableGraphs = new Properties();
@@ -65,6 +67,11 @@ public class UKBwrapper {
 	{	
 		// temporal files directory
 		this.outDir = outFolder;
+		
+		// location of the graph jar file, root to the graph directory
+		String jarLocation = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+		this.location = jarLocation.substring(0, jarLocation.lastIndexOf(File.separatorChar));
+		
 		
 		try {
 			AvailableDicts.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("dicts.txt"));
@@ -127,25 +134,9 @@ public class UKBwrapper {
 		//System.err.println("set graph to: "+graph1);
 		if (AvailableGraphs.containsKey(graph1))
 		{
-			String destPath = this.outDir+File.separator+(String) AvailableGraphs.get(graph1)+".bin";
-
-			try {						
-				InputStream dictToExtract =  this.getClass().getClassLoader().getResourceAsStream("graphs/"+(String) AvailableGraphs.get(graph1)+".bin");			
-				OutputStream dictDestination = new FileOutputStream(destPath);
-				IOUtils.copy(dictToExtract, dictDestination);
-				dictToExtract.close();
-			    dictDestination.close();
-			} catch (FileNotFoundException e) {
-				System.err.println("PropagationUKB class initialization: could not extract (create) needed graph file\n");
-				e.printStackTrace();
-			} catch (IOException ioe){
-				System.err.println("PropagationUKB class initialization: could not extract needed graph file\n");
-				ioe.printStackTrace();
-			} 
-
-			this.graph = destPath;
+			this.graph = this.location +File.separator+"graphs"+File.separator+(String) AvailableGraphs.get(graph1)+".bin";									
 		}
-		//if language is not available assume that the argument corresponds to a custom dictionary path.
+		//if graph is not available assume that the argument corresponds to a custom graph path.
 		else
 		{
 			System.err.println("PropagationUKB class: provided graph is not available ("+graph1+"), "
@@ -159,12 +150,12 @@ public class UKBwrapper {
 	{
 		try {
 			String[] command = {ukbPath+"/ukb_ppv","-K",this.graph,"-D",this.langDict, "--variants", "-O", this.outDir , ctxtFile};
-			//System.err.println("UKB komandoa: "+Arrays.toString(command));
+			System.err.println("UKB komandoa: "+Arrays.toString(command));
 			
 			ProcessBuilder ukbBuilder = new ProcessBuilder()
 				.command(command);
 				//.redirectErrorStream(true);
-			Process ukb_ppv = ukbBuilder.start();
+			Process ukb_ppv = ukbBuilder.start();	
 			int success = ukb_ppv.waitFor();
 			System.err.println("ukb_ppv succesful? "+success);
 			if (success != 0)
