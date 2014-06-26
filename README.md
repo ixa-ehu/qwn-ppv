@@ -22,20 +22,20 @@ Installing the qwn-ppv requires the following steps:
 If you already have installed in your machine JDK6 and MAVEN 3, please go to step 3
 directly. Otherwise, follow these steps:
 
-1. Install JDK 1.6
+1. Install JDK 1.7
 -------------------
 
-If you do not install JDK 1.6 in a default location, you will probably need to configure the PATH in .bashrc or .bash_profile:
+If you do not install JDK 1.7 in a default location, you will probably need to configure the PATH in .bashrc or .bash_profile:
 
 ````shell
-export JAVA_HOME=/yourpath/local/java6
+export JAVA_HOME=/yourpath/local/java17
 export PATH=${JAVA_HOME}/bin:${PATH}
 ````
 
 If you use tcsh you will need to specify it in your .login as follows:
 
 ````shell
-setenv JAVA_HOME /usr/java/java16
+setenv JAVA_HOME /usr/java/java17
 setenv PATH ${JAVA_HOME}/bin:${PATH}
 ````
 
@@ -45,7 +45,7 @@ If you re-login into your shell and run the command
 java -version
 ````
 
-You should now see that your jdk is 1.6
+You should now see that your jdk is 1.7
 
 2. Install MAVEN 3
 ------------------
@@ -78,6 +78,22 @@ mvn -version
 
 You should see reference to the MAVEN version you have just installed plus the JDK 6 that is using.
 
+3. Install UKB graph propagation software
+------------------------------------------
+
+Download UKB 2.0 from http://ixa2.si.ehu.es/ukb/ 
+
+````shell
+wget http://ixa2.si.ehu.es/ukb/ukb_2.0.tgz
+````
+
+Extract the files and follow the installation instructions in the src/INSTALL file (usual ./configure && make && sudo make install procedure):
+
+````shell
+tar -xzvf ukb_2.0.tgz
+````
+
+
 3. Get module source code
 --------------------------
 
@@ -99,7 +115,7 @@ Most importantly, there you will find the module executable:
 qwn-ppv-1.0.jar
 
 This executable contains every dependency the module needs, so it is completely portable as long
-as you have a JVM 1.6 installed.
+as you have a JVM 1.7 installed.
 
 To install the module in the local maven repository, usually located in ~/.m2/, execute:
 
@@ -109,6 +125,23 @@ mvn clean install
 
 7. USING qwn-ppv
 =========================
+
+First use of qwn-ppv
+====================
+
+QWN-PPV includes some graphs by default. However in order to use them the must be compiled by ukb. In order to do this, execute qwn-ppv-1.0.jar as follows:
+
+````shell
+java -jar qwn-ppv-1.0.jar compile -k all
+````
+
+This command will create a 'graphs' folder in the same directory where 'qwn-ppv-1.0.jar' is located, and the will be store the graphs included in the QWN-PPV distribution, which are:
+   - mcr30 : Graph built using all relations included in the Multilingual Central Repository (MCR).
+   - mcr30_Syn and mcr30_Ant: Graphs built using synonymy (mcr30_Syn) and antomymy relations (mcr30_Ant) in the MCR.
+   - mcr30_noAnt: Graph built using all relations of the MCR, except for antonymy relations (Gloss information included).
+   - mcr30_noAntGloss: Graph built using all relations of the MCR, except for antonymy and Gloss relations. 
+
+
 
 GENERATING JAVADOC
 ==================
