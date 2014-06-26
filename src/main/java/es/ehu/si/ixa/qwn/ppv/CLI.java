@@ -21,12 +21,15 @@ package es.ehu.si.ixa.qwn.ppv;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.OutputStream;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
@@ -45,6 +48,16 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
+
+/*
+ * lexicon creation classes
+ */
+import es.ehu.si.ixa.qwn.ppv.ContextCreator;
+import es.ehu.si.ixa.qwn.ppv.UKBwrapper;
+
+/*
+ * lexicon evaluation classes
+ */
 import es.ehu.si.ixa.qwn.ppv.eval.AvgRatioEstimator;
 import es.ehu.si.ixa.qwn.ppv.eval.MohammadEstimator;
 

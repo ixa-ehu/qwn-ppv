@@ -26,6 +26,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.FileChannel;
+import java.util.Properties;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -69,7 +70,26 @@ public class ContextCreator {
 	}
 	
 	public void setKBFile (String p) {
-		this.KBFile = p;
+		
+		Properties AvailableGraphs = new Properties();
+		try 
+		{
+			AvailableGraphs.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("graphs.txt"));
+		}catch (IOException ioe)
+		{	
+			System.err.println("ERROR graph properties at ContextCreator.");
+			ioe.printStackTrace();
+		}
+		
+		if (AvailableGraphs.containsKey(p))
+		{
+			this.KBFile = this.location +File.separator+"graphs"+File.separator+(String) AvailableGraphs.get(p)+".txt";
+		}
+		else
+		{
+			System.err.println("ContextCreator: specified kb file is not in qwn-ppv distribution. QWN-PPV assumes the argument given is the path to a custom graph.\n");
+			this.KBFile = p;
+		}
 		
 		System.err.println("qwn-ppv: context creator graph set\n\tKBFile= "+this.KBFile+"\n");
 	}
@@ -122,7 +142,7 @@ public class ContextCreator {
 			    	int print=0;
 			    	try{  
 			    		//read large text file  
-			    		InputStream KBstream = new FileInputStream(this.location+File.separator+"graphs"+File.separator+this.KBFile+".txt");  			    		
+			    		InputStream KBstream = new FileInputStream(this.KBFile);  			    		
 		    		  
 			    		Scanner scan = new Scanner(KBstream);  
 			    		if(scan.findWithinHorizon(fields[0],0) != null) {
