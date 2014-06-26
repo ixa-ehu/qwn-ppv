@@ -135,7 +135,7 @@ QWN-PPV includes some graphs by default. However in order to use them the must b
 java -jar qwn-ppv-1.0.jar compile -k all
 ````
 
-This command will create a 'graphs' folder in the same directory where 'qwn-ppv-1.0.jar' is located, and the will be store the graphs included in the QWN-PPV distribution, which are:
+This command will create a 'graphs' folder in the same directory where 'qwn-ppv-1.0.jar' is located, and it will store the graphs included in the QWN-PPV distribution, which are:
    - mcr30 : Graph built using all relations included in the Multilingual Central Repository (MCR).
    - mcr30_Syn and mcr30_Ant: Graphs built using synonymy (mcr30_Syn) and antomymy relations (mcr30_Ant) in the MCR.
    - mcr30_noAnt: Graph built using all relations of the MCR, except for antonymy relations (Gloss information included).
