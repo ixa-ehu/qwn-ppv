@@ -21,16 +21,14 @@ package es.ehu.si.ixa.qwn.ppv;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.OutputStream;
-import java.util.Enumeration;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.SortedSet;
@@ -47,6 +45,7 @@ import net.sourceforge.argparse4j.inf.Subparsers;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
+
 
 
 /*
@@ -141,12 +140,13 @@ public class CLI {
 	      parsedArguments = argParser.parseArgs(args);
 	      System.err.println("CLI options: " + parsedArguments);
 	      
-	      switch (args[0]){
-	      case	"create":
+	      if (args[0].equals("create")){
 	    	  create(System.in, System.out);
-	      case	"eval":
+	      }
+	      else if (args[0].equals("eval")){
 	    	  eval();
-	      case	"compile":
+	      }
+	      else if (args[0].equals("compile")){
 	    	  compileGraph();
 	      }
 	      	    
@@ -385,12 +385,14 @@ public class CLI {
 	  public final void eval() throws IOException {
 	    BufferedReader breader = null;
 	    String corpus = parsedArguments.getString("corpus");
-	    String normalize = parsedArguments.getString("lexicon");
+	    String lexicon = parsedArguments.getString("lexicon");
 	    String estimator = parsedArguments.getString("estimator");
 	   
 	    System.out.println("lexicon evaluator: ");
 	    if (estimator.equals("avg")) {
-		    System.out.println(new AvgRatioEstimator());
+	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon);
+	    	Map<String, Double> results = avg.processCorpus(corpus);
+		    System.out.println("eval avg done"+results.toString());
 	    } 	
 	    else if (estimator.equals("moh")) {		
 		    System.out.println(new MohammadEstimator());
