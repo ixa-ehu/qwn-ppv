@@ -28,6 +28,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.OutputStream;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -48,6 +49,8 @@ import org.apache.commons.io.IOUtils;
 
 
 
+
+
 /*
  * lexicon creation classes
  */
@@ -60,6 +63,11 @@ import es.ehu.si.ixa.qwn.ppv.UKBwrapper;
 import es.ehu.si.ixa.qwn.ppv.eval.AvgRatioEstimator;
 import es.ehu.si.ixa.qwn.ppv.eval.MohammadEstimator;
 
+/*
+ * Kaf document processing libraries
+ */
+import ixa.kaflib.KAFDocument;
+import ixa.kaflib.WF;
 
 
 /**
@@ -111,17 +119,21 @@ public class CLI {
 	   * The parser that manages the evaluation sub-command.
 	   */
 	  private Subparser evalParser;
-
+	  
+	  private Subparser kafParser;
+	  
 	  public CLI() {
 		compileParser = subParsers.addParser("compile").help("Graph compilation CLI");
 		loadCompilationParameters();
 		creationParser = subParsers.addParser("create").help("Lexicon creation CLI");
 	    loadCreationParameters();
 	    evalParser = subParsers.addParser("eval").help("Lexicon evaluation CLI");
-	    loadEvalParameters();	    
+	    loadEvalParameters();
+	    kafParser = subParsers.addParser("kaf").help("Kaf document library test");
 	  }
+	  
 
-	  public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
 	    CLI cmdLine = new CLI();
 	    cmdLine.parseCLI(args);
@@ -149,6 +161,10 @@ public class CLI {
 	      else if (args[0].equals("compile")){
 	    	  compileGraph();
 	      }
+	      else if (args[0].equals("kaf")){
+	    	  processKaf(System.in, System.out);
+	      }
+
 	      	    
 	    } catch (ArgumentParserException e) {
 	      argParser.handleError(e);
@@ -383,16 +399,19 @@ public class CLI {
 	  }
 
 	  public final void eval() throws IOException {
-	    BufferedReader breader = null;
+	    
 	    String corpus = parsedArguments.getString("corpus");
 	    String lexicon = parsedArguments.getString("lexicon");
 	    String estimator = parsedArguments.getString("estimator");
+	    String synset = parsedArguments.getString("synset");
 	   
 	    System.out.println("lexicon evaluator: ");
 	    if (estimator.equals("avg")) {
-	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon);
-	    	Map<String, Double> results = avg.processCorpus(corpus);
-		    System.out.println("eval avg done"+results.toString());
+	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);
+	    	Map<String, String> results = avg.processKaf(corpus);
+	    	//Map<String, Double> results = avg.processCorpus(corpus);
+		    //System.out.println("eval avg done"+results.toString());
+	    	System.out.println("eval avg done results save to file corpus.sent");
 	    } 	
 	    else if (estimator.equals("moh")) {		
 		    System.out.println(new MohammadEstimator());
@@ -457,6 +476,40 @@ public class CLI {
         		+ "    - moh: polarity classifier proposed in (Mohammad et al.,2009 - EMNLP). Originally used on the MPQA corpus\n");
 	    
 	  }
+	  
+	  /*
+	   * kaf library test, for the moment only print the document contents.
+	   */
+	  public final void processKaf(final InputStream inputStream,
+		      final OutputStream outputStream) throws IOException {
+		  BufferedReader breader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+		  KAFDocument kafdoc = ixa.kaflib.KAFDocument.createFromStream(breader);		  
+		  String lang = kafdoc.getLang();
+		  List<WF> wfs = kafdoc.getWFs();
+		  int wfamount = wfs.size();
+		  System.out.println("Word form number in the document: "+wfamount+"\nlang: "+lang+"\n content:\n");
+		  for (List<WF> sentence : kafdoc.getSentences())
+		  {
+			 for (WF form : sentence)
+			 {
+				 System.out.print(form.getForm()+" ");
+			 }
+			 System.out.println("\n"); 
+		  };
+		  System.out.println("\n\nlisto!");
+	  }
+	  
+	  
+	  /*private void loadKafParameters() 
+	  {
+		  kaflibParser.addArgument("-p", "--print")	        
+	        .action(Arguments.storeTrue())
+	        .required(false)
+	        .help(
+	        		"test for kaf document processing library. a single argument is needed:"
+	        		+ " - a kaf document pass through the standard input\n");		    		  
+	  }*/
+	  
 	  
 	  /*
 	   * Function creates a temporal directory with a random name.

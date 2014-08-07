@@ -22,6 +22,9 @@ Developed by IXA NLP Group of the University of the Basque Country (ixa.si.ehu.e
 	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.custom.java.version>1.7</project.custom.java.version>
+		<maven.compiler.source>${project.custom.java.version}</maven.compiler.source>
+		<maven.compiler.target>${project.custom.java.version}</maven.compiler.target>
 	</properties>
 	<prerequisites>
 		<maven>3.0</maven>

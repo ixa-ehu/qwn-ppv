@@ -63,6 +63,15 @@ Developed by IXA NLP Group of the University of the Basque Country (ixa.si.ehu.e
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+      <id>ixa-ehu.kaflib</id>
+      <url>https://raw.github.com/ixa-ehu/kaflib-mvn-repo/master</url>
+    </repository>
+  </repositories>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -78,7 +87,10 @@ Developed by IXA NLP Group of the University of the Basque Country (ixa.si.ehu.e
     </dependency>
   </dependencies>
   <properties>
+    <maven.compiler.source>${project.custom.java.version}</maven.compiler.source>
+    <project.custom.java.version>1.7</project.custom.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>${project.custom.java.version}</maven.compiler.target>
   </properties>
 </project>
 
