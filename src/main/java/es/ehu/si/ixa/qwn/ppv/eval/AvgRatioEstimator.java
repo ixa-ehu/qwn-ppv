@@ -27,11 +27,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 import es.ehu.si.ixa.qwn.ppv.Lexicon;
-import es.ehu.si.ixa.qwn.ppv.LexiconEntry;
 
 public class AvgRatioEstimator {
 

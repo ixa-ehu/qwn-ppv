@@ -58,6 +58,7 @@ import org.apache.commons.io.IOUtils;
 
 
 
+
 /*
  * lexicon creation classes
  */
@@ -165,7 +166,7 @@ public class CLI {
 	  public final void parseCLI(final String[] args) throws IOException {
 	    try {
 	      parsedArguments = argParser.parseArgs(args);
-	      System.err.println("CLI options: " + parsedArguments);
+	      //System.err.println("CLI options: " + parsedArguments);
 	      
 	      if (args[0].equals("create")){
 	    	  create(System.in, System.out);
@@ -493,37 +494,50 @@ public class CLI {
 
 	  public final void predictPolarity() throws IOException {
 		    
-		    String corpus = parsedArguments.getString("file");
+		    String files = parsedArguments.getString("file");
 		    String lexicon = parsedArguments.getString("lexicon");
 		    String estimator = parsedArguments.getString("estimator");
 		    String synset = parsedArguments.getString("synset");
 		    float threshold = parsedArguments.getFloat("threshold");
 		   
 		    System.out.println("Polarity Predictor: ");
-		    if (estimator.equals("avg")) {
-		    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset, threshold);
-		    	Map<String, String> results = avg.processKaf(corpus);
-		    	//Map<String, Double> results = avg.processCorpus(corpus);
-			    //System.out.println("eval avg done"+results.toString());
-		    	System.out.println("Prediction with avg done: \n"
-		    			+ "\tTagged file: "+results.get("taggedFile")+"\n"
-		    			+ "\tNumber of words containing sentiment found: "+results.get("sentTermNum")+"\n"
-		    			+ "\tPolarity score: "+results.get("avg")
-		    			+ "\tPolarity (threshold -> "+results.get("thresh")+"): "+results.get("polarity"));
-		    	prettyPrintSentKaf(results.get("taggedFile"));
-		    }
-		    else if (estimator.equals("moh")) {		
-			    System.out.println(new MohammadEstimator());
-		      }	
+		    BufferedReader freader = new BufferedReader(new FileReader(files));   		
+			String line;
+			while ((line = freader.readLine()) != null) 
+			{
+				try {
+					if (estimator.equals("avg")) 
+					{			
+						AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset, threshold);
+						Map<String, String> results = avg.processKaf(line);
+						//Map<String, Double> results = avg.processCorpus(corpus);
+						//System.out.println("eval avg done"+results.toString());
+						/*System.out.println("Prediction with avg done: \n"
+		    				+ "\tTagged file: "+results.get("taggedFile")+"\n"
+		    				+ "\tNumber of words containing sentiment found: "+results.get("sentTermNum")+"\n"
+		    				+ "\tPolarity score: "+results.get("avg")
+		    				+ "\tPolarity (threshold -> "+results.get("thresh")+"): "+results.get("polarity"));*/
+						prettyPrintSentKaf(results);
+					}	
+					else if (estimator.equals("moh")) {		
+						System.out.println(new MohammadEstimator());
+					}
+				} catch (Exception e) {
+					System.err.println("predictPolarity: error when processing "+line+" file");
+					//e.printStackTrace();
+				}
+			}
+			freader.close();
 		  }
 		  
-		  private void prettyPrintSentKaf(String fname) throws IOException
+		  private void prettyPrintSentKaf(Map<String,String> kaf) throws IOException
 		  {
+			  String fname = kaf.get("taggedFile");
 			  BufferedReader breader = new BufferedReader(new FileReader(fname));
 			  KAFDocument doc = KAFDocument.createFromStream(breader);
 			  String toprint = "";
 			  Map <String, String> wfspans = new HashMap <String,String>();
-			  System.err.println(doc.getSentences().size());
+			  
 			  for (List<WF> sentence : doc.getSentences())
 			  {			
 				 // store spans of polarity terms in wfspans variable.
@@ -586,17 +600,21 @@ public class CLI {
 			  BufferedWriter bwriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fname+"_tagged.html")));			  
 			  toprint = toprint.replaceAll("([a-z>]) ([.,;:\\)\\?\\!])","$1$2");
 			  toprint = toprint.replaceAll("\\.\n",".\n<br/>");
-			  bwriter.write("<html>\n<body>\n"+toprint+"\n</body>\n</html>");
+			  bwriter.write("<html>\n<body>\n<div id=\"details\">"		    			
+		    			+ "\n<br/><strong>Number of words containing sentiment found:</strong> "+kaf.get("sentTermNum")
+		    			+ "\n<br/><strong>Polarity score:</strong> "+kaf.get("avg")
+		    			+ "\n<br/><strong>Polarity (threshold -> "+kaf.get("thresh")+"):</strong> "+kaf.get("polarity")
+		    			+ "</div>\n<div id=text\">"+toprint+"\n</div>\n</body>\n</html>");
 			  bwriter.close();
 			  //System.out.println("\n\n"+toprint+"\n\nlisto!");
-			  System.out.println("\n\nlisto!");
+			  //System.out.println("\n\nlisto!");
 		  }
 
 
 		private void loadPredictionParameters() {
 			  /*
 			   *  Parameters:
-	        - Input File (-f | --file= ): File containing the texts whose polarity we want to estimate. files must have valid KAF format.    
+	        - Input File (-f | --file= ): File containing the a list of text files in KAF format whose polarity we want to estimate.    
 	        - dict file  (-l | --lexicon= ): path to the polarity lexicon.
 	        - Synset polarities (-s | --synset=): default polarities are calculated over lemmas. With this option polarity of synsets is taken into account instead of words. It has two posible values: (first|rank). 'first' uses the sense with the highest confidence value for the lemma. 'rank' uses complete ranking of synsets.
 	        - Dictionary weights (-w | --weights): use polarity weights instead of binary polarities (pos/neg). If the dictionary does not provide polarity scores the program defaults to binary polarities.
