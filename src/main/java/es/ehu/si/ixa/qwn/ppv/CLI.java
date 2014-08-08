@@ -22,11 +22,13 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +53,11 @@ import org.apache.commons.io.IOUtils;
 
 
 
+
+
+
+
+
 /*
  * lexicon creation classes
  */
@@ -67,6 +74,7 @@ import es.ehu.si.ixa.qwn.ppv.eval.MohammadEstimator;
  * Kaf document processing libraries
  */
 import ixa.kaflib.KAFDocument;
+import ixa.kaflib.Term;
 import ixa.kaflib.WF;
 
 
@@ -120,6 +128,11 @@ public class CLI {
 	   */
 	  private Subparser evalParser;
 	  
+	  /**
+	   * Parser that manages the polarity tagging and estimation of a text (kaf format for the moment).
+	   */
+	  private Subparser predictParser;
+	  
 	  private Subparser kafParser;
 	  
 	  public CLI() {
@@ -129,6 +142,8 @@ public class CLI {
 	    loadCreationParameters();
 	    evalParser = subParsers.addParser("eval").help("Lexicon evaluation CLI");
 	    loadEvalParameters();
+	    predictParser = subParsers.addParser("predict").help("Predict polarity of a text");
+	    loadPredictionParameters();
 	    kafParser = subParsers.addParser("kaf").help("Kaf document library test");
 	  }
 	  
@@ -160,6 +175,9 @@ public class CLI {
 	      }
 	      else if (args[0].equals("compile")){
 	    	  compileGraph();
+	      }
+	      else if (args[0].equals("predict")){
+	    	  predictPolarity();
 	      }
 	      else if (args[0].equals("kaf")){
 	    	  processKaf(System.in, System.out);
@@ -407,17 +425,15 @@ public class CLI {
 	   
 	    System.out.println("lexicon evaluator: ");
 	    if (estimator.equals("avg")) {
-	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);
-	    	Map<String, String> results = avg.processKaf(corpus);
-	    	//Map<String, Double> results = avg.processCorpus(corpus);
-		    //System.out.println("eval avg done"+results.toString());
-	    	System.out.println("eval avg done results save to file corpus.sent");
+	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);	    	
+	    	Map<String, Double> results = avg.processCorpus(corpus);
+		    System.out.println("eval avg done"+results.toString());	    	
 	    } 	
 	    else if (estimator.equals("moh")) {		
 		    System.out.println(new MohammadEstimator());
 	      }	
 	  }
-
+	  
 	  private void loadEvalParameters() {
 		  /*
 		   *  Parameters:
@@ -432,8 +448,6 @@ public class CLI {
 
 		   * 
 		   */
-		  
-		  
 		  
 		evalParser.addArgument("-c", "--corpus")
 			.required(true)
@@ -476,6 +490,160 @@ public class CLI {
         		+ "    - moh: polarity classifier proposed in (Mohammad et al.,2009 - EMNLP). Originally used on the MPQA corpus\n");
 	    
 	  }
+
+	  public final void predictPolarity() throws IOException {
+		    
+		    String corpus = parsedArguments.getString("file");
+		    String lexicon = parsedArguments.getString("lexicon");
+		    String estimator = parsedArguments.getString("estimator");
+		    String synset = parsedArguments.getString("synset");
+		    float threshold = parsedArguments.getFloat("threshold");
+		   
+		    System.out.println("Polarity Predictor: ");
+		    if (estimator.equals("avg")) {
+		    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset, threshold);
+		    	Map<String, String> results = avg.processKaf(corpus);
+		    	//Map<String, Double> results = avg.processCorpus(corpus);
+			    //System.out.println("eval avg done"+results.toString());
+		    	System.out.println("Prediction with avg done: \n"
+		    			+ "\tTagged file: "+results.get("taggedFile")+"\n"
+		    			+ "\tNumber of words containing sentiment found: "+results.get("sentTermNum")+"\n"
+		    			+ "\tPolarity score: "+results.get("avg")
+		    			+ "\tPolarity (threshold -> "+results.get("thresh")+"): "+results.get("polarity"));
+		    	prettyPrintSentKaf(results.get("taggedFile"));
+		    }
+		    else if (estimator.equals("moh")) {		
+			    System.out.println(new MohammadEstimator());
+		      }	
+		  }
+		  
+		  private void prettyPrintSentKaf(String fname) throws IOException
+		  {
+			  BufferedReader breader = new BufferedReader(new FileReader(fname));
+			  KAFDocument doc = KAFDocument.createFromStream(breader);
+			  String toprint = "";
+			  Map <String, String> wfspans = new HashMap <String,String>();
+			  System.err.println(doc.getSentences().size());
+			  for (List<WF> sentence : doc.getSentences())
+			  {			
+				 // store spans of polarity terms in wfspans variable.
+				 for (Term term : doc.getTermsByWFs(sentence))
+				 { 
+					 if (term != null && term.hasSentiment() && term.getSentiment().hasPolarity())
+					 {
+						 String tPol = term.getSentiment().getPolarity();
+						 // single form term
+						 if (term.getWFs().size() < 2)
+						 {
+							 wfspans.put(term.getWFs().get(0).getId(),tPol+"single");						 						 							 
+						 }
+						 else
+						 {
+							 wfspans.put(term.getWFs().get(0).getId(),tPol);
+							 wfspans.put(term.getWFs().get(term.getWFs().size()-1).getId() ,"end");
+						 }
+					 }
+				 }
+				 
+				 // from now one write the html code to print the document.
+				 for (WF form : sentence)
+				 {
+					 
+					 String wId = form.getId();
+					 if (wfspans.containsKey(wId))
+					 {
+						 if (wfspans.get(wId).compareTo("end") == 0)
+						 {
+							 toprint+=form.getForm()+"</span> ";							 
+						 }
+						 else
+						 {
+							 String color = wfspans.get(wId).substring(0, 3);
+							 boolean single = wfspans.get(wId).endsWith("single");
+							 
+							 color = color.replaceAll("pos", "green");
+							 color = color.replaceAll("neg", "red");
+							 color = color.replaceAll("neu", "orange");
+							 if (single)
+							 {
+								 toprint+="<span style=\"color:"+color+"\">"+form.getForm()+"</span> ";								 
+							 }
+							 else
+							 {
+								 toprint+="<span style=\"color:"+color+"\">"+form.getForm()+" ";
+							 }
+
+						 }
+					 }
+					 else 
+					 {
+						 toprint+=form.getForm()+" ";					 
+					 }					 
+					 //System.out.print(form.getForm()+" ");
+				 }
+				 toprint+="\n"; 
+			  };
+			  BufferedWriter bwriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fname+"_tagged.html")));			  
+			  toprint = toprint.replaceAll("([a-z>]) ([.,;:\\)\\?\\!])","$1$2");
+			  toprint = toprint.replaceAll("\\.\n",".\n<br/>");
+			  bwriter.write("<html>\n<body>\n"+toprint+"\n</body>\n</html>");
+			  bwriter.close();
+			  //System.out.println("\n\n"+toprint+"\n\nlisto!");
+			  System.out.println("\n\nlisto!");
+		  }
+
+
+		private void loadPredictionParameters() {
+			  /*
+			   *  Parameters:
+	        - Input File (-f | --file= ): File containing the texts whose polarity we want to estimate. files must have valid KAF format.    
+	        - dict file  (-l | --lexicon= ): path to the polarity lexicon.
+	        - Synset polarities (-s | --synset=): default polarities are calculated over lemmas. With this option polarity of synsets is taken into account instead of words. It has two posible values: (first|rank). 'first' uses the sense with the highest confidence value for the lemma. 'rank' uses complete ranking of synsets.
+	        - Dictionary weights (-w | --weights): use polarity weights instead of binary polarities (pos/neg). If the dictionary does not provide polarity scores the program defaults to binary polarities.
+	        - Threshold (-t | --threshold=) [-1,1]: Threshold which limits positive and negative reviews. Default value is 0.
+	        - Polarity score estimator (-e| --estimator) [avg|moh]: average polarity ratio or estimator proposed in (Mohammad et al.,2009 - EMNLP) 
+	        
+			   * 
+			   */		  
+			  			  
+			predictParser.addArgument("-f", "--file")
+				.required(true)
+				.help("Input file to predict the polarity lexicon.\n");
+			
+			predictParser.addArgument("-l", "--lexicon")
+		        .required(true)
+		        .help("Path to the polarity lexicon file.\n");
+		        
+			predictParser.addArgument("-s", "--synset")
+		        .choices("lemma", "first","rank")
+		        .required(false)
+		        .setDefault("lemma")
+		        .help(
+		            "Default polarities are calculated over lemmas. With this option polarity of synsets is taken into account instead of words. Possible values: (lemma|first|rank). 'first' uses the sense with the highest confidence value for the lemma. 'rank' uses complete ranking of synsets.\n");
+		    
+			predictParser.addArgument("-w", "--weights")
+	        .action(Arguments.storeTrue())
+	        .help(
+	            "Use polarity weights instead of binary polarities (pos/neg). If the dictionary does not provide polarity scores the program defaults to binary polarities.\n");
+	    
+			predictParser.addArgument("-t", "--threshold")
+	        .required(false)
+	        .setDefault((float)0)
+	        .help(
+	        		"Threshold which limits positive and negative reviews. Float in the [-1,1] range. Default value is 0.\n");
+
+			predictParser.addArgument("-e", "--estimator")
+	        .choices("avg", "moh")
+	        .required(false)
+	        .setDefault("avg")
+	        .help(
+	        		"scoring function used for computing the polarity [avg | moh]: \n"
+	        		+ "    - avg: average ratio of the polarity words in the text"
+	        		+ "    - moh: polarity classifier proposed in (Mohammad et al.,2009 - EMNLP). Originally used on the MPQA corpus\n");
+		    
+		  }
+
+	  
 	  
 	  /*
 	   * kaf library test, for the moment only print the document contents.

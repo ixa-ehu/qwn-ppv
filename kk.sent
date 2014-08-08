@@ -1,0 +1,5434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<KAF xml:lang="eu" version="v1.opener">
+  <kafHeader />
+  <text>
+    <wf wid="w1" sent="1">Gaur</wf>
+    <wf wid="w2" sent="1">hitz</wf>
+    <wf wid="w3" sent="1">egingo</wf>
+    <wf wid="w4" sent="1">dut</wf>
+    <wf wid="w5" sent="1">Txillardegiz</wf>
+    <wf wid="w6" sent="1">.</wf>
+    <wf wid="w7" sent="2">Gaurko</wf>
+    <wf wid="w8" sent="2">pentsalaria</wf>
+    <wf wid="w9" sent="2">da</wf>
+    <wf wid="w10" sent="2">,</wf>
+    <wf wid="w11" sent="2">eta</wf>
+    <wf wid="w12" sent="2">badirudi</wf>
+    <wf wid="w13" sent="2">beti</wf>
+    <wf wid="w14" sent="2">bizi</wf>
+    <wf wid="w15" sent="2">izan</wf>
+    <wf wid="w16" sent="2">dela</wf>
+    <wf wid="w17" sent="2">gaur</wf>
+    <wf wid="w18" sent="2">;</wf>
+    <wf wid="w19" sent="2">ez</wf>
+    <wf wid="w20" sent="2">atzo</wf>
+    <wf wid="w21" sent="2">ez</wf>
+    <wf wid="w22" sent="2">bihar</wf>
+    <wf wid="w23" sent="2">,</wf>
+    <wf wid="w24" sent="2">beti</wf>
+    <wf wid="w25" sent="2">gaur</wf>
+    <wf wid="w26" sent="2">.</wf>
+    <wf wid="w27" sent="3">Honezkero</wf>
+    <wf wid="w28" sent="3">,</wf>
+    <wf wid="w29" sent="3">ia</wf>
+    <wf wid="w30" sent="3">iraina</wf>
+    <wf wid="w31" sent="3">litzateke</wf>
+    <wf wid="w32" sent="3">Jose</wf>
+    <wf wid="w33" sent="3">Luis</wf>
+    <wf wid="w34" sent="3">Alvarez</wf>
+    <wf wid="w35" sent="3">Enparantza</wf>
+    <wf wid="w36" sent="3">Txillardegi</wf>
+    <wf wid="w37" sent="3">aurkeztea</wf>
+    <wf wid="w38" sent="3">.</wf>
+    <wf wid="w39" sent="4">Gure</wf>
+    <wf wid="w40" sent="4">artean</wf>
+    <wf wid="w41" sent="4">nabarmena</wf>
+    <wf wid="w42" sent="4">izateko</wf>
+    <wf wid="w43" sent="4">arrazoiak</wf>
+    <wf wid="w44" sent="4">eman</wf>
+    <wf wid="w45" sent="4">dizkigu</wf>
+    <wf wid="w46" sent="4">aski</wf>
+    <wf wid="w47" sent="4">,</wf>
+    <wf wid="w48" sent="4">eta</wf>
+    <wf wid="w49" sent="4">ez</wf>
+    <wf wid="w50" sent="4">naiz</wf>
+    <wf wid="w51" sent="4">hemen</wf>
+    <wf wid="w52" sent="4">zerrendatzen</wf>
+    <wf wid="w53" sent="4">hasiko</wf>
+    <wf wid="w54" sent="4">.</wf>
+    <wf wid="w55" sent="5">Ez</wf>
+    <wf wid="w56" sent="5">da</wf>
+    <wf wid="w57" sent="5">une</wf>
+    <wf wid="w58" sent="5">,</wf>
+    <wf wid="w59" sent="5">ez</wf>
+    <wf wid="w60" sent="5">leku</wf>
+    <wf wid="w61" sent="5">egokia</wf>
+    <wf wid="w62" sent="5">.</wf>
+    <wf wid="w63" sent="6">Horretaz</wf>
+    <wf wid="w64" sent="6">deitzen</wf>
+    <wf wid="w65" sent="6">da</wf>
+    <wf wid="w66" sent="6">Txillardegiren</wf>
+    <wf wid="w67" sent="6">azken</wf>
+    <wf wid="w68" sent="6">argitalpena</wf>
+    <wf wid="w69" sent="6">,</wf>
+    <wf wid="w70" sent="6">1965eko</wf>
+    <wf wid="w71" sent="6">Huntaz</wf>
+    <wf wid="w72" sent="6">eta</wf>
+    <wf wid="w73" sent="6">hartaz</wf>
+    <wf wid="w74" sent="6">liburuarekin</wf>
+    <wf wid="w75" sent="6">aldebiko</wf>
+    <wf wid="w76" sent="6">triangelua</wf>
+    <wf wid="w77" sent="6">osatzen</wf>
+    <wf wid="w78" sent="6">duena</wf>
+    <wf wid="w79" sent="6">.</wf>
+    <wf wid="w80" sent="7">Zazpi</wf>
+    <wf wid="w81" sent="7">saiakera</wf>
+    <wf wid="w82" sent="7">labur</wf>
+    <wf wid="w83" sent="7">eman</wf>
+    <wf wid="w84" sent="7">ditu</wf>
+    <wf wid="w85" sent="7">argitara</wf>
+    <wf wid="w86" sent="7">.</wf>
+    <wf wid="w87" sent="8">Jean</wf>
+    <wf wid="w88" sent="8">Paul</wf>
+    <wf wid="w89" sent="8">Sartre</wf>
+    <wf wid="w90" sent="8">,</wf>
+    <wf wid="w91" sent="8">Rosalia</wf>
+    <wf wid="w92" sent="8">de</wf>
+    <wf wid="w93" sent="8">Castro</wf>
+    <wf wid="w94" sent="8">eta</wf>
+    <wf wid="w95" sent="8">Galizia</wf>
+    <wf wid="w96" sent="8">,</wf>
+    <wf wid="w97" sent="8">Ameriketako</wf>
+    <wf wid="w98" sent="8">genozidioa</wf>
+    <wf wid="w99" sent="8">,</wf>
+    <wf wid="w100" sent="8">gizakiaren</wf>
+    <wf wid="w101" sent="8">jatorria</wf>
+    <wf wid="w102" sent="8">,</wf>
+    <wf wid="w103" sent="8">Jainkoa</wf>
+    <wf wid="w104" sent="8">,</wf>
+    <wf wid="w105" sent="8">antropozentrismoaren</wf>
+    <wf wid="w106" sent="8">kritika</wf>
+    <wf wid="w107" sent="8">,</wf>
+    <wf wid="w108" sent="8">eta</wf>
+    <wf wid="w109" sent="8">kosmosaren</wf>
+    <wf wid="w110" sent="8">behaketa</wf>
+    <wf wid="w111" sent="8">.</wf>
+    <wf wid="w112" sent="9">Horiek</wf>
+    <wf wid="w113" sent="9">dira</wf>
+    <wf wid="w114" sent="9">Txillardegik</wf>
+    <wf wid="w115" sent="9">aurkeztu</wf>
+    <wf wid="w116" sent="9">dizkigun</wf>
+    <wf wid="w117" sent="9">gaiak</wf>
+    <wf wid="w118" sent="9">.</wf>
+    <wf wid="w119" sent="10">"</wf>
+    <wf wid="w120" sent="10">Aurkeztu</wf>
+    <wf wid="w121" sent="10">"</wf>
+    <wf wid="w122" sent="10">esan</wf>
+    <wf wid="w123" sent="10">dut</wf>
+    <wf wid="w124" sent="10">,</wf>
+    <wf wid="w125" sent="10">hain</wf>
+    <wf wid="w126" sent="10">zuzen</wf>
+    <wf wid="w127" sent="10">,</wf>
+    <wf wid="w128" sent="10">gaien</wf>
+    <wf wid="w129" sent="10">gaineko</wf>
+    <wf wid="w130" sent="10">digresio</wf>
+    <wf wid="w131" sent="10">eta</wf>
+    <wf wid="w132" sent="10">sakontzean</wf>
+    <wf wid="w133" sent="10">galdu</wf>
+    <wf wid="w134" sent="10">ordez</wf>
+    <wf wid="w135" sent="10">,</wf>
+    <wf wid="w136" sent="10">saiakera</wf>
+    <wf wid="w137" sent="10">laburrotan</wf>
+    <wf wid="w138" sent="10">gaien</wf>
+    <wf wid="w139" sent="10">aurkezpen</wf>
+    <wf wid="w140" sent="10">iradokitzaileak</wf>
+    <wf wid="w141" sent="10">egin</wf>
+    <wf wid="w142" sent="10">dituelako</wf>
+    <wf wid="w143" sent="10">.</wf>
+    <wf wid="w144" sent="11">"</wf>
+    <wf wid="w145" sent="11">Sakondu</wf>
+    <wf wid="w146" sent="11">nahi</wf>
+    <wf wid="w147" sent="11">duenak</wf>
+    <wf wid="w148" sent="11">espezialistetara</wf>
+    <wf wid="w149" sent="11">jotzea</wf>
+    <wf wid="w150" sent="11">dauka</wf>
+    <wf wid="w151" sent="11">.</wf>
+    <wf wid="w152" sent="12">Punttua</wf>
+    <wf wid="w153" sent="12">jartzea</wf>
+    <wf wid="w154" sent="12">dagokit</wf>
+    <wf wid="w155" sent="12">bakarrik</wf>
+    <wf wid="w156" sent="12">.</wf>
+    <wf wid="w157" sent="13">Bertsoa</wf>
+    <wf wid="w158" sent="13">...</wf>
+    <wf wid="w159" sent="13">bestek</wf>
+    <wf wid="w160" sent="13">burutuko</wf>
+    <wf wid="w161" sent="13">"</wf>
+    <wf wid="w162" sent="13">.</wf>
+    <wf wid="w163" sent="14">Argiago</wf>
+    <wf wid="w164" sent="14">ezin</wf>
+    <wf wid="w165" sent="14">zuen</wf>
+    <wf wid="w166" sent="14">idazleak</wf>
+    <wf wid="w167" sent="14">bere</wf>
+    <wf wid="w168" sent="14">asmoa</wf>
+    <wf wid="w169" sent="14">azaldu</wf>
+    <wf wid="w170" sent="14">.</wf>
+    <wf wid="w171" sent="15">Gaiak</wf>
+    <wf wid="w172" sent="15">oro</wf>
+    <wf wid="w173" sent="15">dira</wf>
+    <wf wid="w174" sent="15">interesgarriak</wf>
+    <wf wid="w175" sent="15">,</wf>
+    <wf wid="w176" sent="15">baina</wf>
+    <wf wid="w177" sent="15">besteak</wf>
+    <wf wid="w178" sent="15">baino</wf>
+    <wf wid="w179" sent="15">atsegin</wf>
+    <wf wid="w180" sent="15">biziagoz</wf>
+    <wf wid="w181" sent="15">irakurri</wf>
+    <wf wid="w182" sent="15">ditut</wf>
+    <wf wid="w183" sent="15">"</wf>
+    <wf wid="w184" sent="15">Ameriketako</wf>
+    <wf wid="w185" sent="15">genozidioaz</wf>
+    <wf wid="w186" sent="15">"</wf>
+    <wf wid="w187" sent="15">,</wf>
+    <wf wid="w188" sent="15">"</wf>
+    <wf wid="w189" sent="15">Giza</wf>
+    <wf wid="w190" sent="15">jatorriaz</wf>
+    <wf wid="w191" sent="15">"</wf>
+    <wf wid="w192" sent="15">eta</wf>
+    <wf wid="w193" sent="15">"</wf>
+    <wf wid="w194" sent="15">Gure</wf>
+    <wf wid="w195" sent="15">galaxian</wf>
+    <wf wid="w196" sent="15">barrena</wf>
+    <wf wid="w197" sent="15">"</wf>
+    <wf wid="w198" sent="15">atalak</wf>
+    <wf wid="w199" sent="15">.</wf>
+    <wf wid="w200" sent="16">Aitortu</wf>
+    <wf wid="w201" sent="16">behar</wf>
+    <wf wid="w202" sent="16">dut</wf>
+    <wf wid="w203" sent="16">kosmos</wf>
+    <wf wid="w204" sent="16">kontuetan</wf>
+    <wf wid="w205" sent="16">ia</wf>
+    <wf wid="w206" sent="16">birjina</wf>
+    <wf wid="w207" sent="16">izaki</wf>
+    <wf wid="w208" sent="16">,</wf>
+    <wf wid="w209" sent="16">galdu</wf>
+    <wf wid="w210" sent="16">samar</wf>
+    <wf wid="w211" sent="16">ibili</wf>
+    <wf wid="w212" sent="16">naizela</wf>
+    <wf wid="w213" sent="16">,</wf>
+    <wf wid="w214" sent="16">batez</wf>
+    <wf wid="w215" sent="16">ere</wf>
+    <wf wid="w216" sent="16">liburua</wf>
+    <wf wid="w217" sent="16">ixten</wf>
+    <wf wid="w218" sent="16">duen</wf>
+    <wf wid="w219" sent="16">"</wf>
+    <wf wid="w220" sent="16">Galaxietan</wf>
+    <wf wid="w221" sent="16">barrena</wf>
+    <wf wid="w222" sent="16">"</wf>
+    <wf wid="w223" sent="16">saiakeran</wf>
+    <wf wid="w224" sent="16">.</wf>
+    <wf wid="w225" sent="17">Gauza</wf>
+    <wf wid="w226" sent="17">ezezagun</wf>
+    <wf wid="w227" sent="17">hegalari</wf>
+    <wf wid="w228" sent="17">gehiegi</wf>
+    <wf wid="w229" sent="17">,</wf>
+    <wf wid="w230" sent="17">niretzat</wf>
+    <wf wid="w231" sent="17">.</wf>
+    <wf wid="w232" sent="18">Gaiak</wf>
+    <wf wid="w233" sent="18">askotarikoak</wf>
+    <wf wid="w234" sent="18">izanik</wf>
+    <wf wid="w235" sent="18">,</wf>
+    <wf wid="w236" sent="18">hobe</wf>
+    <wf wid="w237" sent="18">saiakeron</wf>
+    <wf wid="w238" sent="18">ezaugarri</wf>
+    <wf wid="w239" sent="18">orokorrak</wf>
+    <wf wid="w240" sent="18">azaltzen</wf>
+    <wf wid="w241" sent="18">baditugu</wf>
+    <wf wid="w242" sent="18">.</wf>
+    <wf wid="w243" sent="19">Bi</wf>
+    <wf wid="w244" sent="19">nabarmenduko</wf>
+    <wf wid="w245" sent="19">nituzke</wf>
+    <wf wid="w246" sent="19">:</wf>
+    <wf wid="w247" sent="20">testuen</wf>
+    <wf wid="w248" sent="20">borondate</wf>
+    <wf wid="w249" sent="20">hipertestuala</wf>
+    <wf wid="w250" sent="20">batetik</wf>
+    <wf wid="w251" sent="20">,</wf>
+    <wf wid="w252" sent="20">eta</wf>
+    <wf wid="w253" sent="20">jendarteratzailea</wf>
+    <wf wid="w254" sent="20">bestetik</wf>
+    <wf wid="w255" sent="20">.</wf>
+    <wf wid="w256" sent="21">Hipertestuala</wf>
+    <wf wid="w257" sent="21">,</wf>
+    <wf wid="w258" sent="21">edukien</wf>
+    <wf wid="w259" sent="21">arteko</wf>
+    <wf wid="w260" sent="21">lotura</wf>
+    <wf wid="w261" sent="21">bilatu</wf>
+    <wf wid="w262" sent="21">duelako</wf>
+    <wf wid="w263" sent="21">.</wf>
+    <wf wid="w264" sent="22">Testuaren</wf>
+    <wf wid="w265" sent="22">baitatik</wf>
+    <wf wid="w266" sent="22">testutik</wf>
+    <wf wid="w267" sent="22">irteteko</wf>
+    <wf wid="w268" sent="22">deia</wf>
+    <wf wid="w269" sent="22">egiten</wf>
+    <wf wid="w270" sent="22">duelako</wf>
+    <wf wid="w271" sent="22">,</wf>
+    <wf wid="w272" sent="22">jatorrizkoak</wf>
+    <wf wid="w273" sent="22">ezagutzeko</wf>
+    <wf wid="w274" sent="22">gonbit</wf>
+    <wf wid="w275" sent="22">ugari</wf>
+    <wf wid="w276" sent="22">dagoelako</wf>
+    <wf wid="w277" sent="22">.</wf>
+    <wf wid="w278" sent="23">Egituraren</wf>
+    <wf wid="w279" sent="23">aldetik</wf>
+    <wf wid="w280" sent="23">nahiz</wf>
+    <wf wid="w281" sent="23">ideien</wf>
+    <wf wid="w282" sent="23">antolamendu</wf>
+    <wf wid="w283" sent="23">aldetik</wf>
+    <wf wid="w284" sent="23">batzuetan</wf>
+    <wf wid="w285" sent="23">nahasi</wf>
+    <wf wid="w286" sent="23">samarra</wf>
+    <wf wid="w287" sent="23">suerta</wf>
+    <wf wid="w288" sent="23">daitekeen</wf>
+    <wf wid="w289" sent="23">arren</wf>
+    <wf wid="w290" sent="23">,</wf>
+    <wf wid="w291" sent="23">prosa</wf>
+    <wf wid="w292" sent="23">garbia</wf>
+    <wf wid="w293" sent="23">da</wf>
+    <wf wid="w294" sent="23">Txillardegirena</wf>
+    <wf wid="w295" sent="23">,</wf>
+    <wf wid="w296" sent="23">bere</wf>
+    <wf wid="w297" sent="23">ezagupenak</wf>
+    <wf wid="w298" sent="23">ezagutzera</wf>
+    <wf wid="w299" sent="23">emateko</wf>
+    <wf wid="w300" sent="23">asmoz</wf>
+    <wf wid="w301" sent="23">eraikia</wf>
+    <wf wid="w302" sent="23">.</wf>
+    <wf wid="w303" sent="24">Hipertestuek</wf>
+    <wf wid="w304" sent="24">badute</wf>
+    <wf wid="w305" sent="24">arrisku</wf>
+    <wf wid="w306" sent="24">bat</wf>
+    <wf wid="w307" sent="24">,</wf>
+    <wf wid="w308" sent="24">Internetekoek</wf>
+    <wf wid="w309" sent="24">bereziki</wf>
+    <wf wid="w310" sent="24">:</wf>
+    <wf wid="w311" sent="25">alegia</wf>
+    <wf wid="w312" sent="25">,</wf>
+    <wf wid="w313" sent="25">testutik</wf>
+    <wf wid="w314" sent="25">testura</wf>
+    <wf wid="w315" sent="25">galdu</wf>
+    <wf wid="w316" sent="25">eta</wf>
+    <wf wid="w317" sent="25">hasitako</wf>
+    <wf wid="w318" sent="25">testura</wf>
+    <wf wid="w319" sent="25">ez</wf>
+    <wf wid="w320" sent="25">itzultzeko</wf>
+    <wf wid="w321" sent="25">arriskua</wf>
+    <wf wid="w322" sent="25">,</wf>
+    <wf wid="w323" sent="25">zikloa</wf>
+    <wf wid="w324" sent="25">itxi</wf>
+    <wf wid="w325" sent="25">gabe</wf>
+    <wf wid="w326" sent="25">uztekoa</wf>
+    <wf wid="w327" sent="25">.</wf>
+    <wf wid="w328" sent="26">Baina</wf>
+    <wf wid="w329" sent="26">liburu</wf>
+    <wf wid="w330" sent="26">honekin</wf>
+    <wf wid="w331" sent="26">ez</wf>
+    <wf wid="w332" sent="26">dut</wf>
+    <wf wid="w333" sent="26">sumatu</wf>
+    <wf wid="w334" sent="26">halakorik</wf>
+    <wf wid="w335" sent="26">.</wf>
+    <wf wid="w336" sent="27">Helburu</wf>
+    <wf wid="w337" sent="27">jendarteratzaile</wf>
+    <wf wid="w338" sent="27">argiak</wf>
+    <wf wid="w339" sent="27">ditu</wf>
+    <wf wid="w340" sent="27">,</wf>
+    <wf wid="w341" sent="27">eta</wf>
+    <wf wid="w342" sent="27">hortaz</wf>
+    <wf wid="w343" sent="27">,</wf>
+    <wf wid="w344" sent="27">galtzeko</wf>
+    <wf wid="w345" sent="27">arrisku</wf>
+    <wf wid="w346" sent="27">gutxi</wf>
+    <wf wid="w347" sent="27">.</wf>
+    <wf wid="w348" sent="28">Esan</wf>
+    <wf wid="w349" sent="28">gabe</wf>
+    <wf wid="w350" sent="28">doa</wf>
+    <wf wid="w351" sent="28">,</wf>
+    <wf wid="w352" sent="28">halako</wf>
+    <wf wid="w353" sent="28">gidariarekin</wf>
+    <wf wid="w354" sent="28">...</wf>
+    <wf wid="w355" sent="28">Liburuari</wf>
+    <wf wid="w356" sent="28">itzalen</wf>
+    <wf wid="w357" sent="28">bat</wf>
+    <wf wid="w358" sent="28">ikustekotan</wf>
+    <wf wid="w359" sent="28">,</wf>
+    <wf wid="w360" sent="28">metodologiaren</wf>
+    <wf wid="w361" sent="28">lausotasuna</wf>
+    <wf wid="w362" sent="28">eta</wf>
+    <wf wid="w363" sent="28">itzulpen</wf>
+    <wf wid="w364" sent="28">guztietan</wf>
+    <wf wid="w365" sent="28">koherentziarik</wf>
+    <wf wid="w366" sent="28">gorde</wf>
+    <wf wid="w367" sent="28">ez</wf>
+    <wf wid="w368" sent="28">izana</wf>
+    <wf wid="w369" sent="28">seinalatuko</wf>
+    <wf wid="w370" sent="28">nituzke</wf>
+    <wf wid="w371" sent="28">.</wf>
+    <wf wid="w372" sent="29">Izan</wf>
+    <wf wid="w373" sent="29">ere</wf>
+    <wf wid="w374" sent="29">,</wf>
+    <wf wid="w375" sent="29">liburura</wf>
+    <wf wid="w376" sent="29">ekarritako</wf>
+    <wf wid="w377" sent="29">testu</wf>
+    <wf wid="w378" sent="29">batzuk</wf>
+    <wf wid="w379" sent="29">jatorrizko</wf>
+    <wf wid="w380" sent="29">hizkuntzan</wf>
+    <wf wid="w381" sent="29">utzi</wf>
+    <wf wid="w382" sent="29">ditu</wf>
+    <wf wid="w383" sent="29">(</wf>
+    <wf wid="w384" sent="29">maiz</wf>
+    <wf wid="w385" sent="29">frantsesez</wf>
+    <wf wid="w386" sent="29">)</wf>
+    <wf wid="w387" sent="29">,</wf>
+    <wf wid="w388" sent="29">baina</wf>
+    <wf wid="w389" sent="29">beste</wf>
+    <wf wid="w390" sent="29">batzuetan</wf>
+    <wf wid="w391" sent="29">euskarara</wf>
+    <wf wid="w392" sent="29">itzuli</wf>
+    <wf wid="w393" sent="29">ditu</wf>
+    <wf wid="w394" sent="29">,</wf>
+    <wf wid="w395" sent="29">begi-bistako</wf>
+    <wf wid="w396" sent="29">irizpiderik</wf>
+    <wf wid="w397" sent="29">erabili</wf>
+    <wf wid="w398" sent="29">gabe</wf>
+    <wf wid="w399" sent="29">.</wf>
+    <wf wid="w400" sent="30">Metodoaren</wf>
+    <wf wid="w401" sent="30">aldetik</wf>
+    <wf wid="w402" sent="30">,</wf>
+    <wf wid="w403" sent="30">ohitura</wf>
+    <wf wid="w404" sent="30">falta</wf>
+    <wf wid="w405" sent="30">izango</wf>
+    <wf wid="w406" sent="30">da</wf>
+    <wf wid="w407" sent="30">ziurrenik</wf>
+    <wf wid="w408" sent="30">,</wf>
+    <wf wid="w409" sent="30">baina</wf>
+    <wf wid="w410" sent="30">halako</wf>
+    <wf wid="w411" sent="30">lur</wf>
+    <wf wid="w412" sent="30">ezezagunetan</wf>
+    <wf wid="w413" sent="30">sartzean</wf>
+    <wf wid="w414" sent="30">sentitu</wf>
+    <wf wid="w415" sent="30">dut</wf>
+    <wf wid="w416" sent="30">beharra</wf>
+    <wf wid="w417" sent="30">jakiteko</wf>
+    <wf wid="w418" sent="30">gidariak</wf>
+    <wf wid="w419" sent="30">nora</wf>
+    <wf wid="w420" sent="30">eraman</wf>
+    <wf wid="w421" sent="30">nahi</wf>
+    <wf wid="w422" sent="30">nauen</wf>
+    <wf wid="w423" sent="30">.</wf>
+    <wf wid="w424" sent="31">Saiakerotan</wf>
+    <wf wid="w425" sent="31">egilea</wf>
+    <wf wid="w426" sent="31">gutxitan</wf>
+    <wf wid="w427" sent="31">mintzo</wf>
+    <wf wid="w428" sent="31">da</wf>
+    <wf wid="w429" sent="31">bere</wf>
+    <wf wid="w430" sent="31">ahotik</wf>
+    <wf wid="w431" sent="31">.</wf>
+    <wf wid="w432" sent="32">Liburuan</wf>
+    <wf wid="w433" sent="32">topatu</wf>
+    <wf wid="w434" sent="32">ditugun</wf>
+    <wf wid="w435" sent="32">ideia</wf>
+    <wf wid="w436" sent="32">gehienak</wf>
+    <wf wid="w437" sent="32">ez</wf>
+    <wf wid="w438" sent="32">dira</wf>
+    <wf wid="w439" sent="32">Txillardegik</wf>
+    <wf wid="w440" sent="32">berak</wf>
+    <wf wid="w441" sent="32">esanak</wf>
+    <wf wid="w442" sent="32">,</wf>
+    <wf wid="w443" sent="32">erreferentzia</wf>
+    <wf wid="w444" sent="32">zehatzez</wf>
+    <wf wid="w445" sent="32">aipatutako</wf>
+    <wf wid="w446" sent="32">ehunka</wf>
+    <wf wid="w447" sent="32">egilek</wf>
+    <wf wid="w448" sent="32">baizik</wf>
+    <wf wid="w449" sent="32">.</wf>
+    <wf wid="w450" sent="33">Hau</wf>
+    <wf wid="w451" sent="33">esanik</wf>
+    <wf wid="w452" sent="33">,</wf>
+    <wf wid="w453" sent="33">berriro</wf>
+    <wf wid="w454" sent="33">nabarmentzen</wf>
+    <wf wid="w455" sent="33">da</wf>
+    <wf wid="w456" sent="33">saiakeren</wf>
+    <wf wid="w457" sent="33">borondate</wf>
+    <wf wid="w458" sent="33">hipertestuala</wf>
+    <wf wid="w459" sent="33">.</wf>
+    <wf wid="w460" sent="34">Milaka</wf>
+    <wf wid="w461" sent="34">ate</wf>
+    <wf wid="w462" sent="34">marraztu</wf>
+    <wf wid="w463" sent="34">dizkigu</wf>
+    <wf wid="w464" sent="34">Txillardegik</wf>
+    <wf wid="w465" sent="34">,</wf>
+    <wf wid="w466" sent="34">bere</wf>
+    <wf wid="w467" sent="34">testutik</wf>
+    <wf wid="w468" sent="34">besteetara</wf>
+    <wf wid="w469" sent="34">.</wf>
+    <wf wid="w470" sent="35">Ateak</wf>
+    <wf wid="w471" sent="35">asko</wf>
+    <wf wid="w472" sent="35">dira</wf>
+    <wf wid="w473" sent="35">,</wf>
+    <wf wid="w474" sent="35">ez</wf>
+    <wf wid="w475" sent="35">izutu</wf>
+    <wf wid="w476" sent="35">,</wf>
+    <wf wid="w477" sent="35">asko</wf>
+    <wf wid="w478" sent="35">eta</wf>
+    <wf wid="w479" sent="35">asko</wf>
+    <wf wid="w480" sent="35">dira</wf>
+    <wf wid="w481" sent="35">.</wf>
+    <wf wid="w482" sent="36">Ez</wf>
+    <wf wid="w483" sent="36">daude</wf>
+    <wf wid="w484" sent="36">denak</wf>
+    <wf wid="w485" sent="36">zure</wf>
+    <wf wid="w486" sent="36">zain</wf>
+    <wf wid="w487" sent="36">.</wf>
+    <wf wid="w488" sent="37">Txillardegi</wf>
+    <wf wid="w489" sent="37">fidatzen</wf>
+    <wf wid="w490" sent="37">da</wf>
+    <wf wid="w491" sent="37">irakurlearekin</wf>
+    <wf wid="w492" sent="37">,</wf>
+    <wf wid="w493" sent="37">horrexegatik</wf>
+    <wf wid="w494" sent="37">ez</wf>
+    <wf wid="w495" sent="37">du</wf>
+    <wf wid="w496" sent="37">mamurtu</wf>
+    <wf wid="w497" sent="37">aipatu</wf>
+    <wf wid="w498" sent="37">dituen</wf>
+    <wf wid="w499" sent="37">ideien</wf>
+    <wf wid="w500" sent="37">mamia</wf>
+    <wf wid="w501" sent="37">.</wf>
+    <wf wid="w502" sent="38">Besterik</wf>
+    <wf wid="w503" sent="38">gabe</wf>
+    <wf wid="w504" sent="38">,</wf>
+    <wf wid="w505" sent="38">ideiak</wf>
+    <wf wid="w506" sent="38">aipatu</wf>
+    <wf wid="w507" sent="38">ditu</wf>
+    <wf wid="w508" sent="38">.</wf>
+    <wf wid="w509" sent="39">Ideia</wf>
+    <wf wid="w510" sent="39">mamitsuak</wf>
+    <wf wid="w511" sent="39">.</wf>
+    <wf wid="w512" sent="40">"</wf>
+    <wf wid="w513" sent="40">Mamitsua</wf>
+    <wf wid="w514" sent="40">"</wf>
+    <wf wid="w515" sent="40">esan</wf>
+    <wf wid="w516" sent="40">dut</wf>
+    <wf wid="w517" sent="40">,</wf>
+    <wf wid="w518" sent="40">horixe</wf>
+    <wf wid="w519" sent="40">baita</wf>
+    <wf wid="w520" sent="40">Txillardegik</wf>
+    <wf wid="w521" sent="40">gehien</wf>
+    <wf wid="w522" sent="40">erabili</wf>
+    <wf wid="w523" sent="40">duen</wf>
+    <wf wid="w524" sent="40">kalifikatiboa</wf>
+    <wf wid="w525" sent="40">hizpide</wf>
+    <wf wid="w526" sent="40">dituen</wf>
+    <wf wid="w527" sent="40">lanak</wf>
+    <wf wid="w528" sent="40">baloratzeko</wf>
+    <wf wid="w529" sent="40">garaian</wf>
+    <wf wid="w530" sent="40">.</wf>
+    <wf wid="w531" sent="41">Eta</wf>
+    <wf wid="w532" sent="41">zinez</wf>
+    <wf wid="w533" sent="41">dira</wf>
+    <wf wid="w534" sent="41">mamitsuak</wf>
+    <wf wid="w535" sent="41">egile</wf>
+    <wf wid="w536" sent="41">honen</wf>
+    <wf wid="w537" sent="41">esanak</wf>
+    <wf wid="w538" sent="41">,</wf>
+    <wf wid="w539" sent="41">pentsamendu</wf>
+    <wf wid="w540" sent="41">landuak</wf>
+    <wf wid="w541" sent="41">eta</wf>
+    <wf wid="w542" sent="41">onduak</wf>
+    <wf wid="w543" sent="41">baitira</wf>
+    <wf wid="w544" sent="41">bereak</wf>
+    <wf wid="w545" sent="41">,</wf>
+    <wf wid="w546" sent="41">esperientziaz</wf>
+    <wf wid="w547" sent="41">beteak</wf>
+    <wf wid="w548" sent="41">.</wf>
+    <wf wid="w549" sent="42">Horretaz</wf>
+    <wf wid="w550" sent="42">honetan</wf>
+    <wf wid="w551" sent="42">bertan</wf>
+    <wf wid="w552" sent="42">idatzi</wf>
+    <wf wid="w553" sent="42">duen</wf>
+    <wf wid="w554" sent="42">bezala</wf>
+    <wf wid="w555" sent="42">:</wf>
+    <wf wid="w556" sent="43">"</wf>
+    <wf wid="w557" sent="43">Zilegi</wf>
+    <wf wid="w558" sent="43">bekit</wf>
+    <wf wid="w559" sent="43">bere</wf>
+    <wf wid="w560" sent="43">horretan</wf>
+    <wf wid="w561" sent="43">uztea</wf>
+    <wf wid="w562" sent="43">.</wf>
+    <wf wid="w563" sent="44">Ezen</wf>
+    <wf wid="w564" sent="44">zer</wf>
+    <wf wid="w565" sent="44">nik</wf>
+    <wf wid="w566" sent="44">erantsiko</wf>
+    <wf wid="w567" sent="44">?</wf>
+    <wf wid="w568" sent="45">Erants</wf>
+    <wf wid="w569" sent="45">beza</wf>
+    <wf wid="w570" sent="45">irakurleak</wf>
+    <wf wid="w571" sent="45">ongien</wf>
+    <wf wid="w572" sent="45">deritzona</wf>
+    <wf wid="w573" sent="45">"</wf>
+    <wf wid="w574" sent="45">.</wf>
+  </text>
+  <terms>
+    <!--Gaur-->
+    <term tid="t1" type="open" lemma="gaur" pos="A.ADB-ARR">
+      <span>
+        <target id="w1" />
+      </span>
+    </term>
+    <!--hitz-->
+    <term tid="t2" type="open" lemma="hitz" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w2" />
+      </span>
+    </term>
+    <!--egingo-->
+    <term tid="t3" type="open" lemma="egin" pos="V.ADI-SIN">
+      <span>
+        <target id="w3" />
+      </span>
+    </term>
+    <!--dut-->
+    <term tid="t4" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w4" />
+      </span>
+    </term>
+    <!--Txillardegiz-->
+    <term tid="t5" type="entity" lemma="Txillardegi" pos="R.IZE-IZB" case="INS">
+      <span>
+        <target id="w5" />
+      </span>
+    </term>
+    <!--Gaurko-->
+    <term tid="t6" type="open" lemma="gaur" pos="A.ADB-ARR" case="GEL">
+      <span>
+        <target id="w7" />
+      </span>
+    </term>
+    <!--pentsalaria-->
+    <term tid="t7" type="open" lemma="pentsalari" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w8" />
+      </span>
+    </term>
+    <!--da-->
+    <term tid="t8" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w9" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t9" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w11" />
+      </span>
+    </term>
+    <!--badirudi-->
+    <term tid="t10" type="open" lemma="iruditu" pos="V.ADT">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w12" />
+      </span>
+    </term>
+    <!--beti-->
+    <term tid="t11" type="open" lemma="beti" pos="A.ADB-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w13" />
+      </span>
+    </term>
+    <!--bizi izan-->
+    <term tid="t12" type="open" lemma="bizi_izan" pos="V.ADI-ADK">
+      <span>
+        <target id="w14" />
+        <target id="w15" />
+      </span>
+    </term>
+    <!--dela-->
+    <term tid="t13" type="open" lemma="izan" pos="V.ADL">
+      <span>
+        <target id="w16" />
+      </span>
+    </term>
+    <!--gaur-->
+    <term tid="t14" type="open" lemma="gaur" pos="A.ADB-ARR">
+      <span>
+        <target id="w17" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t15" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w19" />
+      </span>
+    </term>
+    <!--atzo-->
+    <term tid="t16" type="open" lemma="atzo" pos="A.ADB-ARR">
+      <span>
+        <target id="w20" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t17" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w21" />
+      </span>
+    </term>
+    <!--bihar-->
+    <term tid="t18" type="open" lemma="bihar" pos="A.ADB-ARR">
+      <span>
+        <target id="w22" />
+      </span>
+    </term>
+    <!--beti-->
+    <term tid="t19" type="open" lemma="beti" pos="A.ADB-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w24" />
+      </span>
+    </term>
+    <!--gaur-->
+    <term tid="t20" type="open" lemma="gaur" pos="A.ADB-ARR">
+      <span>
+        <target id="w25" />
+      </span>
+    </term>
+    <!--Honezkero-->
+    <term tid="t21" type="open" lemma="honezkero" pos="A.ADB-ARR">
+      <span>
+        <target id="w27" />
+      </span>
+    </term>
+    <!--ia-->
+    <term tid="t22" type="open" lemma="ia" pos="A.ADB-ARR">
+      <span>
+        <target id="w29" />
+      </span>
+    </term>
+    <!--iraina-->
+    <term tid="t23" type="open" lemma="irain" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w30" />
+      </span>
+    </term>
+    <!--litzateke-->
+    <term tid="t24" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w31" />
+      </span>
+    </term>
+    <!--Jose-->
+    <term tid="t25" type="entity" lemma="Jose" pos="R.IZE-IZB">
+      <span>
+        <target id="w32" />
+      </span>
+    </term>
+    <!--Luis-->
+    <term tid="t26" type="entity" lemma="Luis" pos="R.IZE-IZB">
+      <span>
+        <target id="w33" />
+      </span>
+    </term>
+    <!--Alvarez Enparantza Txillardegi-->
+    <term tid="t27" type="entity" lemma="Alvarez_enparantza_Txillardegi" pos="R.IZE-IZB" case="ABS">
+      <span>
+        <target id="w34" />
+        <target id="w35" />
+        <target id="w36" />
+      </span>
+    </term>
+    <!--aurkeztea-->
+    <term tid="t28" type="open" lemma="aurkeztu" pos="V.ADI-SIN" case="ABS">
+      <span>
+        <target id="w37" />
+      </span>
+    </term>
+    <!--Gure-->
+    <term tid="t29" type="close" lemma="gu" pos="O.IOR-PERARR" case="GEN">
+      <span>
+        <target id="w39" />
+      </span>
+    </term>
+    <!--artean-->
+    <term tid="t30" type="open" lemma="arte" pos="N.IZE-ARR" case="INE">
+      <span>
+        <target id="w40" />
+      </span>
+    </term>
+    <!--nabarmena-->
+    <term tid="t31" type="open" lemma="nabarmen" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w41" />
+      </span>
+    </term>
+    <!--izateko-->
+    <term tid="t32" type="open" lemma="izan" pos="V.ADI-SIN" case="GEL">
+      <span>
+        <target id="w42" />
+      </span>
+    </term>
+    <!--arrazoiak-->
+    <term tid="t33" type="open" lemma="arrazoi" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w43" />
+      </span>
+    </term>
+    <!--eman-->
+    <term tid="t34" type="open" lemma="eman" pos="V.ADI-SIN">
+      <span>
+        <target id="w44" />
+      </span>
+    </term>
+    <!--dizkigu-->
+    <term tid="t35" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w45" />
+      </span>
+    </term>
+    <!--aski-->
+    <term tid="t36" type="open" lemma="aski" pos="A.ADB-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w46" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t37" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w48" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t38" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w49" />
+      </span>
+    </term>
+    <!--naiz-->
+    <term tid="t39" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w50" />
+      </span>
+    </term>
+    <!--hemen-->
+    <term tid="t40" type="open" lemma="hemen" pos="A.ADB-ARR">
+      <span>
+        <target id="w51" />
+      </span>
+    </term>
+    <!--zerrendatzen-->
+    <term tid="t41" type="open" lemma="zerrendatu" pos="V.ADI-SIN" case="INE">
+      <span>
+        <target id="w52" />
+      </span>
+    </term>
+    <!--hasiko-->
+    <term tid="t42" type="open" lemma="hasi" pos="V.ADI-SIN">
+      <span>
+        <target id="w53" />
+      </span>
+    </term>
+    <!--Ez-->
+    <term tid="t43" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w55" />
+      </span>
+    </term>
+    <!--da-->
+    <term tid="t44" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w56" />
+      </span>
+    </term>
+    <!--une-->
+    <term tid="t45" type="open" lemma="une" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w57" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t46" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w59" />
+      </span>
+    </term>
+    <!--leku-->
+    <term tid="t47" type="open" lemma="leku" pos="N.IZE-ARR">
+      <span>
+        <target id="w60" />
+      </span>
+    </term>
+    <!--egokia-->
+    <term tid="t48" type="open" lemma="egoki" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w61" />
+      </span>
+    </term>
+    <!--Horretaz-->
+    <term tid="t49" type="close" lemma="hori" pos="D.DET-ERKARR" case="INS">
+      <span>
+        <target id="w63" />
+      </span>
+    </term>
+    <!--deitzen-->
+    <term tid="t50" type="open" lemma="deitu" pos="V.ADI-SIN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w64" />
+      </span>
+    </term>
+    <!--da-->
+    <term tid="t51" type="open" lemma="izan" pos="V.ADL">
+      <span>
+        <target id="w65" />
+      </span>
+    </term>
+    <!--Txillardegiren-->
+    <term tid="t52" type="entity" lemma="Txillardegi" pos="R.IZE-IZB" case="GEN">
+      <span>
+        <target id="w66" />
+      </span>
+    </term>
+    <!--azken-->
+    <term tid="t53" type="close" lemma="azken" pos="D.DET-ORD">
+      <span>
+        <target id="w67" />
+      </span>
+    </term>
+    <!--argitalpena-->
+    <term tid="t54" type="open" lemma="argitalpen" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w68" />
+      </span>
+    </term>
+    <!--1965eko-->
+    <term tid="t55" type="close" lemma="1965" pos="O.IZE-ZKI" case="GEL">
+      <span>
+        <target id="w70" />
+      </span>
+    </term>
+    <!--Huntaz-->
+    <term tid="t56" type="open" lemma="hunt" pos="N.IZE-ARR" case="INS">
+      <span>
+        <target id="w71" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t57" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w72" />
+      </span>
+    </term>
+    <!--hartaz-->
+    <term tid="t58" type="close" lemma="hura" pos="D.DET-ERKARR" case="INS">
+      <span>
+        <target id="w73" />
+      </span>
+    </term>
+    <!--liburuarekin-->
+    <term tid="t59" type="open" lemma="liburu" pos="N.IZE-ARR" case="SOZ">
+      <span>
+        <target id="w74" />
+      </span>
+    </term>
+    <!--aldebiko-->
+    <term tid="t60" type="open" lemma="aldebiko" pos="G.ADJ-ARR">
+      <span>
+        <target id="w75" />
+      </span>
+    </term>
+    <!--triangelua-->
+    <term tid="t61" type="open" lemma="triangelu" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w76" />
+      </span>
+    </term>
+    <!--osatzen-->
+    <term tid="t62" type="open" lemma="osatu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w77" />
+      </span>
+    </term>
+    <!--duena-->
+    <term tid="t63" type="open" lemma="*edun" pos="V.ADL_IZEELI" case="ABS">
+      <span>
+        <target id="w78" />
+      </span>
+    </term>
+    <!--Zazpi-->
+    <term tid="t64" type="close" lemma="zazpi" pos="D.DET-DZH">
+      <span>
+        <target id="w80" />
+      </span>
+    </term>
+    <!--saiakera-->
+    <term tid="t65" type="open" lemma="saiakera" pos="N.IZE-ARR">
+      <span>
+        <target id="w81" />
+      </span>
+    </term>
+    <!--labur-->
+    <term tid="t66" type="open" lemma="labur" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w82" />
+      </span>
+    </term>
+    <!--eman-->
+    <term tid="t67" type="open" lemma="eman" pos="V.ADI-SIN">
+      <span>
+        <target id="w83" />
+      </span>
+    </term>
+    <!--ditu-->
+    <term tid="t68" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w84" />
+      </span>
+    </term>
+    <!--argitara-->
+    <term tid="t69" type="open" lemma="argi" pos="N.IZE-ARR" case="ALA">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w85" />
+      </span>
+    </term>
+    <!--Jean-->
+    <term tid="t70" type="open" lemma="jean" pos="N.IZE-ARR">
+      <span>
+        <target id="w87" />
+      </span>
+    </term>
+    <!--Paul-->
+    <term tid="t71" type="close" lemma="Paul" pos="R.IZE-IZB">
+      <span>
+        <target id="w88" />
+      </span>
+    </term>
+    <!--Sartre-->
+    <term tid="t72" type="close" lemma="Sartre" pos="R.IZE-IZB">
+      <span>
+        <target id="w89" />
+      </span>
+    </term>
+    <!--Rosalia-->
+    <term tid="t73" type="close" lemma="Rosalia" pos="R.IZE-IZB">
+      <span>
+        <target id="w91" />
+      </span>
+    </term>
+    <!--de-->
+    <term tid="t74" type="close" lemma="de" pos="O.BST">
+      <span>
+        <target id="w92" />
+      </span>
+    </term>
+    <!--Castro-->
+    <term tid="t75" type="entity" lemma="Castro" pos="R.IZE-IZB">
+      <span>
+        <target id="w93" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t76" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w94" />
+      </span>
+    </term>
+    <!--Galizia-->
+    <term tid="t77" type="entity" lemma="Galizia" pos="R.IZE-LIB">
+      <span>
+        <target id="w95" />
+      </span>
+    </term>
+    <!--Ameriketako-->
+    <term tid="t78" type="entity" lemma="Amerika" pos="R.IZE-LIB" case="GEL">
+      <span>
+        <target id="w97" />
+      </span>
+    </term>
+    <!--genozidioa-->
+    <term tid="t79" type="open" lemma="genozidio" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w98" />
+      </span>
+    </term>
+    <!--gizakiaren-->
+    <term tid="t80" type="open" lemma="gizaki" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w100" />
+      </span>
+    </term>
+    <!--jatorria-->
+    <term tid="t81" type="open" lemma="jatorri" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w101" />
+      </span>
+    </term>
+    <!--Jainkoa-->
+    <term tid="t82" type="open" lemma="jainko" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w103" />
+      </span>
+    </term>
+    <!--antropozentrismoaren-->
+    <term tid="t83" type="open" lemma="antropozentrismoara" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w105" />
+      </span>
+    </term>
+    <!--kritika-->
+    <term tid="t84" type="open" lemma="kritika" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w106" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t85" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w108" />
+      </span>
+    </term>
+    <!--kosmosaren-->
+    <term tid="t86" type="open" lemma="kosmos" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w109" />
+      </span>
+    </term>
+    <!--behaketa-->
+    <term tid="t87" type="open" lemma="behaketa" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w110" />
+      </span>
+    </term>
+    <!--Horiek-->
+    <term tid="t88" type="close" lemma="horiek" pos="D.DET-ERKARR" case="ABS">
+      <span>
+        <target id="w112" />
+      </span>
+    </term>
+    <!--dira-->
+    <term tid="t89" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w113" />
+      </span>
+    </term>
+    <!--Txillardegik-->
+    <term tid="t90" type="entity" lemma="Txillardegi" pos="R.IZE-IZB" case="ERG">
+      <span>
+        <target id="w114" />
+      </span>
+    </term>
+    <!--aurkeztu-->
+    <term tid="t91" type="open" lemma="aurkeztu" pos="V.ADI-SIN">
+      <span>
+        <target id="w115" />
+      </span>
+    </term>
+    <!--dizkigun-->
+    <term tid="t92" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w116" />
+      </span>
+    </term>
+    <!--gaiak-->
+    <term tid="t93" type="open" lemma="gai" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w117" />
+      </span>
+    </term>
+    <!--Aurkeztu-->
+    <term tid="t94" type="open" lemma="aurkeztu" pos="V.ADI-SIN">
+      <span>
+        <target id="w120" />
+      </span>
+    </term>
+    <!--esan-->
+    <term tid="t95" type="open" lemma="esan" pos="V.ADI-SIN">
+      <span>
+        <target id="w122" />
+      </span>
+    </term>
+    <!--dut-->
+    <term tid="t96" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w123" />
+      </span>
+    </term>
+    <!--hain zuzen-->
+    <term tid="t97" type="close" lemma="hain_zuzen" pos="C.LOT-LOK">
+      <span>
+        <target id="w125" />
+        <target id="w126" />
+      </span>
+    </term>
+    <!--gaien-->
+    <term tid="t98" type="open" lemma="gai" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w128" />
+      </span>
+    </term>
+    <!--gaineko-->
+    <term tid="t99" type="open" lemma="gain" pos="N.IZE-ARR" case="GEL">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w129" />
+      </span>
+    </term>
+    <!--digresio-->
+    <term tid="t100" type="open" lemma="digresio" pos="N.IZE-ARR">
+      <span>
+        <target id="w130" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t101" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w131" />
+      </span>
+    </term>
+    <!--sakontzean-->
+    <term tid="t102" type="open" lemma="sakondu" pos="V.ADI-SIN" case="INE">
+      <span>
+        <target id="w132" />
+      </span>
+    </term>
+    <!--galdu-->
+    <term tid="t103" type="open" lemma="galdu" pos="V.ADI-SIN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w133" />
+      </span>
+    </term>
+    <!--ordez-->
+    <term tid="t104" type="open" lemma="ordez" pos="A.ADB-ARR">
+      <span>
+        <target id="w134" />
+      </span>
+    </term>
+    <!--saiakera-->
+    <term tid="t105" type="open" lemma="saiakera" pos="N.IZE-ARR">
+      <span>
+        <target id="w136" />
+      </span>
+    </term>
+    <!--laburrotan-->
+    <term tid="t106" type="open" lemma="labur" pos="G.ADJ-ARR" case="INE">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w137" />
+      </span>
+    </term>
+    <!--gaien-->
+    <term tid="t107" type="open" lemma="gai" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w138" />
+      </span>
+    </term>
+    <!--aurkezpen-->
+    <term tid="t108" type="open" lemma="aurkezpen" pos="N.IZE-ARR">
+      <span>
+        <target id="w139" />
+      </span>
+    </term>
+    <!--iradokitzaileak-->
+    <term tid="t109" type="open" lemma="iradokitzaile" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w140" />
+      </span>
+    </term>
+    <!--egin-->
+    <term tid="t110" type="open" lemma="egin" pos="V.ADI-SIN">
+      <span>
+        <target id="w141" />
+      </span>
+    </term>
+    <!--dituelako-->
+    <term tid="t111" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w142" />
+      </span>
+    </term>
+    <!--Sakondu-->
+    <term tid="t112" type="open" lemma="sakondu" pos="V.ADI-SIN">
+      <span>
+        <target id="w145" />
+      </span>
+    </term>
+    <!--nahi duenak-->
+    <term tid="t113" type="open" lemma="nahi_izan" pos="V.ADI-ADK" case="ABS">
+      <span>
+        <target id="w146" />
+        <target id="w147" />
+      </span>
+    </term>
+    <!--espezialistetara-->
+    <term tid="t114" type="open" lemma="espezialista" pos="N.IZE-ARR" case="ALA">
+      <span>
+        <target id="w148" />
+      </span>
+    </term>
+    <!--jotzea-->
+    <term tid="t115" type="open" lemma="jo" pos="V.ADI-SIN" case="ABS">
+      <span>
+        <target id="w149" />
+      </span>
+    </term>
+    <!--dauka-->
+    <term tid="t116" type="open" lemma="eduki" pos="V.ADT">
+      <span>
+        <target id="w150" />
+      </span>
+    </term>
+    <!--Punttua-->
+    <term tid="t117" type="open" lemma="puntu" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w152" />
+      </span>
+    </term>
+    <!--jartzea-->
+    <term tid="t118" type="open" lemma="jarri" pos="V.ADI-SIN" case="ABS">
+      <span>
+        <target id="w153" />
+      </span>
+    </term>
+    <!--dagokit-->
+    <term tid="t119" type="open" lemma="egon" pos="V.ADT">
+      <span>
+        <target id="w154" />
+      </span>
+    </term>
+    <!--bakarrik-->
+    <term tid="t120" type="open" lemma="bakarrik" pos="A.ADB-ARR">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w155" />
+      </span>
+    </term>
+    <!--Bertsoa-->
+    <term tid="t121" type="open" lemma="bertso" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w157" />
+      </span>
+    </term>
+    <!--bestek-->
+    <term tid="t122" type="close" lemma="beste" pos="D.DET-DZG" case="ERG">
+      <span>
+        <target id="w159" />
+      </span>
+    </term>
+    <!--burutuko-->
+    <term tid="t123" type="open" lemma="burutu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w160" />
+      </span>
+    </term>
+    <!--Argiago-->
+    <term tid="t124" type="open" lemma="argiagotu" pos="V.ADI-SIN">
+      <span>
+        <target id="w163" />
+      </span>
+    </term>
+    <!--ezin zuen-->
+    <term tid="t125" type="open" lemma="ezin_izan" pos="V.ADI-ADK">
+      <span>
+        <target id="w164" />
+        <target id="w165" />
+      </span>
+    </term>
+    <!--idazleak-->
+    <term tid="t126" type="open" lemma="idazle" pos="N.IZE-ARR" case="ERG">
+      <span>
+        <target id="w166" />
+      </span>
+    </term>
+    <!--bere-->
+    <term tid="t127" type="close" lemma="bera" pos="D.DET-ERKIND" case="GEN">
+      <span>
+        <target id="w167" />
+      </span>
+    </term>
+    <!--asmoa-->
+    <term tid="t128" type="open" lemma="asmo" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w168" />
+      </span>
+    </term>
+    <!--azaldu-->
+    <term tid="t129" type="open" lemma="azaldu" pos="V.ADI-SIN">
+      <span>
+        <target id="w169" />
+      </span>
+    </term>
+    <!--Gaiak-->
+    <term tid="t130" type="open" lemma="gai" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w171" />
+      </span>
+    </term>
+    <!--oro-->
+    <term tid="t131" type="close" lemma="oro" pos="D.DET-ORO" case="ABS">
+      <span>
+        <target id="w172" />
+      </span>
+    </term>
+    <!--dira-->
+    <term tid="t132" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w173" />
+      </span>
+    </term>
+    <!--interesgarriak-->
+    <term tid="t133" type="open" lemma="interesgarri" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w174" />
+      </span>
+    </term>
+    <!--baina-->
+    <term tid="t134" type="close" lemma="baina" pos="C.LOT-JNT">
+      <span>
+        <target id="w176" />
+      </span>
+    </term>
+    <!--besteak-->
+    <term tid="t135" type="close" lemma="beste" pos="D.DET-DZG" case="ABS">
+      <span>
+        <target id="w177" />
+      </span>
+    </term>
+    <!--baino-->
+    <term tid="t136" type="close" lemma="baino" pos="O.BST">
+      <span>
+        <target id="w178" />
+      </span>
+    </term>
+    <!--atsegin-->
+    <term tid="t137" type="open" lemma="atsegin" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w179" />
+      </span>
+    </term>
+    <!--biziagoz-->
+    <term tid="t138" type="open" lemma="bizi" pos="N.IZE-ARR" case="INS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w180" />
+      </span>
+    </term>
+    <!--irakurri-->
+    <term tid="t139" type="open" lemma="irakurri" pos="V.ADI-SIN">
+      <span>
+        <target id="w181" />
+      </span>
+    </term>
+    <!--ditut-->
+    <term tid="t140" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w182" />
+      </span>
+    </term>
+    <!--Ameriketako-->
+    <term tid="t141" type="entity" lemma="Amerika" pos="R.IZE-LIB" case="GEL">
+      <span>
+        <target id="w184" />
+      </span>
+    </term>
+    <!--genozidioaz-->
+    <term tid="t142" type="open" lemma="genozidio" pos="N.IZE-ARR" case="INS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w185" />
+      </span>
+    </term>
+    <!--Giza-->
+    <term tid="t143" type="open" lemma="giza" pos="N.IZE-ARR">
+      <span>
+        <target id="w189" />
+      </span>
+    </term>
+    <!--jatorriaz-->
+    <term tid="t144" type="open" lemma="jatorri" pos="N.IZE-ARR" case="INS">
+      <span>
+        <target id="w190" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t145" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w192" />
+      </span>
+    </term>
+    <!--Gure-->
+    <term tid="t146" type="close" lemma="gu" pos="O.IOR-PERARR" case="GEN">
+      <span>
+        <target id="w194" />
+      </span>
+    </term>
+    <!--galaxian-->
+    <term tid="t147" type="open" lemma="galaxia" pos="N.IZE-ARR" case="INE">
+      <span>
+        <target id="w195" />
+      </span>
+    </term>
+    <!--barrena-->
+    <term tid="t148" type="open" lemma="barrena" pos="A.ADB-ARR">
+      <span>
+        <target id="w196" />
+      </span>
+    </term>
+    <!--atalak-->
+    <term tid="t149" type="open" lemma="atal" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w198" />
+      </span>
+    </term>
+    <!--Aitortu-->
+    <term tid="t150" type="open" lemma="aitortu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w200" />
+      </span>
+    </term>
+    <!--behar dut-->
+    <term tid="t151" type="open" lemma="behar_izan" pos="V.ADI-ADK">
+      <span>
+        <target id="w201" />
+        <target id="w202" />
+      </span>
+    </term>
+    <!--kosmos-->
+    <term tid="t152" type="open" lemma="kosmos" pos="N.IZE-ARR">
+      <span>
+        <target id="w203" />
+      </span>
+    </term>
+    <!--kontuetan-->
+    <term tid="t153" type="open" lemma="kontu" pos="N.IZE-ARR" case="INE">
+      <span>
+        <target id="w204" />
+      </span>
+    </term>
+    <!--ia-->
+    <term tid="t154" type="open" lemma="ia" pos="A.ADB-ARR">
+      <span>
+        <target id="w205" />
+      </span>
+    </term>
+    <!--birjina-->
+    <term tid="t155" type="open" lemma="birjina" pos="G.ADJ-ARR">
+      <span>
+        <target id="w206" />
+      </span>
+    </term>
+    <!--izaki-->
+    <term tid="t156" type="open" lemma="izaki" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w207" />
+      </span>
+    </term>
+    <!--galdu-->
+    <term tid="t157" type="open" lemma="galdu" pos="V.ADI-SIN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w209" />
+      </span>
+    </term>
+    <!--samar-->
+    <term tid="t158" type="open" lemma="samar" pos="A.ADB-ARR">
+      <span>
+        <target id="w210" />
+      </span>
+    </term>
+    <!--ibili-->
+    <term tid="t159" type="open" lemma="ibili" pos="V.ADI-SIN">
+      <span>
+        <target id="w211" />
+      </span>
+    </term>
+    <!--naizela-->
+    <term tid="t160" type="open" lemma="izan" pos="V.ADL">
+      <span>
+        <target id="w212" />
+      </span>
+    </term>
+    <!--batez ere-->
+    <term tid="t161" type="close" lemma="batez_ere" pos="C.LOT-LOK">
+      <span>
+        <target id="w214" />
+        <target id="w215" />
+      </span>
+    </term>
+    <!--liburua-->
+    <term tid="t162" type="open" lemma="liburu" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w216" />
+      </span>
+    </term>
+    <!--ixten-->
+    <term tid="t163" type="open" lemma="itxi" pos="V.ADI-SIN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w217" />
+      </span>
+    </term>
+    <!--duen-->
+    <term tid="t164" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w218" />
+      </span>
+    </term>
+    <!--Galaxietan-->
+    <term tid="t165" type="open" lemma="galaxia" pos="N.IZE-ARR" case="INE">
+      <span>
+        <target id="w220" />
+      </span>
+    </term>
+    <!--barrena-->
+    <term tid="t166" type="open" lemma="barrena" pos="A.ADB-ARR">
+      <span>
+        <target id="w221" />
+      </span>
+    </term>
+    <!--saiakeran-->
+    <term tid="t167" type="open" lemma="saiakera" pos="N.IZE-ARR" case="INE">
+      <span>
+        <target id="w223" />
+      </span>
+    </term>
+    <!--Gauza-->
+    <term tid="t168" type="open" lemma="gauza" pos="N.IZE-ARR">
+      <span>
+        <target id="w225" />
+      </span>
+    </term>
+    <!--ezezagun-->
+    <term tid="t169" type="open" lemma="ezezagun" pos="G.ADJ-ARR">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w226" />
+      </span>
+    </term>
+    <!--hegalari-->
+    <term tid="t170" type="open" lemma="hegalari" pos="G.ADJ-ARR">
+      <span>
+        <target id="w227" />
+      </span>
+    </term>
+    <!--gehiegi-->
+    <term tid="t171" type="close" lemma="gehiegi" pos="D.DET-DZG" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w228" />
+      </span>
+    </term>
+    <!--niretzat-->
+    <term tid="t172" type="close" lemma="ni" pos="O.IOR-PERARR" case="DES">
+      <span>
+        <target id="w230" />
+      </span>
+    </term>
+    <!--Gaiak-->
+    <term tid="t173" type="open" lemma="gai" pos="G.ADJ-ARR" case="ABS">
+      <span>
+        <target id="w232" />
+      </span>
+    </term>
+    <!--askotarikoak-->
+    <term tid="t174" type="close" lemma="asko" pos="D.DET-DZG" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w233" />
+      </span>
+    </term>
+    <!--izanik-->
+    <term tid="t175" type="open" lemma="izan" pos="V.ADI-SIN" case="PAR">
+      <span>
+        <target id="w234" />
+      </span>
+    </term>
+    <!--hobe-->
+    <term tid="t176" type="open" lemma="hobe" pos="G.ADJ-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w236" />
+      </span>
+    </term>
+    <!--saiakeron-->
+    <term tid="t177" type="open" lemma="saiakera" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w237" />
+      </span>
+    </term>
+    <!--ezaugarri-->
+    <term tid="t178" type="open" lemma="ezaugarri" pos="N.IZE-ARR">
+      <span>
+        <target id="w238" />
+      </span>
+    </term>
+    <!--orokorrak-->
+    <term tid="t179" type="open" lemma="orokor" pos="G.ADJ-ARR" case="ABS">
+      <span>
+        <target id="w239" />
+      </span>
+    </term>
+    <!--azaltzen-->
+    <term tid="t180" type="open" lemma="azaldu" pos="V.ADI-SIN">
+      <span>
+        <target id="w240" />
+      </span>
+    </term>
+    <!--baditugu-->
+    <term tid="t181" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w241" />
+      </span>
+    </term>
+    <!--Bi-->
+    <term tid="t182" type="close" lemma="bi" pos="D.DET-DZH" case="ABS">
+      <span>
+        <target id="w243" />
+      </span>
+    </term>
+    <!--nabarmenduko-->
+    <term tid="t183" type="open" lemma="nabarmendu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w244" />
+      </span>
+    </term>
+    <!--nituzke-->
+    <term tid="t184" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w245" />
+      </span>
+    </term>
+    <!--testuen-->
+    <term tid="t185" type="open" lemma="testu" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w247" />
+      </span>
+    </term>
+    <!--borondate-->
+    <term tid="t186" type="open" lemma="borondate" pos="N.IZE-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w248" />
+      </span>
+    </term>
+    <!--hipertestuala-->
+    <term tid="t187" type="open" lemma="hipertestuala" pos="G.ADJ-ARR">
+      <span>
+        <target id="w249" />
+      </span>
+    </term>
+    <!--batetik-->
+    <term tid="t188" type="close" lemma="bat" pos="D.DET-DZH" case="ABL">
+      <span>
+        <target id="w250" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t189" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w252" />
+      </span>
+    </term>
+    <!--jendarteratzailea-->
+    <term tid="t190" type="open" lemma="jendarteratzaile" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w253" />
+      </span>
+    </term>
+    <!--bestetik-->
+    <term tid="t191" type="close" lemma="beste" pos="D.DET-DZG" case="ABL">
+      <span>
+        <target id="w254" />
+      </span>
+    </term>
+    <!--Hipertestuala-->
+    <term tid="t192" type="entity" lemma="Hipertestual" pos="R.IZE-LIB" case="ALA">
+      <span>
+        <target id="w256" />
+      </span>
+    </term>
+    <!--edukien-->
+    <term tid="t193" type="open" lemma="eduki" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w258" />
+      </span>
+    </term>
+    <!--arteko-->
+    <term tid="t194" type="open" lemma="arte" pos="N.IZE-ARR" case="GEL">
+      <span>
+        <target id="w259" />
+      </span>
+    </term>
+    <!--lotura-->
+    <term tid="t195" type="open" lemma="lotura" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w260" />
+      </span>
+    </term>
+    <!--bilatu-->
+    <term tid="t196" type="open" lemma="bilatu" pos="V.ADI-SIN">
+      <span>
+        <target id="w261" />
+      </span>
+    </term>
+    <!--duelako-->
+    <term tid="t197" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w262" />
+      </span>
+    </term>
+    <!--Testuaren-->
+    <term tid="t198" type="open" lemma="testu" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w264" />
+      </span>
+    </term>
+    <!--baitatik-->
+    <term tid="t199" type="open" lemma="baita" pos="N.IZE-ARR" case="ABL">
+      <span>
+        <target id="w265" />
+      </span>
+    </term>
+    <!--testutik-->
+    <term tid="t200" type="open" lemma="testu" pos="N.IZE-ARR" case="ABL">
+      <span>
+        <target id="w266" />
+      </span>
+    </term>
+    <!--irteteko-->
+    <term tid="t201" type="open" lemma="irten" pos="V.ADI-SIN" case="GEL">
+      <span>
+        <target id="w267" />
+      </span>
+    </term>
+    <!--deia-->
+    <term tid="t202" type="open" lemma="dei" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w268" />
+      </span>
+    </term>
+    <!--egiten-->
+    <term tid="t203" type="open" lemma="egin" pos="V.ADI-SIN">
+      <span>
+        <target id="w269" />
+      </span>
+    </term>
+    <!--duelako-->
+    <term tid="t204" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w270" />
+      </span>
+    </term>
+    <!--jatorrizkoak-->
+    <term tid="t205" type="open" lemma="jatorri" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w272" />
+      </span>
+    </term>
+    <!--ezagutzeko-->
+    <term tid="t206" type="open" lemma="ezagutu" pos="V.ADI-SIN" case="GEL">
+      <span>
+        <target id="w273" />
+      </span>
+    </term>
+    <!--gonbit-->
+    <term tid="t207" type="open" lemma="gonbit" pos="N.IZE-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w274" />
+      </span>
+    </term>
+    <!--ugari-->
+    <term tid="t208" type="close" lemma="ugari" pos="D.DET-DZG" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w275" />
+      </span>
+    </term>
+    <!--dagoelako-->
+    <term tid="t209" type="open" lemma="egon" pos="V.ADT">
+      <span>
+        <target id="w276" />
+      </span>
+    </term>
+    <!--Egituraren-->
+    <term tid="t210" type="open" lemma="egitura" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w278" />
+      </span>
+    </term>
+    <!--aldetik-->
+    <term tid="t211" type="open" lemma="alde" pos="N.IZE-ARR" case="ABL">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w279" />
+      </span>
+    </term>
+    <!--nahiz-->
+    <term tid="t212" type="close" lemma="nahiz" pos="C.LOT-JNT">
+      <span>
+        <target id="w280" />
+      </span>
+    </term>
+    <!--ideien-->
+    <term tid="t213" type="open" lemma="ideia" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w281" />
+      </span>
+    </term>
+    <!--antolamendu-->
+    <term tid="t214" type="open" lemma="antolamendu" pos="N.IZE-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w282" />
+      </span>
+    </term>
+    <!--aldetik-->
+    <term tid="t215" type="open" lemma="alde" pos="N.IZE-ARR" case="ABL">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w283" />
+      </span>
+    </term>
+    <!--batzuetan-->
+    <term tid="t216" type="open" lemma="batzuetan" pos="A.ADB-ARR">
+      <span>
+        <target id="w284" />
+      </span>
+    </term>
+    <!--nahasi-->
+    <term tid="t217" type="open" lemma="nahasi" pos="V.ADI-SIN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w285" />
+      </span>
+    </term>
+    <!--samarra-->
+    <term tid="t218" type="open" lemma="samar" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w286" />
+      </span>
+    </term>
+    <!--suerta-->
+    <term tid="t219" type="open" lemma="suertatu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w287" />
+      </span>
+    </term>
+    <!--daitekeen-->
+    <term tid="t220" type="open" lemma="*edin" pos="V.ADL">
+      <span>
+        <target id="w288" />
+      </span>
+    </term>
+    <!--arren-->
+    <term tid="t221" type="close" lemma="arren" pos="C.LOT-MEN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w289" />
+      </span>
+    </term>
+    <!--prosa-->
+    <term tid="t222" type="open" lemma="prosa" pos="N.IZE-ARR">
+      <span>
+        <target id="w291" />
+      </span>
+    </term>
+    <!--garbia-->
+    <term tid="t223" type="open" lemma="garbi" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w292" />
+      </span>
+    </term>
+    <!--da-->
+    <term tid="t224" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w293" />
+      </span>
+    </term>
+    <!--Txillardegirena-->
+    <term tid="t225" type="entity" lemma="Txillardegi" pos="O.IZE_IZEELI" case="ABS">
+      <span>
+        <target id="w294" />
+      </span>
+    </term>
+    <!--bere-->
+    <term tid="t226" type="close" lemma="bera" pos="D.DET-ERKIND" case="GEN">
+      <span>
+        <target id="w296" />
+      </span>
+    </term>
+    <!--ezagupenak-->
+    <term tid="t227" type="open" lemma="ezagupen" pos="N.IZE-ARR" case="ERG">
+      <span>
+        <target id="w297" />
+      </span>
+    </term>
+    <!--ezagutzera emateko-->
+    <term tid="t228" type="open" lemma="ezagutzera_eman" pos="V.ADI-ADK" case="GEL">
+      <span>
+        <target id="w298" />
+        <target id="w299" />
+      </span>
+    </term>
+    <!--asmoz-->
+    <term tid="t229" type="open" lemma="asmo" pos="N.IZE-ARR" case="INS">
+      <span>
+        <target id="w300" />
+      </span>
+    </term>
+    <!--eraikia-->
+    <term tid="t230" type="open" lemma="eraiki" pos="V.ADI-SIN" case="ABS">
+      <span>
+        <target id="w301" />
+      </span>
+    </term>
+    <!--Hipertestuek-->
+    <term tid="t231" type="open" lemma="hipertestu" pos="N.IZE-ARR" case="ERG">
+      <span>
+        <target id="w303" />
+      </span>
+    </term>
+    <!--badute-->
+    <term tid="t232" type="open" lemma="ukan" pos="V.ADT">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w304" />
+      </span>
+    </term>
+    <!--arrisku-->
+    <term tid="t233" type="open" lemma="arrisku" pos="N.IZE-ARR">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w305" />
+      </span>
+    </term>
+    <!--bat-->
+    <term tid="t234" type="close" lemma="bat" pos="D.DET-DZH" case="ABS">
+      <span>
+        <target id="w306" />
+      </span>
+    </term>
+    <!--Internetekoek-->
+    <term tid="t235" type="open" lemma="internet" pos="N.IZE-ARR" case="ERG">
+      <span>
+        <target id="w308" />
+      </span>
+    </term>
+    <!--bereziki-->
+    <term tid="t236" type="open" lemma="bereziki" pos="A.ADB-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w309" />
+      </span>
+    </term>
+    <!--alegia-->
+    <term tid="t237" type="close" lemma="alegia" pos="C.LOT-LOK">
+      <span>
+        <target id="w311" />
+      </span>
+    </term>
+    <!--testutik-->
+    <term tid="t238" type="open" lemma="testu" pos="N.IZE-ARR" case="ABL">
+      <span>
+        <target id="w313" />
+      </span>
+    </term>
+    <!--testura-->
+    <term tid="t239" type="open" lemma="testu" pos="N.IZE-ARR" case="ALA">
+      <span>
+        <target id="w314" />
+      </span>
+    </term>
+    <!--galdu-->
+    <term tid="t240" type="open" lemma="galdu" pos="V.ADI-SIN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w315" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t241" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w316" />
+      </span>
+    </term>
+    <!--hasitako-->
+    <term tid="t242" type="open" lemma="hasi" pos="V.ADI-SIN" case="GEL">
+      <span>
+        <target id="w317" />
+      </span>
+    </term>
+    <!--testura-->
+    <term tid="t243" type="open" lemma="testu" pos="N.IZE-ARR" case="ALA">
+      <span>
+        <target id="w318" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t244" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w319" />
+      </span>
+    </term>
+    <!--itzultzeko-->
+    <term tid="t245" type="open" lemma="itzuli" pos="V.ADI-SIN" case="GEL">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w320" />
+      </span>
+    </term>
+    <!--arriskua-->
+    <term tid="t246" type="open" lemma="arrisku" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w321" />
+      </span>
+    </term>
+    <!--zikloa-->
+    <term tid="t247" type="open" lemma="ziklo" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w323" />
+      </span>
+    </term>
+    <!--itxi-->
+    <term tid="t248" type="open" lemma="itxi" pos="V.ADI-SIN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w324" />
+      </span>
+    </term>
+    <!--gabe-->
+    <term tid="t249" type="open" lemma="gabe" pos="A.ADB-ARR">
+      <span>
+        <target id="w325" />
+      </span>
+    </term>
+    <!--uztekoa-->
+    <term tid="t250" type="open" lemma="utzi" pos="V.ADI-SIN" case="ABS">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w326" />
+      </span>
+    </term>
+    <!--Baina-->
+    <term tid="t251" type="close" lemma="baina" pos="C.LOT-JNT">
+      <span>
+        <target id="w328" />
+      </span>
+    </term>
+    <!--liburu-->
+    <term tid="t252" type="open" lemma="liburu" pos="N.IZE-ARR">
+      <span>
+        <target id="w329" />
+      </span>
+    </term>
+    <!--honekin-->
+    <term tid="t253" type="close" lemma="hau" pos="D.DET-ERKARR" case="SOZ">
+      <span>
+        <target id="w330" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t254" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w331" />
+      </span>
+    </term>
+    <!--dut-->
+    <term tid="t255" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w332" />
+      </span>
+    </term>
+    <!--sumatu-->
+    <term tid="t256" type="open" lemma="sumatu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w333" />
+      </span>
+    </term>
+    <!--halakorik-->
+    <term tid="t257" type="open" lemma="halako" pos="G.ADJ-ARR" case="PAR">
+      <span>
+        <target id="w334" />
+      </span>
+    </term>
+    <!--Helburu-->
+    <term tid="t258" type="open" lemma="helburu" pos="N.IZE-ARR">
+      <span>
+        <target id="w336" />
+      </span>
+    </term>
+    <!--jendarteratzaile-->
+    <term tid="t259" type="open" lemma="jendarteratzaile" pos="N.IZE-ARR">
+      <span>
+        <target id="w337" />
+      </span>
+    </term>
+    <!--argiak-->
+    <term tid="t260" type="open" lemma="argi" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w338" />
+      </span>
+    </term>
+    <!--ditu-->
+    <term tid="t261" type="open" lemma="ukan" pos="V.ADT">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w339" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t262" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w341" />
+      </span>
+    </term>
+    <!--hortaz-->
+    <term tid="t263" type="close" lemma="hortaz" pos="C.LOT-LOK">
+      <span>
+        <target id="w342" />
+      </span>
+    </term>
+    <!--galtzeko-->
+    <term tid="t264" type="open" lemma="galdu" pos="V.ADI-SIN" case="GEL">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w344" />
+      </span>
+    </term>
+    <!--arrisku-->
+    <term tid="t265" type="open" lemma="arrisku" pos="N.IZE-ARR">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w345" />
+      </span>
+    </term>
+    <!--gutxi-->
+    <term tid="t266" type="close" lemma="gutxi" pos="D.DET-DZG" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w346" />
+      </span>
+    </term>
+    <!--Esan gabe doa-->
+    <term tid="t267" type="close" lemma="esan_gabe_doa" pos="C.LOT-LOK">
+      <span>
+        <target id="w348" />
+        <target id="w349" />
+        <target id="w350" />
+      </span>
+    </term>
+    <!--halako-->
+    <term tid="t268" type="open" lemma="halako" pos="G.ADJ-ARR">
+      <span>
+        <target id="w352" />
+      </span>
+    </term>
+    <!--gidariarekin-->
+    <term tid="t269" type="open" lemma="gidari" pos="N.IZE-ARR" case="SOZ">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w353" />
+      </span>
+    </term>
+    <!--Liburuari-->
+    <term tid="t270" type="open" lemma="liburu" pos="N.IZE-ARR" case="DAT">
+      <span>
+        <target id="w355" />
+      </span>
+    </term>
+    <!--itzalen-->
+    <term tid="t271" type="open" lemma="itzal" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w356" />
+      </span>
+    </term>
+    <!--bat-->
+    <term tid="t272" type="close" lemma="bat" pos="D.DET-DZH" case="ABS">
+      <span>
+        <target id="w357" />
+      </span>
+    </term>
+    <!--ikustekotan-->
+    <term tid="t273" type="open" lemma="ikusi" pos="V.ADI-SIN" case="INE">
+      <span>
+        <target id="w358" />
+      </span>
+    </term>
+    <!--metodologiaren-->
+    <term tid="t274" type="open" lemma="metodologia" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w360" />
+      </span>
+    </term>
+    <!--lausotasuna-->
+    <term tid="t275" type="open" lemma="lausotasun" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w361" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t276" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w362" />
+      </span>
+    </term>
+    <!--itzulpen-->
+    <term tid="t277" type="open" lemma="itzulpen" pos="N.IZE-ARR">
+      <span>
+        <target id="w363" />
+      </span>
+    </term>
+    <!--guztietan-->
+    <term tid="t278" type="close" lemma="guzti" pos="D.DET-ORO" case="INE">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w364" />
+      </span>
+    </term>
+    <!--koherentziarik-->
+    <term tid="t279" type="open" lemma="koherentzia" pos="N.IZE-ARR" case="PAR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w365" />
+      </span>
+    </term>
+    <!--gorde-->
+    <term tid="t280" type="open" lemma="gorde" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w366" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t281" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w367" />
+      </span>
+    </term>
+    <!--izana-->
+    <term tid="t282" type="open" lemma="izan" pos="V.ADI-SIN" case="ABS">
+      <span>
+        <target id="w368" />
+      </span>
+    </term>
+    <!--seinalatuko-->
+    <term tid="t283" type="open" lemma="seinalatu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w369" />
+      </span>
+    </term>
+    <!--nituzke-->
+    <term tid="t284" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w370" />
+      </span>
+    </term>
+    <!--Izan ere-->
+    <term tid="t285" type="close" lemma="izan_ere" pos="C.LOT-LOK">
+      <span>
+        <target id="w372" />
+        <target id="w373" />
+      </span>
+    </term>
+    <!--liburura-->
+    <term tid="t286" type="open" lemma="liburu" pos="N.IZE-ARR" case="ALA">
+      <span>
+        <target id="w375" />
+      </span>
+    </term>
+    <!--ekarritako-->
+    <term tid="t287" type="open" lemma="ekarri" pos="V.ADI-SIN" case="GEL">
+      <span>
+        <target id="w376" />
+      </span>
+    </term>
+    <!--testu-->
+    <term tid="t288" type="open" lemma="testu" pos="N.IZE-ARR">
+      <span>
+        <target id="w377" />
+      </span>
+    </term>
+    <!--batzuk-->
+    <term tid="t289" type="close" lemma="batzuk" pos="D.DET-DZG" case="ABS">
+      <span>
+        <target id="w378" />
+      </span>
+    </term>
+    <!--jatorrizko-->
+    <term tid="t290" type="open" lemma="jatorriz" pos="A.ADB-ARR" case="GEL">
+      <span>
+        <target id="w379" />
+      </span>
+    </term>
+    <!--hizkuntzan-->
+    <term tid="t291" type="open" lemma="hizkuntza" pos="N.IZE-ARR" case="INE">
+      <span>
+        <target id="w380" />
+      </span>
+    </term>
+    <!--utzi-->
+    <term tid="t292" type="open" lemma="utzi" pos="V.ADI-SIN">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w381" />
+      </span>
+    </term>
+    <!--ditu-->
+    <term tid="t293" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w382" />
+      </span>
+    </term>
+    <!--maiz-->
+    <term tid="t294" type="open" lemma="maiz" pos="A.ADB-ARR">
+      <span>
+        <target id="w384" />
+      </span>
+    </term>
+    <!--frantsesez-->
+    <term tid="t295" type="open" lemma="frantses" pos="N.IZE-ARR" case="INS">
+      <span>
+        <target id="w385" />
+      </span>
+    </term>
+    <!--baina-->
+    <term tid="t296" type="close" lemma="baina" pos="C.LOT-JNT">
+      <span>
+        <target id="w388" />
+      </span>
+    </term>
+    <!--beste-->
+    <term tid="t297" type="close" lemma="beste" pos="D.DET-DZG">
+      <span>
+        <target id="w389" />
+      </span>
+    </term>
+    <!--batzuetan-->
+    <term tid="t298" type="close" lemma="batzuk" pos="D.DET-DZG" case="INE">
+      <span>
+        <target id="w390" />
+      </span>
+    </term>
+    <!--euskarara-->
+    <term tid="t299" type="open" lemma="euskara" pos="N.IZE-ARR" case="ALA">
+      <span>
+        <target id="w391" />
+      </span>
+    </term>
+    <!--itzuli-->
+    <term tid="t300" type="open" lemma="itzuli" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w392" />
+      </span>
+    </term>
+    <!--ditu-->
+    <term tid="t301" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w393" />
+      </span>
+    </term>
+    <!--begi-bistako-->
+    <term tid="t302" type="open" lemma="begi-bista" pos="N.IZE-ARR" case="GEL">
+      <span>
+        <target id="w395" />
+      </span>
+    </term>
+    <!--irizpiderik-->
+    <term tid="t303" type="open" lemma="irizpide" pos="N.IZE-ARR" case="PAR">
+      <span>
+        <target id="w396" />
+      </span>
+    </term>
+    <!--erabili-->
+    <term tid="t304" type="open" lemma="erabili" pos="V.ADI-SIN">
+      <span>
+        <target id="w397" />
+      </span>
+    </term>
+    <!--gabe-->
+    <term tid="t305" type="open" lemma="gabe" pos="A.ADB-ARR">
+      <span>
+        <target id="w398" />
+      </span>
+    </term>
+    <!--Metodoaren-->
+    <term tid="t306" type="open" lemma="metodo" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w400" />
+      </span>
+    </term>
+    <!--aldetik-->
+    <term tid="t307" type="open" lemma="alde" pos="N.IZE-ARR" case="ABL">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w401" />
+      </span>
+    </term>
+    <!--ohitura-->
+    <term tid="t308" type="open" lemma="ohitu" pos="V.ADI-SIN" case="ALA">
+      <span>
+        <target id="w403" />
+      </span>
+    </term>
+    <!--falta-->
+    <term tid="t309" type="open" lemma="falta" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w404" />
+      </span>
+    </term>
+    <!--izango-->
+    <term tid="t310" type="open" lemma="izan" pos="V.ADI-SIN">
+      <span>
+        <target id="w405" />
+      </span>
+    </term>
+    <!--da-->
+    <term tid="t311" type="open" lemma="izan" pos="V.ADL">
+      <span>
+        <target id="w406" />
+      </span>
+    </term>
+    <!--ziurrenik-->
+    <term tid="t312" type="open" lemma="ziur" pos="G.ADJ-ARR" case="PAR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w407" />
+      </span>
+    </term>
+    <!--baina-->
+    <term tid="t313" type="close" lemma="baina" pos="C.LOT-JNT">
+      <span>
+        <target id="w409" />
+      </span>
+    </term>
+    <!--halako-->
+    <term tid="t314" type="open" lemma="halako" pos="G.ADJ-ARR">
+      <span>
+        <target id="w410" />
+      </span>
+    </term>
+    <!--lur-->
+    <term tid="t315" type="open" lemma="lur" pos="N.IZE-ARR">
+      <span>
+        <target id="w411" />
+      </span>
+    </term>
+    <!--ezezagunetan-->
+    <term tid="t316" type="open" lemma="ezezagun" pos="G.ADJ-ARR" case="INE">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w412" />
+      </span>
+    </term>
+    <!--sartzean-->
+    <term tid="t317" type="open" lemma="sartu" pos="V.ADI-SIN" case="INE">
+      <span>
+        <target id="w413" />
+      </span>
+    </term>
+    <!--sentitu-->
+    <term tid="t318" type="open" lemma="sentitu" pos="V.ADI-SIN">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w414" />
+      </span>
+    </term>
+    <!--dut-->
+    <term tid="t319" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w415" />
+      </span>
+    </term>
+    <!--beharra-->
+    <term tid="t320" type="open" lemma="behar" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w416" />
+      </span>
+    </term>
+    <!--jakiteko-->
+    <term tid="t321" type="open" lemma="jakin" pos="V.ADI-SIN" case="GEL">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w417" />
+      </span>
+    </term>
+    <!--gidariak-->
+    <term tid="t322" type="open" lemma="gidari" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w418" />
+      </span>
+    </term>
+    <!--nora-->
+    <term tid="t323" type="open" lemma="nora" pos="A.ADB-GAL">
+      <span>
+        <target id="w419" />
+      </span>
+    </term>
+    <!--eraman-->
+    <term tid="t324" type="open" lemma="eraman" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w420" />
+      </span>
+    </term>
+    <!--nahi nauen-->
+    <term tid="t325" type="open" lemma="nahi_izan" pos="V.ADI-ADK">
+      <span>
+        <target id="w421" />
+        <target id="w422" />
+      </span>
+    </term>
+    <!--Saiakerotan-->
+    <term tid="t326" type="open" lemma="saiakera" pos="N.IZE-ARR" case="INE">
+      <span>
+        <target id="w424" />
+      </span>
+    </term>
+    <!--egilea-->
+    <term tid="t327" type="open" lemma="egile" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w425" />
+      </span>
+    </term>
+    <!--gutxitan-->
+    <term tid="t328" type="close" lemma="gutxi" pos="D.DET-DZG" case="INE">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w426" />
+      </span>
+    </term>
+    <!--mintzo da-->
+    <term tid="t329" type="open" lemma="mintzo_izan" pos="V.ADI-ADK">
+      <span>
+        <target id="w427" />
+        <target id="w428" />
+      </span>
+    </term>
+    <!--bere-->
+    <term tid="t330" type="close" lemma="bera" pos="D.DET-ERKIND" case="GEN">
+      <span>
+        <target id="w429" />
+      </span>
+    </term>
+    <!--ahotik-->
+    <term tid="t331" type="open" lemma="aho" pos="N.IZE-ARR" case="ABL">
+      <span>
+        <target id="w430" />
+      </span>
+    </term>
+    <!--Liburuan-->
+    <term tid="t332" type="open" lemma="liburu" pos="N.IZE-ARR" case="INE">
+      <span>
+        <target id="w432" />
+      </span>
+    </term>
+    <!--topatu-->
+    <term tid="t333" type="open" lemma="topatu" pos="V.ADI-SIN">
+      <span>
+        <target id="w433" />
+      </span>
+    </term>
+    <!--ditugun-->
+    <term tid="t334" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w434" />
+      </span>
+    </term>
+    <!--ideia-->
+    <term tid="t335" type="open" lemma="ideia" pos="N.IZE-ARR">
+      <span>
+        <target id="w435" />
+      </span>
+    </term>
+    <!--gehienak-->
+    <term tid="t336" type="close" lemma="gehien" pos="D.DET-DZG" case="ABS">
+      <span>
+        <target id="w436" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t337" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w437" />
+      </span>
+    </term>
+    <!--dira-->
+    <term tid="t338" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w438" />
+      </span>
+    </term>
+    <!--Txillardegik-->
+    <term tid="t339" type="entity" lemma="Txillardegi" pos="R.IZE-IZB" case="ERG">
+      <span>
+        <target id="w439" />
+      </span>
+    </term>
+    <!--berak-->
+    <term tid="t340" type="close" lemma="bera" pos="D.DET-ERKIND" case="ERG">
+      <span>
+        <target id="w440" />
+      </span>
+    </term>
+    <!--esanak-->
+    <term tid="t341" type="open" lemma="esan" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w441" />
+      </span>
+    </term>
+    <!--erreferentzia-->
+    <term tid="t342" type="open" lemma="erreferentzia" pos="N.IZE-ARR">
+      <span>
+        <target id="w443" />
+      </span>
+    </term>
+    <!--zehatzez-->
+    <term tid="t343" type="open" lemma="zehatz" pos="G.ADJ-ARR" case="INS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w444" />
+      </span>
+    </term>
+    <!--aipatutako-->
+    <term tid="t344" type="open" lemma="aipatu" pos="V.ADI-SIN" case="ABS">
+      <span>
+        <target id="w445" />
+      </span>
+    </term>
+    <!--ehunka-->
+    <term tid="t345" type="close" lemma="ehunka" pos="D.DET-DZG">
+      <span>
+        <target id="w446" />
+      </span>
+    </term>
+    <!--egilek-->
+    <term tid="t346" type="open" lemma="egile" pos="N.IZE-ARR" case="ERG">
+      <span>
+        <target id="w447" />
+      </span>
+    </term>
+    <!--baizik-->
+    <term tid="t347" type="close" lemma="baizik" pos="C.LOT-JNT">
+      <span>
+        <target id="w448" />
+      </span>
+    </term>
+    <!--Hau-->
+    <term tid="t348" type="close" lemma="hau" pos="D.DET-ERKARR" case="ABS">
+      <span>
+        <target id="w450" />
+      </span>
+    </term>
+    <!--esanik-->
+    <term tid="t349" type="open" lemma="esan" pos="V.ADI-SIN" case="PAR">
+      <span>
+        <target id="w451" />
+      </span>
+    </term>
+    <!--berriro-->
+    <term tid="t350" type="open" lemma="berriro" pos="A.ADB-ARR">
+      <span>
+        <target id="w453" />
+      </span>
+    </term>
+    <!--nabarmentzen-->
+    <term tid="t351" type="open" lemma="nabarmendu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w454" />
+      </span>
+    </term>
+    <!--da-->
+    <term tid="t352" type="open" lemma="izan" pos="V.ADL">
+      <span>
+        <target id="w455" />
+      </span>
+    </term>
+    <!--saiakeren-->
+    <term tid="t353" type="open" lemma="saiakera" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w456" />
+      </span>
+    </term>
+    <!--borondate-->
+    <term tid="t354" type="open" lemma="borondate" pos="N.IZE-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w457" />
+      </span>
+    </term>
+    <!--hipertestuala-->
+    <term tid="t355" type="open" lemma="hipertestuala" pos="G.ADJ-ARR" case="ABS">
+      <span>
+        <target id="w458" />
+      </span>
+    </term>
+    <!--Milaka-->
+    <term tid="t356" type="close" lemma="milaka" pos="D.DET-DZG">
+      <span>
+        <target id="w460" />
+      </span>
+    </term>
+    <!--ate-->
+    <term tid="t357" type="open" lemma="ate" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w461" />
+      </span>
+    </term>
+    <!--marraztu-->
+    <term tid="t358" type="open" lemma="marraztu" pos="V.ADI-SIN">
+      <span>
+        <target id="w462" />
+      </span>
+    </term>
+    <!--dizkigu-->
+    <term tid="t359" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w463" />
+      </span>
+    </term>
+    <!--Txillardegik-->
+    <term tid="t360" type="entity" lemma="Txillardegi" pos="R.IZE-IZB" case="ERG">
+      <span>
+        <target id="w464" />
+      </span>
+    </term>
+    <!--bere-->
+    <term tid="t361" type="close" lemma="bera" pos="D.DET-ERKIND" case="GEN">
+      <span>
+        <target id="w466" />
+      </span>
+    </term>
+    <!--testutik-->
+    <term tid="t362" type="open" lemma="testu" pos="N.IZE-ARR" case="ABL">
+      <span>
+        <target id="w467" />
+      </span>
+    </term>
+    <!--besteetara-->
+    <term tid="t363" type="close" lemma="beste" pos="D.DET-DZG" case="ALA">
+      <span>
+        <target id="w468" />
+      </span>
+    </term>
+    <!--Ateak-->
+    <term tid="t364" type="open" lemma="ate" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w470" />
+      </span>
+    </term>
+    <!--asko-->
+    <term tid="t365" type="open" lemma="asko" pos="A.ADB-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w471" />
+      </span>
+    </term>
+    <!--dira-->
+    <term tid="t366" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w472" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t367" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w474" />
+      </span>
+    </term>
+    <!--izutu-->
+    <term tid="t368" type="open" lemma="izutu" pos="V.ADI-SIN">
+      <span>
+        <target id="w475" />
+      </span>
+    </term>
+    <!--asko-->
+    <term tid="t369" type="open" lemma="asko" pos="A.ADB-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w477" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t370" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w478" />
+      </span>
+    </term>
+    <!--asko-->
+    <term tid="t371" type="open" lemma="asko" pos="A.ADB-ARR">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w479" />
+      </span>
+    </term>
+    <!--dira-->
+    <term tid="t372" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w480" />
+      </span>
+    </term>
+    <!--Ez-->
+    <term tid="t373" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w482" />
+      </span>
+    </term>
+    <!--daude-->
+    <term tid="t374" type="open" lemma="egon" pos="V.ADT">
+      <span>
+        <target id="w483" />
+      </span>
+    </term>
+    <!--denak-->
+    <term tid="t375" type="close" lemma="dena" pos="D.DET-ORO" case="ABS">
+      <span>
+        <target id="w484" />
+      </span>
+    </term>
+    <!--zure-->
+    <term tid="t376" type="close" lemma="zu" pos="O.IOR-PERARR" case="GEN">
+      <span>
+        <target id="w485" />
+      </span>
+    </term>
+    <!--zain-->
+    <term tid="t377" type="open" lemma="zain" pos="A.ADB-ARR">
+      <sentiment polarity="neg" />
+      <span>
+        <target id="w486" />
+      </span>
+    </term>
+    <!--Txillardegi-->
+    <term tid="t378" type="entity" lemma="Txillardegi" pos="R.IZE-IZB">
+      <span>
+        <target id="w488" />
+      </span>
+    </term>
+    <!--fidatzen-->
+    <term tid="t379" type="open" lemma="fidatu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w489" />
+      </span>
+    </term>
+    <!--da-->
+    <term tid="t380" type="open" lemma="izan" pos="V.ADL">
+      <span>
+        <target id="w490" />
+      </span>
+    </term>
+    <!--irakurlearekin-->
+    <term tid="t381" type="open" lemma="irakurle" pos="N.IZE-ARR" case="SOZ">
+      <span>
+        <target id="w491" />
+      </span>
+    </term>
+    <!--horrexegatik-->
+    <term tid="t382" type="close" lemma="hori" pos="D.DET-ERKARR" case="MOT">
+      <span>
+        <target id="w493" />
+      </span>
+    </term>
+    <!--ez-->
+    <term tid="t383" type="close" lemma="ez" pos="O.PRT">
+      <span>
+        <target id="w494" />
+      </span>
+    </term>
+    <!--du-->
+    <term tid="t384" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w495" />
+      </span>
+    </term>
+    <!--mamurtu-->
+    <term tid="t385" type="open" lemma="mamurtu" pos="V.ADI-SIN">
+      <span>
+        <target id="w496" />
+      </span>
+    </term>
+    <!--aipatu-->
+    <term tid="t386" type="open" lemma="aipatu" pos="V.ADI-SIN">
+      <span>
+        <target id="w497" />
+      </span>
+    </term>
+    <!--dituen-->
+    <term tid="t387" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w498" />
+      </span>
+    </term>
+    <!--ideien-->
+    <term tid="t388" type="open" lemma="ideia" pos="N.IZE-ARR" case="GEN">
+      <span>
+        <target id="w499" />
+      </span>
+    </term>
+    <!--mamia-->
+    <term tid="t389" type="open" lemma="mami" pos="N.IZE-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w500" />
+      </span>
+    </term>
+    <!--Besterik gabe-->
+    <term tid="t390" type="close" lemma="besterik_gabe" pos="C.LOT-LOK">
+      <span>
+        <target id="w502" />
+        <target id="w503" />
+      </span>
+    </term>
+    <!--ideiak-->
+    <term tid="t391" type="open" lemma="ideia" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w505" />
+      </span>
+    </term>
+    <!--aipatu-->
+    <term tid="t392" type="open" lemma="aipatu" pos="V.ADI-SIN">
+      <span>
+        <target id="w506" />
+      </span>
+    </term>
+    <!--ditu-->
+    <term tid="t393" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w507" />
+      </span>
+    </term>
+    <!--Ideia-->
+    <term tid="t394" type="open" lemma="ideia" pos="N.IZE-ARR">
+      <span>
+        <target id="w509" />
+      </span>
+    </term>
+    <!--mamitsuak-->
+    <term tid="t395" type="open" lemma="mamitsu" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w510" />
+      </span>
+    </term>
+    <!--Mamitsua-->
+    <term tid="t396" type="open" lemma="mamitsu" pos="G.ADJ-ARR" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w513" />
+      </span>
+    </term>
+    <!--esan-->
+    <term tid="t397" type="open" lemma="esan" pos="V.ADI-SIN">
+      <span>
+        <target id="w515" />
+      </span>
+    </term>
+    <!--dut-->
+    <term tid="t398" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w516" />
+      </span>
+    </term>
+    <!--horixe-->
+    <term tid="t399" type="close" lemma="hori" pos="D.DET-ERKARR" case="ABS">
+      <span>
+        <target id="w518" />
+      </span>
+    </term>
+    <!--baita-->
+    <term tid="t400" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w519" />
+      </span>
+    </term>
+    <!--Txillardegik-->
+    <term tid="t401" type="entity" lemma="Txillardegi" pos="R.IZE-IZB" case="ERG">
+      <span>
+        <target id="w520" />
+      </span>
+    </term>
+    <!--gehien-->
+    <term tid="t402" type="open" lemma="gehien" pos="A.ADB-ARR">
+      <span>
+        <target id="w521" />
+      </span>
+    </term>
+    <!--erabili-->
+    <term tid="t403" type="open" lemma="erabili" pos="V.ADI-SIN">
+      <span>
+        <target id="w522" />
+      </span>
+    </term>
+    <!--duen-->
+    <term tid="t404" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w523" />
+      </span>
+    </term>
+    <!--kalifikatiboa-->
+    <term tid="t405" type="open" lemma="kalifikatiboa" pos="N.IZE-ARR">
+      <span>
+        <target id="w524" />
+      </span>
+    </term>
+    <!--hizpide-->
+    <term tid="t406" type="open" lemma="hizpide" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w525" />
+      </span>
+    </term>
+    <!--dituen-->
+    <term tid="t407" type="open" lemma="ukan" pos="V.ADT">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w526" />
+      </span>
+    </term>
+    <!--lanak-->
+    <term tid="t408" type="open" lemma="lan" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w527" />
+      </span>
+    </term>
+    <!--baloratzeko-->
+    <term tid="t409" type="open" lemma="baloratu" pos="V.ADI-SIN" case="GEL">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w528" />
+      </span>
+    </term>
+    <!--garaian-->
+    <term tid="t410" type="open" lemma="garai" pos="G.ADJ-ARR" case="INE">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w529" />
+      </span>
+    </term>
+    <!--Eta-->
+    <term tid="t411" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w531" />
+      </span>
+    </term>
+    <!--zinez-->
+    <term tid="t412" type="open" lemma="zinez" pos="A.ADB-ARR">
+      <span>
+        <target id="w532" />
+      </span>
+    </term>
+    <!--dira-->
+    <term tid="t413" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w533" />
+      </span>
+    </term>
+    <!--mamitsuak-->
+    <term tid="t414" type="open" lemma="mamitsu" pos="G.ADJ-ARR" case="ERG">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w534" />
+      </span>
+    </term>
+    <!--egile-->
+    <term tid="t415" type="open" lemma="egile" pos="N.IZE-ARR">
+      <span>
+        <target id="w535" />
+      </span>
+    </term>
+    <!--honen-->
+    <term tid="t416" type="close" lemma="hau" pos="D.DET-ERKARR" case="GEN">
+      <span>
+        <target id="w536" />
+      </span>
+    </term>
+    <!--esanak-->
+    <term tid="t417" type="open" lemma="esan" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w537" />
+      </span>
+    </term>
+    <!--pentsamendu-->
+    <term tid="t418" type="open" lemma="pentsamendu" pos="N.IZE-ARR">
+      <span>
+        <target id="w539" />
+      </span>
+    </term>
+    <!--landuak-->
+    <term tid="t419" type="open" lemma="landu" pos="G.ADJ-ARR" case="ABS">
+      <span>
+        <target id="w540" />
+      </span>
+    </term>
+    <!--eta-->
+    <term tid="t420" type="close" lemma="eta" pos="C.LOT-JNT">
+      <span>
+        <target id="w541" />
+      </span>
+    </term>
+    <!--onduak-->
+    <term tid="t421" type="open" lemma="ondu" pos="V.ADI-SIN" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w542" />
+      </span>
+    </term>
+    <!--baitira-->
+    <term tid="t422" type="open" lemma="izan" pos="V.ADT">
+      <span>
+        <target id="w543" />
+      </span>
+    </term>
+    <!--bereak-->
+    <term tid="t423" type="close" lemma="bera" pos="D.DET-ERKIND" case="ABS">
+      <span>
+        <target id="w544" />
+      </span>
+    </term>
+    <!--esperientziaz-->
+    <term tid="t424" type="open" lemma="esperientzia" pos="N.IZE-ARR" case="INS">
+      <span>
+        <target id="w546" />
+      </span>
+    </term>
+    <!--beteak-->
+    <term tid="t425" type="open" lemma="bete" pos="V.ADI-SIN" case="ABS">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w547" />
+      </span>
+    </term>
+    <!--Horretaz-->
+    <term tid="t426" type="close" lemma="hori" pos="D.DET-ERKARR" case="INS">
+      <span>
+        <target id="w549" />
+      </span>
+    </term>
+    <!--honetan-->
+    <term tid="t427" type="close" lemma="hau" pos="D.DET-ERKARR" case="INE">
+      <span>
+        <target id="w550" />
+      </span>
+    </term>
+    <!--bertan-->
+    <term tid="t428" type="open" lemma="bertan" pos="A.ADB-ARR">
+      <span>
+        <target id="w551" />
+      </span>
+    </term>
+    <!--idatzi-->
+    <term tid="t429" type="open" lemma="idatzi" pos="V.ADI-SIN">
+      <span>
+        <target id="w552" />
+      </span>
+    </term>
+    <!--duen-->
+    <term tid="t430" type="open" lemma="*edun" pos="V.ADL">
+      <span>
+        <target id="w553" />
+      </span>
+    </term>
+    <!--bezala-->
+    <term tid="t431" type="open" lemma="bezala" pos="A.ADB-ARR">
+      <span>
+        <target id="w554" />
+      </span>
+    </term>
+    <!--Zilegi-->
+    <term tid="t432" type="open" lemma="zilegitu" pos="V.ADI-SIN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w557" />
+      </span>
+    </term>
+    <!--bekit-->
+    <term tid="t433" type="open" lemma="*edin" pos="V.ADL">
+      <span>
+        <target id="w558" />
+      </span>
+    </term>
+    <!--bere horretan-->
+    <term tid="t434" type="open" lemma="bere_horretan" pos="A.ADB-ARR">
+      <span>
+        <target id="w559" />
+        <target id="w560" />
+      </span>
+    </term>
+    <!--uztea-->
+    <term tid="t435" type="open" lemma="utzi" pos="V.ADI-SIN" case="ABS">
+      <sentiment polarity="neu" />
+      <span>
+        <target id="w561" />
+      </span>
+    </term>
+    <!--Ezen-->
+    <term tid="t436" type="close" lemma="ezen" pos="C.LOT-LOK">
+      <span>
+        <target id="w563" />
+      </span>
+    </term>
+    <!--zer-->
+    <term tid="t437" type="close" lemma="zer" pos="D.DET-NOLGAL">
+      <span>
+        <target id="w564" />
+      </span>
+    </term>
+    <!--nik-->
+    <term tid="t438" type="close" lemma="ni" pos="O.IOR-PERARR" case="ERG">
+      <span>
+        <target id="w565" />
+      </span>
+    </term>
+    <!--erantsiko-->
+    <term tid="t439" type="open" lemma="erantsi" pos="V.ADI-SIN">
+      <span>
+        <target id="w566" />
+      </span>
+    </term>
+    <!--Erants-->
+    <term tid="t440" type="open" lemma="erantsi" pos="V.ADI-SIN">
+      <span>
+        <target id="w568" />
+      </span>
+    </term>
+    <!--beza-->
+    <term tid="t441" type="open" lemma="*ezan" pos="V.ADL">
+      <span>
+        <target id="w569" />
+      </span>
+    </term>
+    <!--irakurleak-->
+    <term tid="t442" type="open" lemma="irakurle" pos="N.IZE-ARR" case="ABS">
+      <span>
+        <target id="w570" />
+      </span>
+    </term>
+    <!--ongien-->
+    <term tid="t443" type="open" lemma="ongi" pos="N.IZE-ARR" case="GEN">
+      <sentiment polarity="pos" />
+      <span>
+        <target id="w571" />
+      </span>
+    </term>
+    <!--deritzona-->
+    <term tid="t444" type="open" lemma="iritzi" pos="V.ADT_IZEELI" case="ABS">
+      <span>
+        <target id="w572" />
+      </span>
+    </term>
+  </terms>
+  <deps>
+    <!--auxmod(Erants, beza)-->
+    <dep from="t440" to="t441" rfunc="auxmod" />
+    <!--auxmod(Zilegi, bekit)-->
+    <dep from="t432" to="t433" rfunc="auxmod" />
+    <!--auxmod(aipatu, ditu)-->
+    <dep from="t392" to="t393" rfunc="auxmod" />
+    <!--auxmod(aurkeztu, dizkigun)-->
+    <dep from="t91" to="t92" rfunc="auxmod" />
+    <!--auxmod(azaltzen, baditugu)-->
+    <dep from="t180" to="t181" rfunc="auxmod" />
+    <!--auxmod(bilatu, duelako)-->
+    <dep from="t196" to="t197" rfunc="auxmod" />
+    <!--auxmod(deitzen, da)-->
+    <dep from="t50" to="t51" rfunc="auxmod" />
+    <!--auxmod(egin, dituelako)-->
+    <dep from="t110" to="t111" rfunc="auxmod" />
+    <!--auxmod(egingo, dut)-->
+    <dep from="t3" to="t4" rfunc="auxmod" />
+    <!--auxmod(egiten, duelako)-->
+    <dep from="t203" to="t204" rfunc="auxmod" />
+    <!--auxmod(eman, ditu)-->
+    <dep from="t67" to="t68" rfunc="auxmod" />
+    <!--auxmod(eman, dizkigu)-->
+    <dep from="t34" to="t35" rfunc="auxmod" />
+    <!--auxmod(erabili, duen)-->
+    <dep from="t403" to="t404" rfunc="auxmod" />
+    <!--auxmod(esan, dut)-->
+    <dep from="t397" to="t398" rfunc="auxmod" />
+    <!--auxmod(esan, dut)-->
+    <dep from="t95" to="t96" rfunc="auxmod" />
+    <!--auxmod(fidatzen, da)-->
+    <dep from="t379" to="t380" rfunc="auxmod" />
+    <!--auxmod(irakurri, ditut)-->
+    <dep from="t139" to="t140" rfunc="auxmod" />
+    <!--auxmod(itzuli, ditu)-->
+    <dep from="t300" to="t301" rfunc="auxmod" />
+    <!--auxmod(marraztu, dizkigu)-->
+    <dep from="t358" to="t359" rfunc="auxmod" />
+    <!--auxmod(nabarmenduko, nituzke)-->
+    <dep from="t183" to="t184" rfunc="auxmod" />
+    <!--auxmod(nabarmentzen, da)-->
+    <dep from="t351" to="t352" rfunc="auxmod" />
+    <!--auxmod(sentitu, dut)-->
+    <dep from="t318" to="t319" rfunc="auxmod" />
+    <!--auxmod(suerta, daitekeen)-->
+    <dep from="t219" to="t220" rfunc="auxmod" />
+    <!--auxmod(sumatu, dut)-->
+    <dep from="t256" to="t255" rfunc="auxmod" />
+    <!--auxmod(topatu, ditugun)-->
+    <dep from="t333" to="t334" rfunc="auxmod" />
+    <!--auxmod(utzi, ditu)-->
+    <dep from="t292" to="t293" rfunc="auxmod" />
+    <!--cmod(bizi izan, badirudi)-->
+    <dep from="t12" to="t10" rfunc="cmod" />
+    <!--cmod(lanak, dituen)-->
+    <dep from="t408" to="t407" rfunc="cmod" />
+    <!--detmod(argitalpena, azken)-->
+    <dep from="t54" to="t53" rfunc="detmod" />
+    <!--detmod(arrisku, bat)-->
+    <dep from="t233" to="t234" rfunc="detmod" />
+    <!--detmod(arrisku, gutxi)-->
+    <dep from="t265" to="t266" rfunc="detmod" />
+    <!--detmod(ate, Milaka)-->
+    <dep from="t357" to="t356" rfunc="detmod" />
+    <!--detmod(borondate, batetik)-->
+    <dep from="t186" to="t188" rfunc="detmod" />
+    <!--detmod(egilek, ehunka)-->
+    <dep from="t346" to="t345" rfunc="detmod" />
+    <!--detmod(ideia, gehienak)-->
+    <dep from="t335" to="t336" rfunc="detmod" />
+    <!--detmod(itzalen, bat)-->
+    <dep from="t271" to="t272" rfunc="detmod" />
+    <!--detmod(itzulpen, guztietan)-->
+    <dep from="t277" to="t278" rfunc="detmod" />
+    <!--detmod(liburu, honekin)-->
+    <dep from="t252" to="t253" rfunc="detmod" />
+    <!--detmod(saiakera, Zazpi)-->
+    <dep from="t65" to="t64" rfunc="detmod" />
+    <!--detmod(testu, batzuk)-->
+    <dep from="t288" to="t289" rfunc="detmod" />
+    <!--ncmod(Gauza, ezezagun)-->
+    <dep from="t168" to="t169" rfunc="ncmod" />
+    <!--ncmod(Gauza, niretzat)-->
+    <dep from="t168" to="t172" rfunc="ncmod" />
+    <!--ncmod(Huntaz, 1965eko)-->
+    <dep from="t56" to="t55" rfunc="ncmod" />
+    <!--ncmod(Ideia, mamitsuak)-->
+    <dep from="t394" to="t395" rfunc="ncmod" />
+    <!--ncmod(Metodoaren, aldetik)-->
+    <dep from="t306" to="t307" rfunc="ncmod" />
+    <!--ncmod(Zilegi, bere horretan)-->
+    <dep from="t432" to="t434" rfunc="ncmod" />
+    <!--ncmod(aldetik, Egituraren)-->
+    <dep from="t211" to="t210" rfunc="ncmod" />
+    <!--ncmod(aldetik, Metodoaren)-->
+    <dep from="t307" to="t306" rfunc="ncmod" />
+    <!--ncmod(argitalpena, Txillardegiren)-->
+    <dep from="t54" to="t52" rfunc="ncmod" />
+    <!--ncmod(artean, Gure)-->
+    <dep from="t30" to="t29" rfunc="ncmod" />
+    <!--ncmod(arteko, edukien)-->
+    <dep from="t194" to="t193" rfunc="ncmod" />
+    <!--ncmod(asmoa, bere)-->
+    <dep from="t128" to="t127" rfunc="ncmod" />
+    <!--ncmod(aurkezpen, gaien)-->
+    <dep from="t108" to="t107" rfunc="ncmod" />
+    <!--ncmod(baitatik, Testuaren)-->
+    <dep from="t199" to="t198" rfunc="ncmod" />
+    <!--ncmod(behaketa, kosmosaren)-->
+    <dep from="t87" to="t86" rfunc="ncmod" />
+    <!--ncmod(behar dut, kontuetan)-->
+    <dep from="t151" to="t153" rfunc="ncmod" />
+    <!--ncmod(behar dut, kosmos)-->
+    <dep from="t151" to="t152" rfunc="ncmod" />
+    <!--ncmod(beteak, esperientziaz)-->
+    <dep from="t425" to="t424" rfunc="ncmod" />
+    <!--ncmod(bizi izan, beti)-->
+    <dep from="t12" to="t11" rfunc="ncmod" />
+    <!--ncmod(borondate, hipertestuala)-->
+    <dep from="t186" to="t187" rfunc="ncmod" />
+    <!--ncmod(borondate, saiakeren)-->
+    <dep from="t354" to="t353" rfunc="ncmod" />
+    <!--ncmod(borondate, testuen)-->
+    <dep from="t186" to="t185" rfunc="ncmod" />
+    <!--ncmod(dagokit, bakarrik)-->
+    <dep from="t119" to="t120" rfunc="ncmod" />
+    <!--ncmod(dira, asko)-->
+    <dep from="t366" to="t365" rfunc="ncmod" />
+    <!--ncmod(dira, asko)-->
+    <dep from="t372" to="t371" rfunc="ncmod" />
+    <!--ncmod(dira, zinez)-->
+    <dep from="t413" to="t412" rfunc="ncmod" />
+    <!--ncmod(dituen, kalifikatiboa)-->
+    <dep from="t407" to="t405" rfunc="ncmod" />
+    <!--ncmod(egin, saiakera)-->
+    <dep from="t110" to="t105" rfunc="ncmod" />
+    <!--ncmod(egingo, Gaur)-->
+    <dep from="t3" to="t1" rfunc="ncmod" />
+    <!--ncmod(egingo, Txillardegiz)-->
+    <dep from="t3" to="t5" rfunc="ncmod" />
+    <!--ncmod(ekarritako, liburura)-->
+    <dep from="t287" to="t286" rfunc="ncmod" />
+    <!--ncmod(eman, argitara)-->
+    <dep from="t67" to="t69" rfunc="ncmod" />
+    <!--ncmod(eman, aski)-->
+    <dep from="t34" to="t36" rfunc="ncmod" />
+    <!--ncmod(eraikia, asmoz)-->
+    <dep from="t230" to="t229" rfunc="ncmod" />
+    <!--ncmod(eraman, nora)-->
+    <dep from="t324" to="t323" rfunc="ncmod" />
+    <!--ncmod(ezagupenak, bere)-->
+    <dep from="t227" to="t226" rfunc="ncmod" />
+    <!--ncmod(galaxian, Gure)-->
+    <dep from="t147" to="t146" rfunc="ncmod" />
+    <!--ncmod(galdu, ia)-->
+    <dep from="t157" to="t154" rfunc="ncmod" />
+    <!--ncmod(galdu, testura)-->
+    <dep from="t240" to="t239" rfunc="ncmod" />
+    <!--ncmod(galdu, testutik)-->
+    <dep from="t240" to="t238" rfunc="ncmod" />
+    <!--ncmod(genozidioa, Ameriketako)-->
+    <dep from="t79" to="t78" rfunc="ncmod" />
+    <!--ncmod(genozidioaz, Ameriketako)-->
+    <dep from="t142" to="t141" rfunc="ncmod" />
+    <!--ncmod(gidariarekin, halako)-->
+    <dep from="t269" to="t268" rfunc="ncmod" />
+    <!--ncmod(gorde, itzulpen)-->
+    <dep from="t280" to="t277" rfunc="ncmod" />
+    <!--ncmod(idatzi, bertan)-->
+    <dep from="t429" to="t428" rfunc="ncmod" />
+    <!--ncmod(irakurri, biziagoz)-->
+    <dep from="t139" to="t138" rfunc="ncmod" />
+    <!--ncmod(irakurri, galaxian)-->
+    <dep from="t139" to="t147" rfunc="ncmod" />
+    <!--ncmod(irizpiderik, begi-bistako)-->
+    <dep from="t303" to="t302" rfunc="ncmod" />
+    <!--ncmod(irteteko, baitatik)-->
+    <dep from="t201" to="t199" rfunc="ncmod" />
+    <!--ncmod(irteteko, testutik)-->
+    <dep from="t201" to="t200" rfunc="ncmod" />
+    <!--ncmod(itzuli, euskarara)-->
+    <dep from="t300" to="t299" rfunc="ncmod" />
+    <!--ncmod(itzuli, maiz)-->
+    <dep from="t300" to="t294" rfunc="ncmod" />
+    <!--ncmod(itzultzeko, testura)-->
+    <dep from="t245" to="t243" rfunc="ncmod" />
+    <!--ncmod(ixten, Galaxietan)-->
+    <dep from="t163" to="t165" rfunc="ncmod" />
+    <!--ncmod(ixten, saiakeran)-->
+    <dep from="t163" to="t167" rfunc="ncmod" />
+    <!--ncmod(izateko, artean)-->
+    <dep from="t32" to="t30" rfunc="ncmod" />
+    <!--ncmod(jatorria, gizakiaren)-->
+    <dep from="t81" to="t80" rfunc="ncmod" />
+    <!--ncmod(jendarteratzaile, argiak)-->
+    <dep from="t259" to="t260" rfunc="ncmod" />
+    <!--ncmod(jotzea, espezialistetara)-->
+    <dep from="t115" to="t114" rfunc="ncmod" />
+    <!--ncmod(kritika, antropozentrismoaren)-->
+    <dep from="t84" to="t83" rfunc="ncmod" />
+    <!--ncmod(lausotasuna, metodologiaren)-->
+    <dep from="t275" to="t274" rfunc="ncmod" />
+    <!--ncmod(leku, egokia)-->
+    <dep from="t47" to="t48" rfunc="ncmod" />
+    <!--ncmod(lur, ezezagunetan)-->
+    <dep from="t315" to="t316" rfunc="ncmod" />
+    <!--ncmod(mamia, ideien)-->
+    <dep from="t389" to="t388" rfunc="ncmod" />
+    <!--ncmod(mamurtu, irakurlearekin)-->
+    <dep from="t385" to="t381" rfunc="ncmod" />
+    <!--ncmod(mintzo da, Saiakerotan)-->
+    <dep from="t329" to="t326" rfunc="ncmod" />
+    <!--ncmod(mintzo da, ahotik)-->
+    <dep from="t329" to="t331" rfunc="ncmod" />
+    <!--ncmod(nabarmentzen, berriro)-->
+    <dep from="t351" to="t350" rfunc="ncmod" />
+    <!--ncmod(nahasi, aldetik)-->
+    <dep from="t217" to="t211" rfunc="ncmod" />
+    <!--ncmod(nahasi, aldetik)-->
+    <dep from="t217" to="t215" rfunc="ncmod" />
+    <!--ncmod(nahasi, antolamendu)-->
+    <dep from="t217" to="t214" rfunc="ncmod" />
+    <!--ncmod(nahasi, batzuetan)-->
+    <dep from="t217" to="t216" rfunc="ncmod" />
+    <!--ncmod(onduak, egile)-->
+    <dep from="t421" to="t415" rfunc="ncmod" />
+    <!--ncmod(osatzen, Huntaz)-->
+    <dep from="t62" to="t56" rfunc="ncmod" />
+    <!--ncmod(osatzen, liburuarekin)-->
+    <dep from="t62" to="t59" rfunc="ncmod" />
+    <!--ncmod(pentsamendu, landuak)-->
+    <dep from="t418" to="t419" rfunc="ncmod" />
+    <!--ncmod(saiakera, laburrotan)-->
+    <dep from="t105" to="t106" rfunc="ncmod" />
+    <!--ncmod(sartzean, lur)-->
+    <dep from="t317" to="t315" rfunc="ncmod" />
+    <!--ncmod(sumatu, liburu)-->
+    <dep from="t256" to="t252" rfunc="ncmod" />
+    <!--ncmod(topatu, Liburuan)-->
+    <dep from="t333" to="t332" rfunc="ncmod" />
+    <!--ncmod(topatu, erreferentzia)-->
+    <dep from="t333" to="t342" rfunc="ncmod" />
+    <!--ncmod(utzi, frantsesez)-->
+    <dep from="t292" to="t295" rfunc="ncmod" />
+    <!--ncmod(utzi, hizkuntzan)-->
+    <dep from="t292" to="t291" rfunc="ncmod" />
+    <!--ncmod(zerrendatzen, hemen)-->
+    <dep from="t41" to="t40" rfunc="ncmod" />
+    <!--ncobj(Erants, irakurleak)-->
+    <dep from="t440" to="t442" rfunc="ncobj" case="ABS" />
+    <!--ncobj(aipatu, ideiak)-->
+    <dep from="t392" to="t391" rfunc="ncobj" case="ABS" />
+    <!--ncobj(aipatu, mamia)-->
+    <dep from="t386" to="t389" rfunc="ncobj" case="ABS" />
+    <!--ncobj(aurkeztea, Alvarez Enparantza Txillardegi)-->
+    <dep from="t28" to="t27" rfunc="ncobj" case="ABS" />
+    <!--ncobj(aurkeztu, gaiak)-->
+    <dep from="t91" to="t93" rfunc="ncobj" case="ABS" />
+    <!--ncobj(badute, arrisku)-->
+    <dep from="t232" to="t233" rfunc="ncobj" case="ABS" />
+    <!--ncobj(bilatu, lotura)-->
+    <dep from="t196" to="t195" rfunc="ncobj" case="ABS" />
+    <!--ncobj(dira, esanak)-->
+    <dep from="t338" to="t341" rfunc="ncobj" case="ABS" />
+    <!--ncobj(ditu, Helburu)-->
+    <dep from="t261" to="t258" rfunc="ncobj" case="ABS" />
+    <!--ncobj(ditu, jendarteratzaile)-->
+    <dep from="t261" to="t259" rfunc="ncobj" case="ABS" />
+    <!--ncobj(dituen, hizpide)-->
+    <dep from="t407" to="t406" rfunc="ncobj" case="ABS" />
+    <!--ncobj(egin, aurkezpen)-->
+    <dep from="t110" to="t108" rfunc="ncobj" case="ABS" />
+    <!--ncobj(egin, iradokitzaileak)-->
+    <dep from="t110" to="t109" rfunc="ncobj" case="ABS" />
+    <!--ncobj(egingo, hitz)-->
+    <dep from="t3" to="t2" rfunc="ncobj" case="ABS" />
+    <!--ncobj(egiten, deia)-->
+    <dep from="t203" to="t202" rfunc="ncobj" case="ABS" />
+    <!--ncobj(eman, arrazoiak)-->
+    <dep from="t34" to="t33" rfunc="ncobj" case="ABS" />
+    <!--ncobj(eman, saiakera)-->
+    <dep from="t67" to="t65" rfunc="ncobj" case="ABS" />
+    <!--ncobj(eraman, gidariak)-->
+    <dep from="t324" to="t322" rfunc="ncobj" case="ABS" />
+    <!--ncobj(esanik, Hau)-->
+    <dep from="t349" to="t348" rfunc="ncobj" case="ABS" />
+    <!--ncobj(galtzeko, arrisku)-->
+    <dep from="t264" to="t265" rfunc="ncobj" case="ABS" />
+    <!--ncobj(gorde, koherentziarik)-->
+    <dep from="t280" to="t279" rfunc="ncobj" case="PAR" />
+    <!--ncobj(gorde, lausotasuna)-->
+    <dep from="t280" to="t275" rfunc="ncobj" case="ABS" />
+    <!--ncobj(irakurri, besteak)-->
+    <dep from="t139" to="t135" rfunc="ncobj" case="ABS" />
+    <!--ncobj(itxi, zikloa)-->
+    <dep from="t248" to="t247" rfunc="ncobj" case="ABS" />
+    <!--ncobj(ixten, liburua)-->
+    <dep from="t163" to="t162" rfunc="ncobj" case="ABS" />
+    <!--ncobj(jakiteko, beharra)-->
+    <dep from="t321" to="t320" rfunc="ncobj" case="ABS" />
+    <!--ncobj(jartzea, Punttua)-->
+    <dep from="t118" to="t117" rfunc="ncobj" case="ABS" />
+    <!--ncobj(marraztu, ate)-->
+    <dep from="t358" to="t357" rfunc="ncobj" case="ABS" />
+    <!--ncobj(nabarmenduko, Bi)-->
+    <dep from="t183" to="t182" rfunc="ncobj" case="ABS" />
+    <!--ncobj(utzi, testu)-->
+    <dep from="t292" to="t288" rfunc="ncobj" case="ABS" />
+    <!--ncpred(da, pentsalaria)-->
+    <dep from="t8" to="t7" rfunc="ncpred" />
+    <!--ncpred(da, prosa)-->
+    <dep from="t224" to="t222" rfunc="ncpred" />
+    <!--ncpred(dira, Horiek)-->
+    <dep from="t89" to="t88" rfunc="ncpred" />
+    <!--ncpred(dira, oro)-->
+    <dep from="t132" to="t131" rfunc="ncpred" />
+    <!--ncpred(izango, falta)-->
+    <dep from="t310" to="t309" rfunc="ncpred" />
+    <!--ncpred(izateko, nabarmena)-->
+    <dep from="t32" to="t31" rfunc="ncpred" />
+    <!--ncpred(litzateke, iraina)-->
+    <dep from="t24" to="t23" rfunc="ncpred" />
+    <!--ncsubj(aurkeztu, Txillardegik)-->
+    <dep from="t91" to="t90" rfunc="ncsubj" case="ERG" />
+    <!--ncsubj(badute, Hipertestuek)-->
+    <dep from="t232" to="t231" rfunc="ncsubj" case="ERG" />
+    <!--ncsubj(dagoelako, gonbit)-->
+    <dep from="t209" to="t207" rfunc="ncsubj" case="ABS" />
+    <!--ncsubj(daude, denak)-->
+    <dep from="t374" to="t375" rfunc="ncsubj" case="ABS" />
+    <!--ncsubj(dira, Ateak)-->
+    <dep from="t366" to="t364" rfunc="ncsubj" case="ABS" />
+    <!--ncsubj(dira, Gaiak)-->
+    <dep from="t132" to="t130" rfunc="ncsubj" case="ABS" />
+    <!--ncsubj(dira, berak)-->
+    <dep from="t338" to="t340" rfunc="ncsubj" case="ERG" />
+    <!--ncsubj(dira, ideia)-->
+    <dep from="t338" to="t335" rfunc="ncsubj" case="ABS" />
+    <!--ncsubj(erabili, Txillardegik)-->
+    <dep from="t403" to="t401" rfunc="ncsubj" case="ERG" />
+    <!--ncsubj(erantsiko, nik)-->
+    <dep from="t439" to="t438" rfunc="ncsubj" case="ERG" />
+    <!--ncsubj(ezagutzeko, jatorrizkoak)-->
+    <dep from="t206" to="t205" rfunc="ncsubj" case="ABS" />
+    <!--ncsubj(irakurri, atalak)-->
+    <dep from="t139" to="t149" rfunc="ncsubj" case="ABS" />
+    <!--ncsubj(marraztu, Txillardegik)-->
+    <dep from="t358" to="t360" rfunc="ncsubj" case="ERG" />
+    <!--ncsubj(onduak, pentsamendu)-->
+    <dep from="t421" to="t418" rfunc="ncsubj" case="ABS" />
+    <!--prtmod(da, Ez)-->
+    <dep from="t44" to="t43" rfunc="prtmod" />
+    <!--prtmod(daude, Ez)-->
+    <dep from="t374" to="t373" rfunc="prtmod" />
+    <!--prtmod(dira, ez)-->
+    <dep from="t338" to="t337" rfunc="prtmod" />
+    <!--prtmod(naiz, ez)-->
+    <dep from="t39" to="t38" rfunc="prtmod" />
+    <!--prtmod(sumatu, ez)-->
+    <dep from="t256" to="t254" rfunc="prtmod" />
+    <!--xcomp_obj(azaltzen, izanik)-->
+    <dep from="t180" to="t175" rfunc="xcomp_obj" case="PAR" />
+    <!--xcomp_subj(litzateke, aurkeztea)-->
+    <dep from="t24" to="t28" rfunc="xcomp_subj" case="ABS" />
+    <!--xmod(testu, ekarritako)-->
+    <dep from="t288" to="t287" rfunc="xmod" case="GEL" />
+    <!--xmod(zikloa, uztekoa)-->
+    <dep from="t247" to="t250" rfunc="xmod" case="ABS" />
+    <!--xpred(hasiko, zerrendatzen)-->
+    <dep from="t42" to="t41" rfunc="xpred" case="INE" />
+  </deps>
+  <chunks>
+    <!--Gaur-->
+    <chunk cid="c1" head="t1" phrase="NP">
+      <span>
+        <target id="t1" />
+      </span>
+    </chunk>
+    <!--hitz-->
+    <chunk cid="c2" head="t2" phrase="NP" case="ABS">
+      <span>
+        <target id="t2" />
+      </span>
+    </chunk>
+    <!--egingo dut-->
+    <chunk cid="c3" head="t3" phrase="VP">
+      <span>
+        <target id="t3" />
+        <target id="t4" />
+      </span>
+    </chunk>
+    <!--Txillardegiz-->
+    <chunk cid="c4" head="t5" phrase="NP" case="INS">
+      <span>
+        <target id="t5" />
+      </span>
+    </chunk>
+    <!--Gaurko pentsalaria-->
+    <chunk cid="c5" head="t7" phrase="NP" case="ABS">
+      <span>
+        <target id="t6" />
+        <target id="t7" />
+      </span>
+    </chunk>
+    <!--da-->
+    <chunk cid="c6" head="t8" phrase="VP">
+      <span>
+        <target id="t8" />
+      </span>
+    </chunk>
+    <!--badirudi-->
+    <chunk cid="c7" head="t10" phrase="VP">
+      <span>
+        <target id="t10" />
+      </span>
+    </chunk>
+    <!--beti-->
+    <chunk cid="c8" head="t11" phrase="NP">
+      <span>
+        <target id="t11" />
+      </span>
+    </chunk>
+    <!--bizi izan-->
+    <chunk cid="c9" head="t12" phrase="VP">
+      <span>
+        <target id="t12" />
+      </span>
+    </chunk>
+    <!--gaur-->
+    <chunk cid="c10" head="t14" phrase="NP">
+      <span>
+        <target id="t14" />
+      </span>
+    </chunk>
+    <!--atzo-->
+    <chunk cid="c11" head="t16" phrase="NP">
+      <span>
+        <target id="t16" />
+      </span>
+    </chunk>
+    <!--bihar-->
+    <chunk cid="c12" head="t18" phrase="NP">
+      <span>
+        <target id="t18" />
+      </span>
+    </chunk>
+    <!--beti-->
+    <chunk cid="c13" head="t19" phrase="NP">
+      <span>
+        <target id="t19" />
+      </span>
+    </chunk>
+    <!--gaur-->
+    <chunk cid="c14" head="t20" phrase="NP">
+      <span>
+        <target id="t20" />
+      </span>
+    </chunk>
+    <!--Honezkero-->
+    <chunk cid="c15" head="t21" phrase="NP">
+      <span>
+        <target id="t21" />
+      </span>
+    </chunk>
+    <!--ia-->
+    <chunk cid="c16" head="t22" phrase="NP">
+      <span>
+        <target id="t22" />
+      </span>
+    </chunk>
+    <!--iraina-->
+    <chunk cid="c17" head="t23" phrase="NP" case="ABS">
+      <span>
+        <target id="t23" />
+      </span>
+    </chunk>
+    <!--litzateke-->
+    <chunk cid="c18" head="t24" phrase="VP">
+      <span>
+        <target id="t24" />
+      </span>
+    </chunk>
+    <!--Jose Luis Alvarez Enparantza Txillardegi-->
+    <chunk cid="c19" head="t27" phrase="NP" case="ABS">
+      <span>
+        <target id="t25" />
+        <target id="t26" />
+        <target id="t27" />
+      </span>
+    </chunk>
+    <!--Alvarez Enparantza Txillardegi-->
+    <chunk cid="c20" head="t27" phrase="NP" case="ABS">
+      <span>
+        <target id="t27" />
+      </span>
+    </chunk>
+    <!--aurkeztea-->
+    <chunk cid="c21" head="t28" phrase="VP" case="ABS">
+      <span>
+        <target id="t28" />
+      </span>
+    </chunk>
+    <!--Gure artean-->
+    <chunk cid="c22" head="t30" phrase="NP" case="INE">
+      <span>
+        <target id="t29" />
+        <target id="t30" />
+      </span>
+    </chunk>
+    <!--nabarmena-->
+    <chunk cid="c23" head="t31" phrase="NP" case="ABS">
+      <span>
+        <target id="t31" />
+      </span>
+    </chunk>
+    <!--izateko-->
+    <chunk cid="c24" head="t32" phrase="VP" case="GEL">
+      <span>
+        <target id="t32" />
+      </span>
+    </chunk>
+    <!--arrazoiak-->
+    <chunk cid="c25" head="t33" phrase="NP" case="ABS">
+      <span>
+        <target id="t33" />
+      </span>
+    </chunk>
+    <!--eman dizkigu-->
+    <chunk cid="c26" head="t34" phrase="VP">
+      <span>
+        <target id="t34" />
+        <target id="t35" />
+      </span>
+    </chunk>
+    <!--aski-->
+    <chunk cid="c27" head="t36" phrase="NP">
+      <span>
+        <target id="t36" />
+      </span>
+    </chunk>
+    <!--ez naiz-->
+    <chunk cid="c28" head="t39" phrase="VP">
+      <span>
+        <target id="t38" />
+        <target id="t39" />
+      </span>
+    </chunk>
+    <!--hemen-->
+    <chunk cid="c29" head="t40" phrase="NP">
+      <span>
+        <target id="t40" />
+      </span>
+    </chunk>
+    <!--zerrendatzen-->
+    <chunk cid="c30" head="t41" phrase="VP" case="INE">
+      <span>
+        <target id="t41" />
+      </span>
+    </chunk>
+    <!--hasiko-->
+    <chunk cid="c31" head="t42" phrase="VP">
+      <span>
+        <target id="t42" />
+      </span>
+    </chunk>
+    <!--Ez da-->
+    <chunk cid="c32" head="t44" phrase="VP">
+      <span>
+        <target id="t43" />
+        <target id="t44" />
+      </span>
+    </chunk>
+    <!--une-->
+    <chunk cid="c33" head="t45" phrase="NP" case="ABS">
+      <span>
+        <target id="t45" />
+      </span>
+    </chunk>
+    <!--leku egokia-->
+    <chunk cid="c34" head="t47" phrase="NP" case="ABS">
+      <span>
+        <target id="t47" />
+        <target id="t48" />
+      </span>
+    </chunk>
+    <!--Horretaz-->
+    <chunk cid="c35" head="t49" phrase="NP" case="INS">
+      <span>
+        <target id="t49" />
+      </span>
+    </chunk>
+    <!--deitzen da-->
+    <chunk cid="c36" head="t50" phrase="VP">
+      <span>
+        <target id="t50" />
+        <target id="t51" />
+      </span>
+    </chunk>
+    <!--Txillardegiren azken argitalpena-->
+    <chunk cid="c37" head="t54" phrase="NP" case="ABS">
+      <span>
+        <target id="t52" />
+        <target id="t53" />
+        <target id="t54" />
+      </span>
+    </chunk>
+    <!--1965eko Huntaz-->
+    <chunk cid="c38" head="t56" phrase="NP" case="INS">
+      <span>
+        <target id="t55" />
+        <target id="t56" />
+      </span>
+    </chunk>
+    <!--hartaz-->
+    <chunk cid="c39" head="t58" phrase="NP" case="INS">
+      <span>
+        <target id="t58" />
+      </span>
+    </chunk>
+    <!--liburuarekin-->
+    <chunk cid="c40" head="t59" phrase="NP" case="SOZ">
+      <span>
+        <target id="t59" />
+      </span>
+    </chunk>
+    <!--aldebiko triangelua-->
+    <chunk cid="c41" head="t61" phrase="NP" case="ABS">
+      <span>
+        <target id="t60" />
+        <target id="t61" />
+      </span>
+    </chunk>
+    <!--duena-->
+    <chunk cid="c42" head="t63" phrase="NP" case="ABS">
+      <span>
+        <target id="t63" />
+      </span>
+    </chunk>
+    <!--Zazpi saiakera labur-->
+    <chunk cid="c43" head="t65" phrase="NP" case="ABS">
+      <span>
+        <target id="t64" />
+        <target id="t65" />
+        <target id="t66" />
+      </span>
+    </chunk>
+    <!--eman ditu-->
+    <chunk cid="c44" head="t67" phrase="VP">
+      <span>
+        <target id="t67" />
+        <target id="t68" />
+      </span>
+    </chunk>
+    <!--argitara-->
+    <chunk cid="c45" head="t69" phrase="NP" case="ALA">
+      <span>
+        <target id="t69" />
+      </span>
+    </chunk>
+    <!--Ameriketako genozidioa-->
+    <chunk cid="c46" head="t79" phrase="NP" case="ABS">
+      <span>
+        <target id="t78" />
+        <target id="t79" />
+      </span>
+    </chunk>
+    <!--gizakiaren jatorria-->
+    <chunk cid="c47" head="t81" phrase="NP" case="ABS">
+      <span>
+        <target id="t80" />
+        <target id="t81" />
+      </span>
+    </chunk>
+    <!--Jainkoa-->
+    <chunk cid="c48" head="t82" phrase="NP" case="ABS">
+      <span>
+        <target id="t82" />
+      </span>
+    </chunk>
+    <!--antropozentrismoaren kritika-->
+    <chunk cid="c49" head="t84" phrase="NP" case="ABS">
+      <span>
+        <target id="t83" />
+        <target id="t84" />
+      </span>
+    </chunk>
+    <!--kosmosaren behaketa-->
+    <chunk cid="c50" head="t87" phrase="NP" case="ABS">
+      <span>
+        <target id="t86" />
+        <target id="t87" />
+      </span>
+    </chunk>
+    <!--Horiek-->
+    <chunk cid="c51" head="t88" phrase="NP" case="ABS">
+      <span>
+        <target id="t88" />
+      </span>
+    </chunk>
+    <!--dira-->
+    <chunk cid="c52" head="t89" phrase="VP">
+      <span>
+        <target id="t89" />
+      </span>
+    </chunk>
+    <!--Txillardegik-->
+    <chunk cid="c53" head="t90" phrase="NP" case="ERG">
+      <span>
+        <target id="t90" />
+      </span>
+    </chunk>
+    <!--aurkeztu dizkigun-->
+    <chunk cid="c54" head="t91" phrase="VP">
+      <span>
+        <target id="t91" />
+        <target id="t92" />
+      </span>
+    </chunk>
+    <!--gaiak-->
+    <chunk cid="c55" head="t93" phrase="NP" case="ABS">
+      <span>
+        <target id="t93" />
+      </span>
+    </chunk>
+    <!--Aurkeztu-->
+    <chunk cid="c56" head="t94" phrase="VP">
+      <span>
+        <target id="t94" />
+      </span>
+    </chunk>
+    <!--esan dut-->
+    <chunk cid="c57" head="t95" phrase="VP">
+      <span>
+        <target id="t95" />
+        <target id="t96" />
+      </span>
+    </chunk>
+    <!--sakontzean-->
+    <chunk cid="c58" head="t102" phrase="VP" case="INE">
+      <span>
+        <target id="t102" />
+      </span>
+    </chunk>
+    <!--galdu-->
+    <chunk cid="c59" head="t103" phrase="VP">
+      <span>
+        <target id="t103" />
+      </span>
+    </chunk>
+    <!--ordez-->
+    <chunk cid="c60" head="t104" phrase="NP">
+      <span>
+        <target id="t104" />
+      </span>
+    </chunk>
+    <!--saiakera laburrotan-->
+    <chunk cid="c61" head="t105" phrase="NP" case="INE">
+      <span>
+        <target id="t105" />
+        <target id="t106" />
+      </span>
+    </chunk>
+    <!--gaien aurkezpen iradokitzaileak-->
+    <chunk cid="c62" head="t109" phrase="NP" case="ABS">
+      <span>
+        <target id="t107" />
+        <target id="t108" />
+        <target id="t109" />
+      </span>
+    </chunk>
+    <!--egin dituelako-->
+    <chunk cid="c63" head="t110" phrase="VP">
+      <span>
+        <target id="t110" />
+        <target id="t111" />
+      </span>
+    </chunk>
+    <!--Sakondu-->
+    <chunk cid="c64" head="t112" phrase="VP">
+      <span>
+        <target id="t112" />
+      </span>
+    </chunk>
+    <!--nahi duenak-->
+    <chunk cid="c65" head="t113" phrase="VP" case="ABS">
+      <span>
+        <target id="t113" />
+      </span>
+    </chunk>
+    <!--espezialistetara-->
+    <chunk cid="c66" head="t114" phrase="NP" case="ALA">
+      <span>
+        <target id="t114" />
+      </span>
+    </chunk>
+    <!--dauka-->
+    <chunk cid="c67" head="t116" phrase="VP">
+      <span>
+        <target id="t116" />
+      </span>
+    </chunk>
+    <!--Punttua-->
+    <chunk cid="c68" head="t117" phrase="NP" case="ABS">
+      <span>
+        <target id="t117" />
+      </span>
+    </chunk>
+    <!--jartzea-->
+    <chunk cid="c69" head="t118" phrase="VP" case="ABS">
+      <span>
+        <target id="t118" />
+      </span>
+    </chunk>
+    <!--dagokit-->
+    <chunk cid="c70" head="t119" phrase="VP">
+      <span>
+        <target id="t119" />
+      </span>
+    </chunk>
+    <!--bakarrik-->
+    <chunk cid="c71" head="t120" phrase="NP">
+      <span>
+        <target id="t120" />
+      </span>
+    </chunk>
+    <!--Bertsoa-->
+    <chunk cid="c72" head="t121" phrase="NP" case="ABS">
+      <span>
+        <target id="t121" />
+      </span>
+    </chunk>
+    <!--bestek-->
+    <chunk cid="c73" head="t122" phrase="NP" case="ERG">
+      <span>
+        <target id="t122" />
+      </span>
+    </chunk>
+    <!--burutuko-->
+    <chunk cid="c74" head="t123" phrase="VP">
+      <span>
+        <target id="t123" />
+      </span>
+    </chunk>
+    <!--Argiago-->
+    <chunk cid="c75" head="t124" phrase="VP">
+      <span>
+        <target id="t124" />
+      </span>
+    </chunk>
+    <!--ezin zuen-->
+    <chunk cid="c76" head="t125" phrase="VP">
+      <span>
+        <target id="t125" />
+      </span>
+    </chunk>
+    <!--idazleak-->
+    <chunk cid="c77" head="t126" phrase="NP" case="ERG">
+      <span>
+        <target id="t126" />
+      </span>
+    </chunk>
+    <!--bere asmoa-->
+    <chunk cid="c78" head="t128" phrase="NP" case="ABS">
+      <span>
+        <target id="t127" />
+        <target id="t128" />
+      </span>
+    </chunk>
+    <!--azaldu-->
+    <chunk cid="c79" head="t129" phrase="VP">
+      <span>
+        <target id="t129" />
+      </span>
+    </chunk>
+    <!--Gaiak-->
+    <chunk cid="c80" head="t130" phrase="NP" case="ABS">
+      <span>
+        <target id="t130" />
+      </span>
+    </chunk>
+    <!--oro-->
+    <chunk cid="c81" head="t131" phrase="NP" case="ABS">
+      <span>
+        <target id="t131" />
+      </span>
+    </chunk>
+    <!--dira-->
+    <chunk cid="c82" head="t132" phrase="VP">
+      <span>
+        <target id="t132" />
+      </span>
+    </chunk>
+    <!--besteak-->
+    <chunk cid="c83" head="t135" phrase="NP" case="ABS">
+      <span>
+        <target id="t135" />
+      </span>
+    </chunk>
+    <!--biziagoz-->
+    <chunk cid="c84" head="t138" phrase="NP" case="INS">
+      <span>
+        <target id="t138" />
+      </span>
+    </chunk>
+    <!--irakurri ditut-->
+    <chunk cid="c85" head="t139" phrase="VP">
+      <span>
+        <target id="t139" />
+        <target id="t140" />
+      </span>
+    </chunk>
+    <!--Ameriketako genozidioaz-->
+    <chunk cid="c86" head="t142" phrase="NP" case="INS">
+      <span>
+        <target id="t141" />
+        <target id="t142" />
+      </span>
+    </chunk>
+    <!--Giza jatorriaz-->
+    <chunk cid="c87" head="t144" phrase="NP" case="INS">
+      <span>
+        <target id="t143" />
+        <target id="t144" />
+      </span>
+    </chunk>
+    <!--Gure galaxian-->
+    <chunk cid="c88" head="t147" phrase="NP" case="INE">
+      <span>
+        <target id="t146" />
+        <target id="t147" />
+      </span>
+    </chunk>
+    <!--atalak-->
+    <chunk cid="c89" head="t149" phrase="NP" case="ABS">
+      <span>
+        <target id="t149" />
+      </span>
+    </chunk>
+    <!--Aitortu-->
+    <chunk cid="c90" head="t150" phrase="VP">
+      <span>
+        <target id="t150" />
+      </span>
+    </chunk>
+    <!--behar dut-->
+    <chunk cid="c91" head="t151" phrase="VP">
+      <span>
+        <target id="t151" />
+      </span>
+    </chunk>
+    <!--kosmos kontuetan-->
+    <chunk cid="c92" head="t153" phrase="NP" case="INE">
+      <span>
+        <target id="t152" />
+        <target id="t153" />
+      </span>
+    </chunk>
+    <!--ia-->
+    <chunk cid="c93" head="t154" phrase="NP">
+      <span>
+        <target id="t154" />
+      </span>
+    </chunk>
+    <!--birjina izaki-->
+    <chunk cid="c94" head="t156" phrase="NP" case="ABS">
+      <span>
+        <target id="t155" />
+        <target id="t156" />
+      </span>
+    </chunk>
+    <!--galdu-->
+    <chunk cid="c95" head="t157" phrase="VP">
+      <span>
+        <target id="t157" />
+      </span>
+    </chunk>
+    <!--ibili naizela-->
+    <chunk cid="c96" head="t159" phrase="VP">
+      <span>
+        <target id="t159" />
+        <target id="t160" />
+      </span>
+    </chunk>
+    <!--liburua-->
+    <chunk cid="c97" head="t162" phrase="NP" case="ABS">
+      <span>
+        <target id="t162" />
+      </span>
+    </chunk>
+    <!--ixten duen-->
+    <chunk cid="c98" head="t163" phrase="VP">
+      <span>
+        <target id="t163" />
+        <target id="t164" />
+      </span>
+    </chunk>
+    <!--saiakeran-->
+    <chunk cid="c99" head="t167" phrase="NP" case="INE">
+      <span>
+        <target id="t167" />
+      </span>
+    </chunk>
+    <!--gehiegi-->
+    <chunk cid="c100" head="t171" phrase="NP" case="ABS">
+      <span>
+        <target id="t171" />
+      </span>
+    </chunk>
+    <!--niretzat-->
+    <chunk cid="c101" head="t172" phrase="NP" case="DES">
+      <span>
+        <target id="t172" />
+      </span>
+    </chunk>
+    <!--askotarikoak-->
+    <chunk cid="c102" head="t174" phrase="NP" case="ABS">
+      <span>
+        <target id="t174" />
+      </span>
+    </chunk>
+    <!--izanik-->
+    <chunk cid="c103" head="t175" phrase="VP" case="PAR">
+      <span>
+        <target id="t175" />
+      </span>
+    </chunk>
+    <!--hobe saiakeron ezaugarri orokorrak-->
+    <chunk cid="c104" head="t178" phrase="NP" case="ABS">
+      <span>
+        <target id="t176" />
+        <target id="t177" />
+        <target id="t178" />
+        <target id="t179" />
+      </span>
+    </chunk>
+    <!--azaltzen baditugu-->
+    <chunk cid="c105" head="t180" phrase="VP">
+      <span>
+        <target id="t180" />
+        <target id="t181" />
+      </span>
+    </chunk>
+    <!--Bi-->
+    <chunk cid="c106" head="t182" phrase="NP" case="ABS">
+      <span>
+        <target id="t182" />
+      </span>
+    </chunk>
+    <!--nabarmenduko nituzke-->
+    <chunk cid="c107" head="t183" phrase="VP">
+      <span>
+        <target id="t183" />
+        <target id="t184" />
+      </span>
+    </chunk>
+    <!--testuen borondate hipertestuala batetik-->
+    <chunk cid="c108" head="t186" phrase="NP" case="ABL">
+      <span>
+        <target id="t185" />
+        <target id="t186" />
+        <target id="t187" />
+        <target id="t188" />
+      </span>
+    </chunk>
+    <!--jendarteratzailea-->
+    <chunk cid="c109" head="t190" phrase="NP" case="ABS">
+      <span>
+        <target id="t190" />
+      </span>
+    </chunk>
+    <!--bestetik-->
+    <chunk cid="c110" head="t191" phrase="NP" case="ABL">
+      <span>
+        <target id="t191" />
+      </span>
+    </chunk>
+    <!--Hipertestuala-->
+    <chunk cid="c111" head="t192" phrase="NP" case="ALA">
+      <span>
+        <target id="t192" />
+      </span>
+    </chunk>
+    <!--edukien arteko lotura-->
+    <chunk cid="c112" head="t195" phrase="NP" case="ABS">
+      <span>
+        <target id="t193" />
+        <target id="t194" />
+        <target id="t195" />
+      </span>
+    </chunk>
+    <!--bilatu duelako-->
+    <chunk cid="c113" head="t196" phrase="VP">
+      <span>
+        <target id="t196" />
+        <target id="t197" />
+      </span>
+    </chunk>
+    <!--Testuaren baitatik-->
+    <chunk cid="c114" head="t199" phrase="NP" case="ABL">
+      <span>
+        <target id="t198" />
+        <target id="t199" />
+      </span>
+    </chunk>
+    <!--testutik-->
+    <chunk cid="c115" head="t200" phrase="NP" case="ABL">
+      <span>
+        <target id="t200" />
+      </span>
+    </chunk>
+    <!--irteteko-->
+    <chunk cid="c116" head="t201" phrase="VP" case="GEL">
+      <span>
+        <target id="t201" />
+      </span>
+    </chunk>
+    <!--deia-->
+    <chunk cid="c117" head="t202" phrase="NP" case="ABS">
+      <span>
+        <target id="t202" />
+      </span>
+    </chunk>
+    <!--egiten duelako-->
+    <chunk cid="c118" head="t203" phrase="VP">
+      <span>
+        <target id="t203" />
+        <target id="t204" />
+      </span>
+    </chunk>
+    <!--jatorrizkoak-->
+    <chunk cid="c119" head="t205" phrase="NP" case="ABS">
+      <span>
+        <target id="t205" />
+      </span>
+    </chunk>
+    <!--ezagutzeko-->
+    <chunk cid="c120" head="t206" phrase="VP" case="GEL">
+      <span>
+        <target id="t206" />
+      </span>
+    </chunk>
+    <!--gonbit ugari-->
+    <chunk cid="c121" head="t207" phrase="NP" case="ABS">
+      <span>
+        <target id="t207" />
+        <target id="t208" />
+      </span>
+    </chunk>
+    <!--dagoelako-->
+    <chunk cid="c122" head="t209" phrase="VP">
+      <span>
+        <target id="t209" />
+      </span>
+    </chunk>
+    <!--Egituraren aldetik-->
+    <chunk cid="c123" head="t211" phrase="NP" case="ABL">
+      <span>
+        <target id="t210" />
+        <target id="t211" />
+      </span>
+    </chunk>
+    <!--Egituraren aldetik nahiz ideien antolamendu aldetik-->
+    <chunk cid="c124" head="t215" phrase="NP" case="ABL">
+      <span>
+        <target id="t210" />
+        <target id="t211" />
+        <target id="t212" />
+        <target id="t213" />
+        <target id="t214" />
+        <target id="t215" />
+      </span>
+    </chunk>
+    <!--batzuetan-->
+    <chunk cid="c125" head="t216" phrase="NP">
+      <span>
+        <target id="t216" />
+      </span>
+    </chunk>
+    <!--nahasi-->
+    <chunk cid="c126" head="t217" phrase="VP">
+      <span>
+        <target id="t217" />
+      </span>
+    </chunk>
+    <!--samarra-->
+    <chunk cid="c127" head="t218" phrase="NP" case="ABS">
+      <span>
+        <target id="t218" />
+      </span>
+    </chunk>
+    <!--suerta daitekeen-->
+    <chunk cid="c128" head="t219" phrase="VP">
+      <span>
+        <target id="t219" />
+        <target id="t220" />
+      </span>
+    </chunk>
+    <!--prosa garbia-->
+    <chunk cid="c129" head="t222" phrase="NP" case="ABS">
+      <span>
+        <target id="t222" />
+        <target id="t223" />
+      </span>
+    </chunk>
+    <!--da-->
+    <chunk cid="c130" head="t224" phrase="VP">
+      <span>
+        <target id="t224" />
+      </span>
+    </chunk>
+    <!--Txillardegirena-->
+    <chunk cid="c131" head="t225" phrase="NP" case="ABS">
+      <span>
+        <target id="t225" />
+      </span>
+    </chunk>
+    <!--bere ezagupenak-->
+    <chunk cid="c132" head="t227" phrase="NP" case="ERG">
+      <span>
+        <target id="t226" />
+        <target id="t227" />
+      </span>
+    </chunk>
+    <!--ezagutzera emateko-->
+    <chunk cid="c133" head="t228" phrase="VP" case="GEL">
+      <span>
+        <target id="t228" />
+      </span>
+    </chunk>
+    <!--asmoz-->
+    <chunk cid="c134" head="t229" phrase="NP" case="INS">
+      <span>
+        <target id="t229" />
+      </span>
+    </chunk>
+    <!--eraikia-->
+    <chunk cid="c135" head="t230" phrase="VP" case="ABS">
+      <span>
+        <target id="t230" />
+      </span>
+    </chunk>
+    <!--Hipertestuek-->
+    <chunk cid="c136" head="t231" phrase="NP" case="ERG">
+      <span>
+        <target id="t231" />
+      </span>
+    </chunk>
+    <!--badute-->
+    <chunk cid="c137" head="t232" phrase="VP">
+      <span>
+        <target id="t232" />
+      </span>
+    </chunk>
+    <!--arrisku bat-->
+    <chunk cid="c138" head="t233" phrase="NP" case="ABS">
+      <span>
+        <target id="t233" />
+        <target id="t234" />
+      </span>
+    </chunk>
+    <!--Internetekoek-->
+    <chunk cid="c139" head="t235" phrase="NP" case="ERG">
+      <span>
+        <target id="t235" />
+      </span>
+    </chunk>
+    <!--bereziki-->
+    <chunk cid="c140" head="t236" phrase="NP">
+      <span>
+        <target id="t236" />
+      </span>
+    </chunk>
+    <!--testutik-->
+    <chunk cid="c141" head="t238" phrase="NP" case="ABL">
+      <span>
+        <target id="t238" />
+      </span>
+    </chunk>
+    <!--testura-->
+    <chunk cid="c142" head="t239" phrase="NP" case="ALA">
+      <span>
+        <target id="t239" />
+      </span>
+    </chunk>
+    <!--galdu-->
+    <chunk cid="c143" head="t240" phrase="VP">
+      <span>
+        <target id="t240" />
+      </span>
+    </chunk>
+    <!--hasitako-->
+    <chunk cid="c144" head="t242" phrase="VP" case="GEL">
+      <span>
+        <target id="t242" />
+      </span>
+    </chunk>
+    <!--testura-->
+    <chunk cid="c145" head="t243" phrase="NP" case="ALA">
+      <span>
+        <target id="t243" />
+      </span>
+    </chunk>
+    <!--ez itzultzeko-->
+    <chunk cid="c146" head="t245" phrase="VP" case="GEL">
+      <span>
+        <target id="t244" />
+        <target id="t245" />
+      </span>
+    </chunk>
+    <!--arriskua-->
+    <chunk cid="c147" head="t246" phrase="NP" case="ABS">
+      <span>
+        <target id="t246" />
+      </span>
+    </chunk>
+    <!--zikloa-->
+    <chunk cid="c148" head="t247" phrase="NP" case="ABS">
+      <span>
+        <target id="t247" />
+      </span>
+    </chunk>
+    <!--itxi-->
+    <chunk cid="c149" head="t248" phrase="VP">
+      <span>
+        <target id="t248" />
+      </span>
+    </chunk>
+    <!--gabe-->
+    <chunk cid="c150" head="t249" phrase="NP">
+      <span>
+        <target id="t249" />
+      </span>
+    </chunk>
+    <!--uztekoa-->
+    <chunk cid="c151" head="t250" phrase="VP" case="ABS">
+      <span>
+        <target id="t250" />
+      </span>
+    </chunk>
+    <!--liburu honekin-->
+    <chunk cid="c152" head="t252" phrase="NP" case="SOZ">
+      <span>
+        <target id="t252" />
+        <target id="t253" />
+      </span>
+    </chunk>
+    <!--ez dut sumatu-->
+    <chunk cid="c153" head="t256" phrase="VP">
+      <span>
+        <target id="t254" />
+        <target id="t255" />
+        <target id="t256" />
+      </span>
+    </chunk>
+    <!--Helburu jendarteratzaile argiak-->
+    <chunk cid="c154" head="t259" phrase="NP" case="ABS">
+      <span>
+        <target id="t258" />
+        <target id="t259" />
+        <target id="t260" />
+      </span>
+    </chunk>
+    <!--ditu-->
+    <chunk cid="c155" head="t261" phrase="VP">
+      <span>
+        <target id="t261" />
+      </span>
+    </chunk>
+    <!--galtzeko-->
+    <chunk cid="c156" head="t264" phrase="VP" case="GEL">
+      <span>
+        <target id="t264" />
+      </span>
+    </chunk>
+    <!--arrisku gutxi-->
+    <chunk cid="c157" head="t265" phrase="NP" case="ABS">
+      <span>
+        <target id="t265" />
+        <target id="t266" />
+      </span>
+    </chunk>
+    <!--halako gidariarekin-->
+    <chunk cid="c158" head="t269" phrase="NP" case="SOZ">
+      <span>
+        <target id="t268" />
+        <target id="t269" />
+      </span>
+    </chunk>
+    <!--Liburuari-->
+    <chunk cid="c159" head="t270" phrase="NP" case="DAT">
+      <span>
+        <target id="t270" />
+      </span>
+    </chunk>
+    <!--itzalen bat-->
+    <chunk cid="c160" head="t271" phrase="NP" case="ABS">
+      <span>
+        <target id="t271" />
+        <target id="t272" />
+      </span>
+    </chunk>
+    <!--ikustekotan-->
+    <chunk cid="c161" head="t273" phrase="VP" case="INE">
+      <span>
+        <target id="t273" />
+      </span>
+    </chunk>
+    <!--metodologiaren lausotasuna-->
+    <chunk cid="c162" head="t275" phrase="NP" case="ABS">
+      <span>
+        <target id="t274" />
+        <target id="t275" />
+      </span>
+    </chunk>
+    <!--itzulpen guztietan-->
+    <chunk cid="c163" head="t277" phrase="NP" case="INE">
+      <span>
+        <target id="t277" />
+        <target id="t278" />
+      </span>
+    </chunk>
+    <!--koherentziarik-->
+    <chunk cid="c164" head="t279" phrase="NP" case="PAR">
+      <span>
+        <target id="t279" />
+      </span>
+    </chunk>
+    <!--gorde ez izana-->
+    <chunk cid="c165" head="t280" phrase="VP" case="ABS">
+      <span>
+        <target id="t280" />
+        <target id="t281" />
+        <target id="t282" />
+      </span>
+    </chunk>
+    <!--liburura-->
+    <chunk cid="c166" head="t286" phrase="NP" case="ALA">
+      <span>
+        <target id="t286" />
+      </span>
+    </chunk>
+    <!--ekarritako-->
+    <chunk cid="c167" head="t287" phrase="VP" case="GEL">
+      <span>
+        <target id="t287" />
+      </span>
+    </chunk>
+    <!--testu batzuk-->
+    <chunk cid="c168" head="t288" phrase="NP" case="ABS">
+      <span>
+        <target id="t288" />
+        <target id="t289" />
+      </span>
+    </chunk>
+    <!--testu batzuk jatorrizko hizkuntzan-->
+    <chunk cid="c169" head="t291" phrase="NP" case="INE">
+      <span>
+        <target id="t288" />
+        <target id="t289" />
+        <target id="t290" />
+        <target id="t291" />
+      </span>
+    </chunk>
+    <!--utzi ditu-->
+    <chunk cid="c170" head="t292" phrase="VP">
+      <span>
+        <target id="t292" />
+        <target id="t293" />
+      </span>
+    </chunk>
+    <!--maiz-->
+    <chunk cid="c171" head="t294" phrase="NP">
+      <span>
+        <target id="t294" />
+      </span>
+    </chunk>
+    <!--frantsesez-->
+    <chunk cid="c172" head="t295" phrase="NP" case="INS">
+      <span>
+        <target id="t295" />
+      </span>
+    </chunk>
+    <!--beste batzuetan-->
+    <chunk cid="c173" head="t298" phrase="NP" case="INE">
+      <span>
+        <target id="t297" />
+        <target id="t298" />
+      </span>
+    </chunk>
+    <!--euskarara-->
+    <chunk cid="c174" head="t299" phrase="NP" case="ALA">
+      <span>
+        <target id="t299" />
+      </span>
+    </chunk>
+    <!--itzuli ditu-->
+    <chunk cid="c175" head="t300" phrase="VP">
+      <span>
+        <target id="t300" />
+        <target id="t301" />
+      </span>
+    </chunk>
+    <!--begi-bistako irizpiderik-->
+    <chunk cid="c176" head="t303" phrase="NP" case="PAR">
+      <span>
+        <target id="t302" />
+        <target id="t303" />
+      </span>
+    </chunk>
+    <!--erabili-->
+    <chunk cid="c177" head="t304" phrase="VP">
+      <span>
+        <target id="t304" />
+      </span>
+    </chunk>
+    <!--gabe-->
+    <chunk cid="c178" head="t305" phrase="NP">
+      <span>
+        <target id="t305" />
+      </span>
+    </chunk>
+    <!--Metodoaren aldetik-->
+    <chunk cid="c179" head="t307" phrase="NP" case="ABL">
+      <span>
+        <target id="t306" />
+        <target id="t307" />
+      </span>
+    </chunk>
+    <!--ohitura-->
+    <chunk cid="c180" head="t308" phrase="VP" case="ALA">
+      <span>
+        <target id="t308" />
+      </span>
+    </chunk>
+    <!--falta-->
+    <chunk cid="c181" head="t309" phrase="NP" case="ABS">
+      <span>
+        <target id="t309" />
+      </span>
+    </chunk>
+    <!--ziurrenik-->
+    <chunk cid="c182" head="t312" phrase="NP" case="PAR">
+      <span>
+        <target id="t312" />
+      </span>
+    </chunk>
+    <!--lur ezezagunetan-->
+    <chunk cid="c183" head="t315" phrase="NP" case="INE">
+      <span>
+        <target id="t315" />
+        <target id="t316" />
+      </span>
+    </chunk>
+    <!--sartzean-->
+    <chunk cid="c184" head="t317" phrase="VP" case="INE">
+      <span>
+        <target id="t317" />
+      </span>
+    </chunk>
+    <!--sentitu dut-->
+    <chunk cid="c185" head="t318" phrase="VP">
+      <span>
+        <target id="t318" />
+        <target id="t319" />
+      </span>
+    </chunk>
+    <!--beharra-->
+    <chunk cid="c186" head="t320" phrase="NP" case="ABS">
+      <span>
+        <target id="t320" />
+      </span>
+    </chunk>
+    <!--jakiteko-->
+    <chunk cid="c187" head="t321" phrase="VP" case="GEL">
+      <span>
+        <target id="t321" />
+      </span>
+    </chunk>
+    <!--gidariak-->
+    <chunk cid="c188" head="t322" phrase="NP" case="ABS">
+      <span>
+        <target id="t322" />
+      </span>
+    </chunk>
+    <!--nora-->
+    <chunk cid="c189" head="t323" phrase="NP">
+      <span>
+        <target id="t323" />
+      </span>
+    </chunk>
+    <!--eraman-->
+    <chunk cid="c190" head="t324" phrase="VP">
+      <span>
+        <target id="t324" />
+      </span>
+    </chunk>
+    <!--nahi nauen-->
+    <chunk cid="c191" head="t325" phrase="VP">
+      <span>
+        <target id="t325" />
+      </span>
+    </chunk>
+    <!--Saiakerotan-->
+    <chunk cid="c192" head="t326" phrase="NP" case="INE">
+      <span>
+        <target id="t326" />
+      </span>
+    </chunk>
+    <!--gutxitan-->
+    <chunk cid="c193" head="t328" phrase="NP" case="INE">
+      <span>
+        <target id="t328" />
+      </span>
+    </chunk>
+    <!--mintzo da-->
+    <chunk cid="c194" head="t329" phrase="VP">
+      <span>
+        <target id="t329" />
+      </span>
+    </chunk>
+    <!--bere ahotik-->
+    <chunk cid="c195" head="t331" phrase="NP" case="ABL">
+      <span>
+        <target id="t330" />
+        <target id="t331" />
+      </span>
+    </chunk>
+    <!--Liburuan-->
+    <chunk cid="c196" head="t332" phrase="NP" case="INE">
+      <span>
+        <target id="t332" />
+      </span>
+    </chunk>
+    <!--topatu ditugun-->
+    <chunk cid="c197" head="t333" phrase="VP">
+      <span>
+        <target id="t333" />
+        <target id="t334" />
+      </span>
+    </chunk>
+    <!--ideia gehienak-->
+    <chunk cid="c198" head="t335" phrase="NP" case="ABS">
+      <span>
+        <target id="t335" />
+        <target id="t336" />
+      </span>
+    </chunk>
+    <!--ez dira-->
+    <chunk cid="c199" head="t338" phrase="VP">
+      <span>
+        <target id="t337" />
+        <target id="t338" />
+      </span>
+    </chunk>
+    <!--Txillardegik-->
+    <chunk cid="c200" head="t339" phrase="NP" case="ERG">
+      <span>
+        <target id="t339" />
+      </span>
+    </chunk>
+    <!--berak-->
+    <chunk cid="c201" head="t340" phrase="NP" case="ERG">
+      <span>
+        <target id="t340" />
+      </span>
+    </chunk>
+    <!--esanak-->
+    <chunk cid="c202" head="t341" phrase="NP" case="ABS">
+      <span>
+        <target id="t341" />
+      </span>
+    </chunk>
+    <!--erreferentzia zehatzez-->
+    <chunk cid="c203" head="t342" phrase="NP" case="INS">
+      <span>
+        <target id="t342" />
+        <target id="t343" />
+      </span>
+    </chunk>
+    <!--aipatutako-->
+    <chunk cid="c204" head="t344" phrase="VP" case="ABS">
+      <span>
+        <target id="t344" />
+      </span>
+    </chunk>
+    <!--ehunka egilek-->
+    <chunk cid="c205" head="t346" phrase="NP" case="ERG">
+      <span>
+        <target id="t345" />
+        <target id="t346" />
+      </span>
+    </chunk>
+    <!--Hau-->
+    <chunk cid="c206" head="t348" phrase="NP" case="ABS">
+      <span>
+        <target id="t348" />
+      </span>
+    </chunk>
+    <!--esanik-->
+    <chunk cid="c207" head="t349" phrase="VP" case="PAR">
+      <span>
+        <target id="t349" />
+      </span>
+    </chunk>
+    <!--berriro-->
+    <chunk cid="c208" head="t350" phrase="NP">
+      <span>
+        <target id="t350" />
+      </span>
+    </chunk>
+    <!--nabarmentzen da-->
+    <chunk cid="c209" head="t351" phrase="VP">
+      <span>
+        <target id="t351" />
+        <target id="t352" />
+      </span>
+    </chunk>
+    <!--saiakeren borondate hipertestuala-->
+    <chunk cid="c210" head="t354" phrase="NP" case="ABS">
+      <span>
+        <target id="t353" />
+        <target id="t354" />
+        <target id="t355" />
+      </span>
+    </chunk>
+    <!--Milaka ate-->
+    <chunk cid="c211" head="t357" phrase="NP" case="ABS">
+      <span>
+        <target id="t356" />
+        <target id="t357" />
+      </span>
+    </chunk>
+    <!--marraztu dizkigu-->
+    <chunk cid="c212" head="t358" phrase="VP">
+      <span>
+        <target id="t358" />
+        <target id="t359" />
+      </span>
+    </chunk>
+    <!--Txillardegik-->
+    <chunk cid="c213" head="t360" phrase="NP" case="ERG">
+      <span>
+        <target id="t360" />
+      </span>
+    </chunk>
+    <!--bere testutik-->
+    <chunk cid="c214" head="t362" phrase="NP" case="ABL">
+      <span>
+        <target id="t361" />
+        <target id="t362" />
+      </span>
+    </chunk>
+    <!--besteetara-->
+    <chunk cid="c215" head="t363" phrase="NP" case="ALA">
+      <span>
+        <target id="t363" />
+      </span>
+    </chunk>
+    <!--Ateak-->
+    <chunk cid="c216" head="t364" phrase="NP" case="ABS">
+      <span>
+        <target id="t364" />
+      </span>
+    </chunk>
+    <!--asko-->
+    <chunk cid="c217" head="t365" phrase="NP">
+      <span>
+        <target id="t365" />
+      </span>
+    </chunk>
+    <!--dira-->
+    <chunk cid="c218" head="t366" phrase="VP">
+      <span>
+        <target id="t366" />
+      </span>
+    </chunk>
+    <!--ez izutu-->
+    <chunk cid="c219" head="t368" phrase="VP">
+      <span>
+        <target id="t367" />
+        <target id="t368" />
+      </span>
+    </chunk>
+    <!--asko-->
+    <chunk cid="c220" head="t371" phrase="NP">
+      <span>
+        <target id="t371" />
+      </span>
+    </chunk>
+    <!--dira-->
+    <chunk cid="c221" head="t372" phrase="VP">
+      <span>
+        <target id="t372" />
+      </span>
+    </chunk>
+    <!--Ez daude-->
+    <chunk cid="c222" head="t374" phrase="VP">
+      <span>
+        <target id="t373" />
+        <target id="t374" />
+      </span>
+    </chunk>
+    <!--denak-->
+    <chunk cid="c223" head="t375" phrase="NP" case="ABS">
+      <span>
+        <target id="t375" />
+      </span>
+    </chunk>
+    <!--fidatzen da-->
+    <chunk cid="c224" head="t379" phrase="VP">
+      <span>
+        <target id="t379" />
+        <target id="t380" />
+      </span>
+    </chunk>
+    <!--irakurlearekin-->
+    <chunk cid="c225" head="t381" phrase="NP" case="SOZ">
+      <span>
+        <target id="t381" />
+      </span>
+    </chunk>
+    <!--horrexegatik-->
+    <chunk cid="c226" head="t382" phrase="NP" case="MOT">
+      <span>
+        <target id="t382" />
+      </span>
+    </chunk>
+    <!--ez-->
+    <chunk cid="c227" head="t383" phrase="VP">
+      <span>
+        <target id="t383" />
+      </span>
+    </chunk>
+    <!--aipatu-->
+    <chunk cid="c228" head="t386" phrase="VP">
+      <span>
+        <target id="t386" />
+      </span>
+    </chunk>
+    <!--ideien mamia-->
+    <chunk cid="c229" head="t389" phrase="NP" case="ABS">
+      <span>
+        <target id="t388" />
+        <target id="t389" />
+      </span>
+    </chunk>
+    <!--ideiak-->
+    <chunk cid="c230" head="t391" phrase="NP" case="ABS">
+      <span>
+        <target id="t391" />
+      </span>
+    </chunk>
+    <!--aipatu ditu-->
+    <chunk cid="c231" head="t392" phrase="VP">
+      <span>
+        <target id="t392" />
+        <target id="t393" />
+      </span>
+    </chunk>
+    <!--Ideia mamitsuak-->
+    <chunk cid="c232" head="t394" phrase="NP" case="ABS">
+      <span>
+        <target id="t394" />
+        <target id="t395" />
+      </span>
+    </chunk>
+    <!--Mamitsua-->
+    <chunk cid="c233" head="t396" phrase="NP" case="ABS">
+      <span>
+        <target id="t396" />
+      </span>
+    </chunk>
+    <!--esan dut-->
+    <chunk cid="c234" head="t397" phrase="VP">
+      <span>
+        <target id="t397" />
+        <target id="t398" />
+      </span>
+    </chunk>
+    <!--horixe-->
+    <chunk cid="c235" head="t399" phrase="NP" case="ABS">
+      <span>
+        <target id="t399" />
+      </span>
+    </chunk>
+    <!--baita-->
+    <chunk cid="c236" head="t400" phrase="VP">
+      <span>
+        <target id="t400" />
+      </span>
+    </chunk>
+    <!--Txillardegik-->
+    <chunk cid="c237" head="t401" phrase="NP" case="ERG">
+      <span>
+        <target id="t401" />
+      </span>
+    </chunk>
+    <!--erabili duen-->
+    <chunk cid="c238" head="t403" phrase="VP">
+      <span>
+        <target id="t403" />
+        <target id="t404" />
+      </span>
+    </chunk>
+    <!--kalifikatiboa hizpide-->
+    <chunk cid="c239" head="t406" phrase="NP" case="ABS">
+      <span>
+        <target id="t405" />
+        <target id="t406" />
+      </span>
+    </chunk>
+    <!--dituen-->
+    <chunk cid="c240" head="t407" phrase="VP">
+      <span>
+        <target id="t407" />
+      </span>
+    </chunk>
+    <!--lanak-->
+    <chunk cid="c241" head="t408" phrase="NP" case="ABS">
+      <span>
+        <target id="t408" />
+      </span>
+    </chunk>
+    <!--baloratzeko-->
+    <chunk cid="c242" head="t409" phrase="VP" case="GEL">
+      <span>
+        <target id="t409" />
+      </span>
+    </chunk>
+    <!--garaian-->
+    <chunk cid="c243" head="t410" phrase="NP" case="INE">
+      <span>
+        <target id="t410" />
+      </span>
+    </chunk>
+    <!--zinez-->
+    <chunk cid="c244" head="t412" phrase="NP">
+      <span>
+        <target id="t412" />
+      </span>
+    </chunk>
+    <!--dira-->
+    <chunk cid="c245" head="t413" phrase="VP">
+      <span>
+        <target id="t413" />
+      </span>
+    </chunk>
+    <!--egile honen esanak-->
+    <chunk cid="c246" head="t417" phrase="NP" case="ABS">
+      <span>
+        <target id="t415" />
+        <target id="t416" />
+        <target id="t417" />
+      </span>
+    </chunk>
+    <!--pentsamendu landuak-->
+    <chunk cid="c247" head="t418" phrase="NP" case="ABS">
+      <span>
+        <target id="t418" />
+        <target id="t419" />
+      </span>
+    </chunk>
+    <!--onduak-->
+    <chunk cid="c248" head="t421" phrase="VP" case="ABS">
+      <span>
+        <target id="t421" />
+      </span>
+    </chunk>
+    <!--baitira-->
+    <chunk cid="c249" head="t422" phrase="VP">
+      <span>
+        <target id="t422" />
+      </span>
+    </chunk>
+    <!--bereak-->
+    <chunk cid="c250" head="t423" phrase="NP" case="ABS">
+      <span>
+        <target id="t423" />
+      </span>
+    </chunk>
+    <!--esperientziaz-->
+    <chunk cid="c251" head="t424" phrase="NP" case="INS">
+      <span>
+        <target id="t424" />
+      </span>
+    </chunk>
+    <!--beteak-->
+    <chunk cid="c252" head="t425" phrase="VP" case="ABS">
+      <span>
+        <target id="t425" />
+      </span>
+    </chunk>
+    <!--Horretaz-->
+    <chunk cid="c253" head="t426" phrase="NP" case="INS">
+      <span>
+        <target id="t426" />
+      </span>
+    </chunk>
+    <!--honetan-->
+    <chunk cid="c254" head="t427" phrase="NP" case="INE">
+      <span>
+        <target id="t427" />
+      </span>
+    </chunk>
+    <!--bertan-->
+    <chunk cid="c255" head="t428" phrase="NP">
+      <span>
+        <target id="t428" />
+      </span>
+    </chunk>
+    <!--idatzi duen-->
+    <chunk cid="c256" head="t429" phrase="VP">
+      <span>
+        <target id="t429" />
+        <target id="t430" />
+      </span>
+    </chunk>
+    <!--bezala-->
+    <chunk cid="c257" head="t431" phrase="NP">
+      <span>
+        <target id="t431" />
+      </span>
+    </chunk>
+    <!--Zilegi bekit-->
+    <chunk cid="c258" head="t432" phrase="VP">
+      <span>
+        <target id="t432" />
+        <target id="t433" />
+      </span>
+    </chunk>
+    <!--bere horretan-->
+    <chunk cid="c259" head="t434" phrase="NP">
+      <span>
+        <target id="t434" />
+      </span>
+    </chunk>
+    <!--uztea-->
+    <chunk cid="c260" head="t435" phrase="VP" case="ABS">
+      <span>
+        <target id="t435" />
+      </span>
+    </chunk>
+    <!--zer nik-->
+    <chunk cid="c261" head="t438" phrase="NP" case="ERG">
+      <span>
+        <target id="t437" />
+        <target id="t438" />
+      </span>
+    </chunk>
+    <!--erantsiko-->
+    <chunk cid="c262" head="t439" phrase="VP">
+      <span>
+        <target id="t439" />
+      </span>
+    </chunk>
+    <!--Erants beza-->
+    <chunk cid="c263" head="t440" phrase="VP">
+      <span>
+        <target id="t440" />
+        <target id="t441" />
+      </span>
+    </chunk>
+    <!--irakurleak-->
+    <chunk cid="c264" head="t442" phrase="NP" case="ABS">
+      <span>
+        <target id="t442" />
+      </span>
+    </chunk>
+    <!--ongien deritzona-->
+    <chunk cid="c265" head="t443" phrase="NP" case="ABS">
+      <span>
+        <target id="t443" />
+        <target id="t444" />
+      </span>
+    </chunk>
+  </chunks>
+</KAF>

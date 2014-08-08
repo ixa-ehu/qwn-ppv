@@ -30,76 +30,56 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
+import es.ehu.si.ixa.qwn.ppv.Lexicon;
 import es.ehu.si.ixa.qwn.ppv.LexiconEntry;
 
 public class AvgRatioEstimator {
 
 	//private HashSet<LexiconEntry> lexicon = new HashSet<LexiconEntry> ();
-	private Map<String, Float> lexicon = new HashMap<String, Float>();
+	private Lexicon lexicon;
+	private float threshold;
 	private Map<String, Double> stats = new HashMap<String, Double>();
 	private Map<String, String> kafResults = new HashMap<String, String>();
 	/*
 	 * Constructor: Lexicon object given.
 	 */
-	public AvgRatioEstimator (Map<String, Float> Lex, String syn)
+	public AvgRatioEstimator (Lexicon Lex, String syn)
 	{
 		this.lexicon = Lex;
+		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
+		threshold = 0;
 	}
 
+	/*
+	 * Constructor: Lexicon object given.
+	 */
+	public AvgRatioEstimator (Lexicon Lex, String syn, float thresh)
+	{
+		this.lexicon = Lex;
+		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
+		threshold = thresh;
+	}
 	
 	/*
 	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
 	 */
 	public AvgRatioEstimator (String LexPath, String syn)
 	{
-		try {
-			loadLexicon(LexPath, syn);
-			System.err.println("AvgRatioEstimator: lexicon loaded - "+this.lexicon.size()+" entries");
-		} catch (IOException e) {
-			System.err.println("AvgRatioEstimator: error when loading lexicon from file: "+LexPath);
-			e.printStackTrace();
-		}		
+		this.lexicon = new Lexicon(LexPath, syn);
+		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
+		threshold = 0;
+	}
+
+	/*
+	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	 */
+	public AvgRatioEstimator (String LexPath, String syn, float thresh)
+	{
+		this.lexicon = new Lexicon(LexPath, syn);
+		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
+		threshold = thresh;
 	}
 	
-	/*
-	 * load a lexicon  
-	 */
-	private void loadLexicon(String LexiconPath, String syn) throws IOException
-	{
-		BufferedReader lexreader = new BufferedReader(new FileReader(LexiconPath));   		
-		String line;
-		while ((line = lexreader.readLine()) != null) 
-		{
-			if (line.matches("#") || line.matches("^\\s*$"))
-			{
-				continue;
-			}
-			String[] fields = line.split("\t");
-			LexiconEntry entry = null;
-			switch (fields.length)
-			{
-			// Only offset/lemma and polarity info
-			case 2: 				
-				boolean ok = addEntry2Lex(fields[0], fields[1]);					
-				//entry = new LexiconEntry(fields[0], fields[1], score);
-				break;
-			case 3:
-				//third column contains polarity score
-				ok = addEntry2Lex(fields[0],fields[2]);
-				if (!ok)
-				{
-					ok = addEntry2Lex(fields[0],fields[1]);
-				}		
-				break;
-			case 4:
-				ok = addEntry2Lex(fields[0],fields[3]);
-				//entry = new LexiconEntry(fields[0], fields[1], score, fields[2]);
-				break;
-			}
-			//this.lexicon.add(entry);
-		}
-		lexreader.close();		
-	}
 	
 	/*
 	 * This is the core of the class, given the path to a corpus process it 
@@ -123,6 +103,8 @@ public class AvgRatioEstimator {
 	 */
 	public Map<String, String> processKaf (String fname) 
 	{
+		float score = 0;
+		int sentimentTerms = 0;
 		try {
 			KAFDocument doc = KAFDocument.createFromFile(new File(fname));
 			
@@ -130,16 +112,33 @@ public class AvgRatioEstimator {
 			{				
 				String lemma = t.getLemma();			
 				
-				String pol = getLexiconPolarity(lemma);
+				String pol = lexicon.getScalarPolarity(lemma);
 				if (pol.compareTo("unk") != 0)
 				{
 					Sentiment ts = t.createSentiment();
 					ts.setPolarity(pol);
+					score+= lexicon.getNumericPolarity(lemma);
+					sentimentTerms++;
 				}										
+			}			
+			doc.save(fname+".sent");			
+			float avg = score / doc.getTerms().size();
+			kafResults.put("taggedFile", fname+".sent");
+			kafResults.put("sentTermNum",String.valueOf(sentimentTerms));
+			kafResults.put("avg", String.valueOf(avg));
+			kafResults.put("thresh", String.valueOf(threshold));
+			if (avg > threshold)
+			{
+				kafResults.put("polarity", "pos");
 			}
-			
-			doc.save(fname+".sent");
-			
+			else if (avg < threshold)
+			{
+				kafResults.put("polarity", "neg");
+			}
+			else
+			{
+				kafResults.put("polarity", "neu");
+			}									
 			
 		} catch (FileNotFoundException fe) {
 			System.err.println("AvgRatioEstimator: error when loading kaf file: "+fname);
@@ -152,65 +151,4 @@ public class AvgRatioEstimator {
 		return this.kafResults;
 	}
 	
-	private boolean addEntry2Lex (String key, String value)
-	{
-		float currentPol = 0;
-		if (this.lexicon.containsKey(key))
-		{
-			currentPol = lexicon.get(key);
-		}
-		
-		//numeric polarity
-		try {
-			float score = Float.parseFloat(value);
-			this.lexicon.put(key, currentPol+score);
-			return true;
-		}
-		//scalar polarity (pos| neg| neu)
-		catch (NumberFormatException ne)
-		{
-			value = value.substring(0,3);			
-			if (value.compareTo("pos") == 0)
-			{
-				this.lexicon.put(key, (1+currentPol));
-			}				
-			else if (value.compareTo("neg") == 0)
-			{
-				this.lexicon.put(key, (-1+currentPol));
-			} 
-			else if (value.compareTo("neu") == 0) 
-			{
-				this.lexicon.put(key, currentPol);
-			}
-			else
-			{
-				return false;
-			}			
-			return true;
-		}	
-	}
-	
-	private String getLexiconPolarity (String entrykey)
-	{
-		if (this.lexicon.containsKey(entrykey))
-		{
-			float score = lexicon.get(entrykey);
-			if (score > 0)
-			{
-				return "pos";			
-			}
-			else if (score < 0)
-			{
-				return "neg";				
-			}
-			else
-			{
-				return "neu";
-			}				
-		}
-		else
-		{
-			return "unk";
-		}	
-	}
 }
