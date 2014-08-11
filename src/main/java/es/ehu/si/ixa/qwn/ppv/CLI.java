@@ -423,11 +423,12 @@ public class CLI {
 	    String lexicon = parsedArguments.getString("lexicon");
 	    String estimator = parsedArguments.getString("estimator");
 	    String synset = parsedArguments.getString("synset");
+	    boolean opt = parsedArguments.getBoolean("optimize");
 	   
 	    System.out.println("lexicon evaluator: ");
 	    if (estimator.equals("avg")) {
 	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);	    	
-	    	Map<String, Double> results = avg.processCorpus(corpus);
+	    	Map<String, Float> results = avg.processCorpus(corpus, opt);
 		    System.out.println("eval avg done"+results.toString());	    	
 	    } 	
 	    else if (estimator.equals("moh")) {		
