@@ -420,6 +420,7 @@ public class CLI {
 	  public final void eval() throws IOException {
 	    
 	    String corpus = parsedArguments.getString("corpus");
+	    String train = parsedArguments.getString("testfile");
 	    String lexicon = parsedArguments.getString("lexicon");
 	    String estimator = parsedArguments.getString("estimator");
 	    String synset = parsedArguments.getString("synset");
@@ -454,6 +455,13 @@ public class CLI {
 		evalParser.addArgument("-c", "--corpus")
 			.required(true)
 			.help("Input corpus file to evaluate the polarity lexicon.\n");
+
+		evalParser.addArgument("-f", "--testfile")
+		.required(false)
+		.help("Input test file to evaluate the polarity lexicon. This option is only taken into account if"
+				+ "threshold optimization is activated. Be aware, that if optimization is activated and no"
+				+ "test-set is provided optimization and evaluation will be done over the same corpus.\n");
+
 		
 	    evalParser.addArgument("-l", "--lexicon")
 	        .required(true)
