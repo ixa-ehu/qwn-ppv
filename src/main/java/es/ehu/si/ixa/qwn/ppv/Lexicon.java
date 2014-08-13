@@ -9,6 +9,7 @@ import java.util.Map;
 public class Lexicon {
 
 	private Map<String, Polarity> lexicon = new HashMap<String, Polarity>();
+	private int formaterror;
 	
 	public class Polarity {
 		private String scalar;
@@ -61,6 +62,7 @@ public class Lexicon {
 	public Lexicon(String fname, String syn)
 	{
 		try {
+			this.formaterror =0;
 			loadLexicon(fname, syn);
 		} catch (IOException e) {
 			System.err.println("Lexicon class: error when loading lexicon from file: "+fname);
@@ -78,6 +80,13 @@ public class Lexicon {
 		String line;
 		while ((line = lexreader.readLine()) != null) 
 		{
+			if (formaterror > 10)
+			{
+				System.err.println("Lexicon class ERROR: too many format errors. Check that the specified lemma/sense is compatile with the format of the lexicon"
+						+ "pass a valid lexicon or select the correct lemma/sense option\n");
+				System.exit(formaterror);
+			}
+			
 			if (line.matches("#") || line.matches("^\\s*$"))
 			{
 				continue;
@@ -88,19 +97,35 @@ public class Lexicon {
 			{
 			// Only offset/lemma and polarity info
 			case 2: 				
-				boolean ok = addEntry(fields[0], fields[1]);					
+				boolean ok = addEntry(fields[0], fields[1], syn);
 				//entry = new LexiconEntry(fields[0], fields[1], score);
 				break;
 			case 3:
 				//third column contains polarity score
-				ok = addEntry(fields[0],fields[2]);
+				ok = addEntry(fields[0],fields[2],syn); 
 				if (!ok)
 				{
-					ok = addEntry(fields[0],fields[1]);
+					ok = addEntry(fields[0],fields[1],syn);
 				}		
 				break;
 			case 4:
-				ok = addEntry(fields[0],fields[3]);
+				if (syn.matches("(first|rank)"))
+				{
+					ok = addEntry(fields[0],fields[3], syn);
+					if (!ok)
+					{
+						ok = addEntry(fields[0],fields[1],syn);
+					}
+				}
+				else
+				{
+					String[] lemmas = fields[2].split(", ");
+					for (String l : lemmas)
+					{
+						l = l.replaceFirst("#[0-9]+$","");
+						ok = addEntry(l,fields[3], syn);
+					}
+				}
 				//entry = new LexiconEntry(fields[0], fields[1], score, fields[2]);
 				break;
 			}
@@ -112,13 +137,21 @@ public class Lexicon {
 	/*
 	 * Add entry to lexicon. If the key already exists it replaces the polarity with the new value.
 	 */
-	private boolean addEntry (String key, String value)
+	private boolean addEntry (String key, String value, String syn)
 	{
 		float currentPol = 0;
 		if (this.lexicon.containsKey(key))
 		{
 			currentPol = lexicon.get(key).getNumeric();
 		}
+		
+		// control that lemma/sense in the lexicon is coherent with the lemma/sense mode selected by the user
+		if ((key.matches("^[0-9]{4,}-[arsvn]$") && syn.compareTo("lemma") == 0) || (!key.matches("^[0-9]{4,}-[arsvn]$") && syn.matches("(first|rank)")))
+		{
+			this.formaterror++;
+			return false;
+		}
+
 		
 		//numeric polarity
 		try {
