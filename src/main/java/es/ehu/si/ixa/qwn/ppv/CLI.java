@@ -420,7 +420,7 @@ public class CLI {
 	  public final void eval() throws IOException {
 	    
 	    String corpus = parsedArguments.getString("corpus");
-	    String train = parsedArguments.getString("testfile");
+	    String test = parsedArguments.getString("testfile");
 	    String lexicon = parsedArguments.getString("lexicon");
 	    String estimator = parsedArguments.getString("estimator");
 	    String synset = parsedArguments.getString("synset");
@@ -430,6 +430,11 @@ public class CLI {
 	    if (estimator.equals("avg")) {
 	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);	    	
 	    	Map<String, Float> results = avg.processCorpus(corpus, opt);
+	    	if (opt && test != "")
+	    	{
+	    		avg.setThreshold(results.get("thresh"));
+	    		results = avg.processCorpus(test, false);
+	    	}	    
 		    System.out.println("eval avg done"+results.toString());	    	
 	    } 	
 	    else if (estimator.equals("moh")) {		
@@ -457,9 +462,9 @@ public class CLI {
 			.help("Input corpus file to evaluate the polarity lexicon.\n");
 
 		evalParser.addArgument("-f", "--testfile")
-		.required(false)
-		.help("Input test file to evaluate the polarity lexicon. This option is only taken into account if"
-				+ "threshold optimization is activated. Be aware, that if optimization is activated and no"
+			.required(false)
+			.help("Input test file to evaluate the polarity lexicon. This option is only taken into account if"
+				+ " threshold optimization is activated. Be aware, that if optimization is activated and no"
 				+ "test-set is provided optimization and evaluation will be done over the same corpus.\n");
 
 		
@@ -475,27 +480,28 @@ public class CLI {
 	            "Default polarities are calculated over lemmas. With this option polarity of synsets is taken into account instead of words. Possible values: (lemma|first|rank). 'first' uses the sense with the highest confidence value for the lemma. 'rank' uses complete ranking of synsets.\n");
 	    
 	    evalParser.addArgument("-w", "--weights")
-        .action(Arguments.storeTrue())
-        .help(
-            "Use polarity weights instead of binary polarities (pos/neg). If the dictionary does not provide polarity scores the program defaults to binary polarities.\n");
+        	.action(Arguments.storeTrue())
+        	.help("Use polarity weights instead of binary polarities (pos/neg). "
+        			+ "If the dictionary does not provide polarity scores the program defaults"
+        			+ " to binary polarities.\n");
     
 	    evalParser.addArgument("-o", "--optimize")
-        .action(Arguments.storeTrue())
-        .help(
-        		"Optimize threshold (-o| -optimize): Threshold optimization. Corpus is used as development set for optimizing the positivity threshold. The threshold is computed by trying 1000 thresholds in a range between the minimum and maximum poloarity scores.\n");
+        	.action(Arguments.storeTrue())
+        	.help("Optimize threshold (-o| -optimize): Threshold optimization. Corpus is used as development set"
+        			+ " for optimizing the positivity threshold. The threshold is computed by trying "
+        			+ "1000 thresholds in a range between the minimum and maximum poloarity scores.\n");
 	    
 	    evalParser.addArgument("-t", "--threshold")
-        .required(false)
-        .setDefault(0)
-        .help(
-        		"Threshold which limits positive and negative reviews. Float in the [-1,1] range. Default value is 0.\n");
+        	.required(false)
+        	.setDefault(0)
+        	.help("Threshold which limits positive and negative reviews. Float in the [-1,1] range. "
+        			+ "Default value is 0.\n");
 
 	    evalParser.addArgument("-e", "--estimator")
-        .choices("avg", "moh")
-        .required(false)
-        .setDefault("avg")
-        .help(
-        		"evaluation method used for computing the polarity scores [avg | moh]: \n"
+        	.choices("avg", "moh")
+        	.required(false)
+        	.setDefault("avg")
+        	.help("evaluation method used for computing the polarity scores [avg | moh]: \n"
         		+ "    - avg: average ratio of the polarity words in the text"
         		+ "    - moh: polarity classifier proposed in (Mohammad et al.,2009 - EMNLP). Originally used on the MPQA corpus\n");
 	    

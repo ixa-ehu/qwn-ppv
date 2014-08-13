@@ -180,4 +180,12 @@ public class Lexicon {
 		return lexicon.size();
 	}
 	
+	public void printLexicon()
+	{
+		for (String s : lexicon.keySet())
+		{
+			System.out.println(s+" - "+lexicon.get(s).getScalar());
+		}
+	}
+	
 }

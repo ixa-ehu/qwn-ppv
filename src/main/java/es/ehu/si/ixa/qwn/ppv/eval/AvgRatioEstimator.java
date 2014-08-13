@@ -57,7 +57,7 @@ public class AvgRatioEstimator {
 	{
 		this.lexicon = Lex;
 		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
-		threshold = 0;
+		this.setThreshold(0);
 		this.setSynset(syn);
 	}
 
@@ -68,7 +68,7 @@ public class AvgRatioEstimator {
 	{
 		this.lexicon = Lex;
 		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
-		threshold = thresh;
+		this.setThreshold(thresh);
 		this.setSynset(syn);		
 	}
 
@@ -79,8 +79,8 @@ public class AvgRatioEstimator {
 	public AvgRatioEstimator (String LexPath, String syn)
 	{
 		this.lexicon = new Lexicon(LexPath, syn);
-		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
-		threshold = 0;
+		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");		
+		this.setThreshold(0);
 		this.setSynset(syn);
 	}
 
@@ -91,7 +91,7 @@ public class AvgRatioEstimator {
 	{
 		this.lexicon = new Lexicon(LexPath, syn);
 		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
-		threshold = thresh;
+		this.setThreshold(thresh);
 		this.setSynset(syn);
 	}
 	
@@ -100,7 +100,7 @@ public class AvgRatioEstimator {
 	 */
 	private void setSynset (String syn)
 	{
-		if (syn.compareTo("rank") == 0)
+		if (syn.compareTo("lemma") == 0)
 			this.synset = 0;
 		else if (syn.compareTo("first") == 0 || syn.compareTo("mfs") == 0)
 			this.synset = 1;
@@ -111,6 +111,14 @@ public class AvgRatioEstimator {
 			System.err.println("AvgRatioEstimator: incorrect sense/lemma option("+syn+"). System defaults to using lemmas\n");
 			this.synset = 0;			
 		}
+	}
+	
+	/*
+	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	 */
+	public void setThreshold (float t)
+	{
+		this.threshold = t;
 	}
 	/*
 	 * This is the core of the class, given the path to a corpus process it 
@@ -162,9 +170,9 @@ public class AvgRatioEstimator {
 			        {
 			            continue;
 			        }
-			        
+			        //System.err.println("kkkk --- "+line);
 			        // Read word form analysis. IMPORTANT: this code is dependent on the output of FreeLing.
-			        String[] fields = line.split("\t");
+			        String[] fields = line.split("\\s+");
 			        //fields(string form, String lemma, my $POS, my $POSprob, my $senseInfo) = split /\s+/, $l;
 			        // senses come in this format WNsense1:score1/WNsense2:score2/...:...			        
 			        String[] senses = fields[4].split("/");
@@ -214,10 +222,10 @@ public class AvgRatioEstimator {
 				// document/sentence end. Compute final polarity and store statistics regarding the document.
 				else
 				{
-					// neg is a negative value, hecen we add it to the positivi value.
+					// neg is a negative value, hence we add it to the positivity value.
 					float avg = (pos + neg)*(float)1 / wordCount; 
 					predicted_pols.put(docid, avg);
-					//$predicted_pols{$docId} = ($pos + $neg)*(1.0) / $wordCount; #neg is a negative value, hecen we add it to the positivi value.
+					//System.err.println(avg+" - pos: "+pos+" -neg: "+neg);					
 				}			    
 			}
 			corpReader.close();
@@ -244,7 +252,6 @@ public class AvgRatioEstimator {
 		 */		 
 		else
 		{
-			System.err.println("polarityDetector_Base.pl: optimization mode entered \n");
 		    		    
 		    //min and max values are of the threshold are the min and max scores. If threshold would result on one of those all elements would be classified under the same class.    
 			float minValue = Collections.min(predicted_pols.values());
@@ -255,7 +262,10 @@ public class AvgRatioEstimator {
 		    float current = minValue;
 		    float optimum = minValue;
 		    float maxAcc = 0;
-
+			
+		    System.err.println("polarityDetector_Base.pl: optimization mode entered :"
+		    		+minValue+" - "+topValue+"in "+interval+" intervals\n");
+			
 		    while (current < topValue)
 		    {
 		        computeStatistics(current);
@@ -286,6 +296,14 @@ public class AvgRatioEstimator {
 	    float predPos=0;
 	    float predNeg=0;
 	    float undefined=0;
+	    
+	    //initialize results matrix
+	    this.stats.put("Ppos", (float) 0);
+	    this.stats.put("Pneg", (float) 0);
+	    this.stats.put("Rpos", (float) 0);
+	    this.stats.put("Rneg", (float) 0);
+	    this.stats.put("Fpos", (float) 0);
+	    this.stats.put("Fneg", (float) 0);
 	    
 	    // compare predictions with the reference
 	    for (String id : predicted_pols.keySet())
@@ -321,6 +339,7 @@ public class AvgRatioEstimator {
 	    this.stats.put("predNeg", (float) predNeg);
 	    this.stats.put("undefined", (float) undefined);
 
+	    //System.err.println(predPos+" pos, "+predNeg+" neg, "+undefined+" undef");
 	    // calculate statistics: Accuracy | precision | recall |  f-score
 	    int docCount=predicted_pols.size();
 	    // ## Accuracy
@@ -369,17 +388,30 @@ public class AvgRatioEstimator {
 	    boolean found= false;
 	    for (String s : senses)
 	    {
+	    	
 	        String[] fields = s.split(":");
 	        String sense = fields[0];
-	        float senseScore = Float.parseFloat(fields[1]);
+	        String scoreStr = "";
+	        if (s.startsWith("::"))
+	    	{
+	        	scoreStr = fields[2];
+	    		sense = ":";	
+	    	}
+	        else
+	        {
+	        	scoreStr = fields[1];
+	        }
+	    	//System.err.println("word to look for: "+sense+" : "+scoreStr+" - \n");
+
+	        float senseScore = Float.parseFloat(scoreStr);
 
 	        //System.err.println("word to look for: "+sense+" - "+senseScore+"\n");
 
 	        //look up in the lexicon for the polarity of the words.
 	        if (this.lexicon.getScalarPolarity(sense).compareTo("unk") != 0)
-	        {
-	        	//print STDERR "word found!: polarity = $polarity + ( $senseScore * $jkk ) \n";
-	            polarity+=lexicon.getNumericPolarity(sense)*senseScore;
+	        {	        	
+	        	//System.err.println("word found! -"+sense);
+	        	polarity+=lexicon.getNumericPolarity(sense)*senseScore;
 	            found = true;
 	        }
 	    }
