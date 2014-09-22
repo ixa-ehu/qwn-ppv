@@ -123,9 +123,18 @@ public class AvgRatioEstimator {
 	/*
 	 * This is the core of the class, given the path to a corpus process it 
 	 * and return the performance results
+	 * 
+	 * @ corpus: evaluation corpus 
+	 * @ opt: if optimization mode should be entered (find the threshold that maximizes accuracy for the given corpus)
+	 * @ weights: whether lexicon weights (if existing) should be used when computing polarity or only binary polarities (pos|neg). Default is to use binary polarities.
+	 *  
 	 */
-	public Map<String, Float> processCorpus (String corpus, boolean opt) 
+	public Map<String, Float> processCorpus (String corpus, boolean opt, boolean weights) 
 	{
+		
+		// clean all previous prediction and references stored in data structures
+		this.cleanCorpusData();
+		
 		float pos = 0;
 		float neg = 0;
 		float neu = 0;
@@ -211,11 +220,27 @@ public class AvgRatioEstimator {
 			        {
 			        	float wscore = Float.parseFloat(wordPol);
 			        	if (wscore > 0)  // positive
-			        		pos+=wscore; 			         		
+			        	{
+			        		if (weights)
+			        			pos+=wscore;
+			        		else
+			        			pos+=1;
+			        	}
+			        			
 			        	else if (wscore < 0) // negative
-			        		neg+=wscore;
+			        	{	
+			        		if (weights)
+			        			neg+=wscore;
+			        		else
+			        			neg-=1;
+			        	}
 			        	else // neutral
-			        		neu+=wscore;
+			        	{
+			        		if (weights)
+			        			neu+=wscore;
+			        		else
+			        			neu+=1;
+			        	}			        		
 			        }
 			        
 				}
@@ -225,7 +250,7 @@ public class AvgRatioEstimator {
 					// neg is a negative value, hence we add it to the positivity value.
 					float avg = (pos + neg)*(float)1 / wordCount; 
 					predicted_pols.put(docid, avg);
-					//System.err.println(avg+" - pos: "+pos+" -neg: "+neg);					
+					//System.err.println(docid+" - "+avg+" - pos: "+pos+" -neg: "+neg+" - words: "+wordCount);					
 				}			    
 			}
 			corpReader.close();
@@ -263,8 +288,8 @@ public class AvgRatioEstimator {
 		    float optimum = minValue;
 		    float maxAcc = 0;
 			
-		    System.err.println("polarityDetector_Base.pl: optimization mode entered :"
-		    		+minValue+" - "+topValue+"in "+interval+" intervals\n");
+		    System.err.println("polarityDetector_Base.pl: optimization mode entered : "
+		    		+minValue+" - "+topValue+" in "+interval+" intervals\n");
 			
 		    while (current < topValue)
 		    {
@@ -286,6 +311,15 @@ public class AvgRatioEstimator {
 		return this.stats;
 	}
 	
+	private void cleanCorpusData() {
+		// TODO Auto-generated method stub
+		this.stats.clear();
+		this.kafResults.clear();
+		this.ref_pols.clear();
+		this.ref_polCounts.clear();
+		this.predicted_pols.clear();
+	}
+
 	/*
 	 * Compute system performance statistics (Acc, P, R, F) for the given corpus.
 	 */

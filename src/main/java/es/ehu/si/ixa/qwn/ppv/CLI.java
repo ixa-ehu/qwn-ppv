@@ -423,18 +423,22 @@ public class CLI {
 	    String test = parsedArguments.getString("testfile");
 	    String lexicon = parsedArguments.getString("lexicon");
 	    String estimator = parsedArguments.getString("estimator");
-	    String synset = parsedArguments.getString("synset");
+	    String synset = parsedArguments.getString("synset");	    
 	    boolean opt = parsedArguments.getBoolean("optimize");
-	   
+	    boolean weights = parsedArguments.getBoolean("weights");
+	    float thres = Float.parseFloat(parsedArguments.getString("threshold"));
+	    
 	    System.out.println("lexicon evaluator: ");
 	    if (estimator.equals("avg")) {
-	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);	    	
-	    	Map<String, Float> results = avg.processCorpus(corpus, opt);
+	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);
+	    	avg.setThreshold(thres);
+	    	Map<String, Float> results = avg.processCorpus(corpus, opt, weights);
 	    	if (opt && test != "")
 	    	{
+	    		System.out.println("optimization finished, optimum threshold: "+results.get("thresh"));
 	    		avg.setThreshold(results.get("thresh"));
-	    		results = avg.processCorpus(test, false);
-	    	}	    
+	    		results = avg.processCorpus(test, false, weights);
+	    	}	 
 		    System.out.println("eval avg done"+results.toString());	    	
 	    } 	
 	    else if (estimator.equals("moh")) {		
@@ -493,7 +497,7 @@ public class CLI {
 	    
 	    evalParser.addArgument("-t", "--threshold")
         	.required(false)
-        	.setDefault(0)
+        	.setDefault("0")
         	.help("Threshold which limits positive and negative reviews. Float in the [-1,1] range. "
         			+ "Default value is 0.\n");
 
