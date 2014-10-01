@@ -429,6 +429,8 @@ public class CLI {
 	    float thres = Float.parseFloat(parsedArguments.getString("threshold"));
 	    
 	    System.out.println("lexicon evaluator: ");
+	    System.out.println("corpus: "+corpus+" lexicon: "+lexicon+" Sense information?"+synset+"\n");
+
 	    if (estimator.equals("avg")) {
 	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);
 	    	avg.setThreshold(thres);
@@ -439,7 +441,15 @@ public class CLI {
 	    		avg.setThreshold(results.get("thresh"));
 	    		results = avg.processCorpus(test, false, weights);
 	    	}	 
-		    System.out.println("eval avg done"+results.toString());	    	
+		    System.out.println("eval avg done"+results.toString());
+		    
+		    
+		    System.out.println("\tthreshold = "+results.get("thresh")+"\n\t"+
+		    		results.get("predPos")+" labeled as positive\t"+results.get("predNeg")+" labeled as negative\t "+results.get("undefined")+" undefined. \n"
+		    				+ "\t Accuracy => "+results.get("Acc")+"\n\t Positive docs: P => "+results.get("Ppos")+"\tR => "+results.get("Rpos")+"\tF => "+results.get("Fpos")+"\n"
+		    				+ "\t Negative docs: P => "+results.get("Pneg")+"\tR => "+results.get("Rneg")+"\tF => "+results.get("Fneg")+" \n");
+
+		    
 	    } 	
 	    else if (estimator.equals("moh")) {		
 		    System.out.println(new MohammadEstimator());
