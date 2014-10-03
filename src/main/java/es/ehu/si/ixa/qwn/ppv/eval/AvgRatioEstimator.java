@@ -206,15 +206,16 @@ public class AvgRatioEstimator {
 			        // previous experiments 2013/11/18. Inaki)
 			        case 1:
 			        	String sens=senses[0]; 
-			        	sens.replaceFirst(":[^:]+$",""); 			        	
-			        	lookwords.add(sens+":1");
+			        	//sens = sens.replaceFirst(":[^:]+$",""); 			        	
+			        	//lookwords.add(sens+":1");
+			        	lookwords.add(sens);
 			        	break;
 			        // The whole ranking of possible senses returned by FreeLing (UKB) is taken into account.
 			        case 2:
 			        	lookwords = Arrays.asList(senses);
 			        	break;
 			        }
-			        
+			        //System.err.println("AvgEstimator:: "+line+" ------ ");
 			        wordPol= sensePolarity(lookwords);
 			        if (wordPol.compareTo("none") != 0)
 			        {
@@ -422,17 +423,23 @@ public class AvgRatioEstimator {
 	    boolean found= false;
 	    for (String s : senses)
 	    {
+	    	// if s=="-" means that there is no sense information at all. Automatically return "none" 
+	    	// - is this the best behavior? it would be better to look if the lemma is a modifier?  
+	    	if (s.compareTo("-")==0 || s.isEmpty())
+	    	{
+	    		continue;
+	    	}
 	    	
 	        String[] fields = s.split(":");
 	        String sense = fields[0];
 	        String scoreStr = "";
 	        if (s.startsWith("::"))
-	    	{
+	    	{	        	
 	        	scoreStr = fields[2];
 	    		sense = ":";	
 	    	}
 	        else
-	        {
+	        {	
 	        	scoreStr = fields[1];
 	        }
 	    	//System.err.println("word to look for: "+sense+" : "+scoreStr+" - \n");
