@@ -12,46 +12,91 @@ public class Lexicon {
 	private int formaterror;
 	
 	public class Polarity {
-		private String scalar;
-		private float numeric; 
+		//private String scalar;
+		private int scalar;
+		private float numeric;
+		
+		/*
+		 * Constructor, both numeric and scalar polarities are provided. Scalar polarity value is (-1|0|1)
+		 */
+		public Polarity(float pol, int pols){
+			numeric = pol;						
+			scalar=pols;	
+		}	
+		
+		/*
+		 * Constructor, only scalar polarity provided (pos|neg|neu). Numeric polarity is derived from the scalar value.
+		 */
 		public Polarity(String pol){
 			String value = pol.substring(0,3).toLowerCase(); 
 			if (value.compareTo("pos") == 0)
-			{
-				numeric = 1;
-				scalar = value;
+			{				
+				//scalar = value;
+				scalar = 1;
+				numeric = scalar;
 			}				
 			else if (value.compareTo("neg") == 0)
-			{
-				numeric = -1;
-				scalar = value;
+			{				
+				scalar = -1;
+				numeric = scalar;
 			} 
 			else if (value.compareTo("neu") == 0) 
-			{
-				numeric = 0;
-				scalar = value;
+			{				
+				scalar = 0;
+				numeric = scalar;
 			}
 			else
 			{
-				System.err.println("scalar value is not valid a valid polarity\n");
+				System.err.println("scalar value is not a valid polarity\n");
 			}			
 		}	
-		
-		public Polarity(float pol){
-			numeric = pol;
-			if (numeric < 0)
-				scalar = "neg";
-			else if (numeric > 0)
-				scalar = "pos";
-			else
-				scalar = "neu";			
+
+
+		/*
+		 * Constructor, only scalar polarity provided (-1|0|1). Numeric polarity derived from scalar value.
+		 */
+		public Polarity(int pols){
+			//scalar polarity is normalized to -1|0|1 values
+			scalar=pols;
+			numeric = scalar;
 		}	
+		
+		/*
+		 * Constructor, only numeric polarity provided. Scalar polarity is derived from the numeric value
+		 */
+		public Polarity(float pol){
+			// call the first constructor with and invalid scalar polarity, it will take care of the rest. 
+			this(pol,123456789);
+		}	
+		
+		/*
+		 * Constructor, both numeric and scalar polarities are provided. Scalar polarity value is (pos|neu|neg)
+		 */
+		public Polarity(float pol, String pols){
+			numeric = pol;
+			String value = pols.substring(0,3).toLowerCase(); 
+			if (value.compareTo("neg") == 0)
+			{
+				scalar = -1;
+			}
+			else if (value.compareTo("pos") == 0)
+			{
+				//scalar = "pos";		
+				scalar = 1;
+			}
+			else	
+			{
+				//scalar = "neu";
+				scalar = 0;
+			}
+		}	
+				
 		
 		public float getNumeric(){
 			return numeric;			
 		}	
 		
-		public String getScalar(){
+		public int getScalar(){
 			return scalar;			
 		}	
 	}
@@ -138,11 +183,14 @@ public class Lexicon {
 	 * Add entry to lexicon. If the key already exists it replaces the polarity with the new value.
 	 */
 	private boolean addEntry (String key, String value, String syn)
-	{
-		float currentPol = 0;
+	{		
+		float currentNumeric = 0;
+		int currentScalar = 0;
 		if (this.lexicon.containsKey(key))
 		{
-			currentPol = lexicon.get(key).getNumeric();
+			currentScalar = lexicon.get(key).getScalar();
+			currentNumeric = lexicon.get(key).getNumeric();
+			//System.err.println(key+" - "+currentScalar+" - "+currentNumeric);
 		}
 		
 		// control that lemma/sense in the lexicon is coherent with the lemma/sense mode selected by the user
@@ -152,47 +200,75 @@ public class Lexicon {
 			return false;
 		}
 
-		
-		//numeric polarity
+		float numericScore=currentNumeric;
+		int scalarScore = currentScalar;
+		//numeric polarity 
 		try {
 			float score = Float.parseFloat(value);
-			Polarity polar = new Polarity(currentPol+score);
-			this.lexicon.put(key, polar);
-			return true;
+			numericScore =  numericScore+score;
+			
+			if (score < 0)
+			{
+				scalarScore = -1+currentScalar;	//"neg"
+			}
+			else if (score > 0)
+			{
+				scalarScore = 1+currentScalar; //"pos"
+			}
+						
+			//Polarity polar = new Polarity(currentPol+score);
+			//this.lexicon.put(key, polar);		
 		}
-		//scalar polarity (pos| neg| neu)
 		catch (NumberFormatException ne)
 		{
-			value = value.substring(0,3);				
+			//scalar polarity (pos| neg| neu)		
+			value = value.substring(0,3);			
 			if (value.compareTo("pos") == 0)
 			{
-				this.lexicon.put(key, new Polarity(1+currentPol));
+				scalarScore= 1+currentScalar;
 			}				
 			else if (value.compareTo("neg") == 0)
 			{
-				this.lexicon.put(key, new Polarity(-1+currentPol));
-			} 
-			else if (value.compareTo("neu") == 0) 
-			{
-				this.lexicon.put(key, new Polarity(currentPol));
-			}
+				scalarScore= -1+currentScalar;
+			} 		
 			else
-			{
+			{				
 				return false;
-			}			
-			return true;
+			}
+			numericScore=scalarScore;
 		}	
+				
+		// add/update entry in the lexicon.
+		Polarity polar = new Polarity(numericScore, scalarScore);
+		this.lexicon.put(key, polar);
+		
+		//System.err.println("added to lexicon: - "+key+" - "+numericScore+" - "+scalarScore);
+
+		return true;
 	}
 	
-	public String getScalarPolarity (String entrykey)
+	public int getScalarPolarity (String entrykey)
 	{
 		if (this.lexicon.containsKey(entrykey))
 		{
-			return lexicon.get(entrykey).getScalar();
+			int result = lexicon.get(entrykey).getScalar();
+			//scalar polarity is normalized to -1|0|1 values
+			if (result > 0)
+			{
+				return 1;
+			}
+			else if (result < 0)
+			{
+				return -1;
+			}
+			else
+			{
+				return 0;
+			}
 		}
 		else
 		{
-			return "unk";
+			return 123456789;
 		}	
 	}
 

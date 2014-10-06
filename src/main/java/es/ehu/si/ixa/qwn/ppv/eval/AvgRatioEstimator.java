@@ -216,7 +216,7 @@ public class AvgRatioEstimator {
 			        	break;
 			        }
 			        //System.err.println("AvgEstimator:: "+line+" ------ ");
-			        wordPol= sensePolarity(lookwords);
+			        wordPol= sensePolarity(lookwords, weights);
 			        if (wordPol.compareTo("none") != 0)
 			        {
 			        	float wscore = Float.parseFloat(wordPol);
@@ -312,8 +312,11 @@ public class AvgRatioEstimator {
 		return this.stats;
 	}
 	
+	/*
+	 * This function cleans current corpus data, in order to process another corpus. This is needed for example, 
+	 * to process on a test-set after a development-set has been used to optimize the threshold 
+	 */
 	private void cleanCorpusData() {
-		// TODO Auto-generated method stub
 		this.stats.clear();
 		this.kafResults.clear();
 		this.ref_pols.clear();
@@ -389,13 +392,23 @@ public class AvgRatioEstimator {
 	    {
 	    	this.stats.put("Pneg", (okNeg / predNeg));
 	    }
-	    float div = ref_polCounts.get("pos"); 
+	    float div;
+	    try{
+	    	div  = ref_polCounts.get("pos");
+	    }catch (NullPointerException npe){
+	    	div = 0;
+	    } 
 	    // ## Positive docs' Recall    
 	    if (div > 0)
 	    {
 	    	this.stats.put("Rpos", (okPos / div)); //#polCount_hash->{"pos"};  
 	    }
-	    div  = ref_polCounts.get("neg"); 
+	    
+	    try{
+	    	div  = ref_polCounts.get("neg");
+	    }catch (NullPointerException npe){
+	    	div = 0;
+	    }
 	    // ## Negative docs' Recall
 	    if (div > 0)
 	    {
@@ -416,8 +429,11 @@ public class AvgRatioEstimator {
 
 	/*
 	 *  Compute the polarity of a lemma/sense based on its ranking of senses
+	 *  @List<String> senses: list of lemma/senses to look for in the lexicon. 
+	 *                It will contain a single element (lemma/first sense cases), except in the "rank" sense case.
+	 *  @Boolean w: whether lexicon weights are used or scalar polarities (pos|neg|neu). Default is scalar polarities. 
 	 */
-	private String sensePolarity (List<String> senses)
+	private String sensePolarity (List<String> senses, boolean w)
 	{
 	    float polarity=0;
 	    boolean found= false;
@@ -449,11 +465,22 @@ public class AvgRatioEstimator {
 	        //System.err.println("word to look for: "+sense+" - "+senseScore+"\n");
 
 	        //look up in the lexicon for the polarity of the words.
-	        if (this.lexicon.getScalarPolarity(sense).compareTo("unk") != 0)
-	        {	        	
-	        	//System.err.println("word found! -"+sense);
-	        	polarity+=lexicon.getNumericPolarity(sense)*senseScore;
+	        if (this.lexicon.getScalarPolarity(sense) != 123456789)
+	        {	        		        	
+	        	polarity+=lexicon.getScalarPolarity(sense)*senseScore;
+	        	if (w == true)
+	        	{
+	        		polarity+=lexicon.getNumericPolarity(sense)*senseScore;
+	        	}
 	            found = true;
+	            /*
+	            if (polarity > 0)
+	            	System.err.println("word found! -"+sense+" - pos - "+polarity);
+	            else if (polarity < 0)
+	            	System.err.println("word found! -"+sense+" - neg - "+polarity);
+	            else
+	            	System.err.println("word found! -"+sense+" - neu - "+polarity);
+	            */	        
 	        }
 	    }
 	    
@@ -488,12 +515,20 @@ public class AvgRatioEstimator {
 			{				
 				String lemma = t.getLemma();			
 				
-				String pol = lexicon.getScalarPolarity(lemma);
-				if (pol.compareTo("unk") != 0)
+				int pol = lexicon.getScalarPolarity(lemma);
+				if (pol != 123456789)
 				{
 					Sentiment ts = t.createSentiment();
-					ts.setPolarity(pol);
+					switch (pol)
+					{
+					case 1: ts.setPolarity("pos");
+					case -1: ts.setPolarity("neg");
+					case 0: ts.setPolarity("neu");
+					default: 
+					}
+					
 					score+= lexicon.getNumericPolarity(lemma);
+					//score+= pol;
 					sentimentTerms++;
 				}										
 			}			
