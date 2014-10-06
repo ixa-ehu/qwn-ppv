@@ -145,6 +145,11 @@ public class UKBwrapper {
 		}
 	}
 	
+	public void setUKBPath (String path)
+	{
+		this.ukbPath = path;
+	}
+	
 	
 	public void propagate(String ctxtFile) throws IOException
 	{

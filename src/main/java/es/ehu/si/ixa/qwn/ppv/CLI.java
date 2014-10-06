@@ -197,7 +197,7 @@ public class CLI {
 	  
 	  public final void compileGraph() throws IOException {
 		  String kb = parsedArguments.getString("kb");
-		  String ukb = parsedArguments.getString("execPath");
+		  String ukb = parsedArguments.getString("ukbPath");
 		  
 		 
 		  // normal case: single graph is created
@@ -245,7 +245,7 @@ public class CLI {
 			/*
 			 *  Parameters:
 	         *     - Knowledge base (-k | --kb=): path to the file containing the knowledge base information to construct the graph, UKB format. If no kb info is provided
-	         *     - Graph (-g | --graph=): path to the file were the output path will be stored. 
+	         *     - UKB path (-p | --execPath=): path to the executables of ukb software. 
 			 */
 			  
 			// specify the graph which shall be used for propagation
@@ -255,12 +255,11 @@ public class CLI {
 			    			+ "This should be done the first time you run qwn-ppv, as the graphs shall be compiled for your platform. \n"
 			    			+ "QWN-PPV assumes UKB software has been previously installed, and it is in the paths. If not it will rise an error.\n");
 			
-			// specify the graph which shall be used for propagation
-			compileParser.addArgument("-p","--execPath")		    	
+			// specify the path to the ukb executables, if no path is given default location is /usr/local/bin
+			compileParser.addArgument("-u","--ukbPath")		    	
 					.required(false).setDefault("/usr/local/bin")
-					.help("a KB information file in UKB format is needed to create a graph. If no KB file is given, the system will compile the default graphs provided by QWN-PPV.\n"
-							+ "This should be done the first time you run qwn-ppv, as the graphs shall be compiled for your platform. \n"
-							+ "QWN-PPV assumes UKB software has been previously installed, and it is in the paths. If not it will rise an error.\n");
+					.help("UKB software path. If no paht is specified WN-PPV assumes that UKB software"
+							+ " has been previously installed in /usr/local/bin\n");
 						        	
 	  }
 	  
@@ -280,6 +279,7 @@ public class CLI {
 	    String lang = parsedArguments.getString("lang");
 	    String graph = parsedArguments.getString("graph");
 	    boolean w = parsedArguments.getBoolean("weights");	    
+	    String ukbPath = parsedArguments.getString("ukbPath");
 	    
     	System.err.println("qwn-ppv: received arguments are: \n Lang: "+lang+"\n Graph: "+graph+"\n");
 
@@ -312,6 +312,7 @@ public class CLI {
 	    	
 	    	//2. STEP: PROPAGATIONS 
     		UKBwrapper Propagation = new UKBwrapper(lang, UKBTempDir.getAbsolutePath());
+    		Propagation.setUKBPath(ukbPath);
 	    	//"synAnt" graph requires 4 propagations (posSyn, negSyn, posAnt, negAnt)
 	    	if (graph.equals("synAnt"))
 	    	{
@@ -415,6 +416,11 @@ public class CLI {
             + "If weights are used all seeds must contain a weight value <= 0 (do not leave lines without weights)");
     
 		
+		// specify the path to the ukb executables, if no path is given default location is /usr/local/bin
+		creationParser.addArgument("-u","--ukbPath")		    		
+		.required(false).setDefault("/usr/local/bin")
+		.help("UKB software path. If no paht is specified WN-PPV assumes that UKB software"
+				+ " has been previously installed in /usr/local/bin\n");
 	  }
 
 	  public final void eval() throws IOException {
