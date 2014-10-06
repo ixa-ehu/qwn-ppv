@@ -79,7 +79,7 @@ public class AvgRatioEstimator {
 	public AvgRatioEstimator (String LexPath, String syn)
 	{
 		this.lexicon = new Lexicon(LexPath, syn);
-		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");		
+		System.out.println("AvgRatioEstimator: lexicon loaded  --> "+LexPath+" - "+lexicon.size()+" entries");		
 		this.setThreshold(0);
 		this.setSynset(syn);
 	}
@@ -90,7 +90,7 @@ public class AvgRatioEstimator {
 	public AvgRatioEstimator (String LexPath, String syn, float thresh)
 	{
 		this.lexicon = new Lexicon(LexPath, syn);
-		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
+		System.out.println("AvgRatioEstimator: lexicon loaded --> "+LexPath+" - "+lexicon.size()+" entries");
 		this.setThreshold(thresh);
 		this.setSynset(syn);
 	}
@@ -264,12 +264,15 @@ public class AvgRatioEstimator {
 		}	
 		
 		int docCount=predicted_pols.size();
-		System.err.println("AvgRatioEstimator: corpus processed ("+docCount+" elements). Polarity scores ready. \n");
+		System.out.println("AvgRatioEstimator: corpus processed ("+docCount+" elements). Polarity scores ready. \n");
 
 		// compute statistics.
 		if (! opt)
 		{
 			computeStatistics(this.threshold);
+			// add threshold used to stats
+			this.stats.put("thresh", this.threshold);
+			
 		}
 		/*
 		 *  Optimization mode: find the threshold that maximizes accuracy over the given corpus
@@ -289,7 +292,7 @@ public class AvgRatioEstimator {
 		    float optimum = minValue;
 		    float maxAcc = 0;
 			
-		    System.err.println("polarityDetector_Base.pl: optimization mode entered : "
+		    System.err.println("AvgEstimator: optimization mode entered : "
 		    		+minValue+" - "+topValue+" in "+interval+" intervals\n");
 			
 		    while (current < topValue)
@@ -304,7 +307,7 @@ public class AvgRatioEstimator {
 		        }
 		        current+=interval;
 		    }
-		    System.out.println(optimum+"- max Accuracy: "+maxAcc+" ----\n");
+		    System.out.println("\t---- Train Results  - Threshold: "+optimum+" - max Accuracy: "+maxAcc+" ----\n");
 		    this.stats.clear();
 		    this.stats.put("thresh", optimum);
 		    this.stats.put("Acc", maxAcc);
