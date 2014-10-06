@@ -10,6 +10,7 @@ my $fp=0;
 my $fn=0;
 my $acc=0;
 my $size=0;
+my $graph="";
 
 print "dict\tsize\tthreshold\taccuracy on train\taccurary\tP+\tR+\tF+\tP-\tR-\tF-\tsense\n";
 
@@ -21,6 +22,8 @@ while ($l=<stdin>)
         $dict= $1;
 	@path=split /\//, $dict;
 	$dict=$path[$#path];
+	$graph=$dict;
+	$graph=~s/^.*_([^\.]+)\.dict$/$1/;
         $size=$2;
         
     }
@@ -53,7 +56,7 @@ while ($l=<stdin>)
     } 
     elsif ($l =~ /QWN-PPV: Lexicon evaluator: End./)
     {
-        print "$dict\t$size\t$thres\t$trainAcc\t$acc\t$pp\t$rp\t$fp\t$pn\t$rn\t$fn\t$sense\n";	
+        print "$dict\t$size\t$thres\t$trainAcc\t$acc\t$pp\t$rp\t$fp\t$pn\t$rn\t$fn\t$sense\t$graph\n";	
     }
 
 }
