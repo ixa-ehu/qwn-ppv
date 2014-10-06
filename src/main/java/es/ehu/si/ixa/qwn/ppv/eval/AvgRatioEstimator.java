@@ -292,7 +292,7 @@ public class AvgRatioEstimator {
 		    float optimum = minValue;
 		    float maxAcc = 0;
 			
-		    System.err.println("AvgEstimator: optimization mode entered : "
+		    System.out.println("AvgEstimator: optimization mode entered : "
 		    		+minValue+" - "+topValue+" in "+interval+" intervals\n");
 			
 		    while (current < topValue)

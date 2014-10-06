@@ -436,7 +436,8 @@ public class CLI {
 	    
 	    System.out.println("QWN-PPV: Lexicon evaluator: ");
 	    System.out.println("\tcorpus: "+corpus+"\n\tlexicon: "+lexicon+"\n\tSense information: "+synset+"\n");
-
+	    System.err.println("\tcorpus: "+corpus+"\n\tlexicon: "+lexicon+"\n\tSense information: "+synset+"\n");
+	    
 	    if (estimator.equals("avg")) {
 	    	AvgRatioEstimator avg = new AvgRatioEstimator(lexicon, synset);
 	    	avg.setThreshold(thres);
