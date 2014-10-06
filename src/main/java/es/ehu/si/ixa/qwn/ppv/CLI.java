@@ -493,11 +493,14 @@ public class CLI {
 	        .help("Path to the polarity lexicon file.\n");
 	        
 	    evalParser.addArgument("-s", "--synset")
-	        .choices("lemma", "first","rank")
+	        .choices("lemma", "first","rank", "mfs")
 	        .required(false)
 	        .setDefault("lemma")
 	        .help(
-	            "Default polarities are calculated over lemmas. With this option polarity of synsets is taken into account instead of words. Possible values: (lemma|first|rank). 'first' uses the sense with the highest confidence value for the lemma. 'rank' uses complete ranking of synsets.\n");
+	            "Default polarities are calculated over lemmas. With this option polarity of synsets is taken into account instead of words. "
+	            + "Possible values: (lemma|first|rank|mfs). "
+	            + "'first' uses the sense with the highest confidence value for the lemma. "
+	            + "'rank' uses complete ranking of synsets.\n");
 	    
 	    evalParser.addArgument("-w", "--weights")
         	.action(Arguments.storeTrue())
