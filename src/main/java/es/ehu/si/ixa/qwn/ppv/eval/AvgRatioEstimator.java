@@ -208,6 +208,10 @@ public class AvgRatioEstimator {
 			        	String sens=senses[0]; 
 			        	//sens = sens.replaceFirst(":[^:]+$",""); 			        	
 			        	//lookwords.add(sens+":1");
+			        	if (sens.contains(":"))
+			        	{	
+			        		sens=sens+":1";
+			        	}
 			        	lookwords.add(sens);
 			        	break;
 			        // The whole ranking of possible senses returned by FreeLing (UKB) is taken into account.
@@ -457,17 +461,11 @@ public class AvgRatioEstimator {
 	        	scoreStr = fields[2];
 	    		sense = ":";	
 	    	}
-	        else
-	        {	
-		    if (fields.length < 2)
-			{
-			    scoreStr = "1";
-			}
 		    else
 			{
 			    scoreStr = fields[1];
 			}
-	        }
+	        
 	    	//System.err.println("word to look for: "+sense+" : "+scoreStr+" - \n");
 
 	        float senseScore = Float.parseFloat(scoreStr);
