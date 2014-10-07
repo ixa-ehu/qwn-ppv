@@ -10,6 +10,7 @@ public class Lexicon {
 
 	private Map<String, Polarity> lexicon = new HashMap<String, Polarity>();
 	private int formaterror;
+	private float minAbsPolarity;
 	
 	public class Polarity {
 		//private String scalar;
@@ -106,8 +107,17 @@ public class Lexicon {
 	 */
 	public Lexicon(String fname, String syn)
 	{
+		this(fname, syn, 0);
+	}
+	
+	/*
+	 * constructor requires a path to the file containing the lexicon and 
+	 */
+	public Lexicon(String fname, String syn, float minEntryPolarity)
+	{
 		try {
-			this.formaterror =0;
+			this.formaterror=0;
+			this.setMinAbsPolarity(minEntryPolarity);
 			loadLexicon(fname, syn);
 		} catch (IOException e) {
 			System.err.println("Lexicon class: error when loading lexicon from file: "+fname);
@@ -115,6 +125,14 @@ public class Lexicon {
 		}
 	}
 	
+	/*
+	 * Set minAbsPolarity variable. It determines the minimum absolute polarity score an entry shall have
+	 * to accept it in the lexicon. (this is only for evaluation purposes.)
+	 */
+	private void setMinAbsPolarity (float m)
+	{
+		this.minAbsPolarity = m;
+	}
 	
 	/*
 	 * load a lexicon  
@@ -137,18 +155,19 @@ public class Lexicon {
 				continue;
 			}
 			String[] fields = line.split("\t");
+			int ok;
 			//LexiconEntry entry = null;
 			switch (fields.length)
 			{
 			// Only offset/lemma and polarity info
 			case 2: 				
-				boolean ok = addEntry(fields[0], fields[1], syn);
+				ok = addEntry(fields[0], fields[1], syn);
 				//entry = new LexiconEntry(fields[0], fields[1], score);
 				break;
 			case 3:
 				//third column contains polarity score
 				ok = addEntry(fields[0],fields[2],syn); 
-				if (!ok)
+				if (ok < 2)
 				{
 					ok = addEntry(fields[0],fields[1],syn);
 				}		
@@ -157,7 +176,7 @@ public class Lexicon {
 				if (syn.matches("(first|rank|mfs)"))
 				{
 					ok = addEntry(fields[0],fields[3], syn);
-					if (!ok)
+					if (ok < 2)
 					{
 						ok = addEntry(fields[0],fields[1],syn);
 					}
@@ -182,7 +201,7 @@ public class Lexicon {
 	/*
 	 * Add entry to lexicon. If the key already exists it replaces the polarity with the new value.
 	 */
-	private boolean addEntry (String key, String value, String syn)
+	private int addEntry (String key, String value, String syn)
 	{		
 		float currentNumeric = 0;
 		int currentScalar = 0;
@@ -197,7 +216,7 @@ public class Lexicon {
 		if ((key.matches("^[0-9]{4,}-[arsvn]$") && syn.compareTo("lemma") == 0) || (!key.matches("^[0-9]{4,}-[arsvn]$") && syn.matches("(first|rank|mfs)")))
 		{
 			this.formaterror++;
-			return false;
+			return 1;
 		}
 
 		float numericScore=currentNumeric;
@@ -205,6 +224,12 @@ public class Lexicon {
 		//numeric polarity 
 		try {
 			float score = Float.parseFloat(value);
+			// if the entry does not reach the minimum required value do not include it in the lexicon.
+			if (Math.abs(score) < this.minAbsPolarity)
+			{
+				//System.err.println("added to lexicon: - "+Math.abs(score)+" - "+this.minAbsPolarity);				
+				return 2;			
+			}
 			numericScore =  numericScore+score;
 			
 			if (score < 0)
@@ -233,7 +258,7 @@ public class Lexicon {
 			} 		
 			else
 			{				
-				return false;
+				return 1;
 			}
 			numericScore=scalarScore;
 		}	
@@ -244,7 +269,7 @@ public class Lexicon {
 		
 		//System.err.println("added to lexicon: - "+key+" - "+numericScore+" - "+scalarScore);
 
-		return true;
+		return 0;
 	}
 	
 	public int getScalarPolarity (String entrykey)

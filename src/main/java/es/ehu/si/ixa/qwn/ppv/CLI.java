@@ -432,7 +432,8 @@ public class CLI {
 		boolean shouldOptimize = parsedArguments.getBoolean("optimize");
 		boolean weights = parsedArguments.getBoolean("weights");
 		float thres = Float.parseFloat(parsedArguments.getString("threshold"));
-
+		float lexThres = Float.parseFloat(parsedArguments.getString("lexScoreThreshold"));
+		
 		// parameter control. 
 		if (synset.equals("mfs"))
 		{
@@ -462,8 +463,11 @@ public class CLI {
 		System.out.println("\tcorpus: "+corpus+"\n\tlexicon: "+lexicon+"\n\tSense information: "+synset+"\n");
 		System.err.println("\tcorpus: "+corpus+"\n\tlexicon: "+lexicon+"\n\tSense information: "+synset+"\n");
 
-		Evaluator evalCorpus = new Evaluator(lexicon, synset, estimator);
-		evalCorpus.setThreshold(thres);
+		//load Lexicon
+		Lexicon lex = new Lexicon(lexicon, synset, lexThres);
+		//create evaluator object
+		Evaluator evalCorpus = new Evaluator(lex, synset, estimator);
+		evalCorpus.setThreshold(thres);		
 		Map<String, Float> results = evalCorpus.processCorpus(corpus, shouldOptimize, weights);
 		if (shouldOptimize && test != "")
 		{
@@ -548,6 +552,13 @@ public class CLI {
 				+ "    - avg: average ratio of the polarity words in the text"
 				+ "    - moh: polarity classifier proposed in (Mohammad et al.,2009 - EMNLP). Originally used on the MPQA corpus\n");
 
+		evalParser.addArgument("-lt", "--lexScoreThreshold")
+		.required(false)
+		.setDefault("0")
+		.help("Threshold which limits the minimum absolute polarity score an entry in the lexicon must "
+				+ "have to be used as polarity calculation. This option discard a number of entries in the given lexicon."
+				+ " Float in the [-1,1] range. Default value is 0. Warning: this is an evaluation only option, "
+				+ "if you are not sure what this means do not use it\n ");
 	}
 
 	public final void predictPolarity() throws IOException {
