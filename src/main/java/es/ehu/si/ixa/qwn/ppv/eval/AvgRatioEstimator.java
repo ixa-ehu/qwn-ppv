@@ -129,7 +129,7 @@ public class AvgRatioEstimator {
 	 * @ weights: whether lexicon weights (if existing) should be used when computing polarity or only binary polarities (pos|neg). Default is to use binary polarities.
 	 *  
 	 */
-	public Map<String, Float> processCorpus (String corpus, boolean opt, boolean weights) 
+	public Map<String, Float> processCorpus (String corpus, boolean shouldOptimize, boolean useWeights) 
 	{
 		
 		// clean all previous prediction and references stored in data structures
@@ -208,7 +208,7 @@ public class AvgRatioEstimator {
 			        	String sens=senses[0]; 
 			        	//sens = sens.replaceFirst(":[^:]+$",""); 			        	
 			        	//lookwords.add(sens+":1");
-			        	if (sens.contains(":"))
+			        	if (!sens.contains(":"))
 			        	{	
 			        		sens=sens+":1";
 			        	}
@@ -220,13 +220,13 @@ public class AvgRatioEstimator {
 			        	break;
 			        }
 			        //System.err.println("AvgEstimator:: "+line+" ------ ");
-			        wordPol= sensePolarity(lookwords, weights);
+			        wordPol= sensePolarity(lookwords, useWeights);
 			        if (wordPol.compareTo("none") != 0)
 			        {
 			        	float wscore = Float.parseFloat(wordPol);
 			        	if (wscore > 0)  // positive
 			        	{
-			        		if (weights)
+			        		if (useWeights)
 			        			pos+=wscore;
 			        		else
 			        			pos+=1;
@@ -234,14 +234,14 @@ public class AvgRatioEstimator {
 			        			
 			        	else if (wscore < 0) // negative
 			        	{	
-			        		if (weights)
+			        		if (useWeights)
 			        			neg+=wscore;
 			        		else
 			        			neg-=1;
 			        	}
 			        	else // neutral
 			        	{
-			        		if (weights)
+			        		if (useWeights)
 			        			neu+=wscore;
 			        		else
 			        			neu+=1;
@@ -271,7 +271,7 @@ public class AvgRatioEstimator {
 		System.out.println("AvgRatioEstimator: corpus processed ("+docCount+" elements). Polarity scores ready. \n");
 
 		// compute statistics.
-		if (! opt)
+		if (! shouldOptimize)
 		{
 			computeStatistics(this.threshold);
 			// add threshold used to stats
@@ -440,10 +440,10 @@ public class AvgRatioEstimator {
 	 *                It will contain a single element (lemma/first sense cases), except in the "rank" sense case.
 	 *  @Boolean w: whether lexicon weights are used or scalar polarities (pos|neg|neu). Default is scalar polarities. 
 	 */
-	private String sensePolarity (List<String> senses, boolean w)
+	private String sensePolarity (List<String> senses, boolean useWeights)
 	{
 	    float polarity=0;
-	    boolean found= false;
+	    boolean isFound= false;
 	    for (String s : senses)
 	    {
 	    	// if s=="-" means that there is no sense information at all. Automatically return "none" 
@@ -476,11 +476,11 @@ public class AvgRatioEstimator {
 	        if (this.lexicon.getScalarPolarity(sense) != 123456789)
 	        {	        		        	
 	        	polarity+=lexicon.getScalarPolarity(sense)*senseScore;
-	        	if (w == true)
+	        	if (useWeights)
 	        	{
 	        		polarity+=lexicon.getNumericPolarity(sense)*senseScore;
 	        	}
-	            found = true;
+	            isFound = true;
 	            /*
 	            if (polarity > 0)
 	            	System.err.println("word found! -"+sense+" - pos - "+polarity);
@@ -493,7 +493,7 @@ public class AvgRatioEstimator {
 	    }
 	    
 	    // return polarity score, main program will interpret the score
-	    if (found)
+	    if (isFound)
 	    {
 	        return String.valueOf(polarity);
 	    }
