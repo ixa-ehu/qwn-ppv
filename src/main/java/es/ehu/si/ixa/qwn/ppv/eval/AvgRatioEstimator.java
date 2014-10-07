@@ -459,7 +459,14 @@ public class AvgRatioEstimator {
 	    	}
 	        else
 	        {	
-	        	scoreStr = fields[1];
+		    if (fields.length < 2)
+			{
+			    scoreStr = "1";
+			}
+		    else
+			{
+			    scoreStr = fields[1];
+			}
 	        }
 	    	//System.err.println("word to look for: "+sense+" : "+scoreStr+" - \n");
 
