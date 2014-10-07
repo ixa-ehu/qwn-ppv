@@ -141,7 +141,7 @@ public class Evaluator {
 			System.err.println("AvgRatioEstimator: incorrect sense/lemma option("+syn+"). System defaults to using lemmas\n");
 			this.synset = 0;			
 		}
-		System.err.println("AvgRatioEstimator: sense/lemma option: "+this.synset+".\n");
+		//System.err.println("AvgRatioEstimator: sense/lemma option: "+this.synset+".\n");
 	}
 	
 	/*
