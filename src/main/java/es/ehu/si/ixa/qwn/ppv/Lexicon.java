@@ -154,7 +154,7 @@ public class Lexicon {
 				}		
 				break;
 			case 4:
-				if (syn.matches("(first|rank)"))
+				if (syn.matches("(first|rank|mfs)"))
 				{
 					ok = addEntry(fields[0],fields[3], syn);
 					if (!ok)
@@ -194,7 +194,7 @@ public class Lexicon {
 		}
 		
 		// control that lemma/sense in the lexicon is coherent with the lemma/sense mode selected by the user
-		if ((key.matches("^[0-9]{4,}-[arsvn]$") && syn.compareTo("lemma") == 0) || (!key.matches("^[0-9]{4,}-[arsvn]$") && syn.matches("(first|rank)")))
+		if ((key.matches("^[0-9]{4,}-[arsvn]$") && syn.compareTo("lemma") == 0) || (!key.matches("^[0-9]{4,}-[arsvn]$") && syn.matches("(first|rank|mfs)")))
 		{
 			this.formaterror++;
 			return false;

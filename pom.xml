@@ -50,7 +50,7 @@ Developed by IXA NLP Group of the University of the Basque Country (ixa.si.ehu.e
 		<dependency>
 			<groupId>net.sourceforge.argparse4j</groupId>
 			<artifactId>argparse4j</artifactId>
-			<version>0.4.3</version>
+			<version>0.4.4</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>

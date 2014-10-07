@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
 
 import es.ehu.si.ixa.qwn.ppv.Lexicon;
 
-public class AvgRatioEstimator {
+public class Evaluator {
 
 	//private HashSet<LexiconEntry> lexicon = new HashSet<LexiconEntry> ();
 	private Lexicon lexicon;
@@ -48,51 +48,81 @@ public class AvgRatioEstimator {
 	private Map<String, Float> ref_polCounts = new HashMap<String, Float>();
 	private Map<String, Float> predicted_pols = new HashMap<String, Float>();
 	private int synset = 0;	
+	private String algorithm = "avg";
 	
 	
 	/*
 	 * Constructor: Lexicon object given.
 	 */
-	public AvgRatioEstimator (Lexicon Lex, String syn)
+	public Evaluator (Lexicon Lex, String syn)
 	{
-		this.lexicon = Lex;
-		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
-		this.setThreshold(0);
-		this.setSynset(syn);
+		this(Lex, syn, 0, "avg");
+	}
+
+	/*
+	 * Constructor: Lexicon object given, threshold given.
+	 */
+	public Evaluator (Lexicon Lex, String syn, float thresh)
+	{
+		this(Lex, syn, thresh, "avg");
+	}
+
+	/*
+	 * Constructor: Lexicon object given, algorithm given.
+	 */
+	public Evaluator (Lexicon Lex, String syn, String algorithm)
+	{
+		this(Lex, syn, 0, algorithm);
 	}
 
 	/*
 	 * Constructor: Lexicon object given.
 	 */
-	public AvgRatioEstimator (Lexicon Lex, String syn, float thresh)
+	public Evaluator (Lexicon Lex, String syn, float thresh, String algorithm)
 	{
 		this.lexicon = Lex;
 		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
 		this.setThreshold(thresh);
-		this.setSynset(syn);		
+		this.setSynset(syn);	
+		this.setAlgorithm(algorithm);
 	}
 
 	
 	/*
 	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
 	 */
-	public AvgRatioEstimator (String LexPath, String syn)
+	public Evaluator (String LexPath, String syn)
 	{
-		this.lexicon = new Lexicon(LexPath, syn);
-		System.out.println("AvgRatioEstimator: lexicon loaded  --> "+LexPath+" - "+lexicon.size()+" entries");		
-		this.setThreshold(0);
-		this.setSynset(syn);
+		this(LexPath, syn, 0, "avg");
 	}
 
 	/*
+	 * Constructor: Lexicon path given, threshold given.
+	 */
+	public Evaluator (String LexPath, String syn, float thresh)
+	{
+		this(LexPath, syn, thresh, "avg");
+	}
+
+	/*
+	 * Constructor: Lexicon path given, algorithm given.
+	 */
+	public Evaluator (String LexPath, String syn, String algorithm)
+	{
+		this(LexPath, syn, 0, algorithm);
+	}
+
+	
+	/*
 	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
 	 */
-	public AvgRatioEstimator (String LexPath, String syn, float thresh)
+	public Evaluator (String LexPath, String syn, float thresh, String algorithm)
 	{
 		this.lexicon = new Lexicon(LexPath, syn);
 		System.out.println("AvgRatioEstimator: lexicon loaded --> "+LexPath+" - "+lexicon.size()+" entries");
 		this.setThreshold(thresh);
 		this.setSynset(syn);
+		this.setAlgorithm(algorithm);
 	}
 	
 	/*
@@ -111,6 +141,7 @@ public class AvgRatioEstimator {
 			System.err.println("AvgRatioEstimator: incorrect sense/lemma option("+syn+"). System defaults to using lemmas\n");
 			this.synset = 0;			
 		}
+		System.err.println("AvgRatioEstimator: sense/lemma option: "+this.synset+".\n");
 	}
 	
 	/*
@@ -120,6 +151,15 @@ public class AvgRatioEstimator {
 	{
 		this.threshold = t;
 	}
+	
+	/*
+	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	 */
+	private void setAlgorithm (String a)
+	{
+		this.algorithm = a;
+	}
+
 	/*
 	 * This is the core of the class, given the path to a corpus process it 
 	 * and return the performance results
@@ -134,7 +174,7 @@ public class AvgRatioEstimator {
 		
 		// clean all previous prediction and references stored in data structures
 		this.cleanCorpusData();
-		
+				
 		float pos = 0;
 		float neg = 0;
 		float neu = 0;
@@ -183,8 +223,12 @@ public class AvgRatioEstimator {
 			        // Read word form analysis. IMPORTANT: this code is dependent on the output of FreeLing.
 			        String[] fields = line.split("\\s+");
 			        //fields(string form, String lemma, my $POS, my $POSprob, my $senseInfo) = split /\s+/, $l;
-			        // senses come in this format WNsense1:score1/WNsense2:score2/...:...			        
-			        String[] senses = fields[4].split("/");
+			        // senses come in this format WNsense1:score1/WNsense2:score2/...:... 	
+			        String[] senses = {"-"};
+			        if (fields.length > 4)
+			        {
+			        	 senses = fields[4].split("/");
+			        }
 			        //String form = fields[0];
 			        String lemma = fields[1];
 			        //String POStag = fields[2];
@@ -252,9 +296,8 @@ public class AvgRatioEstimator {
 				// document/sentence end. Compute final polarity and store statistics regarding the document.
 				else
 				{
-					// neg is a negative value, hence we add it to the positivity value.
-					float avg = (pos + neg)*(float)1 / wordCount; 
-					predicted_pols.put(docid, avg);
+					computePolarity(docid, pos, neg, wordCount); 
+					
 					//System.err.println(docid+" - "+avg+" - pos: "+pos+" -neg: "+neg+" - words: "+wordCount);					
 				}			    
 			}
@@ -329,6 +372,68 @@ public class AvgRatioEstimator {
 		this.ref_pols.clear();
 		this.ref_polCounts.clear();
 		this.predicted_pols.clear();
+	}
+
+		
+	/*
+	 * Bridge function that handles which algorithm should be used when computing polarity 
+	 * of a sentence/document. which algorithm shall be used is determined by 'this.algorithm'
+	 */
+	private void computePolarity (String docid, float pos, float neg, float wordCount)
+	{
+		if (this.algorithm.equals("avg"))
+		{
+			computeAvgPolarity(pos, neg, wordCount, docid);
+			//	System.err.println("predicted polarity for document "+docid+": "+this.predicted_pols.get(docid));
+		}
+		else if (this.algorithm.equals("moh"))
+		{
+			computeMohammadPolarity(pos, neg, wordCount, docid);
+			//System.err.println("predicted polarity for document "+docid+": "+this.predicted_pols.get(docid)+" -pos: "+pos+" -neg: "+neg+" -wordCount: "+wordCount);
+		}
+		else
+		{
+			System.err.println("Unknown polarity estimation algorithm ("+this.algorithm
+					+"), evaluation aborted\n");
+			System.exit(2);
+		}
+	}
+
+	
+	/*
+	 * Computes the Average Ratio of positive and negative words in a document
+	 * and stores it in result data structures
+	 */
+	private void computeAvgPolarity (float pos, float neg, float wordCount, String docid)
+	{
+		// neg is a negative value, hence we add it to the positivity value.
+		float avg = (pos + neg)*(float)1 / wordCount; 
+		this.predicted_pols.put(docid, avg);
+	}
+	
+	/*
+	 * Computes the Average Ratio of positive and negative words in a document
+	 * and stores it in result data structures
+	 */
+	private void computeMohammadPolarity (float pos, float neg, float wordCount, String docid)
+	{
+		// evaluation on mpqa as proposed in (Mohammad et al.,2009 - EMNLP)                                                                   
+        // if one negative word / synset has been found doc / phrase is negative.                                                         
+        if (neg != 0)
+        {
+        	this.predicted_pols.put(docid, (float) -1);
+        }
+        // if no negative word / synset has been found and there is at least on poitive words doc / phrase is positive.                   
+        else if (pos > 0)
+        {
+        	this.predicted_pols.put(docid, (float) 1);
+        }
+        // doc / phrase is undefined                                                                                                      
+        else
+        {
+        	this.predicted_pols.put(docid, (float) 0);
+        }
+
 	}
 
 	/*
