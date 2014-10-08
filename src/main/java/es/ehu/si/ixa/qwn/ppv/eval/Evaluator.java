@@ -81,7 +81,7 @@ public class Evaluator {
 	public Evaluator (Lexicon Lex, String syn, float thresh, String algorithm)
 	{
 		this.lexicon = Lex;
-		System.err.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
+		System.out.println("AvgRatioEstimator: lexicon loaded - "+lexicon.size()+" entries");
 		this.setThreshold(thresh);
 		this.setSynset(syn);	
 		this.setAlgorithm(algorithm);
