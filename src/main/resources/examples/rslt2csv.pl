@@ -17,15 +17,18 @@ print "dict\tsize\tthreshold\taccuracy on train\taccurary\tP+\tR+\tF+\tP-\tR-\tF
 while ($l=<stdin>)
 {
     chomp $l;    
-    if ($l =~/^AvgRatioEstimator: lexicon loaded  --> (.*) - ([0-9]+) entries$/)
+    if ($l =~/^AvgRatioEstimator: lexicon loaded(.*) - ([0-9]+) entries$/)
     {
-        $dict= $1;
+        $size=$2;       
+    }
+    elsif ($l =~ /^\tlexicon: (.*)$/)
+    {
+	$dict= $1;
 	@path=split /\//, $dict;
 	$dict=$path[$#path];
 	$graph=$dict;
 	$graph=~s/^.*_([^\.]+)\.dict$/$1/;
-        $size=$2;
-        
+	$dict=~s/\.dict$//;       
     }
     elsif ($l =~ /Sense information: (.*)$/)
     {
