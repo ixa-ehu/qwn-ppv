@@ -1,4 +1,4 @@
-/*
+/**
 * Copyright 2014 Iñaki San Vicente and Rodrigo Agerri
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-package es.ehu.si.ixa.qwn.ppv.eval;
+package es.ehu.si.ixa.qwn.ppv;
 
 import ixa.kaflib.KAFDocument;
 import ixa.kaflib.Term;
@@ -35,8 +35,21 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import es.ehu.si.ixa.qwn.ppv.Lexicon;
-
+/**
+ * Evaluator class: this class processes a corpus with a user specified lexicon and algorithm. Parameters: 
+ *
+ * <ol>
+ * <li>Corpus: path to the file containing the corpus.</li>
+ * <li>Lexicon: Lexicon to be used for looking up word polarities.</li>
+ * <li>Algorithm: which algorithm should be user for evaluating document polarity scores </li>
+ * <li>Lemma/sense mode: Whether lemmas or word senses are the basis of the polarity scores </li>
+ * </ol>
+ *
+ *
+ * @author isanvicente
+ * @author ragerri
+ * @version 2014-05-14
+ */
 public class Evaluator {
 
 	//private HashSet<LexiconEntry> lexicon = new HashSet<LexiconEntry> ();
@@ -51,32 +64,48 @@ public class Evaluator {
 	private String algorithm = "avg";
 	
 	
-	/*
+	/**
 	 * Constructor: Lexicon object given.
+	 * 
+	 * @param Lex
+	 * @param syn
 	 */
 	public Evaluator (Lexicon Lex, String syn)
 	{
 		this(Lex, syn, 0, "avg");
 	}
 
-	/*
+	/**
 	 * Constructor: Lexicon object given, threshold given.
+	 * 
+	 * @param Lex
+	 * @param syn
+	 * @param thresh
 	 */
 	public Evaluator (Lexicon Lex, String syn, float thresh)
 	{
 		this(Lex, syn, thresh, "avg");
 	}
 
-	/*
+	/**
 	 * Constructor: Lexicon object given, algorithm given.
+	 * 
+	 * @param Lex
+	 * @param syn
+	 * @param algorithm
 	 */
 	public Evaluator (Lexicon Lex, String syn, String algorithm)
 	{
 		this(Lex, syn, 0, algorithm);
 	}
 
-	/*
+	/**
 	 * Constructor: Lexicon object given.
+	 * 
+	 * @param Lex
+	 * @param syn
+	 * @param thresh
+	 * @param algorithm
 	 */
 	public Evaluator (Lexicon Lex, String syn, float thresh, String algorithm)
 	{
@@ -88,24 +117,35 @@ public class Evaluator {
 	}
 
 	
-	/*
+	/**
 	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	 * 
+	 * @param Lex
+	 * @param syn
 	 */
 	public Evaluator (String LexPath, String syn)
 	{
 		this(LexPath, syn, 0, "avg");
 	}
 
-	/*
-	 * Constructor: Lexicon path given, threshold given.
+	/**
+	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	 * 
+	 * @param Lex
+	 * @param syn
+	 * @param thresh
 	 */
 	public Evaluator (String LexPath, String syn, float thresh)
 	{
 		this(LexPath, syn, thresh, "avg");
 	}
 
-	/*
-	 * Constructor: Lexicon path given, algorithm given.
+	/**
+	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	 * 
+	 * @param Lex
+	 * @param syn
+	 * @param algorithm
 	 */
 	public Evaluator (String LexPath, String syn, String algorithm)
 	{
@@ -113,8 +153,13 @@ public class Evaluator {
 	}
 
 	
-	/*
+	/**
 	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	 * 
+	 * @param Lex
+	 * @param syn
+	 * @param thresh
+	 * @param algorithm
 	 */
 	public Evaluator (String LexPath, String syn, float thresh, String algorithm)
 	{
@@ -125,8 +170,11 @@ public class Evaluator {
 		this.setAlgorithm(algorithm);
 	}
 	
-	/*
-	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	
+	/**
+	 * SetSynset function set the lemma/sense mode to be used when loading the lexicon.  
+	 * 
+	 * @param syn
 	 */
 	private void setSynset (String syn)
 	{
@@ -144,29 +192,37 @@ public class Evaluator {
 		//System.err.println("AvgRatioEstimator: sense/lemma option: "+this.synset+".\n");
 	}
 	
-	/*
-	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	/**
+	 * SetThreshold: set the minimum polarity score a lexicon entry should have in order 
+	 * to be taken into account for processing the corpus. 
+	 * 
+	 * @param t : float value in [-1,1] for QWN-PPV lexicons. In custom lexicons are used this value
+	 * 			   should be in the range of polarity scores in each specific lexicon. 
 	 */
 	public void setThreshold (float t)
 	{
 		this.threshold = t;
 	}
 	
-	/*
-	 * Constructor: Lexicon path given as a string, load lexicon into the lexicon variable.
+	/**
+	 * SetAlgorithm: set the minimum polarity score a lexicon entry should have in order to be included in the lexicon object.  
+	 * 
+	 * @param a: evaluation method used for computing the polarity scores [avg | moh]: "
+	 *				- avg: average ratio of the polarity words in the text"
+	 * 				- moh: polarity classifier proposed in (Mohammad et al.,2009 - EMNLP). Originally used on the MPQA corpus
 	 */
 	private void setAlgorithm (String a)
 	{
 		this.algorithm = a;
 	}
 
-	/*
+	/**
 	 * This is the core of the class, given the path to a corpus process it 
 	 * and return the performance results
 	 * 
-	 * @ corpus: evaluation corpus 
-	 * @ opt: if optimization mode should be entered (find the threshold that maximizes accuracy for the given corpus)
-	 * @ weights: whether lexicon weights (if existing) should be used when computing polarity or only binary polarities (pos|neg). Default is to use binary polarities.
+	 * @param corpus: path to the file containing the corpus to be processed.  
+	 * @param shouldOptimize: if optimization mode should be entered (find the threshold that maximizes accuracy for the given corpus)
+	 * @param useWeights: whether lexicon weights (if existing) should be used when computing polarity or only binary polarities (pos|neg). Default is to use binary polarities.
 	 *  
 	 */
 	public Map<String, Float> processCorpus (String corpus, boolean shouldOptimize, boolean useWeights) 
@@ -362,8 +418,8 @@ public class Evaluator {
 		return this.stats;
 	}
 	
-	/*
-	 * This function cleans current corpus data, in order to process another corpus. This is needed for example, 
+	/** 
+	 * This void cleans current corpus data, in order to process another corpus. This is needed for example, 
 	 * to process on a test-set after a development-set has been used to optimize the threshold 
 	 */
 	private void cleanCorpusData() {
@@ -375,9 +431,14 @@ public class Evaluator {
 	}
 
 		
-	/*
+	/**
 	 * Bridge function that handles which algorithm should be used when computing polarity 
 	 * of a sentence/document. which algorithm shall be used is determined by 'this.algorithm'
+	 * 
+	 * @param docid
+	 * @param pos : float determining the positive score of the sentence/document
+	 * @param neg : float determining the negative score of the sentence/document
+	 * @param wordCount : number of tokens of the sentence/document.
 	 */
 	private void computePolarity (String docid, float pos, float neg, float wordCount)
 	{
@@ -400,9 +461,14 @@ public class Evaluator {
 	}
 
 	
-	/*
+	/**
 	 * Computes the Average Ratio of positive and negative words in a document
 	 * and stores it in result data structures
+	 * 
+	 * @param pos : float determining the positive score of the sentence/document 
+	 * @param neg : float determining the negative score of the sentence/document 
+	 * @param wordCount : number of tokens of the sentence/document.
+	 * @param docid : 
 	 */
 	private void computeAvgPolarity (float pos, float neg, float wordCount, String docid)
 	{
@@ -411,9 +477,14 @@ public class Evaluator {
 		this.predicted_pols.put(docid, avg);
 	}
 	
-	/*
+	/**
 	 * Computes the Average Ratio of positive and negative words in a document
 	 * and stores it in result data structures
+	 * 
+	 * @param pos : float determining the positive score of the sentence/document 
+	 * @param neg : float determining the negative score of the sentence/document 
+	 * @param wordCount : number of tokens of the sentence/document.
+	 * @param docid : 
 	 */
 	private void computeMohammadPolarity (float pos, float neg, float wordCount, String docid)
 	{
@@ -436,8 +507,12 @@ public class Evaluator {
 
 	}
 
-	/*
+	/**
 	 * Compute system performance statistics (Acc, P, R, F) for the given corpus.
+	 * 
+	 * @param threshold : float value in the [-1,1] range that determines the limit 
+	 * between positive and negative reviews. If the a review score equals exactly to the threshold
+	 * it is considered undefined (neutral). 
 	 */
 	private void computeStatistics(float threshold) {
 		             
@@ -539,11 +614,12 @@ public class Evaluator {
 
 	}
 
-	/*
+	/**
 	 *  Compute the polarity of a lemma/sense based on its ranking of senses
-	 *  @List<String> senses: list of lemma/senses to look for in the lexicon. 
-	 *                It will contain a single element (lemma/first sense cases), except in the "rank" sense case.
-	 *  @Boolean w: whether lexicon weights are used or scalar polarities (pos|neg|neu). Default is scalar polarities. 
+	 *  @param senses: list of lemma/senses to look for in the lexicon. 
+	 *                It will contain a single element (lemma/first sense cases), 
+	 *                except in the "rank" sense case.
+	 *  @param useWeights: whether lexicon weights are used or scalar polarities (pos|neg|neu). Default is scalar polarities. 
 	 */
 	private String sensePolarity (List<String> senses, boolean useWeights)
 	{
@@ -612,10 +688,13 @@ public class Evaluator {
 
 	
 	
-	/*
+	/**
 	 * This function predicts the polarity of a text given in the KAF format. argument is the path to the KAF file 
 	 * It saves tagged file to the given path + ".sent" extension.
 	 * 
+	 * @param fname
+	 * @return a map element containing statistics computed for the given text and 
+	 *          the path to the annotated file.
 	 */
 	public Map<String, String> processKaf (String fname) 
 	{

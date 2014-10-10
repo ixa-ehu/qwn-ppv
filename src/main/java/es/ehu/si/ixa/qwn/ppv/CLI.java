@@ -59,6 +59,7 @@ import org.apache.commons.io.IOUtils;
 
 
 
+
 /*
  * lexicon creation classes
  */
@@ -68,8 +69,7 @@ import es.ehu.si.ixa.qwn.ppv.UKBwrapper;
 /*
  * lexicon evaluation classes
  */
-import es.ehu.si.ixa.qwn.ppv.eval.Evaluator;
-
+import es.ehu.si.ixa.qwn.ppv.Evaluator;
 /*
  * Kaf document processing libraries
  */
