@@ -1,0 +1,7 @@
+* TODO list:
+- Evaluator is based on single words --> include ngram lexicon look up 
+- More complex evaluators (other than average ratio and Mohammad's) 
+- Format integration: 
+  - lmf/xml lexicons 
+  - xml (naf?) based corpora?
+- ...
