@@ -112,7 +112,7 @@ mvn clean package
 This step will create a directory called target/ which contains various directories and files.
 Most importantly, there you will find the module executable:
 
-qwn-ppv-1.0.jar
+ixa-qwn-ppv-1.0.jar
 
 This executable contains every dependency the module needs, so it is completely portable as long
 as you have a JVM 1.7 installed.
@@ -132,7 +132,7 @@ First use of qwn-ppv
 QWN-PPV includes some graphs by default. However in order to use them the must be compiled by ukb. In order to do this, execute qwn-ppv-1.0.jar as follows:
 
 ````shell
-java -jar qwn-ppv-1.0.jar compile -k all
+java -jar ixa-qwn-ppv-1.0.jar compile -k all
 ````
 
 This command will create a 'graphs' folder in the same directory where 'qwn-ppv-1.0.jar' is located, and it will store the graphs included in the QWN-PPV distribution, which are:
@@ -152,20 +152,20 @@ QWN-PPV provides 3 main funcionalities:
 Creating lexicon polarity lexicons with qwn-ppv
 =================================================
 
-Coming soon. In the meantime execute:
+Coming soon. In the meantime you can get the command line documentation by executing:
 
 ````shell
-java -jar qwn-ppv-1.0.jar create -h
+java -jar ixa-qwn-ppv-1.0.jar create -h
 ````
 
 
 Evaluating polarity lexicons against a corpus
 ==================================================
 
-Coming soon. In the meantime execute:
+Coming soon. In the meantime you can get the command line documentation by executing:
 
 ````shell
-java -jar qwn-ppv-1.0.jar eval -h
+java -jar ixa-qwn-ppv-1.0.jar eval -h
 ````
 
 
