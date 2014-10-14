@@ -60,6 +60,9 @@ import org.apache.commons.io.IOUtils;
 
 
 
+
+import com.sun.xml.internal.ws.util.StringUtils;
+
 /*
  * lexicon creation classes
  */
@@ -420,6 +423,9 @@ public class CLI {
 		.required(false).setDefault("/usr/local/bin")
 		.help("UKB software path. If no paht is specified WN-PPV assumes that UKB software"
 				+ " has been previously installed in /usr/local/bin\n");
+		
+		String usageMessage = creationParser.formatUsage().trim()+" < seeds.txt\n\noutput: Standard output.";
+		creationParser.usage(usageMessage);
 	}
 
 	public final void eval() throws IOException {

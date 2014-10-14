@@ -142,6 +142,32 @@ This command will create a 'graphs' folder in the same directory where 'qwn-ppv-
    - mcr30_noAntGloss: Graph built using all relations of the MCR, except for antonymy and Gloss relations. 
 
 
+QWN-PPV Funcionalities
+==========================
+QWN-PPV provides 3 main funcionalities:
+1 **compile**: compile graph structures using UKB.
+2 **create**: Create polarity lexicons given a list of known polarity seeds (lemmas or MCR/Wordnet synsets -or any other custom graph node representation). 
+3 **eval**: Evaluate the a given polarity lexicon agains a corpus.
+
+Creating lexicon polarity lexicons with qwn-ppv
+=================================================
+
+Coming soon. In the meantime execute:
+
+````shell
+java -jar qwn-ppv-1.0.jar create -h
+````
+
+
+Evaluating polarity lexicons against a corpus
+==================================================
+
+Coming soon. In the meantime execute:
+
+````shell
+java -jar qwn-ppv-1.0.jar eval -h
+````
+
 
 GENERATING JAVADOC
 ==================
