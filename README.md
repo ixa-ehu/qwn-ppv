@@ -145,9 +145,9 @@ This command will create a 'graphs' folder in the same directory where 'qwn-ppv-
 QWN-PPV Funcionalities
 ==========================
 QWN-PPV provides 3 main funcionalities:
-1. **compile**: compile graph structures using UKB.
-2. **create**: Create polarity lexicons given a list of known polarity seeds (lemmas or MCR/Wordnet synsets -or any other custom graph node representation). 
-3. **eval**: Evaluate the a given polarity lexicon agains a corpus.
+   - 1. **compile**: compile graph structures using UKB.
+   - 2. **create**: Create polarity lexicons given a list of known polarity seeds (lemmas or MCR/Wordnet synsets -or any other custom graph node representation). 
+   - 3. **eval**: Evaluate the a given polarity lexicon agains a corpus.
 
 Creating lexicon polarity lexicons with qwn-ppv
 =================================================
