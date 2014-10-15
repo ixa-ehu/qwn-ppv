@@ -50,19 +50,6 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
 
-
-
-
-
-
-
-
-
-
-
-
-import com.sun.xml.internal.ws.util.StringUtils;
-
 /*
  * lexicon creation classes
  */
