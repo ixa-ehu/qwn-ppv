@@ -273,7 +273,11 @@ public class Lexicon {
 		}
 		catch (NumberFormatException ne)
 		{
-			//scalar polarity (pos| neg| neu)		
+			//scalar polarity (pos| neg| neu)
+			if (value.length() < 3)
+			{ 
+				return 1;
+			}
 			value = value.substring(0,3);			
 			if (value.compareTo("pos") == 0)
 			{
