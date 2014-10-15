@@ -173,6 +173,7 @@ public class Lexicon {
 				}		
 				break;
 			case 4:
+				//third column contains lemmas, fourth column has polarity score
 				if (syn.matches("(first|rank|mfs)"))
 				{
 					ok = addEntry(fields[0],fields[3], syn);
@@ -215,8 +216,25 @@ public class Lexicon {
 		// control that lemma/sense in the lexicon is coherent with the lemma/sense mode selected by the user
 		if ((key.matches("^[0-9]{4,}-[arsvn]$") && syn.compareTo("lemma") == 0) || (!key.matches("^[0-9]{4,}-[arsvn]$") && syn.matches("(first|rank|mfs)")))
 		{
-			this.formaterror++;
-			return 1;
+			// u-00000 is the code used in a lexicon if no synset is found for a lemma. 
+			// If found such an element the entry is ok, just ignore it (we are in synset mode)  
+			if (key.matches("^u-[0]{4,}$"))
+			{
+				return 2;
+			}
+			// If format unknown there is a format error 
+			else
+			{
+				this.formaterror++;
+				return 1;
+			}
+		}
+		
+		//If lemma value is "Not available" it means there is no lemma for the current entry.
+		if ((syn.compareTo("lemma") == 0)  && (key.matches("Not (Available|in Dictionary)")) )
+		{
+			System.err.println(key+"- lemma not available.\n");
+			return 2;
 		}
 
 		float numericScore=currentNumeric;

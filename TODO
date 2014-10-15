@@ -1,5 +1,13 @@
 * TODO list:
+- Improve Lexicon loading function to be more error tolerant
 - Evaluator is based on single words --> include ngram lexicon look up 
+- Lexicon representation: Lexicon objects at the moment only store either lemma or sense information. 
+                          Update lexicons so they may be able to store both lemma and sense informations at the same time.
+			  More memory consumption VS. richer representation + possibity to integrate lemma/sense evaluations in a single object.
+- Evaluation mode optimization:
+  - Batch mode in order to: 
+	- Evaluate several lexicons over a single corpus on the same execution.
+ 	- Evaluate several corpora over a single lexicon on the same execution.
 - More complex evaluators (other than average ratio and Mohammad's) 
 - Format integration: 
   - lmf/xml lexicons 
