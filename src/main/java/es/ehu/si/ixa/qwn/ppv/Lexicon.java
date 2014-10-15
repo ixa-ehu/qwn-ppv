@@ -159,6 +159,9 @@ public class Lexicon {
 			//LexiconEntry entry = null;
 			switch (fields.length)
 			{
+			// not enough info, too few columns
+			case 0: case 1:
+				break;
 			// Only offset/lemma and polarity info
 			case 2: 				
 				ok = addEntry(fields[0], fields[1], syn);
@@ -172,7 +175,9 @@ public class Lexicon {
 					ok = addEntry(fields[0],fields[1],syn);
 				}		
 				break;
-			case 4:
+			//if the lexicon contains more than three columns is should have a standard format:
+			// "offset<tab>(pos|neg|neu)<tab>lemma1, lemma2, lemma3, ...<tab>score<tab>..."	
+			default:
 				//third column contains lemmas, fourth column has polarity score
 				if (syn.matches("(first|rank|mfs)"))
 				{
@@ -189,6 +194,10 @@ public class Lexicon {
 					{
 						l = l.replaceFirst("#[0-9]+$","");
 						ok = addEntry(l,fields[3], syn);
+						if (ok < 2)
+						{
+							ok = addEntry(l,fields[1],syn);
+						}
 					}
 				}
 				//entry = new LexiconEntry(fields[0], fields[1], score, fields[2]);
