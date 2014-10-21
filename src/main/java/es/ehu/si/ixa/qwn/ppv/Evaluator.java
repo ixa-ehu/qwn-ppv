@@ -445,7 +445,8 @@ public class Evaluator {
 		if (this.algorithm.equals("avg"))
 		{
 			computeAvgPolarity(pos, neg, wordCount, docid);
-			//	System.err.println("predicted polarity for document "+docid+": "+this.predicted_pols.get(docid));
+			/*System.err.println("predicted polarity for document "+docid+": "+this.predicted_pols.get(docid)
+					+" -pos: "+pos+" -neg: "+neg+" -wordCount: "+wordCount);*/
 		}
 		else if (this.algorithm.equals("moh"))
 		{

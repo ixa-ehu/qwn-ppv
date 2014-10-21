@@ -134,8 +134,16 @@ public class Lexicon {
 		this.minAbsPolarity = m;
 	}
 	
-	/*
-	 * load a lexicon  
+	/**
+	 * load a lexicon from a file given the file path. The format of the lexicon must be as follows:
+	 * 
+	 *  "offset<tab>(pos|neg|neu)<tab>lemma1, lemma2, lemma3, ...<tab>score<tab>..."	
+	 * 
+	 * 	First two columns are mandatory. Alternatively, firs column can contain lemmas instead of offsets.
+	 * 
+	 * @param LexiconPath
+	 * @param syn
+	 * @throws IOException
 	 */
 	private void loadLexicon(String LexiconPath, String syn) throws IOException
 	{
@@ -169,23 +177,28 @@ public class Lexicon {
 				break;
 			case 3:
 				//third column contains polarity score
-				ok = addEntry(fields[0],fields[2],syn); 
-				if (ok < 2)
+				try {
+					float score = Float.parseFloat(fields[2]);
+					ok = addEntry(fields[0],fields[1],fields[2],syn);
+				}
+				//third column contains lemmas, no polarity scores
+				catch (NumberFormatException ne)
 				{
-					ok = addEntry(fields[0],fields[1],syn);
-				}		
+					String[] lemmas = fields[2].split(", ");
+					for (String l : lemmas)
+					{
+						l = l.replaceFirst("#[0-9]+$","");
+						ok = addEntry(l,fields[1], syn);			
+					}
+				}
 				break;
-			//if the lexicon contains more than three columns is should have a standard format:
+			// if the lexicon contains more than three columns is should have a standard format:
 			// "offset<tab>(pos|neg|neu)<tab>lemma1, lemma2, lemma3, ...<tab>score<tab>..."	
 			default:
 				//third column contains lemmas, fourth column has polarity score
 				if (syn.matches("(first|rank|mfs)"))
 				{
-					ok = addEntry(fields[0],fields[3], syn);
-					if (ok < 2)
-					{
-						ok = addEntry(fields[0],fields[1],syn);
-					}
+					ok = addEntry(fields[0],fields[1],fields[3], syn);					
 				}
 				else
 				{
@@ -193,11 +206,7 @@ public class Lexicon {
 					for (String l : lemmas)
 					{
 						l = l.replaceFirst("#[0-9]+$","");
-						ok = addEntry(l,fields[3], syn);
-						if (ok < 2)
-						{
-							ok = addEntry(l,fields[1],syn);
-						}
+						ok = addEntry(l,fields[1], fields[3], syn);						
 					}
 				}
 				//entry = new LexiconEntry(fields[0], fields[1], score, fields[2]);
@@ -205,13 +214,46 @@ public class Lexicon {
 			}
 			//this.lexicon.add(entry);
 		}
-		lexreader.close();		
+		lexreader.close();			
 	}
 	
+	/**
+	 * Add entry to lexicon. If the key already exists it replaces the polarity with the new value.
+	 *
+	 * @param key : lemma or offset
+	 * @param pol : scalar polarity (pos|neg|neu)
+	 * @param syn : whether lemmas or senses (offset) should be stored in the lexicon.
+	 * @return : int. 0 success, 1 error, 2 ok, but entry not included (no offset or lemma, or neutral polarity).
+	 */
+	private int addEntry (String key, String pol, String syn)
+	{
+		String score = "0"; 
+		//scalar polarity (pos| neg| neu)
+		if (pol.length() < 3)
+		{ 
+			return 1;
+		}
+		pol = pol.substring(0,3);			
+
+		if (pol.compareTo("pos") == 0)
+		{	
+			score = "1";
+		}
+		else if (pol.compareTo("neg") == 0)
+		{	
+			score = "-1";
+		}
+		else if (pol.compareTo("neu") != 0)
+		{	
+			this.formaterror++;
+			return 1;			
+		}
+		return addEntry(key, pol, score, syn); 
+	}
 	/*
 	 * Add entry to lexicon. If the key already exists it replaces the polarity with the new value.
 	 */
-	private int addEntry (String key, String value, String syn)
+	private int addEntry (String key, String pol, String scoreValue, String syn)
 	{		
 		float currentNumeric = 0;
 		int currentScalar = 0;
@@ -249,8 +291,8 @@ public class Lexicon {
 		float numericScore=currentNumeric;
 		int scalarScore = currentScalar;
 		//numeric polarity 
-		try {
-			float score = Float.parseFloat(value);
+		/*try {
+			float score = Float.parseFloat(scoreValue);
 			// if the entry does not reach the minimum required value do not include it in the lexicon.
 			if (Math.abs(score) < this.minAbsPolarity)
 			{
@@ -272,27 +314,27 @@ public class Lexicon {
 			//this.lexicon.put(key, polar);		
 		}
 		catch (NumberFormatException ne)
-		{
+		{*/
 			//scalar polarity (pos| neg| neu)
-			if (value.length() < 3)
+			if (pol.length() < 3)
 			{ 
 				return 1;
 			}
-			value = value.substring(0,3);			
-			if (value.compareTo("pos") == 0)
+			pol = pol.substring(0,3);			
+			if (pol.compareTo("pos") == 0)
 			{
 				scalarScore= 1+currentScalar;
 			}				
-			else if (value.compareTo("neg") == 0)
+			else if (pol.compareTo("neg") == 0)
 			{
 				scalarScore= -1+currentScalar;
 			} 		
-			else
+			else if (pol.compareTo("neu") != 0)
 			{				
 				return 1;
 			}
 			numericScore=scalarScore;
-		}	
+		//}	
 				
 		// add/update entry in the lexicon.
 		Polarity polar = new Polarity(numericScore, scalarScore);
