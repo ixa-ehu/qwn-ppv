@@ -6,7 +6,7 @@
 			  More memory consumption VS. richer representation + possibity to integrate lemma/sense evaluations in a single object.
 - Evaluation mode optimization:
   - Batch mode in order to: 
-	- Evaluate several lexicons over a single corpus on the same execution.
+	- DONE (2014/10/24) - Evaluate several lexicons over a single corpus on the same execution. 
  	- Evaluate several corpora over a single lexicon on the same execution.
 - More complex evaluators (other than average ratio and Mohammad's) 
 - Format integration: 

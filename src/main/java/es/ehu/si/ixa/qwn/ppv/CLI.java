@@ -242,14 +242,26 @@ public class CLI {
 		// specify the graph which shall be used for propagation
 		compileParser.addArgument("-k","--kb")		    	
 		.required(false).setDefault("all")
-		.help("a KB information file in UKB format is needed to create a graph. If no KB file is given, the system will compile the default graphs provided by QWN-PPV.\n"
-				+ "This should be done the first time you run qwn-ppv, as the graphs shall be compiled for your platform. \n"
-				+ "QWN-PPV assumes UKB software has been previously installed, and it is in the paths. If not it will rise an error.\n");
+		.help("a KB information file in UKB format is needed to create a graph. If no KB argument is given, the system will compile the default graphs provided by QWN-PPV.\n"
+				+ "NOTE THAT this should be done the first time you run qwn-ppv, as the graphs shall be compiled for your platform. \n"
+				+ "QWN-PPV assumes UKB software has been previously installed, and it is in the paths. If not it will rise an error.\n"
+				+ "Possible values are:\n"
+				+ "\t - all: all graphs will compiled. 	Same behaviour as giving no -k argument.\n"
+				+ "\t - synAnt: synonymy and antonymy graphs are used for propagation\n"
+				+ "\t - mcr: graph built using all relations in MCR3.0\n"
+				+ "\t - mcr-ant: graph built using all relations in MCR3.0, except for the antonymy relations\n"
+				+ "\t - mcr-antGloss: graph built using all relations in MCR3.0, except antonymy and Gloss information\n"
+				+ "\nFOR ADVANCED USERS ONLY!!\n"
+				+ "The abovementioned graphs are those provided by the package. Additionally custom graphs may be compiled for using them with QWN-PPV."
+				+ " To use custom graphs, you have to pass the path to the custom graph as the value of the -k option:\n"				
+				+ "\t - /path/to/custom/graph.txt : path to the custom graph you want to compile."
+				+ " NOTE that the graph must be in UKB compatible format.\n");
+
 
 		// specify the path to the ukb executables, if no path is given default location is /usr/local/bin
 		compileParser.addArgument("-u","--ukbPath")		    	
 		.required(false).setDefault("/usr/local/bin")
-		.help("UKB software path. If no paht is specified WN-PPV assumes that UKB software"
+		.help("UKB software path. If no path is specified WN-PPV assumes that UKB software"
 				+ " has been previously installed in /usr/local/bin\n");
 
 	}
@@ -400,19 +412,23 @@ public class CLI {
 		creationParser.addArgument("-g","--graph")		    	
 		.required(false).setDefault("synAnt")
 		.help("A graph is REQUIRED to propagate polarity information over it, if no graph is specified the system defaults to MCR synonymy and antonymy graphs (synAnt).\n"
-				+ "possible values are\n"
+				+ "possible values are:\n"
 				+ "\t - synAnt: synonymy and antonymy graphs are used for propagation\n"
 				+ "\t - mcr: graph built using all relations in MCR3.0\n"
 				+ "\t - mcr-ant: graph built using all relations in MCR3.0, except for the antonymy relations\n"
 				+ "\t - mcr-antGloss: graph built using all relations in MCR3.0, except antonymy and Gloss information\n"
-				+ "\t - /path/to/custom/graph.bin : path to the custom graph you want to use for propagation. The graph must be in UKB compatible binary format");
+				+ "\nFOR ADVANCED USERS ONLY!!\n"
+				+ "The abovementioned graphs are those provided by the package. Additionally custom graphs may be used for propagation."
+				+ " To use custom graphs, you have to pass the path to the custom graph as the value of the -g option\n"				
+				+ "\t - /path/to/custom/graph.bin : path to the custom graph you want to use for propagation."
+				+ " NOTE that the graph must be in UKB compatible binary format.\n");
 
 		creationParser.addArgument("-w", "--weights")
 		.action(Arguments.storeTrue())
 		.help(
 				"Use weights when initializing the propagation algorithm.\n"
 						+ "If the seed list does not provide polarity weights the program assigns the default value 1 to all the seeds.\n"
-						+ "If weights are used all seeds must contain a weight value >= 0 (do not leave lines without weights)");
+						+ "If weights are used all seeds must contain a weight value >= 0 (do not leave lines without weights).\n");
 
 
 		// specify the path to the ukb executables, if no path is given default location is /usr/local/bin
