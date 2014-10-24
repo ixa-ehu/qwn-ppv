@@ -1,6 +1,7 @@
 package es.ehu.si.ixa.qwn.ppv;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -105,7 +106,7 @@ public class Lexicon {
 	/*
 	 * constructor requires a path to the file containing the lexicon and 
 	 */
-	public Lexicon(String fname, String syn)
+	public Lexicon(File fname, String syn)
 	{
 		this(fname, syn, 0);
 	}
@@ -113,7 +114,7 @@ public class Lexicon {
 	/*
 	 * constructor requires a path to the file containing the lexicon and 
 	 */
-	public Lexicon(String fname, String syn, float minEntryPolarity)
+	public Lexicon(File fname, String syn, float minEntryPolarity)
 	{
 		try {
 			this.formaterror=0;
@@ -145,7 +146,7 @@ public class Lexicon {
 	 * @param syn
 	 * @throws IOException
 	 */
-	private void loadLexicon(String LexiconPath, String syn) throws IOException
+	private void loadLexicon(File LexiconPath, String syn) throws IOException
 	{
 		BufferedReader lexreader = new BufferedReader(new FileReader(LexiconPath));   		
 		String line;

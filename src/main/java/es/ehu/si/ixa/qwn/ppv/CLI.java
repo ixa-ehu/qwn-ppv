@@ -30,6 +30,7 @@ import java.io.OutputStreamWriter;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -48,6 +49,7 @@ import net.sourceforge.argparse4j.inf.Subparsers;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
+
 
 
 /*
@@ -461,29 +463,78 @@ public class CLI {
 				
 		
 		System.out.println("QWN-PPV: Lexicon evaluator: ");
-		System.out.println("\tcorpus: "+corpus+"\n\tlexicon: "+lexicon+"\n\tSense information: "+synset+"\n");
-		System.err.println("\tcorpus: "+corpus+"\n\tlexicon: "+lexicon+"\n\tSense information: "+synset+"\n");
 
-		//load Lexicon
-		Lexicon lex = new Lexicon(lexicon, synset, lexThres);
-		//create evaluator object
-		Evaluator evalCorpus = new Evaluator(lex, synset, estimator);
-		evalCorpus.setThreshold(thres);		
-		Map<String, Float> results = evalCorpus.processCorpus(corpus, shouldOptimize, weights);
-		if (shouldOptimize && test != "")
+		File lexFile = new File(lexicon);
+		
+		// Given lexicon path does not exist, print error and exit;
+		if (! lexFile.exists())
 		{
-			System.out.println("optimization finished, starting test");
-			evalCorpus.setThreshold(results.get("thresh"));
-			results = evalCorpus.processCorpus(test, false, weights);
-		}	 
-		//System.out.println("eval avg done"+results.toString());
+			System.out.println("QWN-PPV: Given lexicon does not exist. Evaluation can not continue.\n");
+			System.exit(1);
+		}
+		// Given lexicon path is a single file;
+		else if (lexFile.isFile())
+		{			
+			System.out.println("\tcorpus: "+corpus+"\n\tlexicon: "+lexFile.getAbsolutePath()+"\n\tSense information: "+synset+"\n");
+			System.err.println("\tcorpus: "+corpus+"\n\tlexicon: "+lexFile.getAbsolutePath()+"\n\tSense information: "+synset+"\n");
+			
+			//load Lexicon
+			Lexicon lex = new Lexicon(lexFile, synset, lexThres);		
+			//create evaluator object
+			Evaluator evalCorpus = new Evaluator(lex, synset, estimator);
+			evalCorpus.setThreshold(thres);		
+			Map<String, Float> results = evalCorpus.processCorpus(corpus, shouldOptimize, weights);
+			if (shouldOptimize && test != "")
+			{
+				System.out.println("optimization finished, starting test");
+				evalCorpus.setThreshold(results.get("thresh"));
+				results = evalCorpus.processCorpus(test, false, weights);
+			}	 
+			//System.out.println("eval avg done"+results.toString());
 
-		System.out.println("\tThreshold = "+results.get("thresh")+"\n\t"+
-				results.get("predPos")+" labeled as positive\t"+results.get("predNeg")+" labeled as negative\t "+results.get("undefined")+" undefined. \n"
-				+ "\tAccuracy => "+results.get("Acc")+"\n\tPositive docs: P => "+results.get("Ppos")+"\tR => "+results.get("Rpos")+"\tF => "+results.get("Fpos")+"\n"
-				+ "\tNegative docs: P => "+results.get("Pneg")+"\tR => "+results.get("Rneg")+"\tF => "+results.get("Fneg")+" \n");
+			System.out.println("\tThreshold = "+results.get("thresh")+"\n\t"+
+					results.get("predPos")+" labeled as positive\t"+results.get("predNeg")+" labeled as negative\t "+results.get("undefined")+" undefined. \n"
+					+ "\tAccuracy => "+results.get("Acc")+"\n\tPositive docs: P => "+results.get("Ppos")+"\tR => "+results.get("Rpos")+"\tF => "+results.get("Fpos")+"\n"
+					+ "\tNegative docs: P => "+results.get("Pneg")+"\tR => "+results.get("Rneg")+"\tF => "+results.get("Fneg")+" \n");
+		}
+		// Given lexicon path is a directory;
+		else if (lexFile.isDirectory())
+		{
+			//get all files with the *.dict extension and evaluate them)
+			String[] allowedDictExtensions = {"dict"};
+			Iterator<File> it = FileUtils.iterateFiles(lexFile, allowedDictExtensions, false);
+			
+			while (it.hasNext())
+			{
+				File itLex = it.next();
+				System.out.println("\tcorpus: "+corpus+"\n\tlexicon: "+itLex.getAbsolutePath()+"\n\tSense information: "+synset+"\n");
+				System.err.println("\tcorpus: "+corpus+"\n\tlexicon: "+itLex.getAbsolutePath()+"\n\tSense information: "+synset+"\n");
 
+				
+				//load Lexicon
+				Lexicon lex = new Lexicon(itLex, synset, lexThres);		
+				
+				//create evaluator object
+				Evaluator evalCorpus = new Evaluator(lex, synset, estimator);
+				evalCorpus.setThreshold(thres);		
+				Map<String, Float> results = evalCorpus.processCorpus(corpus, shouldOptimize, weights);
+				if (shouldOptimize && test != "")
+				{
+					System.out.println("optimization finished, starting test");
+					evalCorpus.setThreshold(results.get("thresh"));
+					results = evalCorpus.processCorpus(test, false, weights);
+				}	 
+				//System.out.println("eval avg done"+results.toString());
 
+				System.out.println("\tThreshold = "+results.get("thresh")+"\n\t"+
+						results.get("predPos")+" labeled as positive\t"+results.get("predNeg")+" labeled as negative\t "+results.get("undefined")+" undefined. \n"
+						+ "\tAccuracy => "+results.get("Acc")+"\n\tPositive docs: P => "+results.get("Ppos")+"\tR => "+results.get("Rpos")+"\tF => "+results.get("Fpos")+"\n"
+						+ "\tNegative docs: P => "+results.get("Pneg")+"\tR => "+results.get("Rneg")+"\tF => "+results.get("Fneg")+" \n");
+
+			}
+
+		}
+				
 		System.out.println("QWN-PPV: Lexicon evaluator: End.");	
 	}
 
