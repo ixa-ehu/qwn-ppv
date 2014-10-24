@@ -158,7 +158,7 @@ public class CLI {
 			//System.err.println("CLI options: " + parsedArguments);
 
 			if (args[0].equals("create")){
-				create(System.in, System.out);
+				create(System.out);
 			}
 			else if (args[0].equals("eval")){
 				eval();
@@ -262,9 +262,9 @@ public class CLI {
 	 * @param args
 	 * @throws IOException
 	 **/
-	public final void create(final InputStream inputStream,
-			final OutputStream outputStream) throws IOException {
+	public final void create(	final OutputStream outputStream) throws IOException {
 
+		String seeds = parsedArguments.getString("seeds");
 		String lang = parsedArguments.getString("lang");
 		String graph = parsedArguments.getString("graph");
 		boolean w = parsedArguments.getBoolean("weights");	    
@@ -277,7 +277,7 @@ public class CLI {
 
 		try{
 			//input seed list from standard input
-			breader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+			breader = new BufferedReader(new FileReader(seeds));
 			//resulting lexicon to standard output 
 			bwriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
 
@@ -382,6 +382,14 @@ public class CLI {
 		 */
 
 		// specify language for the lexicons
+		creationParser.addArgument("-s", "--seeds")
+		.required(true).help("path to the file containing the seeds to start qwn-ppv propagations process.\n"
+				+ "\tSeed file must contain one seed-term per line with the following format:\n"
+				+ "\tterm1<tab>[pos|neg]\n"
+				+ "\tAdditionally seed can contain weight values >=0 :\n"
+				+ "\tterm1<tab>[pos|neg]<tab>weight\n");
+
+		// specify language for the lexicons
 		creationParser.addArgument("-l", "--lang")
 		.choices("en", "es", "eu", "cat", "gl","custom")
 		.required(true).help("It is REQUIRED to choose a language to generate lexicons in a specific language with qwn-ppv.\n");
@@ -394,7 +402,7 @@ public class CLI {
 				+ "\t - synAnt: synonymy and antonymy graphs are used for propagation\n"
 				+ "\t - mcr: graph built using all relations in MCR3.0\n"
 				+ "\t - mcr-ant: graph built using all relations in MCR3.0, except for the antonymy relations\n"
-				+ "\t - mcr-antGloss: graph built using all relations in MCR3.0, except antonymy and Gloss information"
+				+ "\t - mcr-antGloss: graph built using all relations in MCR3.0, except antonymy and Gloss information\n"
 				+ "\t - /path/to/custom/graph.bin : path to the custom graph you want to use for propagation. The graph must be in UKB compatible binary format");
 
 		creationParser.addArgument("-w", "--weights")
@@ -402,7 +410,7 @@ public class CLI {
 		.help(
 				"Use weights when initializing the propagation algorithm.\n"
 						+ "If the seed list does not provide polarity weights the program assigns the default value 1 to all the seeds.\n"
-						+ "If weights are used all seeds must contain a weight value <= 0 (do not leave lines without weights)");
+						+ "If weights are used all seeds must contain a weight value >= 0 (do not leave lines without weights)");
 
 
 		// specify the path to the ukb executables, if no path is given default location is /usr/local/bin
@@ -411,8 +419,8 @@ public class CLI {
 		.help("UKB software path. If no paht is specified WN-PPV assumes that UKB software"
 				+ " has been previously installed in /usr/local/bin\n");
 		
-		String usageMessage = creationParser.formatUsage().trim()+" < seeds.txt\n\noutput: Standard output.";
-		creationParser.usage(usageMessage);
+		//String usageMessage = creationParser.formatUsage().trim()+" < seeds.txt\n\noutput: Standard output.";
+		//creationParser.usage(usageMessage);
 	}
 
 	public final void eval() throws IOException {
