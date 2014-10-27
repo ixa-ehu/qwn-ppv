@@ -123,7 +123,7 @@ public class Evaluator {
 	 * @param Lex
 	 * @param syn
 	 */
-	public Evaluator (String LexPath, String syn)
+	public Evaluator (File LexPath, String syn)
 	{
 		this(LexPath, syn, 0, "avg");
 	}
@@ -135,7 +135,7 @@ public class Evaluator {
 	 * @param syn
 	 * @param thresh
 	 */
-	public Evaluator (String LexPath, String syn, float thresh)
+	public Evaluator (File LexPath, String syn, float thresh)
 	{
 		this(LexPath, syn, thresh, "avg");
 	}
@@ -147,7 +147,7 @@ public class Evaluator {
 	 * @param syn
 	 * @param algorithm
 	 */
-	public Evaluator (String LexPath, String syn, String algorithm)
+	public Evaluator (File LexPath, String syn, String algorithm)
 	{
 		this(LexPath, syn, 0, algorithm);
 	}
@@ -161,7 +161,7 @@ public class Evaluator {
 	 * @param thresh
 	 * @param algorithm
 	 */
-	public Evaluator (String LexPath, String syn, float thresh, String algorithm)
+	public Evaluator (File LexPath, String syn, float thresh, String algorithm)
 	{
 		this.lexicon = new Lexicon(LexPath, syn);
 		System.out.println("AvgRatioEstimator: lexicon loaded --> "+LexPath+" - "+lexicon.size()+" entries");

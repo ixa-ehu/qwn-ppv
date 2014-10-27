@@ -643,7 +643,8 @@ public class CLI {
 		while ((line = freader.readLine()) != null) 
 		{
 			try {
-				Evaluator evalDoc = new Evaluator(lexicon, synset, threshold, estimator);
+				File lexFile = new File(lexicon);
+				Evaluator evalDoc = new Evaluator(lexFile, synset, threshold, estimator);
 				Map<String, String> results = evalDoc.processKaf(line);
 				//Map<String, Double> results = avg.processCorpus(corpus);
 				//System.out.println("eval avg done"+results.toString());
