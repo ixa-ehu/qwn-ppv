@@ -635,7 +635,20 @@ public class Evaluator {
 	    		continue;
 	    	}
 	    	
-	        String[] fields = s.split(":");
+	    	String[] fields;
+	    	// Next conditions is a temporal solution to urls appearing in the corpus because 
+        	// they cause an error with when asking for their polarity
+        	// NOTE: if, by any chance, the polarity lexicon contains urls ':' chars should be replaced
+        	// by '_' chars in the lexicon as well in order to be matched at this step
+	    	if (s.matches(".*://.*"))
+        	{
+        		fields = s.replaceFirst(":", "_").split(":");        		
+        	}
+	    	else
+	    	{
+	    		fields = s.split(":");
+	    	}
+	    	
 	        String sense = fields[0];
 	        String scoreStr = "";
 	        if (s.startsWith("::"))
@@ -648,7 +661,10 @@ public class Evaluator {
 			    scoreStr = fields[1];
 			}
 	        
-	    	//System.err.println("word to look for: "+sense+" : "+scoreStr+" - \n");
+	        /*if (s.matches(".*://.*"))
+	        {
+		    	System.err.println("word to look for: "+sense+" : _"+s+"_ "+scoreStr+" - \n");
+	        }*/
 
 	        float senseScore = Float.parseFloat(scoreStr);
 

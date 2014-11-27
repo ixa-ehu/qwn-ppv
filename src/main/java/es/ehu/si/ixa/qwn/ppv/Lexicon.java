@@ -251,8 +251,18 @@ public class Lexicon {
 		}
 		return addEntry(key, pol, score, syn); 
 	}
-	/*
+	/**
 	 * Add entry to lexicon. If the key already exists it replaces the polarity with the new value.
+	 * 
+	 * @param key (String): lemma or synset to add to the lexicon.
+	 * @param pol String (pos|neg|neu): polarity of the new entry 
+	 * @param scoreValue String: polarity score
+	 * @param syn String (lemma|first|mfs|rank): type of the entry (first, mfs and rank) are represented by WN synsets 
+
+	 * @return int:
+	 * 				- 0 = success
+	 * 				- 1 = format error expected lemma and synset given, or viceversa, or polarity value is not valid.
+	 * 				- 2 = entry not added (because synset is unknown or lemma is unavailable)
 	 */
 	private int addEntry (String key, String pol, String scoreValue, String syn)
 	{		
@@ -285,7 +295,7 @@ public class Lexicon {
 		//If lemma value is "Not available" it means there is no lemma for the current entry.
 		if ((syn.compareTo("lemma") == 0)  && (key.matches("Not (Available|in Dictionary)")) )
 		{
-			System.err.println(key+"- lemma not available.\n");
+			//System.err.println(key+"- lemma not available.\n");
 			return 2;
 		}
 
