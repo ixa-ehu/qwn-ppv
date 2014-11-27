@@ -29,16 +29,6 @@ Developed by IXA NLP Group of the University of the Basque Country (ixa.si.ehu.e
 	<prerequisites>
 		<maven>3.0</maven>
 	</prerequisites>
-	<repositories>
-		<repository>
-			<id>ixa-ehu.kaflib</id>
-			<url>https://raw.github.com/ixa-ehu/kaflib-mvn-repo/master</url>
-			<snapshots>
-				<enabled>true</enabled>
-			    	<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
 
 	<dependencies>
 		<dependency>
@@ -58,9 +48,9 @@ Developed by IXA NLP Group of the University of the Basque Country (ixa.si.ehu.e
 			<version>2.4</version>
 		</dependency>
 		<dependency>
-			<groupId>ixa.kaflib</groupId>
+			<groupId>com.github.ixa-ehu</groupId>
 			<artifactId>kaflib</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 
