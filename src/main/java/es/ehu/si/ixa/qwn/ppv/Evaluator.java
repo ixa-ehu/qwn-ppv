@@ -165,6 +165,7 @@ public class Evaluator {
 	{
 		this.lexicon = new Lexicon(LexPath, syn);
 		System.out.println("AvgRatioEstimator: lexicon loaded --> "+LexPath+" - "+lexicon.size()+" entries");
+		//System.out.println("AvgRatioEstimator: lexicon loaded --> "+lexicon.getNumericPolarity("larri")+" proba");
 		this.setThreshold(thresh);
 		this.setSynset(syn);
 		this.setAlgorithm(algorithm);
@@ -724,15 +725,15 @@ public class Evaluator {
 			{				
 				String lemma = t.getLemma();			
 				
-				int pol = lexicon.getScalarPolarity(lemma);
+				int pol = lexicon.getScalarPolarity(lemma);				
 				if (pol != 123456789)
 				{
 					Sentiment ts = t.createSentiment();
 					switch (pol)
 					{
-					case 1: ts.setPolarity("pos");
-					case -1: ts.setPolarity("neg");
-					case 0: ts.setPolarity("neu");
+					case 1: ts.setPolarity("pos"); break;
+					case -1: ts.setPolarity("neg"); break;
+					case 0: ts.setPolarity("neu"); break;
 					default: 
 					}
 					

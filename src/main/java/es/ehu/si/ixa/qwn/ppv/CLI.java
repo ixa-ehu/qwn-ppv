@@ -52,6 +52,8 @@ import org.apache.commons.io.IOUtils;
 
 
 
+import org.jdom2.JDOMException;
+
 /*
  * lexicon creation classes
  */
@@ -182,6 +184,10 @@ public class CLI {
 					+ ".jar (compile|create|eval) -help for details");
 			//e.printStackTrace();
 			System.exit(1);
+		} catch (JDOMException e) {
+			System.err.println("Error when processing kaf:\n Run java -jar target/ixa-qwn-ppv-" + version
+					+ ".jar (compile|create|eval) -help for details");
+			e.printStackTrace();
 		}
 	}
 
@@ -662,7 +668,7 @@ public class CLI {
 		freader.close();
 	}
 
-	private void prettyPrintSentKaf(Map<String,String> kaf) throws IOException
+	private void prettyPrintSentKaf(Map<String,String> kaf) throws Exception, JDOMException
 	{
 		String fname = kaf.get("taggedFile");
 		BufferedReader breader = new BufferedReader(new FileReader(fname));
@@ -677,7 +683,7 @@ public class CLI {
 			{ 
 				if (term != null && term.hasSentiment() && term.getSentiment().hasPolarity())
 				{
-					String tPol = term.getSentiment().getPolarity();
+					String tPol = term.getSentiment().getPolarity();					
 					// single form term
 					if (term.getWFs().size() < 2)
 					{
@@ -799,7 +805,7 @@ public class CLI {
 	 * kaf library test, for the moment only print the document contents.
 	 */
 	public final void processKaf(final InputStream inputStream,
-			final OutputStream outputStream) throws IOException {
+			final OutputStream outputStream) throws IOException, JDOMException {
 		BufferedReader breader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
 		KAFDocument kafdoc = ixa.kaflib.KAFDocument.createFromStream(breader);		  
 		String lang = kafdoc.getLang();

@@ -49,8 +49,8 @@ Developed by IXA NLP Group of the University of the Basque Country (ixa.si.ehu.e
 		</dependency>
 		<dependency>
 			<groupId>com.github.ixa-ehu</groupId>
-			<artifactId>kaflib</artifactId>
-			<version>1.0.0</version>
+			<artifactId>kaflib-naf</artifactId>
+			<version>1.0.3</version>
 		</dependency>
 	</dependencies>
 
