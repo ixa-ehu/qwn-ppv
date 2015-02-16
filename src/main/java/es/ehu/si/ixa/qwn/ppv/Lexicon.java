@@ -16,18 +16,21 @@ public class Lexicon {
 	public class Polarity {
 		//private String scalar;
 		private int scalar;
-		private float numeric;
+		private float numeric;		
 		
 		/*
-		 * Constructor, both numeric and scalar polarities are provided. Scalar polarity value is (-1|0|1)
+		 * Constructor, both numeric and scalar polarities are provided. Scalar polarity value is (-1|0|1).
+		 * 2=modifier
+		 * 3=shifter
+		 * 
 		 */
 		public Polarity(float pol, int pols){
 			numeric = pol;						
-			scalar=pols;	
+			scalar=pols;			
 		}	
 		
 		/*
-		 * Constructor, only scalar polarity provided (pos|neg|neu). Numeric polarity is derived from the scalar value.
+		 * Constructor, only scalar polarity provided (pos|neg|neu|mod|shi). Numeric polarity is derived from the scalar value.
 		 */
 		public Polarity(String pol){
 			String value = pol.substring(0,3).toLowerCase(); 
@@ -47,6 +50,16 @@ public class Lexicon {
 				scalar = 0;
 				numeric = scalar;
 			}
+			else if (value.compareTo("mod") == 0) 
+			{				
+				scalar = 2;
+				numeric = 0;
+			}
+			else if (value.compareTo("shi") == 0) 
+			{				
+				scalar = 3;
+				numeric = 0;
+			}			
 			else
 			{
 				System.err.println("scalar value is not a valid polarity\n");
@@ -55,12 +68,20 @@ public class Lexicon {
 
 
 		/*
-		 * Constructor, only scalar polarity provided (-1|0|1). Numeric polarity derived from scalar value.
+		 * Constructor, only scalar polarity provided (-1|0|1|2|3). Numeric polarity derived from scalar value.
 		 */
 		public Polarity(int pols){
 			//scalar polarity is normalized to -1|0|1 values
 			scalar=pols;
-			numeric = scalar;
+			if (scalar < 2)
+			{
+				numeric = scalar;				
+			}
+			else
+			{
+				numeric = 0;
+			}
+
 		}	
 		
 		/*
@@ -76,20 +97,14 @@ public class Lexicon {
 		 */
 		public Polarity(float pol, String pols){
 			numeric = pol;
-			String value = pols.substring(0,3).toLowerCase(); 
-			if (value.compareTo("neg") == 0)
+			String value = pols.substring(0,3).toLowerCase();
+			switch (value)
 			{
-				scalar = -1;
-			}
-			else if (value.compareTo("pos") == 0)
-			{
-				//scalar = "pos";		
-				scalar = 1;
-			}
-			else	
-			{
-				//scalar = "neu";
-				scalar = 0;
+			case "neg": scalar = -1; break;
+			case "pos": scalar = 1; break;
+			case "neu": scalar = 0; break;
+			case "mod": scalar = 2; numeric=0; break; //modifiers and shifters must have numeric polarity 0
+			case "shi": scalar = 3; numeric=0; break;
 			}
 		}	
 				
@@ -222,7 +237,7 @@ public class Lexicon {
 	 * Add entry to lexicon. If the key already exists it replaces the polarity with the new value.
 	 *
 	 * @param key : lemma or offset
-	 * @param pol : scalar polarity (pos|neg|neu)
+	 * @param pol : scalar polarity (pos|neg|neu|mod|shi)
 	 * @param syn : whether lemmas or senses (offset) should be stored in the lexicon.
 	 * @return : int. 0 success, 1 error, 2 ok, but entry not included (no offset or lemma, or neutral polarity).
 	 */
@@ -236,26 +251,23 @@ public class Lexicon {
 		}
 		pol = pol.substring(0,3);			
 
-		if (pol.compareTo("pos") == 0)
-		{	
-			score = "1";
+		switch (pol)
+		{
+		case "neg": score = "-1"; break;
+		case "pos": score = "1"; break;
+		case "neu": score = "0"; break;
+		case "mod": score = "2"; break; 
+		case "shi": score = "3"; break;
+		default: this.formaterror++; return 1;
 		}
-		else if (pol.compareTo("neg") == 0)
-		{	
-			score = "-1";
-		}
-		else if (pol.compareTo("neu") != 0)
-		{	
-			this.formaterror++;
-			return 1;			
-		}
+
 		return addEntry(key, pol, score, syn); 
 	}
 	/**
 	 * Add entry to lexicon. If the key already exists it replaces the polarity with the new value.
 	 * 
 	 * @param key (String): lemma or synset to add to the lexicon.
-	 * @param pol String (pos|neg|neu): polarity of the new entry 
+	 * @param pol String (pos|neg|neu|mod|shi): polarity of the new entry 
 	 * @param scoreValue String: polarity score
 	 * @param syn String (lemma|first|mfs|rank): type of the entry (first, mfs and rank) are represented by WN synsets 
 
@@ -332,17 +344,14 @@ public class Lexicon {
 				return 1;
 			}
 			pol = pol.substring(0,3);			
-			if (pol.compareTo("pos") == 0)
+			switch (pol)
 			{
-				scalarScore= 1+currentScalar;
-			}				
-			else if (pol.compareTo("neg") == 0)
-			{
-				scalarScore= -1+currentScalar;
-			} 		
-			else if (pol.compareTo("neu") != 0)
-			{				
-				return 1;
+			case "neg":	scalarScore= -1+currentScalar; break;
+			case "pos": scalarScore= 1+currentScalar; break;
+			case "neu": break;
+			case "mod": scalarScore = 0;break; //modifiers and shifters must have numeric polarity 0
+			case "shi": scalarScore = 0; break;
+			default: return 1;
 			}
 			numericScore=scalarScore;
 		//}	
@@ -364,7 +373,7 @@ public class Lexicon {
 			//scalar polarity is normalized to -1|0|1 values
 			if (result > 0)
 			{
-				return 1;
+				return result;
 			}
 			else if (result < 0)
 			{
