@@ -732,9 +732,9 @@ public class Evaluator {
 					Sentiment ts = t.createSentiment();
 					switch (pol)
 					{
-					case 1: ts.setPolarity("pos"); break;
-					case -1: ts.setPolarity("neg"); break;
-					case 0: ts.setPolarity("neu"); break;
+					case 1: ts.setPolarity("positive"); break;
+					case -1: ts.setPolarity("negative"); break;
+					case 0: ts.setPolarity("neutral"); break;
 					case 2: ts.setSentimentModifier("intensifier"); break;
 					case 3: ts.setSentimentModifier("weakener"); break;
 					case 4: ts.setSentimentModifier("shifter"); break;
