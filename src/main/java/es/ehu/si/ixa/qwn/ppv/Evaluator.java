@@ -672,7 +672,8 @@ public class Evaluator {
 	        //System.err.println("word to look for: "+sense+" - "+senseScore+"\n");
 
 	        //look up in the lexicon for the polarity of the words.
-	        if (this.lexicon.getScalarPolarity(sense) != 123456789)
+	        //if (this.lexicon.getScalarPolarity(sense) != 123456789)
+	        if (this.lexicon.getScalarPolarity(sense) < 2)
 	        {	        		        	
 	        	polarity+=lexicon.getScalarPolarity(sense)*senseScore;
 	        	if (useWeights)
@@ -734,6 +735,9 @@ public class Evaluator {
 					case 1: ts.setPolarity("pos"); break;
 					case -1: ts.setPolarity("neg"); break;
 					case 0: ts.setPolarity("neu"); break;
+					case 2: ts.setSentimentModifier("intensifier"); break;
+					case 3: ts.setSentimentModifier("weakener"); break;
+					case 4: ts.setSentimentModifier("shifter"); break;
 					default: 
 					}
 					

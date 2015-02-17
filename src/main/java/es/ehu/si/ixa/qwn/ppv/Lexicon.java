@@ -97,14 +97,16 @@ public class Lexicon {
 		 */
 		public Polarity(float pol, String pols){
 			numeric = pol;
+			pols.replaceFirst("(?i)polarityshifter", "shifter");
 			String value = pols.substring(0,3).toLowerCase();
 			switch (value)
 			{
 			case "neg": scalar = -1; break;
 			case "pos": scalar = 1; break;
 			case "neu": scalar = 0; break;
-			case "mod": scalar = 2; numeric=0; break; //modifiers and shifters must have numeric polarity 0
-			case "shi": scalar = 3; numeric=0; break;
+			case "int": scalar = 2; numeric=0; break; //intensifiers|weakeners|shifters must have numeric polarity 0
+			case "wea": scalar = 3; numeric=0; break; 
+			case "shi": scalar = 4; numeric=0; break;
 			}
 		}	
 				
@@ -153,7 +155,7 @@ public class Lexicon {
 	/**
 	 * load a lexicon from a file given the file path. The format of the lexicon must be as follows:
 	 * 
-	 *  "offset<tab>(pos|neg|neu)<tab>lemma1, lemma2, lemma3, ...<tab>score<tab>..."	
+	 *  "offset<tab>(pos|neg|neu|int|wea|shi)<tab>lemma1, lemma2, lemma3, ...<tab>score<tab>..."	
 	 * 
 	 * 	First two columns are mandatory. Alternatively, firs column can contain lemmas instead of offsets.
 	 * 
@@ -256,8 +258,9 @@ public class Lexicon {
 		case "neg": score = "-1"; break;
 		case "pos": score = "1"; break;
 		case "neu": score = "0"; break;
-		case "mod": score = "2"; break; 
-		case "shi": score = "3"; break;
+		case "int": score = "2"; break;
+		case "wea": score = "3"; break;
+		case "shi": score = "4"; break;
 		default: this.formaterror++; return 1;
 		}
 
@@ -338,7 +341,7 @@ public class Lexicon {
 		}
 		catch (NumberFormatException ne)
 		{*/
-			//scalar polarity (pos| neg| neu)
+			//scalar polarity (pos|neg|neu|int|wea|shi)
 			if (pol.length() < 3)
 			{ 
 				return 1;
@@ -346,14 +349,14 @@ public class Lexicon {
 			pol = pol.substring(0,3);			
 			switch (pol)
 			{
-			case "neg":	scalarScore= -1+currentScalar; break;
-			case "pos": scalarScore= 1+currentScalar; break;
-			case "neu": break;
-			case "mod": scalarScore = 0;break; //modifiers and shifters must have numeric polarity 0
-			case "shi": scalarScore = 0; break;
+			case "neg":	scalarScore= -1+currentScalar; numericScore=scalarScore; break;
+			case "pos": scalarScore= 1+currentScalar; numericScore=scalarScore; break;
+			case "neu": numericScore=scalarScore; break;
+			case "int": scalarScore = 2; numericScore=0; break; //intensifier, weak and shifters must have numeric polarity 0
+			case "wea": scalarScore = 3; numericScore=0; break; 
+			case "shi": scalarScore = 4; numericScore=0; break;
 			default: return 1;
 			}
-			numericScore=scalarScore;
 		//}	
 				
 		// add/update entry in the lexicon.
@@ -408,7 +411,9 @@ public class Lexicon {
 	}
 	
 	public void printLexicon()
-	{
+	{		
+		System.out.println("# Lexicon printing - class legend: \n"
+				+ "# -1 -> neg ; 0 -> neu ; 1 -> pos ; 2 -> intensifier ; 3 -> weakener ; 4 -> modifier .\n");
 		for (String s : lexicon.keySet())
 		{
 			System.out.println(s+" - "+lexicon.get(s).getScalar());

@@ -697,7 +697,7 @@ public class CLI {
 				}
 			}
 
-			// from now one write the html code to print the document.
+			// from now on write the html code to print the document.
 			for (WF form : sentence)
 			{
 
