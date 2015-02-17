@@ -681,14 +681,27 @@ public class CLI {
 			// store spans of polarity terms in wfspans variable.
 			for (Term term : doc.getTermsByWFs(sentence))
 			{ 
-				if (term != null && term.hasSentiment() && term.getSentiment().hasPolarity())
+				if (term != null && term.hasSentiment() && (term.getSentiment().hasPolarity() || term.getSentiment().hasSentimentModifier()))
 				{
-					String tPol = term.getSentiment().getPolarity();					
+					String tPol="";
+					if (term.getSentiment().hasPolarity())
+					{
+						tPol = term.getSentiment().getPolarity();
+					}
+					else if (term.getSentiment().hasSentimentModifier())
+					{
+						tPol = term.getSentiment().getSentimentModifier();
+					}
+					else //this should never be fulfilled. If so forget this term.
+					{
+						continue;
+					}
 					// single form term
 					if (term.getWFs().size() < 2)
 					{
 						wfspans.put(term.getWFs().get(0).getId(),tPol+"single");						 						 							 
 					}
+					// multiword term
 					else
 					{
 						wfspans.put(term.getWFs().get(0).getId(),tPol);
@@ -713,16 +726,19 @@ public class CLI {
 						String color = wfspans.get(wId).substring(0, 3);
 						boolean single = wfspans.get(wId).endsWith("single");
 
-						color = color.replaceAll("pos", "green");
-						color = color.replaceAll("neg", "red");
-						color = color.replaceAll("neu", "orange");
+						color = color.replaceAll("pos", "Green");
+						color = color.replaceAll("neg", "Red");
+						color = color.replaceAll("neu", "Orange");
+						color = color.replaceAll("int", "Indigo");
+						color = color.replaceAll("weak", "MediumPurple");
+						color = color.replaceAll("shi", "Blue");
 						if (single)
 						{
-							toprint+="<span style=\"color:"+color+"\">"+form.getForm()+"</span> ";								 
+							toprint+="<span style=\"font-weight:bold; color:"+color+"\">"+form.getForm()+"</span> ";								 
 						}
 						else
 						{
-							toprint+="<span style=\"color:"+color+"\">"+form.getForm()+" ";
+							toprint+="<span style=\"font-weight:bold; color:"+color+"\">"+form.getForm()+" ";
 						}
 
 					}
