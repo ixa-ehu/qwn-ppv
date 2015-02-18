@@ -715,13 +715,16 @@ public class Evaluator {
 	 * @return a map element containing statistics computed for the given text and 
 	 *          the path to the annotated file.
 	 */
-	public Map<String, String> processKaf (String fname) 
+	public Map<String, String> processKaf (String fname, String lexName) 
 	{
 		float score = 0;
 		int sentimentTerms = 0;
 		try {
 			KAFDocument doc = KAFDocument.createFromFile(new File(fname));
 			
+			KAFDocument.LinguisticProcessor newLp = doc.addLinguisticProcessor("terms", "qwn-ppv-polarity-tagger");
+			newLp.setVersion(lexName);			
+			newLp.setBeginTimestamp();
 			for (Term t : doc.getTerms())
 			{				
 				String lemma = t.getLemma();			
@@ -746,6 +749,7 @@ public class Evaluator {
 					sentimentTerms++;
 				}										
 			}			
+			newLp.setEndTimestamp();
 			doc.save(fname+".sent");			
 			float avg = score / doc.getTerms().size();
 			kafResults.put("taggedFile", fname+".sent");

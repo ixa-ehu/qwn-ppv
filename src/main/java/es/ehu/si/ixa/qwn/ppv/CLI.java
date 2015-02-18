@@ -651,7 +651,7 @@ public class CLI {
 			try {
 				File lexFile = new File(lexicon);
 				Evaluator evalDoc = new Evaluator(lexFile, synset, threshold, estimator);
-				Map<String, String> results = evalDoc.processKaf(line);
+				Map<String, String> results = evalDoc.processKaf(line, lexFile.getName());
 				//Map<String, Double> results = avg.processCorpus(corpus);
 				//System.out.println("eval avg done"+results.toString());
 				/*System.out.println("Prediction with avg done: \n"
