@@ -12,4 +12,4 @@ This directory contains the graphs and dictionaries used for propagation.
    The "dicts.txt" file in this directory is read when qwn-ppv is initialized to see which are the available dicts. If you want to include new dicts permanently in your qwn-ppv installation, copy them to the 'dicts' directory, and add the new entries to the "dicts.txt" file as follows:
            "langcode<tab>dicts/nameOftheDictFile" 
               
-IMPORTANT: Apart from the resources contained here the user can provide custom both custom a graph and/or a dictionary to qwn-ppv. using -l "custom" -d "path/to/custom/dict" "-g "path/to/custom/graph" 
+IMPORTANT: Apart from the resources contained here the user can provide a custom graph and/or a dictionary to qwn-ppv. using -l "custom" -d "path/to/custom/dict" "-g "path/to/custom/graph" 
