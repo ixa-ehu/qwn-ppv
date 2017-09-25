@@ -2,6 +2,12 @@
 QWN-PPV
 =======
 
+QWN-PPV is a method to automatically generate polarity lexicons. It only requires a Lexical Knowledge Base (LKB) such as Wordnet and a list of positive and negative seeds (either words or synsets). The algorithm propagates the initial polarities through the LKB projected over a graph by means of the UKB Personalized PageRank algorithm.
+
+Resulting lexicons are polarity annotated at synset and lemma level. 
+
+Generated lexicons and other resources can be found at: http://adimen.si.ehu.es/web/qwn-ppv
+
 Contents
 ========
 
